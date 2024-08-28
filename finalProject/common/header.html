@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <link rel="stylesheet" href="/resources/css/main-style.css">
+    <!-- font awesome 라이브러리 추가 + key 등록 -->
+    <script src="https://kit.fontawesome.com/cb5f1fee4d.js" crossorigin="anonymous"></script>
+
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        header{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            align-items: center;
+        }
+
+        .login-area{
+            width: 1024px;
+            height: 50px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }   
+
+        nav{
+            width: 1024px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+        }
+
+        header>nav>ul{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        header> nav> ul >li{
+            list-style-type: none;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        header> nav> ul:first-child >li>a {
+            display: flex;
+            align-items: center;
+        }
+
+        #homeLogo{
+            height: 100px;
+            padding-right: 10px;
+        }
+
+        header>nav>ul>li>a{
+            color: #555;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <section class="login-area">
+        <div>
+            유저일  <i class="fa-solid fa-caret-down"></i>
+        </div>
+    </section>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">
+                    <img src="../logo.png" alt="로고" id="homeLogo">
+                    <span>자바 라이브러리</span>
+                </a>
+            </li>
+            <li><a href="#"><span>도서관 안내</span></a></li>
+            <li><a href="#"><span>자료 검색</span></a></li>
+            <li><a href="#"><span>참여마당</span></a></li>
+            <li><a href="#"><span>이용자 마당</span></a></li>
+            <li><a href="#"><span>맛있는 도서관</span></a></li>
+            <li><a href="#"><span>내 서재</span></a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+</body>
+</html>
