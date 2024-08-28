@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 형태</title>
+    <style>
+        /* body 전체 */
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            /* 사이즈 테두리 부분 포함 */
+            box-sizing: border-box;
+        }
+
+        /* header 추가사항 */
+        header{
+            height: 200px;
+        }
+
+        /* 이미지 */
+        .img_div{
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .img_div > img{
+            max-width: 1200px;
+            min-height: 200px;
+        }
+
+        /* 내용 영역 */
+        .main-content-suround-section{
+            width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 사이드 메뉴 */
+        .side-menu-article{
+            width: 200px;
+        }
+        
+        /* 카테고리 div(레벨1) */
+        .category{
+            height: 140px;
+
+            /* 테두리 위쪽 둥근부분 */
+            border-top-left-radius: 10px 10px ;
+            border-top-right-radius: 10px 10px;
+
+            background-color: #008C1D;
+
+            /* 글씨 */
+            line-height: 140px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* 사이드 메뉴 ul */
+        .side-menu{
+            margin: 0px;
+            border: 1px solid #d4d4d4;
+
+            /* 테두리 아래 둥근 부분 */
+            border-bottom-left-radius: 10px 10px;
+            border-bottom-right-radius: 10px 10px;
+
+            /* ul 스타일 없엠 */
+            list-style-type: none;
+        }
+
+        /* 사이즈 메뉴 ul 바로 아래 li(레벨2) */
+        .side-menu > li{
+            border-top: 1px solid #d4d4d4;
+
+        }
+
+        .side-menu > li > a{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>header부분</div>
+    </header>
+    <section class="img_suround">
+        <div class="img_div">
+            <img src="library_book.png">
+        </div>
+    </section>
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <div class="category">도서관 안내</div>
+            <ul class="side-menu">
+                <li> <a href="#">도서관 소개</a>
+                    <ul>
+                        <li><a href="#">인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">도서관 오시는 길</a></li>
+                        <li><a href="#">주변 도서관</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이용 안내</a>
+                    <ul>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">도서관 달력</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="last-menu">시설 안내</a></li>
+            </ul>
+
+        </article>
+        <section class="content-suround-section">
+
+        </section>
+    </section>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>
