@@ -14,7 +14,8 @@
 	<main>
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		
-		<section></section>
+		<section>
+		</section>
 		
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
