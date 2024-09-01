@@ -23,4 +23,14 @@ public class MemberController {
 		return "member/signUp";
 	}
 	
+	@GetMapping("/findId")
+	public String findId() {
+		return "member/findId";
+	}
+
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "member/findPw";
+	}
+	
 }
