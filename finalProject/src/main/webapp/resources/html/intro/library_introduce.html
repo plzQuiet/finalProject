@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 형태</title>
+    <link rel="stylesheet" href="/resources/css/intro/alll.css">
+    <link rel="stylesheet" href="/resources/css/intro/footer.css">
+    <link rel="stylesheet" href="/resources/css/intro/sideMenu.css">
+
+    <style>
+        .library-introduce-table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .library-introduce-table td:nth-child(1){
+            font-weight: bold;
+            font-size: 18px;
+            border-right: 3px solid #d4d4d4;
+            padding: 10px 30px 10px 0px;
+        }
+
+        .library-introduce-table td:nth-child(2){
+            padding-left: 20px;
+        }
+
+
+        .kakao-map-suround{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>header부분</div>
+    </header>
+    
+    <div id="img_div"></div>
+    
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <div class="category">도서관 안내</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="side-current-a">도서관 소개</a>
+                    <ul>
+                        <li><a href="#" class="side-side-current">인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">도서관 오시는 길</a></li>
+                        <li><a href="#">주변 도서관</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이용 안내</a>
+                    <ul>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">도서관 달력</a></li>
+                    </ul>
+                </li>
+                <li class="last-menu"><a href="#">시설 안내</a></li>
+            </ul>
+
+        </article>
+
+        <section class="content-suround-section">
+            <div class="content-title">도서관 오시는 길</div>
+            <div class="title-line"></div>
+
+            <section class="content-detail-section">
+                <div>
+                   <table class="library-introduce-table">
+                        <tr>
+                            <td>주소</td>
+                            <td>강남지원 1관 : 서울특별시 강남구 테헤란로 14길 6 남도빌딩</td>
+                        </tr>
+                        <tr>
+                            <td>버스</td>
+                            <td>역삼역.포스코P&S타워 정류장</td>
+                        </tr>
+                        <tr>
+                            <td>지하철</td>
+                            <td>지하철 2호선 역삼역 3번출구 100m</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>지하철 2호선 강남역 1번출구 약700m</td>
+                        </tr>
+                   </table>
+                </div>
+                
+                
+                <div id="map" style="width:500px;height:400px;"></div>
+                
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>    
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>    
+        </article>
+        <div>
+            <img src="/resources/images/logo.png" >
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="/resources/images/wa_logo.png" >
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.499034, 127.032880),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+        // marker.setMap(null);    
+	</script>
+    
+</body>
+</html>

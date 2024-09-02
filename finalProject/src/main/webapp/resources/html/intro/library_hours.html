@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 형태</title>
+    <link rel="stylesheet" href="/resources/css/intro/alll.css">
+    <link rel="stylesheet" href="/resources/css/intro/footer.css">
+    <link rel="stylesheet" href="/resources/css/intro/sideMenu.css">
+    <style>
+        table{
+            border: 1px solid #d4d4d4;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        thead{
+            background-color: #8FB788;
+            border: 1px solid #d4d4d4;
+        }
+        thead > tr{
+            border: 1px solid #d4d4d4;
+        }
+        thead > tr > th{
+            border: 1px solid #d4d4d4;
+            padding: 10px;
+        }
+
+        thead > tr > th:nth-child(1){ width: 20%;}
+        thead > tr:nth-child(2) > th:nth-child(1){ width: 20%;}
+        thead > tr:nth-child(2) > th:nth-child(2){ width: 20%;}
+        thead > tr > th:nth-child(3){ width: 20%;}
+
+        tbody > tr > td{
+            text-align: center;
+            border: 1px solid #d4d4d4;
+            padding: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>header부분</div>
+    </header>
+    
+    <div id="img_div"></div>
+    
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <div class="category">도서관 안내</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="side-current-a">도서관 소개</a>
+                    <ul>
+                        <li><a href="#" class="side-side-current">인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">도서관 오시는 길</a></li>
+                        <li><a href="#">주변 도서관</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이용 안내</a>
+                    <ul>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">도서관 달력</a></li>
+                    </ul>
+                </li>
+                <li class="last-menu"><a href="#">시설 안내</a></li>
+            </ul>
+
+        </article>
+
+        <section class="content-suround-section">
+            <div class="content-title">이용시간</div>
+            <div class="title-line"></div>
+
+            <section class="content-detail-section">
+                <div>
+                    <h3>도서관 이용 시간</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">실별</th>
+                                <th colspan="2">이용시간</th>
+                                <th rowspan="2">휴관일</th>
+                                <th rowspan="2">비고</th>
+                            </tr>
+                            <tr>
+                                <th>평일</th>
+                                <th>주말</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>문헌정보자료실</td>
+                                <td>09:00 ~ 20:00</td>
+                                <td>09:00 ~ 18:00</td>
+                                <td rowspan="4">매주 금요일 <br> 및 법정 공휴일</td>
+                                <td rowspan="4">이용 기간 및<br> 휴관은 도서관 <br> 운영 여건에  따라 변경될 수 있습니다.</td>
+                            </tr>
+                            <tr>
+                                <td>열람실</td>
+                                <td>07:00 ~ 23:00</td>
+                                <td>07:00 ~ 23:00</td>
+                            </tr>
+                            <tr>
+                                <td>식당 + 매점</td>
+                                <td>09:00 ~ 20:00</td>
+                                <td>09:00 ~ 20:00</td>
+                            </tr>
+                            <tr>
+                                <td>열람실</td>
+                                <td>09:00 ~ 20:00</td>
+                                <td>09:00 ~ 20:00</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                    <h3>휴관일</h3>
+                    <ul>
+                        <li>매주 금요일, 신정, 설날, 추석 연휴, 공휴일</li>
+                        <li>특별한 사유로 지정한 날</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>    
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>    
+        </article>
+        <div>
+            <img src="/resources/images/logo.png" >
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="/resources/images/wa_logo.png" >
+        </div>
+    </footer>
+    
+</body>
+</html>

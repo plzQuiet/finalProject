@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 형태</title>
+    <link rel="stylesheet" href="/resources/css/intro/alll.css">
+    <link rel="stylesheet" href="/resources/css/intro/footer.css">
+    <link rel="stylesheet" href="/resources/css/intro/sideMenu.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <style>
+       #calendar{
+            height: 700px;  
+        }
+
+        .calendar-category-suround{margin-bottom: 15px;}
+
+        .calendar-category{
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .category-color{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .gong{background-color: red;}
+        .hue{background-color: #d4d4d4;}
+        .classDay{background-color: yellow;}
+        .eventDay{background-color: #5547ff;}
+
+        #date-div{
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>header부분</div>
+    </header>
+    
+    <div id="img_div"></div>
+    
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <div class="category">도서관 안내</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="side-current-a">도서관 소개</a>
+                    <ul>
+                        <li><a href="#" class="side-side-current">인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">도서관 오시는 길</a></li>
+                        <li><a href="#">주변 도서관</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이용 안내</a>
+                    <ul>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">도서관 달력</a></li>
+                    </ul>
+                </li>
+                <li class="last-menu"><a href="#">시설 안내</a></li>
+            </ul>
+
+        </article>
+
+        <section class="content-suround-section">
+            <div class="content-title">도서관 달력</div>
+            <div class="title-line"></div>
+
+            <section class="content-detail-section">
+                <div class="calendar-category-suround">
+                    <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
+                    <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
+                    <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
+                    <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                </div>
+
+                <div class="title-line"></div>
+
+                <div id='calendar'></div>
+
+                <div class="title-line"></div>
+
+                <div id="date-div"></div>
+                <div class="title-line"></div>
+                <div>
+                    일정
+                </div>
+                <div class="title-line"></div>
+                
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>    
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>    
+        </article>
+        <div>
+            <img src="/resources/images/logo.png" >
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="/resources/images/wa_logo.png" >
+        </div>
+    </footer>
+
+    <script>
+        const dateDiv = document.getElementById("date-div");
+        const todayDate = new Date();
+        const dateFormat = todayDate.getFullYear() + "-" + ((todayDate.getMonth()+1) < 10 ? "0" + (todayDate.getMonth()+1) : (todayDate.getMonth()+1))
+                        + "-" + ((todayDate.getDate()) < 10 ? "0" + (todayDate.getDate()) : (todayDate.getDate()) );
+        (function(){
+            dateDiv.innerText = dateFormat;
+        })();
+
+        let selectDate;
+    
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          selectable : true,/* 캘랜더 날짜 선택 */
+         
+            /* 캘런더 날짜 선택 시 함수 수행*/
+          dateClick : function(e){
+            dateDiv.innerText = e.dateStr;
+            /* e.dateStr - 클릭한 날짜 가져옴 */
+          }
+          
+        });
+        calendar.render();
+
+        
+
+    </script>
+    
+</body>
+</html>
