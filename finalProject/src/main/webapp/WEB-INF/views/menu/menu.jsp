@@ -20,7 +20,7 @@
 
 				<section class="content-detail-area">
 					<article class="week-meal">
-						<div class="weak-meal-btn-area">
+						<div class="week-meal-btn-area">
 							<p class="meal-title">백반</p>
 							<button class="pay-btn">식권 구매</button>
 						</div>
@@ -103,10 +103,7 @@
 									<p>라면</p>
 								</div>
 								
-								<div class="snack-menu-detail">
-									<img src="/resources/images/menu/ramen.png">
-									<p>라면</p>
-								</div>
+								
 							</div>
 						</div>
 					</article>
