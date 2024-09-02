@@ -10,7 +10,9 @@ main{
     margin: auto;
 }
 
-header{ position: relative; }
+header{ 
+	position: relative;
+width: 1200px; }
 
 a{ 
     text-decoration: none;
@@ -71,6 +73,7 @@ header > ul div{
     background-color: #f5f5f5;
     transition:height ease-out 0.5s 0s;
     z-index: 998;
+    margin-top: 10px;
 }
 
 header > ul:hover ul, header > ul:hover div{
@@ -79,6 +82,7 @@ header > ul:hover ul, header > ul:hover div{
 
 
 .library-book{
+	margin-top: 10px;
 	position: relative;
     height: 200px;
     overflow: hidden;
@@ -88,6 +92,7 @@ header > ul:hover ul, header > ul:hover div{
 	position: absolute;
 	top: -300px;
 	width: 1200px;
+	opacity:0.8;
 }
 
 /* 헤더 메뉴 */
