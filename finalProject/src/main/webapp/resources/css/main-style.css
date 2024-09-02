@@ -67,6 +67,7 @@ header > ul div{
     overflow: hidden;
     position: absolute;
     top: 150px;
+    width: 100%;
     background-color: #f5f5f5;
     transition:height ease-out 0.5s 0s;
     z-index: 998;
