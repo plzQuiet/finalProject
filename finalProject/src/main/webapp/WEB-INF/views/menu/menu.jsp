@@ -19,8 +19,11 @@
 				<div class="title-line"></div>
 
 				<section class="content-detail-area">
-					<div class="week-meal">
-						<p class="meal-title">백반</p>
+					<article class="week-meal">
+						<div class="weak-meal-btn-area">
+							<p class="meal-title">백반</p>
+							<button class="pay-btn">식권 구매</button>
+						</div>
 						<table>
 							<thead>
 								<tr>
@@ -39,22 +42,11 @@
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td rowspan="5">휴관일</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
+									<td rowspan="5" class="holiday">휴관일</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 								</tr>
 								<tr>
-									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
@@ -69,10 +61,16 @@
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
 								</tr>
 								<tr>
 									<td>춘천 닭갈비</td>
+									<td>춘천 닭갈비</td>
+									<td>춘천 닭갈비</td>
+									<td>춘천 닭갈비</td>
+									<td>춘천 닭갈비</td>
+									<td>춘천 닭갈비</td>
+								</tr>
+								<tr>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
 									<td>춘천 닭갈비</td>
@@ -82,10 +80,36 @@
 								</tr>
 							</tbody>
 						</table>
-					</div>
-					<div class="snack">
+					</article>
+					<article class="snack">
 						<p class="meal-title">분식</p>
-					</div>
+						<div class="meal-detail">
+							<div class="snack-menu">
+								<div class="snack-menu-detail">
+									<img src="/resources/images/menu/ramen.png">
+									<p>라면</p>
+								</div>
+								<div class="snack-menu-detail">
+									<img src="/resources/images/menu/ramen.png">
+									<p>라면</p>
+								</div>
+								<div class="snack-menu-detail">
+									<img src="/resources/images/menu/ramen.png">
+									<p>라면</p>
+								</div>
+								
+								<div class="snack-menu-detail">
+									<img src="/resources/images/menu/ramen.png">
+									<p>라면</p>
+								</div>
+								
+								<div class="snack-menu-detail">
+									<img src="/resources/images/menu/ramen.png">
+									<p>라면</p>
+								</div>
+							</div>
+						</div>
+					</article>
 				</section>
 			</section>
 
