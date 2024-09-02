@@ -1,0 +1,17 @@
+.container{
+	display: flex;
+	justify-content: space-between;
+	width: 1024px;
+	margin: 20px auto;
+}
+
+.side-menu-article{
+	width: 200px;
+}
+
+.library-area{
+	width: 774px;
+	padding: 50px;
+}
+
+#list-table{ width: 100%; }
