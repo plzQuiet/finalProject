@@ -70,6 +70,12 @@ header > ul:hover ul, header > ul:hover div{
     height: 150px;
 }
 
+.library-book-img{
+	height: 200px;
+	background: url("/resources/images/library_book.png") no-repeat 50%;
+	background-size: cover;
+}
+
 /* 헤더 메뉴 */
 .header-top-menu{
     position: absolute;

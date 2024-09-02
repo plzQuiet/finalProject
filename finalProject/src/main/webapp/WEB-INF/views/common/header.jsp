@@ -54,6 +54,10 @@
 		</li>
 		<div></div>
     </ul>
+    
+    <c:if test="${ pageContext.request.servletPath != '/WEB-INF/views/common/main.jsp'}">
+		<div class="library-book-img"></div>
+	</c:if>
 	
     <div class="header-top-menu">
 		<c:choose>
@@ -76,4 +80,5 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	
 </header>
