@@ -10,10 +10,11 @@
 </head>
 <body>
 	<main>
+		<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
 		<section class="main">
 			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
-
+			
 			<section class="main-content">
 				<div class="content-title">구내식당</div>
 				<div class="title-line"></div>
@@ -22,7 +23,7 @@
 					<article class="week-meal">
 						<div class="week-meal-btn-area">
 							<p class="meal-title">백반</p>
-							<button class="pay-btn">식권 구매</button>
+							<button id="pay-btn">식권 구매</button>
 						</div>
 						<table>
 							<thead>
@@ -114,6 +115,7 @@
 	</main>
 
 
+	<script src="/resources/js/menu/menu.js"></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
