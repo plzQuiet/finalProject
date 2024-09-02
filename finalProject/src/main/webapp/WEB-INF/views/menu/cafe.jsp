@@ -21,7 +21,7 @@
 
 				<section class="content-detail-area">
 					<div class="cafe-btn-area">
-						<button class="pay-btn">음료 구매</button>
+						<button id="pay-btn">음료 구매</button>
 					</div>
 
 					<article class="cafe-menu">

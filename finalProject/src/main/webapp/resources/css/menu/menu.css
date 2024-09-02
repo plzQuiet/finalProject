@@ -54,7 +54,7 @@ main{
 	align-items: center;
 }
 
-.pay-btn{
+#pay-btn{
 	padding: 10px;
 	background-color: white;
 	border: 2px solid #8FB788;

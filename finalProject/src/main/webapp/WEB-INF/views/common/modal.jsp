@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Modal</title>
-
-	<link rel="stylesheet" href="/resources/css/util/modal.css">
+	<meta charset="UTF-8">
+	<title>Modal</title>
+	<link rel="stylesheet" href="/resources/css/common/modal.css">
 </head>
 <body>
 	<div id="popup_layer">
