@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notice</title>
+    <title>QnA</title>
 
-    <link rel="stylesheet" href="/resources/css/board/noticeList-style.css">
+    <link rel="stylesheet" href="/resources/css/board/qna-style.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
@@ -16,9 +16,9 @@
     <header>header 부분</header>
 
     <!-- 상단바 밑 사진 -->
-	<div id="img_div"></div>
+    <div id="img_div"></div>
 
-	<section class="main-content-suround-section">
+    <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
@@ -33,10 +33,10 @@
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">공지사항</div>
+            <div class="content-title">문의사항</div>
             <div class="title-line"></div>
-            
-            <!-- 검색창 --> 
+
+            <!-- 검색창 -->
             <form action="#">
                 <div class="search-area">
                     <select name="key" id="searchKey">
@@ -74,21 +74,21 @@
                                 </c:when>
 
                                 <!-- <c:otherwise>
-                                    <c:forEach var="#" items="#">
-                                    게시글 조회 시 글 목록 존재 O
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>작성자</td>
-                                    <td>작성일</td>
-                                    <td>조회수</td>
-                                    </c:forEach>
-                                </c:otherwise> -->
+                                <c:forEach var="#" items="#">
+                                게시글 조회 시 글 목록 존재 O
+                                <td>번호</td>
+                                <td>제목</td>
+                                <td>작성자</td>
+                                <td>작성일</td>
+                                <td>조회수</td>
+                                </c:forEach>
+                            </c:otherwise> -->
                             </c:choose>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 관리자에게만 보이는 글쓰기 버튼 -->
+                <!-- 로그인하면 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
                     <c:if test="#">
                         <button id="writeBtn">글쓰기</button>
@@ -121,7 +121,7 @@
                     </ul>
 
                 </div>
-               
+
             </section>
         </section>
 
