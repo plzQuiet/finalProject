@@ -40,8 +40,8 @@
         <li>
 			<a href="/menu">맛있는 도서관</a>
 			<ul>
-				<li><a href="#">구내식당</a></li>
-				<li><a href="#">카페</a></li>
+				<li><a href="/menu">구내식당</a></li>
+				<li><a href="/cafe">카페</a></li>
 			</ul>
 		</li>
         <li>

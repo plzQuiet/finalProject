@@ -16,4 +16,9 @@ public class MainController {
 	public String menuForward() {
 		return "menu/menu";
 	}
+	
+	@GetMapping("/cafe")
+	public String cafeForward() {
+		return "menu/cafe";
+	}
 }
