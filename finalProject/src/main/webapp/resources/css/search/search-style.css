@@ -1,0 +1,232 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#searchBtn, #searchDetailBtn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-family: "Noto Sans KR", sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: auto;
+	border: none;
+	border-radius: 5px;
+}
+
+.main {
+	width: 1024px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.main-content {
+	margin-top: 70px;
+	width: 750px;
+}
+
+.main-title {
+	font-size: 40px;
+	margin-bottom: 40px;
+}
+
+.searchForm {
+	position: relative;
+	width: 100%;
+	margin-bottom: 40px;
+	margin-left: 90px;
+}
+
+.searchBar {
+	display: flex;
+	border: 1px solid black;
+	height: 42px;
+	border-radius: 5px;
+}
+
+#searchKey {
+	height: 40px;
+	border: 0;
+}
+
+input {
+	width: 400px;
+	padding: 10px 12px;
+	font-size: 14px;
+	height: 40px;
+	border-width: 0;
+	border-raidus: 5px;
+}
+
+.searchInput {
+	display: flex;
+}
+
+#searchBtn {
+	
+}
+
+.searchDetailBtn {
+	background-color: #8FB788;
+	border-radius: 5px;
+}
+
+#searchDetailBtn {
+	border: 0;
+}
+
+.body-content-mid {
+	height: 300px;
+	text-align: center;
+	border: 1px solid green;
+}
+
+.body-content-bot {
+	height: 300px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+//
+기본 페이지
+.body-content {
+	height: 1000px;
+}
+
+.searchFormDetail {
+	border: 1px solid #8FB788;
+	height: 400px;
+	display: flex;
+}
+
+.detailItem {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center; width : 100px;
+	margin-top: 30px;
+	width: 100px;
+}
+
+.details, .detailsYear, .detailsAlign, .detailsCount {
+	margin-bottom: 30px;
+	font-size: 18px;
+	margin-left: 15px;
+	width: 100px;
+}
+
+.detailInput {
+	margin-left: 30px;
+}
+
+.details {
+	height: 150px;
+	line-height: 7;
+	margin-bottom: 35px;
+}
+
+.searchDetail, .searchAuthor, .searchPublisher {
+	margin-top: 30px;
+}
+
+.searchTitle, .searchAuthor, .searchPublisher {
+	display: flex;
+}
+
+.bookTitle, .author, .publisher {
+	border: 1px solid #8FB788;
+	height: 30px;
+	width: 70px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 26px;
+	border-radius: 5px;
+}
+
+.input {
+	margin-left: 30px;
+}
+
+.detailsTitle {
+	display: flex;
+}
+
+#inputDetail {
+	width: 400px;
+	padding: 10px 12px;
+	font-size: 12px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #8FB788;
+}
+
+#inputYear {
+	width: 100px;
+	padding: 0;
+	font-size: 12px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #8FB788;
+	margin-top: 42px;
+}
+
+.searchAlign {
+	margin-top: 28px;
+}
+
+.searchPrint {
+	margin-top: 22px;
+}
+
+select {
+	width: 100px;
+	height: 30px;
+	padding-left: 8px;
+	border: 1px solid #8Fb788;
+	font-family: inherit;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.btn-area {
+	display: flex;
+	justify-content: center;
+}
+
+.index-btn, .refresh-btn {
+	margin: 10px;
+}
+
+#index-btn{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin: 10px;
+	padding: 0.5rem 1rem;
+	background-color: #8FB788;
+	color: white;
+	appearance: none;
+	border: none;
+	outline: 0;
+	border-radius: 5px;
+	text-decoration: none;
+}
+#refresh-btn{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin: 10px;
+	padding: 0.5rem 1rem;
+	background-color: white;
+	color: #8FB788;
+	appearance: none;
+	border: 0.5px solid #8FB788;
+	border-radius: 5px;
+	text-decoration: none;
+}
