@@ -25,13 +25,13 @@ header{
 #img_div{
     width: 100%;
     height: 200px;
-	background: url("/resources/images/library_book.png") no-repeat 50%;
+   	background: url("../../images/library_book.png") no-repeat 50%;
     background-size: cover;
 }
 
-/* 검색창 */
-.search-area{
-    justify-content: right;
+.img_div > img{
+    max-width: 1200px;
+    min-height: 200px;
 }
 
 /* 내용 영역 */
@@ -84,6 +84,12 @@ header{
     border-top: 1px solid #d4d4d4;
     text-align: center;
     transition-duration: 0.3s;
+    
+}
+
+/* 카테고리 - 문의사항 */
+.side1{ 
+    background-color: #8FB788;
 }
 
 /* 레벨2 메뉴에 a 태그 */
@@ -95,6 +101,9 @@ header{
     font-weight: bold;
     padding: 15px;
     transition-duration: 0.3s;
+
+    
+    
 }
 
 /* 레벨 2메뉴 a태그 hover */
@@ -136,7 +145,7 @@ header{
 /* 레벨2 현재 선택된 메뉴일 경우 */
 .side-menu > li.side-current{
     border: none;
-    background-color: #8FB788;
+    /* background-color: #8FB788; */
 }
 
 .side-menu > li > a.side-current-a{
@@ -152,11 +161,10 @@ header{
 .content-suround-section{
     min-height: 500px;
     margin: 70px 0px 0 0;
-    /* width: 75%; */
-    width: 100%;
+    width: 75%;
 }
 
-/* 제목 */
+/* 카테 제목 */
 .content-title{
     font-size: 40px;
     font-weight: bold;
@@ -169,156 +177,101 @@ header{
     margin: 40px 0;
 }
 
-/* 검색창 */
-.search-area{
-    height: 40px;
-    width: 380px;
-    border: 1px solid #8FB788;
-    background-color: white;
-    display: flex;
-    float: right;
-    margin-bottom: 12px;
+
+/* 게시글 제목 */
+.board-title{
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: 3px solid #008C1D;
 }
 
-#searchKey{
+.board-title input{
     border: none;
-    cursor: pointer;
+    font-size: 20px;
     outline: none;
-}
-
-input{
-    width: 300px;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    border: none;
-
-}
-
-#searchBtn{
-    /* width: 40%; */
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    color: #8FB788;
-}
-
-
-
-
-
-
-
-/* 게시글 목록 */
-.board-list{
-    width: 100%;
-    /* background-color: red; */
-    margin: 10px auto; 
-}
-
-.list-wrapper{
-    min-height: 500px;
     width: 100%;
 }
 
-.list-table{
+/* 작성자 이름 영역 */
+.member-name{
+    font-size: 18px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/* 공개/비공개 선택 */
+.board-type span{
+    display: inline-block;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+[type="radio"]{
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.board-type{
+    line-height: 30px;
+}
+
+
+
+
+
+
+
+
+
+/* 게시글 내용 */
+.board-content{
+    padding: 30px 0;
+    margin: 30px 0;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    font-size: 14px;
+}
+
+h5{color: #555;}
+
+[name="boardContent"]{
     width: 100%;
-    padding: 20px;
-    border-collapse: collapse;
+    height: 500px;
+    resize: none;
+    font-size: 18px;
 }
 
-.list-table > thead{
-    background-color: #8FB788;
-    color: white;
-}
-
-.list-table tr{
-    height: 50px;
-}
-
-.list-table > tbody > tr{
-    border-bottom: 3px solid #8FB788;
-}
-
-.list-table tr > *{
-    text-align: center;
-}
-
-/* 번호 */
-.list-table tr > *:nth-of-type(1){width: 10%;}
-
-/* 제목 */
-.list-table tr > *:nth-of-type(2){
-    width: 50%;
-    text-align: center;
-    padding-left: 20px;
-    text-decoration: none;
-}
-
-/* 작성자 */
-.list-table tr > *:nth-of-type(3){width: 12%;}
-
-/* 작성일 */
-.list-table tr > *:nth-of-type(4){width: 14%;}
-
-/* 조회수 */
-.list-table tr > *:nth-of-type(5){width: 8%;}
-
-/* 글쓰기 버튼 */
+/* 버튼 영역 */
 .btn-area{
-    height: 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: right;
 }
 
-#writeBtn{
-    /* margin-right: 50px; */
-    width: 90px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    border: 1px solid #8FB788;
+.btn-area button{
     background-color: white;
-    font-weight: bold;
-    /* border-radius: 5px; */
+    border: 1px solid #8FB788;
+    width: 60px;
+    height: 30px;
 }
 
-#writeBtn:hover{
+.btn-area button:hover{
     background-color: #8FB788;
     color: white;
 }
 
-/* pagination */
-.pagination{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
+/* 삭제버튼 */
+.delete-image{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
 }
 
-.pagination > li{
-    width: 24px;
-    margin: 0 5px;
-    text-align: center;
+.btn-area{
+    border-bottom: 3px solid #008C1D;
+    padding: 12px;
 }
 
-.pagination a{
-    display: block;
-    /* width: 100%; */
-    /* height: 100%; */
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
 
-.currentPage{
-    background-color: #8FB788;
-    border-radius: 30%;
-    color: white !important;
-    letter-spacing: 0 !important;
 
-}
 
 /* footer 영역 */
 footer{
