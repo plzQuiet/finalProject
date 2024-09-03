@@ -27,6 +27,7 @@
 
 
         .kakao-map-suround{
+        		margin-top : 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -93,8 +94,10 @@
                    </table>
                 </div>
                 
-                
-                <div id="map" style="width:500px;height:400px;"></div>
+                <div class="kakao-map-suround">
+                	<div id="map" style="width:500px;height:400px;"></div>
+                	
+                </div>
                 
             </section>
         </section>
@@ -117,29 +120,28 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services,drawing"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
 			center: new kakao.maps.LatLng(37.499034, 127.032880),
 			level: 3
 		};
+		
+		
+       // 마커가 표시될 위치입니다 
+       var markerPosition  = new kakao.maps.LatLng(lat, lng); 
 
-		var map = new kakao.maps.Map(container, options);
+       // 마커를 생성합니다
+       var marker = new kakao.maps.Marker({
+           position: markerPosition
+       });
 
-        // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+       // 마커가 지도 위에 표시되도록 설정합니다
+       marker.setMap(map);
 
-        // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
-
-        // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-        // marker.setMap(null);    
+       // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+       // marker.setMap(null);    
 	</script>
     
 </body>
