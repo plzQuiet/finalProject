@@ -20,8 +20,9 @@ a{
 }
 
 #homeLogo{
-    height: 150px;
-    vertical-align: top;
+    height: 120px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 header > ul{
