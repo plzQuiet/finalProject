@@ -28,6 +28,9 @@
 	top:50%;
 	left:50%; 
 	width:970px;
+	max-height: 500px;
+	overflow: auto;
+
 	transform:translate(-50%, -50%);
 	z-index:1002;
 	box-sizing:border-box;
@@ -63,6 +66,7 @@
 
 /*컨텐츠 영역*/
 .edit-popup_box .edit-popup_content {
+	
 	line-height:1.4rem;
 	font-size:14px;
 	display: flex;
@@ -524,6 +528,33 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	width: 100%;
 	display: flex;
 	justify-content: end;
+}
+
+.manager-btn-area button{
+	width: 100px;
+	margin-right: 20px;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	color: white;
+	padding: 10px;
+	transition-duration: 0.3s;
+}
+
+.manager-btn-area button:hover{
+	color: black;
+}
+
+#insertLibrary{
+	background-color: #80afe1;
+}
+
+#updateLibrary{
+	background-color: #8FB788;
+}
+
+#deleteLibrary{
+	background-color: rgb(181, 17, 17);
 }
 
     </style>
