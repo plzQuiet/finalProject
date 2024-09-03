@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기</title>
+
+    <link rel="stylesheet" href="../../css/board/qnaWrite-style.css">
+</head>
+<body>
+
+    <header>header 부분</header>
+
+    <!-- 상단바 밑 사진 -->
+	<div id="img_div"></div>
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <!-- 사이드 메뉴 -->
+            <div class="category">이용자 마당</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
+                <li class="side1"><a href="#">문의사항</a></li>
+                <li class="side2"><a href="#">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+            </ul>
+
+        </article>
+
+        <!-- 공지사항 목록 -->
+        <section class="content-suround-section">
+            <div class="content-title">QnA</div>
+            <div class="title-line"></div>
+
+            <!-- 게시글 작성 화면 -->
+            <form action="#" method="" class="board-write" id="boardWriteFrm">
+                <!-- 제목 -->
+                <h1 class="board-title">
+                    <input type="text" name="boardTitle" placeholder="제목">
+                </h1>
+
+                <!-- 작성자 이름 영역 -->
+                <div class="member-name"><h3>홍길동</h3></div>
+
+                <!-- 공개/비공개 -->
+                <div class="board-type">
+                    <span>공개 여부</span> 
+                    <input type="radio" name="option" id="public">
+                    <label for="public">공개</label>
+
+                    <input type="radio" name="option" id="private">
+                    <label for="private">비공개</label>
+                </div>
+
+                
+                <!-- 내용 -->
+                <div class="board-content">
+                    <textarea name="boardContent"></textarea>
+                </div>
+
+                <!-- 버튼 영역 -->
+                <div class="btn-area">
+                    <button>취소</button>
+                    <button type="submit" id="writeBtn">등록</button>
+                </div>
+
+            </form>
+        </section>
+
+
+    </section>
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>
+        </article>
+        <div>
+            <img src="../../images/logo.png">
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="../../images/wa_logo.png">
+        </div>
+    </footer>
+
+    
+</body>
+</html>
