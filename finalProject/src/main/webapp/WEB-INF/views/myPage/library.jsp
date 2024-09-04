@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/myPage/library-style.css">
+    <link rel="stylesheet" href="/resources/css/myLibrary/library-style.css">
 </head>
 <body>
 	<main>
@@ -20,11 +20,11 @@
 			
 			<section class="library-area">
 				<h1>도서현황</h1>
-				<div>
-					<button class="lib-btn">대출중인 도서</button>
-					<button class="lib-btn">이전 대출내역</button>
-					<button class="lib-btn">예약내역</button>
-					<button class="lib-btn">신청내역</button>
+				<div class="btn-area">
+					<button class="selected">대출중인 도서</button>
+					<button>이전 대출내역</button>
+					<button>예약내역</button>
+					<button>신청내역</button>
 				</div>
 				<p>대출중인 도서</p>
 				<table id="list-table">
