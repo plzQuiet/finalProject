@@ -48,10 +48,12 @@
 	border: 1px solid black;
 	height: 42px;
 	border-radius: 5px;
+	display: flex;
+	justify-content: center;
 }
 
 #searchKey {
-	height: 40px;
+	height: 38px;
 	border: 0;
 }
 
@@ -59,18 +61,16 @@ input {
 	width: 400px;
 	padding: 10px 12px;
 	font-size: 14px;
-	height: 40px;
+	height: 38px;
 	border-width: 0;
-	border-raidus: 5px;
+	
 }
 
 .searchInput {
 	display: flex;
 }
 
-#searchBtn {
-	
-}
+
 
 .searchDetailBtn {
 	background-color: #8FB788;
@@ -93,9 +93,9 @@ input {
 	border: 1px solid black;
 }
 
-//
-기본 페이지
+/*기본 페이지 */
 .body-content {
+	weight:800px;
 	height: 1000px;
 }
 
@@ -186,14 +186,12 @@ input {
 
 select {
 	width: 100px;
-	height: 30px;
+	height: 38px;
 	padding-left: 8px;
 	border: 1px solid #8Fb788;
 	font-family: inherit;
 	border-radius: 5px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+	
 }
 
 .btn-area {
@@ -206,27 +204,119 @@ select {
 }
 
 #index-btn{
-	-webkit-appearance: none;
-	-moz-appearance: none;
+	width: 80px;
 	margin: 10px;
 	padding: 0.5rem 1rem;
 	background-color: #8FB788;
 	color: white;
-	appearance: none;
-	border: none;
+	cursor: pointer;
+	border: 0.5px solid #8FB788;
 	outline: 0;
 	border-radius: 5px;
 	text-decoration: none;
 }
 #refresh-btn{
-	-webkit-appearance: none;
-	-moz-appearance: none;
+	width: 80px;
 	margin: 10px;
 	padding: 0.5rem 1rem;
 	background-color: white;
 	color: #8FB788;
-	appearance: none;
+	cursor: pointer;
 	border: 0.5px solid #8FB788;
 	border-radius: 5px;
 	text-decoration: none;
+}
+
+/*자료 검색 페이지*/
+.searchBody{
+	display:flex;
+	margin-top:30px;
+	height:100px;
+}
+.index{
+	width:20px;
+}
+.bookThumbnail{
+	width:140px;
+}
+.bookDetail{
+	margin-left:30px;
+	width:800px;
+}
+.bookDetailState{
+	width: 500px;
+	display:flex;
+}
+.bookDetailStateTextY{
+	display:flex;
+	color:green;
+	width: 200px;
+}
+.bookDetailStateTextN{
+	display:flex;
+	color:red;
+	width:200px;
+}
+.informBtn{
+	margin-left: 50px;
+}
+
+table{
+	border :1px solid #d4d4d4;
+	margin-left:20px;
+	margin-bottom:30px;
+	width:700px;
+	text-align: center;
+}
+
+table thead{
+	background-color: #8FB788;
+	height:40px;
+}
+table thead tr th:nth-child(n+5){
+	width:70px;
+}
+table tbody{
+	height:80px;
+}
+table tbody td{
+	border:1px solid #d4d4d4;
+}
+
+#informBtn{
+	background-color : white;
+	color: black;
+	border: 1px solid black;
+	width: 120px;
+	cursor:pointer;
+}
+#informBtn:hover {
+	background-color:#d4d4d4;
+	cursor:pointer;
+}
+
+.favoriteStar {
+    width: 30px;
+    height: 30px;
+    background-color: #d4d4d4; /* 버튼 배경 색상 (노란색) */
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+
+.favoriteStar:hover {
+    background-color: #FFD700; /* 호버 시 배경 색상 변경 (주황색) */
 }
