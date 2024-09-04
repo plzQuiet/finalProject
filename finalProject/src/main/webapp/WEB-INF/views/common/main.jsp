@@ -11,13 +11,11 @@
     <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
+	<section>
+	</section>
 		
-		<section>
-		</section>
-		
-	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
