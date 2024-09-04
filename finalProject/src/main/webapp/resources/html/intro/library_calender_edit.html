@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 형태</title>
+    <link rel="stylesheet" href="/resources/css/intro/alll.css">
+    <link rel="stylesheet" href="/resources/css/intro/footer.css">
+    <link rel="stylesheet" href="/resources/css/intro/sideMenu.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <style>
+       
+
+        .calendar-category-suround{margin-bottom: 15px;}
+
+        .calendar-category{
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .category-color{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .gong{background-color: red;}
+        .hue{background-color: #d4d4d4;}
+        .classDay{background-color: yellow;}
+        .eventDay{background-color: #5547ff;}
+
+        .calendar-surround{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #calendar{
+            flex-basis: 55%;
+            height: 500px;  
+        }
+
+        .todayList-surround{
+            flex-basis: 40%;
+            border: 2px solid #d4d4d4;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #date-div{
+            margin-top: 10px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .todo-surround{
+            border: 1px solid #555;
+            border-radius: 5px;
+            flex-basis: 90%;
+            width: 95%;
+            overflow: auto;
+        }
+
+        .todo-surround > table{
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            
+        }
+
+        .todo-surround tr{
+            border: 1px solid #d4d4d4;
+        }
+
+        .todo-surround th{
+            padding: 5px;
+            border: 1px solid #d4d4d4;
+        }
+
+        #add-todo{
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #add-todo:hover{
+            background-color: #d4d4d4;
+        }
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 편집 모달 */
+#edit-popup_layer {
+	position:fixed;
+	top:0;
+	left:0;
+	z-index: 10000; 
+	width: 100%; 
+	height: 100%; 
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+} 
+
+/* 팝업 박스 */
+.edit-popup_box{
+	position: relative;
+	top:50%;
+	left:50%; 
+	width:500px;
+	max-height: 500px;
+	overflow: auto;
+
+	transform:translate(-50%, -50%);
+	z-index:1002;
+	box-sizing:border-box;
+	background:#fff;
+	box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	border-radius:10px;
+}
+
+/* 팝업 헤더 */
+.edit-popup_header{
+	height: 70px;
+	background-color : #8FB788;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+}
+
+.edit-popup_header > p{
+	color:white;
+	font-size: 20px;
+	padding:20px;
+	font-weight: 700;
+}
+
+#edit-popup-close{
+	margin: 10px 30px;
+	cursor: pointer;
+}
+
+/*컨텐츠 영역*/
+.edit-popup_box .edit-popup_content {
+	
+	line-height:1.4rem;
+	font-size:14px;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	overflow: auto;
+}
+
+.edit-popup_content > div{
+	width: 90%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.edit-popup_content > div > div{margin-top: 10px;}
+.edit-popup_content > div > div > span{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 800px;
+    width: 20%;
+}
+
+.edit-popup_content > div > div > input{
+    font-size: 16px;
+    padding: 5px 5px 5px 10px;
+    border: 1px solid #d4d4d4;
+	border-radius: 5px;
+
+}
+
+.edit-popup_content > div > div > input[name='scheduleName']{
+    width: 70%;
+}
+
+#calendarCategory{
+    font-size: 16px;
+    padding: 5px 5px 5px 10px;
+    border: 1px solid #d4d4d4;
+	border-radius: 5px;
+}
+
+/*버튼영역*/
+.edit-popup_box .edit-popup_btn {
+	display:table;
+	table-layout: fixed;
+	width:100%;
+	word-break: break-word;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.edit-popup_box .edit-popup_btn button{
+	width: 100px;
+	height: 50px;
+	
+}
+
+.edit-popup_box .edit-popup_btn #edit-confirm_btn{
+	
+	background-color : #0054b4;
+	color : white;
+	border-radius: 10px;
+	border : none;
+	font-weight : 800;
+}
+
+.edit-popup_box .edit-popup_btn #edit-confirm_btn:hover{
+	cursor : pointer;
+	box-shadow: 1px 1px 1px 1px gray;
+	background-color: #008c1d;
+}
+
+/*오버레이 뒷배경*/
+.edit-popup_overlay{
+	position:fixed;
+	top:0px;
+	right:0;
+	left:0;
+	bottom:0;
+	z-index:1001;
+	background:rgba(0,0,0,0.5);
+}    
+
+/* -------------------------------------------------------------------------------- */
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>header부분</div>
+    </header>
+    
+    <div id="img_div"></div>
+    
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <div class="category">도서관 안내</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="side-current-a">도서관 소개</a>
+                    <ul>
+                        <li><a href="#" class="side-side-current">인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">도서관 오시는 길</a></li>
+                        <li><a href="#">주변 도서관</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이용 안내</a>
+                    <ul>
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">도서관 달력</a></li>
+                    </ul>
+                </li>
+                <li class="last-menu"><a href="#">시설 안내</a></li>
+            </ul>
+
+        </article>
+
+        <section class="content-suround-section">
+            <div class="content-title">도서관 달력</div>
+            <div class="title-line"></div>
+
+            <section class="content-detail-section">
+                <div class="calendar-category-suround">
+                    <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
+                    <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
+                    <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
+                    <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                </div>
+
+                <div class="title-line"></div>
+
+                <div class="calendar-surround">
+                    <div id='calendar'></div>
+
+                    <div class="todayList-surround">
+                        <div id="date-div"></div>
+                        <div class="todo-surround">
+                            <table>
+                                <tr>
+                                    <th>일정</th>
+                                    <th>시작일</th>
+                                    <th>종료일</th>
+                                    <th>종류</th>
+                                    <th>비고</th>
+                                </tr>
+
+                                <tr>
+                                    <th id="add-todo" colspan="5">+ 일정 추가</th>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+
+        <!-- 편집 모달 -->
+        <div id="edit-popup_layer">
+          <div class="edit-popup_box">
+                <div class="edit-popup_header">
+                    <p>일정 편집</p>
+                <span id="edit-popup-close">&times;</span>
+                </div>
+                
+              <!--팝업 컨텐츠 영역-->
+              <div class="edit-popup_content">
+                <div>
+                    <div class="scheduleName--surround">
+                        <span>일정 이름</span>
+                        <input type="text" name="scheduleName"/>
+                    </div>
+                    <div class="startDate-surround">
+                        <span>시작일</span>
+                        <input type="date" name="startDate" value="">
+                    </div>
+                    <div class="endDate-surround">
+                        <span>종료일</span>
+                        <input type="date" name="endDate" value="">
+                    </div>
+                    <div class="calCategory-surround">
+                        <span>종류</span>
+                        <select name="calendarCategory" id="calendarCategory">
+                            <option value="nationalHoliday">공휴일</option>
+                            <option value="libraryHoliday">휴관일</option>
+                            <option value="libraryClass">클래스</option>
+                            <option value="libraryEvent">행사</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <!--팝업 버튼 영역-->
+              <div class="edit-popup_btn">
+                  <button id="edit-confirm_btn">등록</button>
+              </div>
+
+          </div>
+        </div>
+        </div>
+
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>    
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>    
+        </article>
+        <div>
+            <img src="/resources/images/logo.png" >
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="/resources/images/wa_logo.png" >
+        </div>
+    </footer>
+
+    <script>
+        /* 편집 모달 입력 변수 */
+        const scheduleName = document.getElementsByName("scheduleName")[0];
+        const startDate = document.getElementsByName("startDate")[0];
+        const endDate = document.getElementsByName("endDate")[0];
+
+        
+
+        const dateDiv = document.getElementById("date-div");
+        const todayDate = new Date();
+        const dateFormat = ((todayDate.getMonth()+1) < 10 ? "0" + (todayDate.getMonth()+1) : (todayDate.getMonth()+1))
+                        + "월 " + ((todayDate.getDate()) < 10 ? "0" + (todayDate.getDate()) : (todayDate.getDate()) ) + "일";
+       /*  const dateFormat = todayDate.getFullYear() + "-" + ((todayDate.getMonth()+1) < 10 ? "0" + (todayDate.getMonth()+1) : (todayDate.getMonth()+1))
+                        + "-" + ((todayDate.getDate()) < 10 ? "0" + (todayDate.getDate()) : (todayDate.getDate()) ); */
+        (function(){
+            dateDiv.innerText = dateFormat;
+        })();
+
+        let selectDate;
+    
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          headerToolbar:{
+            start : '',
+            center : "title",
+            end : 'prev next today'
+          },
+          titleFormat : function(date){
+            return date.date.year + "년 " + (parseInt(date.date.month) + 1) + "월";
+          },
+          selectable : true,/* 캘랜더 날짜 선택 */
+         
+            /* 캘런더 날짜 선택 시 함수 수행*/
+          dateClick : function(e){
+            let selectDate = e.dateStr;
+            let selectArray = selectDate.split("-");
+            console.log(selectArray);
+            dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
+            /* e.dateStr - 클릭한 날짜 가져옴 */
+          }
+          
+        });
+        calendar.render();
+
+        /* 편집 모달 열기 */
+        const editPopup = document.getElementById("edit-popup_layer");
+        document.getElementById("add-todo").addEventListener("click",() => {
+            editPopup.style.display = "block"
+        })
+
+        /* 편집 모달 닫기 */
+        const editPopupClose = document.getElementById("edit-popup-close");
+		editPopupClose.addEventListener("click",() => {
+			editPopup.style.display = "none";
+            scheduleName.value = '';
+            startDate.value = '';
+            endDate.value = '';
+            document.getElementsByTagName("option")[0].selected = true;
+		});
+        
+
+    </script>
+    
+</body>
+</html>

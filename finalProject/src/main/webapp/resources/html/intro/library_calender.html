@@ -13,7 +13,11 @@
             height: 700px;  
         }
 
-        .calendar-category-suround{margin-bottom: 15px;}
+        .cate-button-surround{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         .calendar-category{
             font-size: 18px;
@@ -33,6 +37,21 @@
         .hue{background-color: #d4d4d4;}
         .classDay{background-color: yellow;}
         .eventDay{background-color: #5547ff;}
+
+        #calendar-edit-btn{
+            border: 0;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #5547ff;
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.3s ;
+        }
+
+        #calendar-edit-btn:hover{
+            color: black;
+            background-color: #5647ff77;
+        }
 
         #date-div{
             font-size: 35px;
@@ -78,11 +97,14 @@
             <div class="title-line"></div>
 
             <section class="content-detail-section">
-                <div class="calendar-category-suround">
-                    <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
-                    <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
-                    <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
-                    <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                <div class="cate-button-surround">
+                    <div class="calendar-category-suround">
+                        <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
+                        <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
+                        <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
+                        <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                    </div>
+                    <button id="calendar-edit-btn">일정편집</button>
                 </div>
 
                 <div class="title-line"></div>
@@ -133,6 +155,14 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
+          headerToolbar:{
+            start : '',
+            center : "title",
+            end : 'prev next today'
+          },
+          titleFormat : function(date){
+            return date.date.year + "년 " + (parseInt(date.date.month) + 1) + "월";
+          },
           selectable : true,/* 캘랜더 날짜 선택 */
          
             /* 캘런더 날짜 선택 시 함수 수행*/

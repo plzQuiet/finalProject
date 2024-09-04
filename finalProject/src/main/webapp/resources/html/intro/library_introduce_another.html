@@ -28,7 +28,7 @@
 	top:50%;
 	left:50%; 
 	width:970px;
-	max-height: 500px;
+	max-height: 800px;
 	overflow: auto;
 
 	transform:translate(-50%, -50%);
@@ -75,28 +75,27 @@
 	overflow: auto;
 }
 
-.edit-popup_content > div{
+.edit-popup_content > form{
 	width: 90%;
 
 	display: flex;
 	flex-direction: column;
 }
 
-.edit-popup_content > div > div{ margin: 10px;}
+.edit-popup_content > form > div > div{ margin: 10px;}
 
-.edit-popup_content > div > div > span{ 
+.edit-popup_content > form > div > div > span{ 
 	display: inline-block;
 
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 500;
-	margin-right: 20px;
 	width: 10%;
 }
 
 .popupTitle > input{
 	width: 85%;
 	font-size: 16px;
-	padding: 2px;
+	padding: 2px 2px 2px 10px;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
 }
@@ -104,7 +103,7 @@
 .popupAddress > input{
 	width: 75%;
 	font-size: 16px;
-	padding: 2px;
+	padding: 2px 2px 2px 10px;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
 }
@@ -127,8 +126,8 @@
 }
 
 #map2{
-	width: 100%;
-	height: 300px;
+	width: 90%;
+	height: 200px;
 }
 
 .popupIntroSuround > div{
@@ -139,7 +138,7 @@
 
 .popupIntroSuround > textarea{
 	width: 100%;
-	height: 150px;
+	height: 125px;
 
 	resize: none;
 	border: 1px solid #d4d4d4;
@@ -650,6 +649,7 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	  	  
 	      <!--팝업 컨텐츠 영역-->
 	      <div class="edit-popup_content">
+			<form action="" method="post" name="editIntroFrm">
 			<div>
 	          <div class="popupTitle"><span>도서관명</span> <input type="text" name="libraryName"> </div>
 	          <div class="popupAddress"> <span>주소</span> <input type="text" name="libraryAddress" id="libraryAddress"> <button id="searchMap">검색</button> </div>
@@ -706,6 +706,11 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 
 		  <!-- 기존 이미지가 있다가 삭제된 이미지의 순서를 기록 -->
 		  <input type="hidden" name="deleteList" value="">
+
+		  <!-- 검색한 지도의 위도, 경도 저장 -->
+		  <input type="hidden" name="searchLat" value="">
+		  <input type="hidden" name="searchLng" value="">
+		</form>
 	  </div>
 	</div>
 
@@ -1024,8 +1029,32 @@ for(let i = 0; i < inputImage.length; i++){
 	const editLibrary = document.getElementById("edit-confirm_btn");
 
 	editLibrary.addEventListener("click", e => {
-		document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
+		if(libraryName.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 명을 입력해주세요.");
+			libraryName.focus();
+			return;
+		}
 
+		if(libraryIntroText.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 소개글을 입력해주세요.");
+			libraryIntroText.focus();
+			return;
+		}
+
+		if(addressInput.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 주소를 입력해주세요.");
+			addressInput.focus();
+			return;
+		}
+
+		document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
+		document.querySelector("[name='searchLat']").value = lat;
+		document.querySelector("[name='searchLng']").value = lng;
+		
+		e.preventDefault();
 	})
 
 
