@@ -14,4 +14,21 @@
 	padding: 50px;
 }
 
+.btn-area{
+	display: flex;
+	border-bottom: 1px solid #ddd;
+}
+
+.btn-area > button{
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	background-color: white;
+}
+
+.btn-area > .selected{
+	background-color: #0054B4;
+	color: white;
+}
+
 #list-table{ width: 100%; }
