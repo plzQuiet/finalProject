@@ -12,42 +12,39 @@
     <link rel="stylesheet" href="/resources/css/myLibrary/info-style.css">
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
+	<section class="container">
+		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
 		
-		<section class="container">
-			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
-			
-			<section class="myInfo">
+		<section class="myInfo">
 
-                <h1 class="myInfo-title">비밀번호 변경</h1>
-                <span class="myInfo-subject">현재 비밀번호가 일치하는 경우 새 비밀번호로 변경할 수 있습니다.</span>
+               <h1 class="myInfo-title">비밀번호 변경</h1>
+               <span class="myInfo-subject">현재 비밀번호가 일치하는 경우 새 비밀번호로 변경할 수 있습니다.</span>
 
-                <form action="changePw" method="POST" name="myInfoFrm" id="changePwFrm">
+               <form action="changePw" method="POST" name="myInfoFrm" id="changePwFrm">
 
-                    <div class="myInfo-row">
-                        <label>현재 비밀번호</label>
-                        <input type="password" name="currentPw" id="currentPw" maxlength="30" >              
-                    </div>
+                   <div class="myInfo-row">
+                       <label>현재 비밀번호</label>
+                       <input type="password" name="currentPw" id="currentPw" maxlength="30" >              
+                   </div>
 
-                    <div class="myInfo-row">
-                        <label>새 비밀번호</label>
-                        <input type="password" name="newPw" id="newPw" maxlength="30">              
-                    </div>
+                   <div class="myInfo-row">
+                       <label>새 비밀번호</label>
+                       <input type="password" name="newPw" id="newPw" maxlength="30">              
+                   </div>
 
-                    <div class="myInfo-row">
-                        <label>새 비밀번호 확인</label>
-                        <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">              
-                    </div>
+                   <div class="myInfo-row">
+                       <label>새 비밀번호 확인</label>
+                       <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">              
+                   </div>
 
-                    <button class="myInfo-submit">변경하기</button>
+                   <button class="myInfo-submit">변경하기</button>
 
-                </form>
+               </form>
 
-            </section>
-		</section>
-		
-	</main>
+           </section>
+	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

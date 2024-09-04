@@ -12,60 +12,58 @@
     <link rel="stylesheet" href="/resources/css/myLibrary/library-style.css">
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
+	<section class="container">
+		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
 		
-		<section class="container">
-			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
-			
-			<section class="library-area">
-				<h1>도서현황</h1>
-				<div class="btn-area">
-					<button class="selected">대출중인 도서</button>
-					<button>이전 대출내역</button>
-					<button>예약내역</button>
-					<button>신청내역</button>
-				</div>
-				<p>대출중인 도서</p>
-				<table id="list-table">
-					<thead>
-						<tr>
-							<th>등록번호</th>
-							<th>도서명</th>
-							<th>대출일/반납예정일</th>
-							<th>대출상태</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>JU0000041821</td>
-							<td>셜록 홈즈 - 주홍색 연구</td>
-							<td>2008-02-21<br>2008-03-06</td>
-							<td>연체중</td>
-						</tr>
-						<tr>
-							<td>JU0000041821</td>
-							<td>셜록 홈즈 - 주홍색 연구</td>
-							<td>2008-02-21<br>2008-03-06</td>
-							<td>연체중</td>
-						</tr>
-						<tr>
-							<td>JU0000041821</td>
-							<td>셜록 홈즈 - 주홍색 연구</td>
-							<td>2008-02-21<br>2008-03-06</td>
-							<td>연체중</td>
-						</tr>
-						<tr>
-							<td>JU0000041821</td>
-							<td>셜록 홈즈 - 주홍색 연구</td>
-							<td>2008-02-21<br>2008-03-06</td>
-							<td>연체중</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
+		<section class="library-area">
+			<h1>도서현황</h1>
+			<div class="btn-area">
+				<button class="selected">대출중인 도서</button>
+				<button>이전 대출내역</button>
+				<button>예약내역</button>
+				<button>신청내역</button>
+			</div>
+			<p>대출중인 도서</p>
+			<table id="list-table">
+				<thead>
+					<tr>
+						<th>등록번호</th>
+						<th>도서명</th>
+						<th>대출일/반납예정일</th>
+						<th>대출상태</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>JU0000041821</td>
+						<td>셜록 홈즈 - 주홍색 연구</td>
+						<td>2008-02-21<br>2008-03-06</td>
+						<td>연체중</td>
+					</tr>
+					<tr>
+						<td>JU0000041821</td>
+						<td>셜록 홈즈 - 주홍색 연구</td>
+						<td>2008-02-21<br>2008-03-06</td>
+						<td>연체중</td>
+					</tr>
+					<tr>
+						<td>JU0000041821</td>
+						<td>셜록 홈즈 - 주홍색 연구</td>
+						<td>2008-02-21<br>2008-03-06</td>
+						<td>연체중</td>
+					</tr>
+					<tr>
+						<td>JU0000041821</td>
+						<td>셜록 홈즈 - 주홍색 연구</td>
+						<td>2008-02-21<br>2008-03-06</td>
+						<td>연체중</td>
+					</tr>
+				</tbody>
+			</table>
 		</section>
-	</main>
+	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

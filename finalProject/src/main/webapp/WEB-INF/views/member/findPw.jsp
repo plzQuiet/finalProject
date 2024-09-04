@@ -12,39 +12,37 @@
     <link rel="stylesheet" href="/resources/css/member/findPw.css">
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
+	<form action="/member/findPw" method="post" name="findPwFrm" id="findPwFrm">
+		<div class="findPw-logo">
+			<img src="/resources/images/logo.png">
+			비밀번호 초기화
+		</div>
 		
-		<form action="/member/findPw" method="post" name="findPwFrm" id="findPwFrm">
-			<div class="findPw-logo">
-				<img src="/resources/images/logo.png">
-				비밀번호 초기화
-			</div>
-			
-			
-			<div class="findPw-input-area">
-				<span>이메일</span>
-				<input type="text" name="memberEmail" id="memberEmail">
-				<button type="button" id="sendAuthKeyBtn">인증번호 받기</button>
-			</div>
-			
-			<span class="findPw-message" id="emailMessage"></span>
-			
-			
-			<div class="findPw-input-area">
-				<span>인증번호</span>
-				<input type="text" name="authKey" id="authKey">
-				<button type="button" id="checkAuthKeyBtn">인증하기</button>
-			</div>
-			
-			<span class="findPw-message" id="authKeyMessage"></span>
-			
-			<div class="btn-area">
-				<button>확인</button>
-			</div>
-		</form>
 		
-	</main>
+		<div class="findPw-input-area">
+			<span>이메일</span>
+			<input type="text" name="memberEmail" id="memberEmail">
+			<button type="button" id="sendAuthKeyBtn">인증번호 받기</button>
+		</div>
+		
+		<span class="findPw-message" id="emailMessage"></span>
+		
+		
+		<div class="findPw-input-area">
+			<span>인증번호</span>
+			<input type="text" name="authKey" id="authKey">
+			<button type="button" id="checkAuthKeyBtn">인증하기</button>
+		</div>
+		
+		<span class="findPw-message" id="authKeyMessage"></span>
+		
+		<div class="btn-area">
+			<button>확인</button>
+		</div>
+	</form>
+		
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<script src="/resources/js/member/findPw.js"></script>
 </body>

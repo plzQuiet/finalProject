@@ -12,38 +12,35 @@
     <link rel="stylesheet" href="/resources/css/member/findId.css">
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
+	<form action="/member/findId" method="post" name="findIdFrm" id="findIdFrm">
+		<div class="findId-logo">
+			<img src="/resources/images/logo.png">
+			아이디 찾기
+		</div>
 		
-		<form action="/member/findId" method="post" name="findIdFrm" id="findIdFrm">
-			<div class="findId-logo">
-				<img src="/resources/images/logo.png">
-				아이디 찾기
-			</div>
-			
-			
-			<div class="findId-input-area">
-				<span>이름</span>
-				<input type="text" name="memberName" id="memberName">
-			</div>
-			
-			<span class="findPw-message" id="nameMessage"></span>
-			
-			
-			<div class="findId-input-area">
-				<span>전화번호</span>
-				<input type="text" name="memberTel" id="memberTel">
-			</div>
-			
-			<span class="findPw-message" id="telMessage"></span>
-			
-			
-			<div class="btn-area">
-				<button>확인</button>
-			</div>
-		</form>
 		
-	</main>
+		<div class="findId-input-area">
+			<span>이름</span>
+			<input type="text" name="memberName" id="memberName">
+		</div>
+		
+		<span class="findPw-message" id="nameMessage"></span>
+		
+		
+		<div class="findId-input-area">
+			<span>전화번호</span>
+			<input type="text" name="memberTel" id="memberTel">
+		</div>
+		
+		<span class="findPw-message" id="telMessage"></span>
+		
+		
+		<div class="btn-area">
+			<button>확인</button>
+		</div>
+	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<script src="/resources/js/member/findId.js"></script>
 </body>
