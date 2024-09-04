@@ -26,39 +26,47 @@
 
 					<article class="cafe-menu">
 						<div class="cafe-menu-area">
-							<img src="/resources/images/menu/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
+							<a href="#">
+								<img src="/resources/images/menu/americano.png">
+								<p>아이스 아메리카노</p>
+								<p>3500원</p>
+							</a>
 						</div>
 						
 						<div class="cafe-menu-area">
-							<img src="/resources/images/menu/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
+							<a href="#">
+								<img src="/resources/images/menu/americano.png">
+								<p>아이스 아메리카노</p>
+								<p>3500원</p>
+							</a>
 						</div>
 						
 						<div class="cafe-menu-area">
-							<img src="/resources/images/menu/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
+							<a href="#">
+								<img src="/resources/images/menu/americano.png">
+								<p>아이스 아메리카노</p>
+								<p>3500원</p>
+							</a>
 						</div>
 						
 						<div class="cafe-menu-area">
-							<img src="/resources/images/menu/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
+							<a href="#">
+								<img src="/resources/images/menu/americano.png">
+								<p>아이스 아메리카노</p>
+								<p>3500원</p>
+							</a>
 						</div>
 						
 						<div class="cafe-menu-area">
-							<img src="/resources/images/menu/jamonghoneyblended.jpg">
-							<p>자몽 허니 블렌디드</p>
-							<p>5500원</p>
+							<a href="#">
+								<img src="/resources/images/menu/jamonghoneyblended.jpg">
+								<p>자몽 허니 블렌디드</p>
+								<p>3500원</p>
+							</a>
 						</div>
 					</article>
 				</section>
 			</section>
-
-
 		</section>
 	</main>
 </body>

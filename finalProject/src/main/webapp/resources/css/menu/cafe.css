@@ -56,7 +56,7 @@ main{
 	border: 2px solid #8FB788;
 	border-radius: 10px;
 	color: #8FB788;
-	font-weight: 800;
+	font-weight: bold;
 	cursor: pointer;
 }
 
@@ -72,23 +72,23 @@ main{
     gap: 20px 75px;
 }
 
-.cafe-menu-area{
+.cafe-menu-area a{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-.cafe-menu-area > img{
+.cafe-menu-area  img{
 	max-width:200px;
 	margin-bottom: 10px;
 }
 
-.cafe-menu-area > p {
+.cafe-menu-area  p {
 	font-size: 15px;
 }
 
-.cafe-menu-area > p:first-of-type{
+.cafe-menu-area  p:first-of-type{
 	font-weight: 800;
 }
 
