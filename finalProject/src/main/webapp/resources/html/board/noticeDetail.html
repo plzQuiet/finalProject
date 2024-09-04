@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글쓰기</title>
+    <title>Detail</title>
 
-    <link rel="stylesheet" href="../../css/board/boardWrite-style.css">
+    <link rel="stylesheet" href="../../css/board/noticeDetail-style.css">
 </head>
 <body>
-
-    <!-- 공지사항 / 책 후기 나눠요 공통 화면 -->
 
     <header>header 부분</header>
 
@@ -31,20 +29,67 @@
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">공지사항/책 후기 나눠요</div>
+            <div class="content-title">공지사항</div>
             <div class="title-line"></div>
+
+            <!-- 게시글 상세 화면 -->
+            <section class="board-detail">
+                <!-- 제목 -->
+                <h1 class="board-title">작성한 제목 나올 부분</h1>
+
+                <!-- 작성자 / 작성일 / 조회수 -->
+                <div class="board-nav">
+                    <div class="member-name">
+                        <span>관리자</span>
+                    </div>
+    
+                    <div class="board-info">
+                        <!-- 최초 작성일 -->
+                        <p><span>작성일</span>&nbsp;2024-09-25</p>
+                        <!-- 게시글 수정 시 마지작 수정일로 변경되어 반영됨 -->
+                        <!-- <p><span>마지막 수정일</span>&nbsp;2024-09-26</p> -->
+    
+                        <p><span>조회수</span>&nbsp;104</p>
+                    </div>
+
+                </div>
+
+                <!-- 이미지 보여지는 영역 -->
+                <!-- 썸네일 X -->
+                <div class="img-box">
+                    <!-- 등록한 이미지가 있으면 보여줘야하는 영역 -->
+                    <div class="boardImg">
+                        <img src="../../images/library_book.png">
+                    </div>
+                </div>
+
+                <!-- 게시글 내용 -->
+                <div class="board-content">자바라이브러리 소개합니다</div> 
+                
+                <!-- 버튼 영역 -->
+                <div class="btn-area">
+                    <!-- 수정(로그인 한 멤버번호== 작성한 멤버번호) -->
+                    <button id="updateBtn">수정</button>
+                    <!-- 삭제(로그인 한 멤버번호== 작성한 멤버번호) -->
+                    <button id="deleteBtn">삭제</button>
+
+                    <!-- 목록으로 -->
+                    <button id="listBtn">목록으로</button>
+                </div>
+
+            </section>
 
             <!-- 게시글 작성 화면 -->
             <!-- notice / bookreview 공통 -->
-            <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+            <!-- <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data"> -->
                 <!-- 제목 -->
-                <h1 class="board-title">
-                    <input type="text" name="boardTitle" placeholder="제목 입력">
-                </h1>
+                <!-- <h1 class="board-title">
+                    <input type="text" name="boardTitle" placeholder="제목">
+                </h1> -->
 
                 <!-- 이미지 등록 영역 -->
-                <h5>이미지 등록</h5>
-                <div class="img-box">
+                <!-- <h5>이미지 등록</h5> -->
+                <!-- <div class="img-box">
                     <div class="boardImg">
                         <label for="img0">
                             <img src="" class="preview">
@@ -60,21 +105,21 @@
                         <input type="file" name="images" class="inputImage" id="img1" accept="image/*">
                         <span class="delete-image">&times;</span>
                     </div>
-                </div>
+                </div> -->
 
                 
                 <!-- 내용 -->
-                <div class="board-content">
+                <!-- <div class="board-content">
                     <textarea name="boardContent"></textarea>
-                </div>
+                </div> -->
 
                 <!-- 버튼 영역 -->
-                <div class="btn-area">
+                <!-- <div class="btn-area">
                     <button>취소</button>
                     <button type="submit" id="writeBtn">등록</button>
-                </div>
+                </div> -->
 
-            </form>
+            <!-- </form> -->
         </section>
 
 
