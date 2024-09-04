@@ -28,7 +28,7 @@
 	top:50%;
 	left:50%; 
 	width:970px;
-	max-height: 500px;
+	max-height: 800px;
 	overflow: auto;
 
 	transform:translate(-50%, -50%);
@@ -75,28 +75,27 @@
 	overflow: auto;
 }
 
-.edit-popup_content > div{
+.edit-popup_content > form{
 	width: 90%;
 
 	display: flex;
 	flex-direction: column;
 }
 
-.edit-popup_content > div > div{ margin: 10px;}
+.edit-popup_content > form > div > div{ margin: 10px;}
 
-.edit-popup_content > div > div > span{ 
+.edit-popup_content > form > div > div > span{ 
 	display: inline-block;
 
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 500;
-	margin-right: 20px;
 	width: 10%;
 }
 
 .popupTitle > input{
 	width: 85%;
 	font-size: 16px;
-	padding: 2px;
+	padding: 2px 2px 2px 10px;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
 }
@@ -104,7 +103,7 @@
 .popupAddress > input{
 	width: 75%;
 	font-size: 16px;
-	padding: 2px;
+	padding: 2px 2px 2px 10px;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
 }
@@ -127,8 +126,8 @@
 }
 
 #map2{
-	width: 100%;
-	height: 300px;
+	width: 90%;
+	height: 200px;
 }
 
 .popupIntroSuround > div{
@@ -139,7 +138,7 @@
 
 .popupIntroSuround > textarea{
 	width: 100%;
-	height: 150px;
+	height: 125px;
 
 	resize: none;
 	border: 1px solid #d4d4d4;
@@ -450,6 +449,8 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 }
 
 .libraryAnother a{
+	display: inline-block;
+	width: 100%;
 	font-size: 18px;
 	text-decoration: none;
 	line-height: 35px;
@@ -609,11 +610,11 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 						<table class="introduce-another-content">
 							<tr>
 								<th>주소</th>
-								<td>서울 중구 세종대로 110 서울도서관</td>
+								<td id="anLibraryAddress">서울 중구 세종대로 110 서울도서관</td>
 							</tr>
 							<tr>
 								<th>소개</th>
-								<td>다른 도서관 소개글</td>
+								<td id="anLibraryIntro">다른 도서관 소개글</td>
 							</tr>
 						</table>
 
@@ -623,16 +624,20 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
                 
                 <article class="library-another-images-area">
 					<div class="boardImg">
+						<img src="/resources/images/intro/library_map_1F.png" alt="">
 						<img src="/resources/images/intro/library_map_1B.png" alt="">
-						<img src="/resources/images/intro/library_map_1B.png" alt="">
-						<img src="/resources/images/intro/library_map_1B.png" alt="">
-						<img src="/resources/images/intro/library_map_1B.png" alt="">
+						<img src="/resources/images/intro/library_map_2F.png" alt="">
+						<img src="/resources/images/intro/library_map_3F.png" alt="">
 					</div>
                 </article>
 
+				<!-- 검색한 지도의 위도, 경도 저장 -->
+				<input type="hidden" name="libraryLat" value="">
+				<input type="hidden" name="libraryLng" value="">
+
 				<div class="manager-btn-area">
 					<button onclick="openEditModal(this)" id="insertLibrary">추가</button>
-					<button onclick="openEditModal(this)" id="updateLibrary">수정</button>
+					<button onclick="openUpdateModal(this)" id="updateLibrary">수정</button>
 					<button onclick="openModal(this)" id="deleteLibrary">삭제</button>
 				</div>
                 
@@ -650,9 +655,10 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	  	  
 	      <!--팝업 컨텐츠 영역-->
 	      <div class="edit-popup_content">
+			<form action="" method="post" name="editIntroFrm">
 			<div>
 	          <div class="popupTitle"><span>도서관명</span> <input type="text" name="libraryName"> </div>
-	          <div class="popupAddress"> <span>주소</span> <input type="text" name="libraryAddress" id="libraryAddress"> <button id="searchMap">검색</button> </div>
+	          <div class="popupAddress"> <span>주소</span> <input type="text" name="libraryAddress" id="libraryAddress"> <button type="button" id="searchMap">검색</button> </div>
 			  <div class="popup-map-suround">
 				  <div id="map2"></div>
 			  </div>
@@ -706,6 +712,11 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 
 		  <!-- 기존 이미지가 있다가 삭제된 이미지의 순서를 기록 -->
 		  <input type="hidden" name="deleteList" value="">
+
+		  <!-- 검색한 지도의 위도, 경도 저장 -->
+		  <input type="hidden" name="searchLat" value="">
+		  <input type="hidden" name="searchLng" value="">
+		</form>
 	  </div>
 	</div>
 
@@ -873,144 +884,169 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 		
 		/* ---------------------------------------------------------------------- */
 
-		/* 편집 팝업 주소 검색 */
+		/* 편집 수정 모달 열기 */
+		/* 편집 수정 모달 열기 */
+		const curLibraryNm = document.querySelector(".libraryAnother.current > a");
+		const curLibraryAdd = document.getElementById("anLibraryAddress");
+		const curLibraryIntro = document.getElementById("anLibraryIntro");
+		const curLibraryLat = document.getElementsByName("libraryLat")[0];
+		const curLibraryLng = document.getElementsByName("libraryLng")[0];
+		const curLibraryImg = document.querySelectorAll(".library-another-images-area img");
+
+		/* 지도의 위도 경도 */
+		let position;
+        let lat = 33.450701;
+        let lng = 126.570667;
+
+		function openUpdateModal(e){
+			editPopup.style.display = "block";
+
+			/* 모달 지도 초기화 */
+			map2.relayout();
+			map2.setCenter(mapOptions.center);
+			map.setLevel(mapOptions.level);
+
+			libraryName.value = curLibraryNm.innerText;
+			libraryIntroText.value = curLibraryIntro.innerText;
+			addressInput.value = curLibraryAdd.innerText;
+
+			for(let i = 0; i < curLibraryImg.length; i++){
+				preview[i].setAttribute("src", curLibraryImg[i].getAttribute("src"));
+			}
+
+			if(curLibraryLat.value.trim().length != 0){
+				lat = curLibraryLat.value;
+			}
+
+			if(curLibraryLng.value.trim().length != 0){
+				lng = curLibraryLng.value;
+			}
+
+		}
+
 		
+
+		/* 편집 팝업 주소 검색 */
 		var mapContainer = document.getElementById('map2');
 		var mapOptions = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			center: new kakao.maps.LatLng(lat, lng),
 			level: 3
 		};
 
 		var map2 = new kakao.maps.Map(mapContainer, mapOptions);
-		map2.relayout();
-		map2.setCenter(mapOptions.center);
-		 map.setLevel(mapOptions.level);
-		let position;
-        let lat;
-        let lng;
+
+		// 마커가 표시될 위치입니다 
+		var markerPosition3  = new kakao.maps.LatLng(lat, lng); 
+
+		// 마커를 생성합니다
+		var marker2 = new kakao.maps.Marker({
+			position: markerPosition3
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker2.setMap(map2);
 
 		// 주소-좌표 변환 객체를 생성합니다
-        var geocoder = new kakao.maps.services.Geocoder();
+		var geocoder = new kakao.maps.services.Geocoder();
 
-		searchMap.addEventListener("click", () => {
+		searchMap.addEventListener("click", function() {
 			geocoder.addressSearch(addressInput.value, function(result,status){
 				
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
+				marker2.setMap(null);
 				var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-				console.log(coords);
-
 				// 결과값으로 받은 위치를 마커로 표시합니다
-                var marker = new kakao.maps.Marker({
-                    map: map2,
-                    position: coords
-                });
-
-				const div = document.createElement("div");
-                const p = document.createElement("p");
-                p.innertext = addressInput.value;
-                div.append(p);
-
-				// 인포윈도우로 장소에 대한 설명을 표시합니다
-                var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">'+addressInput.value+'</div>'
-                });
-
-				 // 마커에 마우스오버 이벤트를 등록합니다
-				 kakao.maps.event.addListener(marker, 'mouseover', function() {
-                // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
-                    infowindow.open(map2, marker);
-                });
-
-				// 마커에 마우스아웃 이벤트를 등록합니다
-                kakao.maps.event.addListener(marker, 'mouseout', function() {
-                    // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
-                    infowindow.close();
-                });
+				marker2 = new kakao.maps.Marker({
+					map: map2,
+					position: coords
+				});
 
 				// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                map2.setCenter(coords);
+				map2.setCenter(coords);
 
 				position = map2.getCenter();
-                console.log(position);
+				console.log(position);
 
-                lat = position.getLat();
-                lng = position.getLng();
-                console.log("lat : " + lat);
-                console.log("lng : " + lng);
+				lat = position.getLat();
+				lng = position.getLng();
+				console.log("lat : " + lat);
+				console.log("lng : " + lng);
 
+				document.querySelector("[name='searchLat']").value = lat;
+				document.querySelector("[name='searchLng']").value = lng;
 			}
 
-			})
-		})
+			});
+		});
 
 		/* ---------------------------------------------------------------------------------------------------------------------- */
 		/* 모달 이미지 추가및 삭제 */
 		// 미리보기 관련 요소 모두 얻어오기
-// --> 동일한 개수의 요소가 존재함 == 인덱스가 서로 일치함
-const preview = document.getElementsByClassName("preview");
-const inputImage = document.getElementsByClassName("inputImage");
-const deleteImage = document.getElementsByClassName("delete-image");
+		// --> 동일한 개수의 요소가 존재함 == 인덱스가 서로 일치함
+		const preview = document.getElementsByClassName("preview");
+		const inputImage = document.getElementsByClassName("inputImage");
+		const deleteImage = document.getElementsByClassName("delete-image");
 
-// 게시글 수정 시 삭제된 이미지의 레벨(위치)를 저장할 input 요소
-const deleteList = document.getElementById("deleteList");
+		// 게시글 수정 시 삭제된 이미지의 레벨(위치)를 저장할 input 요소
+		const deleteList = document.getElementById("deleteList");
 
-// 게시글 수정 시 삭제된 이미지의 레벨(위치)를 기록해둘 set 생성
-const deleteSet = new Set(); // 중복 허용 X, 순서 X 
-                             // -> 여러번 클릭 시 중복 값 저장 방지
+		// 게시글 수정 시 삭제된 이미지의 레벨(위치)를 기록해둘 set 생성
+		const deleteSet = new Set(); // 중복 허용 X, 순서 X 
+									// -> 여러번 클릭 시 중복 값 저장 방지
 
-for(let i = 0; i < inputImage.length; i++){
+		for(let i = 0; i < inputImage.length; i++){
 
-    // 파일이 선택 되었을 때
-    inputImage[i].addEventListener("change",function(){
+			// 파일이 선택 되었을 때
+			inputImage[i].addEventListener("change",function(){
 
-        if(this.files[0] != undefined){
+				if(this.files[0] != undefined){
 
-            const reader = new FileReader(); 
-            // 선택된 파일을 읽을 객체 생성
+					const reader = new FileReader(); 
+					// 선택된 파일을 읽을 객체 생성
 
-            reader.readAsDataURL(this.files[0]);
-            // 지정된 파일을 읽음 -> result에 저장(URL 포함)
-            // -> URL을 이용해서 이미지 볼 수 있음
+					reader.readAsDataURL(this.files[0]);
+					// 지정된 파일을 읽음 -> result에 저장(URL 포함)
+					// -> URL을 이용해서 이미지 볼 수 있음
 
-            reader.onload = function(e){// reader가 파일을 다 읽어온 경우
-                // e.target == reader
-                // e.target.result == 읽어들인 이미지의 URL
-                // preview[i] == 파일이 선택된 input 태그와 인접한 preview이미지 태그
+					reader.onload = function(e){// reader가 파일을 다 읽어온 경우
+						// e.target == reader
+						// e.target.result == 읽어들인 이미지의 URL
+						// preview[i] == 파일이 선택된 input 태그와 인접한 preview이미지 태그
 
-                preview[i].setAttribute("src", e.target.result);
+						preview[i].setAttribute("src", e.target.result);
 
-                // 이미지가 불러와졌을 때
-                // deleteSet에서 해당 레벨을 제고(삭제 목록에서 제외)
-                deleteSet.delete(i);
-            }
+						// 이미지가 불러와졌을 때
+						// deleteSet에서 해당 레벨을 제고(삭제 목록에서 제외)
+						deleteSet.delete(i);
+					}
 
-        }else{ // 파일이 선택이 되지 않았을 때 (취소)
-            preview[i].removeAttribute("src");
-			deleteSet.add(i);
-        }
+				}else{ // 파일이 선택이 되지 않았을 때 (취소)
+					preview[i].removeAttribute("src");
+					deleteSet.add(i);
+				}
 
-    });
+			});
 
-    /* 미리보기 삭제 버튼(X)이 클릭 되었을 때 */
-    deleteImage[i].addEventListener("click",function(){
-        
-        // 미리보기가 존재하는 경우에만(이전에 추가된 이미지가 있을 때만) x버튼 동작
-        if(preview[i].getAttribute("src") != ""){
-            /* 미리보기 삭제 */
-            preview[i].removeAttribute("src");
-    
-            /* input의 값 ""만들기 */
-            inputImage[i].value = "";
-    
-            // deleteSet에 삭제된 이미지 레벨(i) 추가
-            deleteSet.add(i);
+			/* 미리보기 삭제 버튼(X)이 클릭 되었을 때 */
+			deleteImage[i].addEventListener("click",function(){
+				
+				// 미리보기가 존재하는 경우에만(이전에 추가된 이미지가 있을 때만) x버튼 동작
+				if(preview[i].getAttribute("src") != ""){
+					/* 미리보기 삭제 */
+					preview[i].removeAttribute("src");
+			
+					/* input의 값 ""만들기 */
+					inputImage[i].value = "";
+			
+					// deleteSet에 삭제된 이미지 레벨(i) 추가
+					deleteSet.add(i);
 
-        }
+				}
 
 
-    });
+			});
 }
 
 // input type="hidden" 테그에 
@@ -1024,8 +1060,30 @@ for(let i = 0; i < inputImage.length; i++){
 	const editLibrary = document.getElementById("edit-confirm_btn");
 
 	editLibrary.addEventListener("click", e => {
-		document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
+		if(libraryName.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 명을 입력해주세요.");
+			libraryName.focus();
+			return;
+		}
 
+		if(libraryIntroText.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 소개글을 입력해주세요.");
+			libraryIntroText.focus();
+			return;
+		}
+
+		if(addressInput.value.trim().length == 0){
+			e.preventDefault();
+			alert("도서관 주소를 입력해주세요.");
+			addressInput.focus();
+			return;
+		}
+
+		document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
+		
+		e.preventDefault();
 	})
 
 

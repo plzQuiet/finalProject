@@ -13,7 +13,11 @@
             height: 700px;  
         }
 
-        .calendar-category-suround{margin-bottom: 15px;}
+        .cate-button-surround{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         .calendar-category{
             font-size: 18px;
@@ -34,8 +38,89 @@
         .classDay{background-color: yellow;}
         .eventDay{background-color: #5547ff;}
 
+        #calendar-edit-btn{
+            border: 0;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #5547ff;
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.3s ;
+        }
+
+        #calendar-edit-btn:hover{
+            color: black;
+            background-color: #5647ff77;
+        }
+
+        .surround-calendar-area{
+            flex-basis: 55%;
+            position: relative;
+        }
+
+        /* 달력 해더 css */
+        .fc-col-header-cell{
+            background-color: #8FB788;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* 요일별 css */
+        .fc-day-fri a{
+            color: #d4d4d4;
+            font-size: 15px;
+        }
+
+
+        .fc-day-sun a{
+            color: #ef4e4e69;
+            font-size:15px;
+        }
+
+
+        .fc-day-sat a{
+        color: rgba(0, 4, 255, 0.3);
+        font-size:15px;
+        }
+
+        /* 달력 버튼 영역 */
+        .calendar-btn-area{
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .calendar-btn-area div{
+            width: 70px;
+            height: 50px;
+
+            text-align: center;
+            line-height: 30px;
+
+            border: 1px solid #8FB788;
+            border-radius: 5px;
+
+            background-color: white;
+            color: #8FB788;
+            box-shadow: 2px 2px 3px #d4d4d4;
+
+            padding: 10px;
+            margin: 0 10px 0 0;
+            cursor: pointer;
+            transition-duration: 0.3s;
+        }
+
+        .calendar-btn-area div:hover{
+            background-color: #8FB788;
+            color: white;
+        }
+        
         #date-div{
-            font-size: 35px;
+            margin-top: 10px;
+            font-size: 25px;
             font-weight: bold;
         }
         
@@ -78,16 +163,26 @@
             <div class="title-line"></div>
 
             <section class="content-detail-section">
-                <div class="calendar-category-suround">
-                    <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
-                    <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
-                    <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
-                    <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                <div class="cate-button-surround">
+                    <div class="calendar-category-suround">
+                        <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
+                        <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
+                        <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
+                        <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
+                    </div>
+                    <button id="calendar-edit-btn">일정편집</button>
                 </div>
 
                 <div class="title-line"></div>
 
-                <div id='calendar'></div>
+                <div class="surround-calendar-area">
+                    <div class="calendar-btn-area">
+                        <div id="prev-btn">&lt;</div>
+                        <div id="today-btn">오늘</div>
+                        <div id="next-btn">&gt;</div>
+                    </div>
+                    <div id='calendar'></div>
+                </div>
 
                 <div class="title-line"></div>
 
@@ -120,10 +215,13 @@
     </footer>
 
     <script>
+        const todayBtn = document.getElementById("today-btn");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
         const dateDiv = document.getElementById("date-div");
         const todayDate = new Date();
-        const dateFormat = todayDate.getFullYear() + "-" + ((todayDate.getMonth()+1) < 10 ? "0" + (todayDate.getMonth()+1) : (todayDate.getMonth()+1))
-                        + "-" + ((todayDate.getDate()) < 10 ? "0" + (todayDate.getDate()) : (todayDate.getDate()) );
+        const dateFormat = ((todayDate.getMonth()+1) < 10 ? "0" + (todayDate.getMonth()+1) : (todayDate.getMonth()+1))
+        + "월 " + ((todayDate.getDate()) < 10 ? "0" + (todayDate.getDate()) : (todayDate.getDate()) ) + "일";
         (function(){
             dateDiv.innerText = dateFormat;
         })();
@@ -133,18 +231,57 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
+          headerToolbar:{
+            start : '',
+            center : "title",
+            end : ''
+          },
+          locale : 'ko',
+          titleFormat : function(date){
+            return date.date.year + "년 " + (parseInt(date.date.month) + 1) + "월";
+          },
+          // 일 빼기
+        dayCellContent : function(info){
+            var number=document.createElement("a");
+            number.classList.add("fc-daygrid-day-number");
+            number.innerHTML =info.dayNumberText.replace("일","");
+            return {
+                html:number.outerHTML
+            };
+        },
+
           selectable : true,/* 캘랜더 날짜 선택 */
          
             /* 캘런더 날짜 선택 시 함수 수행*/
           dateClick : function(e){
-            dateDiv.innerText = e.dateStr;
+            selectDate = e.dateStr;
+            let selectArray = selectDate.split("-");
+            console.log(selectArray);
+            dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
             /* e.dateStr - 클릭한 날짜 가져옴 */
           }
           
         });
         calendar.render();
 
+        /* 캘런더 오늘 버튼 */
+        todayBtn.addEventListener("click",function() {
+            calendar.today();
+            dateDiv.innerText = dateFormat;
+        })
+
+        /* 캘런더 이전 버튼 */
+        prevBtn.addEventListener("click",function(){ calendar.prev();})
+
+        /* 캘런더 next 버튼 */
+        nextBtn.addEventListener("click",function() {calendar.next();})
+
         
+        /* 캘런더 생성 메소드 */
+        function createCalender() {}
+
+        /* 일정 목록 생성 */
+        function createSchedule(){}
 
     </script>
     

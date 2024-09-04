@@ -11,14 +11,12 @@
 	<div id="popup_layer">
 	  <div class="popup_box">
 	  	  <div class="popup_header">
-	  	  	<p>구매 결제</p>
+	  	  <!-- 안에 p 태그로 함 -->
 	  	  </div>
 	  	  
 	      <!--팝업 컨텐츠 영역-->
 	      <div class="popup_content">
-	          <p>
-	          	결제하시겠습니까?
-	          </p>
+	      <!-- 안에 p태그로 함 -->
 	      </div>
 	      <!--팝업 버튼 영역-->
 	      <div class="popup_btn">

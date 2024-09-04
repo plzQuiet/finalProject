@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<script>
+      var link = document.createElement('link');
+      link.rel ="shortcut icon";
+      link.href ="/resources/images/logo.png";
+      document.head.appendChild(link);
+</script>
+
 <header>
     <ul>
         <li><a href="/"><img id="homeLogo" src="/resources/images/logo.png">자바 라이브러리</a></li>

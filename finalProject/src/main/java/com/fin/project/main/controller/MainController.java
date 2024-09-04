@@ -32,4 +32,9 @@ public class MainController {
 	public String searchDetailForward() {
 		return "search/searchDetail";
 	}
+	
+	@GetMapping("/searchBook")
+	public String searchBookForward() {
+		return "search/searchBook";
+	}
 }
