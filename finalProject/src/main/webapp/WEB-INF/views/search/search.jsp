@@ -46,7 +46,7 @@
 							</label>
 						</div>
 					</div>
-
+					<div>검색어 '전체 : 잘린 머리처럼 불길한 것'에 대한 자료 검색 결과이며, 총 n건이 검색되었습니다.</div>
 					<hr>
 
 					<div class="body-content-mid">원하시는 도서를 검색해 보세요</div>
