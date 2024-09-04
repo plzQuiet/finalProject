@@ -276,6 +276,19 @@ h5{color: #555;}
 }
 
 
+/* 바꾸셈 */
+#commentArea{
+    width:100%;
+}
+
+.comment-detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 
 /* 댓글 수정/삭제 버튼 */
 
@@ -294,18 +307,23 @@ h5{color: #555;}
 }
 
 /* 댓글 작성하는 영역 */
+
+.comment-write-area{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 .comment-write-area textarea{
-    flex-basis: 75%;
     margin-right: 10px;
     resize: none;
+    width: 80%;
 }
 
 .comment-write-area button{
-    flex-basis: 7%;
-    height: 85px;
     border: none;
     background-color: #8FB788;
     color: white;
+    width: 20%;
 }
 
 
