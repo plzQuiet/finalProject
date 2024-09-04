@@ -2,16 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Menu</title>
-<link rel="stylesheet" href="/resources/css/menu/menu.css">
-<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
-<link rel="stylesheet" href="/resources/css/main-style.css">
+	<meta charset="UTF-8">
+	<title>Menu</title>
+	<link rel="stylesheet" href="/resources/css/menu/menu.css">
+	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+	<link rel="stylesheet" href="/resources/css/main-style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 	<main>
 		<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
+		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<section class="main">
 			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
 			
@@ -113,9 +115,8 @@
 
 		</section>
 	</main>
-
-
-	<script src="/resources/js/menu/menu.js"></script>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<script src="/resources/js/common/modal.js" defer></script>
+	<script src="/resources/js/menu/menu.js" defer></script>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

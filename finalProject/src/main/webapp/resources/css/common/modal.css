@@ -58,6 +58,7 @@
 	justify-content: center;
 	align-items:center;
 }
+
 .popup_box .popup_content p{ 
 	font-size: 20px;
 	color : #555;
@@ -123,4 +124,60 @@
 	bottom:0;
 	z-index:1001;
 	background:rgba(0,0,0,0.5);
-}    
+}
+
+
+/* 식권 구매 */
+.pay-meal-ticket{
+	display: flex;
+	flex-direction: column;
+	width:90%;
+}
+
+.meal-ticket-amount{
+	display: flex;
+	width: 100%; 
+	justify-content: space-between;
+}
+
+.pay-meal-ticket hr{
+	margin:20px 0; 
+}
+
+.meal-ticket-btnArea{
+	display: flex;
+	gap: 10px;
+}
+
+/* meal-ticket-btnArea 버튼 */
+.meal-ticket-btnArea input{
+	color: white;
+	background-color :#8FB788;
+	border:0;
+	border-radius: 10px;
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.meal-ticket-btnArea button:hover{
+	
+	background-color: #008c1d;
+	
+}
+
+
+#qty-result, #price-result{
+	border: 0;
+	font-size: 20px;
+	color : #555;
+	font-weight: 800;
+}
+
+
+#minusBtn:disabled {
+  background-color: #ddd;
+}
+

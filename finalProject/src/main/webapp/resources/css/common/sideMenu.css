@@ -47,6 +47,7 @@
 	font-weight: bold;
 	padding: 15px;
 	transition-duration: 0.3s;
+	width: 100%;
 }
 
 /* 레벨 2메뉴 a태그 hover */

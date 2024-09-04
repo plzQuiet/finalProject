@@ -64,6 +64,11 @@ main{
 	cursor: pointer;
 }
 
+#pay-btn:hover{
+	color:white;
+	background-color:  #8FB788;
+}
+
 /* 백반 table */
 table{
 	margin-top : 10px;
@@ -145,3 +150,4 @@ table * {border : 1px solid #ddd;}
 .snack-menu-detail p{
 	margin-top: 10px;
 }
+
