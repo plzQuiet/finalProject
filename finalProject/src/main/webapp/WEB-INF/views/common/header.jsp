@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<link rel="shortcut icon" href="/resources/images/logo.png">
+
+<script>
+      var link = document.createElement('link');
+      link.rel ="shortcut icon";
+      link.href ="/resources/images/logo.png";
+      document.head.appendChild(link);
+</script>
 
 <header>
     <ul>
