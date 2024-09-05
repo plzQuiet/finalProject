@@ -247,16 +247,19 @@ h5{color: #555;}
 }
 
 .btn-area button{
-    background-color: white;
-    border: 1px solid #8FB788;
+    background-color: #8FB788;
+    color: white;
+    border: none;
     width: 70px;
     height: 30px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .btn-area button:hover{
-    background-color: #8FB788;
-    color: white;
+    background-color: white;
+    color: black;
+    border: 1px solid #8FB788;
 }
 
 

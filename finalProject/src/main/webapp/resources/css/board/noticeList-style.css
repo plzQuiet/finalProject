@@ -196,16 +196,12 @@ input{
 }
 
 #searchBtn{
-    /* width: 40%; */
+    width: 10%;
     border: none;
     background-color: white;
     cursor: pointer;
     color: #8FB788;
 }
-
-
-
-
 
 
 
@@ -281,7 +277,6 @@ input{
     border: 1px solid #8FB788;
     background-color: white;
     font-weight: bold;
-    /* border-radius: 5px; */
 }
 
 #writeBtn:hover{
@@ -301,6 +296,14 @@ input{
     width: 24px;
     margin: 0 5px;
     text-align: center;
+    cursor: pointer;
+}
+
+.pagination > li:hover{
+    width: 24px;
+    margin: 0 5px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .pagination a{

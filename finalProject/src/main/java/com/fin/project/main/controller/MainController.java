@@ -37,4 +37,27 @@ public class MainController {
 	public String searchBookForward() {
 		return "search/searchBook";
 	}
+	
+	@GetMapping("/notice")
+	public String noticeListForword() {
+		return "board/noticeList";
+	}
+	
+	@GetMapping("/qna")
+	public String qnaListForword() {
+		return "board/qnaList";
+	}
+	
+	@GetMapping("/faq")
+	public String faqForword() {
+		return "board/faq";
+	}
+
+	@GetMapping("/review")
+	public String reviewListForword() {
+		return "board/reviewList";
+	}
+	
+	
+	
 }
