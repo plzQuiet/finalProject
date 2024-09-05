@@ -29,10 +29,7 @@ header{
     background-size: cover;
 }
 
-/* 검색창 */
-.search-area{
-    justify-content: right;
-}
+
 
 /* 내용 영역 */
 .main-content-suround-section{
@@ -107,6 +104,7 @@ header{
     background-color: #8FB788;
 }
 
+
 /* 레벨3 메뉴 ul(하위에 하위 메뉴) */
 .side-menu > li > ul{
     padding: 20px;
@@ -162,6 +160,21 @@ header{
     font-weight: bold;
 }
 
+.sub-title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.c1{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.u1>li{
+    line-height: 30px;
+}
+
+
 /* 선 */
 .title-line{
     width: 100%;
@@ -169,156 +182,43 @@ header{
     margin: 40px 0;
 }
 
-/* 검색창 */
-.search-area{
+.sub-title-line{
+    width: 100%;
+    border: 3px solid #008C1D;
+    margin: 20px 0;
+}
+
+/* 예약 페이지 */
+.reservation-container{
+    background-color: #80afe1;
+    padding:5px 10px 5px 20px
+}
+
+.reservation-container>button{
+    background-color: #0054b4;
+    outline: 0;
+    border: 0;
     height: 40px;
-    width: 380px;
-    border: 1px solid #8FB788;
-    background-color: white;
-    display: flex;
-    float: right;
-    margin-bottom: 12px;
+    width: 170px;
+    margin-left: 250px;
+    padding:5px 10px 5px 10px
+   
 }
 
-#searchKey{
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-
-input{
-    width: 300px;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    border: none;
-
-}
-
-#searchBtn{
-    /* width: 40%; */
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    color: #8FB788;
-}
-
-
-
-
-
-
-
-/* 게시글 목록 */
-.board-list{
-    width: 100%;
-    /* background-color: red; */
-    margin: 10px auto; 
-}
-
-.list-wrapper{
-    min-height: 500px;
-    width: 100%;
-}
-
-.list-table{
-    width: 100%;
-    padding: 20px;
-    border-collapse: collapse;
-}
-
-.list-table > thead{
-    background-color: #8FB788;
-    color: white;
-}
-
-.list-table tr{
-    height: 50px;
-}
-
-.list-table > tbody > tr{
-    border-bottom: 3px solid #8FB788;
-}
-
-.list-table tr > *{
-    text-align: center;
-}
-
-/* 번호 */
-.list-table tr > *:nth-of-type(1){width: 10%;}
-
-/* 제목 */
-.list-table tr > *:nth-of-type(2){
-    width: 50%;
-    text-align: center;
-    padding-left: 20px;
+.reservation-container a{
+    color :white;
     text-decoration: none;
 }
 
-/* 작성자 */
-.list-table tr > *:nth-of-type(3){width: 12%;}
 
-/* 작성일 */
-.list-table tr > *:nth-of-type(4){width: 14%;}
 
-/* 조회수 */
-.list-table tr > *:nth-of-type(5){width: 8%;}
 
-/* 글쓰기 버튼 */
-.btn-area{
-    height: 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
 
-#writeBtn{
-    /* margin-right: 50px; */
-    width: 90px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    border: 1px solid #8FB788;
-    background-color: white;
-    font-weight: bold;
-    /* border-radius: 5px; */
-}
 
-#writeBtn:hover{
-    background-color: #8FB788;
-    color: white;
-}
 
-/* pagination */
-.pagination{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
 
-.pagination > li{
-    width: 24px;
-    margin: 0 5px;
-    text-align: center;
-}
 
-.pagination a{
-    display: block;
-    /* width: 100%; */
-    /* height: 100%; */
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
 
-.currentPage{
-    background-color: #8FB788;
-    border-radius: 30%;
-    color: white !important;
-    letter-spacing: 0 !important;
-
-}
 
 /* footer 영역 */
 footer{
