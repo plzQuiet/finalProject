@@ -89,7 +89,10 @@
 	<div></div>
 </header>
 
-<c:if test="${ pageContext.request.servletPath != '/WEB-INF/views/common/main.jsp'}">
+<c:set var="forwardAddr" value="${requestScope['javax.servlet.forward.servlet_path']}"/>
+<c:set var="addrArr" value="${fn:split(forwardAddr, '/')}" />
+
+<c:if test="${forwardAddr != '/'}">
     <div class="library-book">
     	<img src="/resources/images/library_book.png">
     </div>
