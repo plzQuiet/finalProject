@@ -143,6 +143,14 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
     margin: auto;
 }
 
+/* 내용 영역 */
+.main-content-suround-section{
+    margin:auto;
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* footer 영역 */
 footer {
 	margin-top: 50px;

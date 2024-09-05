@@ -107,3 +107,16 @@
 	margin: 70px 0px 0 0;
 	width: 75%;
 }
+
+/* 제목 */
+.content-title{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/* 선 */
+.title-line{
+    width: 100%;
+    border: 3px solid #d4d4d4;
+    margin: 40px 0;
+}
