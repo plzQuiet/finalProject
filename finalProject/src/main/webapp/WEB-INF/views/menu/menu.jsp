@@ -11,110 +11,108 @@
 	<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-	<main>
-		<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<section class="main">
-			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
-			
-			<section class="main-content">
-				<div class="content-title">구내식당</div>
-				<div class="title-line"></div>
+	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<section class="main">
+		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+		
+		<section class="main-content">
+			<div class="content-title">구내식당</div>
+			<div class="title-line"></div>
 
-				<section class="content-detail-area">
-					<article class="week-meal">
-						<div class="week-meal-btn-area">
-							<p class="meal-title">백반</p>
-							<button id="pay-btn">식권 구매</button>
-						</div>
-						<table>
-							<thead>
-								<tr>
-									<td>월</td>
-									<td>화</td>
-									<td>수</td>
-									<td>목</td>
-									<td>금</td>
-									<td>토</td>
-									<td>일</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td rowspan="5" class="holiday">휴관일</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-								<tr>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-									<td>춘천 닭갈비</td>
-								</tr>
-							</tbody>
-						</table>
-					</article>
-					<article class="snack">
-						<p class="meal-title">분식</p>
-						<div class="meal-detail">
-							<div class="snack-menu">
-								<div class="snack-menu-detail">
-									<img src="/resources/images/menu/ramen.png">
-									<p>라면</p>
-								</div>
-								<div class="snack-menu-detail">
-									<img src="/resources/images/menu/ramen.png">
-									<p>라면</p>
-								</div>
-								<div class="snack-menu-detail">
-									<img src="/resources/images/menu/ramen.png">
-									<p>라면</p>
-								</div>
-								
-								<div class="snack-menu-detail">
-									<img src="/resources/images/menu/ramen.png">
-									<p>라면</p>
-								</div>
-								
-								
+			<section class="content-detail-area">
+				<article class="week-meal">
+					<div class="week-meal-btn-area">
+						<p class="meal-title">백반</p>
+						<button id="pay-btn">식권 구매</button>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<td>월</td>
+								<td>화</td>
+								<td>수</td>
+								<td>목</td>
+								<td>금</td>
+								<td>토</td>
+								<td>일</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td rowspan="5" class="holiday">휴관일</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+							</tr>
+							<tr>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+							</tr>
+							<tr>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+							</tr>
+							<tr>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+							</tr>
+							<tr>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+								<td>춘천 닭갈비</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+				<article class="snack">
+					<p class="meal-title">분식</p>
+					<div class="meal-detail">
+						<div class="snack-menu">
+							<div class="snack-menu-detail">
+								<img src="/resources/images/menu/ramen.png">
+								<p>라면</p>
 							</div>
+							<div class="snack-menu-detail">
+								<img src="/resources/images/menu/ramen.png">
+								<p>라면</p>
+							</div>
+							<div class="snack-menu-detail">
+								<img src="/resources/images/menu/ramen.png">
+								<p>라면</p>
+							</div>
+							
+							<div class="snack-menu-detail">
+								<img src="/resources/images/menu/ramen.png">
+								<p>라면</p>
+							</div>
+							
+							
 						</div>
-					</article>
-				</section>
+					</div>
+				</article>
 			</section>
-
 		</section>
-	</main>
+
+	</section>
 	<script src="/resources/js/common/modal.js" defer></script>
 	<script src="/resources/js/menu/menu.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
