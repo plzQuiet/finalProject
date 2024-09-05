@@ -138,7 +138,7 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
 
 
 .main{
-    width: 1200px;
+    width: 1024px;
     min-height: 600px;
     margin: auto;
 }
