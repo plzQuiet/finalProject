@@ -10,12 +10,12 @@
 	background-color: gray;
 }
 
-.book-area{
+.my-area{
 	width: 774px;
 	padding: 50px;
 }
 
-.book-area > h1{
+.my-area > h1{
 	padding-bottom: 20px;
     font-size: 40px;
     border-bottom: 2px solid #ddd;
