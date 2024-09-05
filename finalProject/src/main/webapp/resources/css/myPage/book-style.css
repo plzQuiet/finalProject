@@ -1,0 +1,60 @@
+.container{
+	display: flex;
+	justify-content: space-between;
+	width: 1024px;
+	margin: 20px auto;
+}
+
+.side-menu-article{
+	width: 200px;
+	background-color: gray;
+}
+
+.book-area{
+	width: 774px;
+	padding: 50px;
+}
+
+.book-area > h1{
+	padding-bottom: 20px;
+    font-size: 40px;
+    border-bottom: 2px solid #ddd;
+}
+
+.btn-area{
+	display: flex;
+	border-bottom: 1px solid #80AFE1;
+	border-left: 1px solid #ddd;
+	margin: 20px 0;
+}
+
+.btn-area > button{
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	background-color: white;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.btn-area > .selected{
+	background-color: #0054B4;
+	color: white;
+}
+
+#list-table{
+	width: 100%;
+	margin-top: 10px;
+	border: 1px solid #B9B9B9;
+	border-radius: 4px;
+	border-collapse: collapse;
+}
+
+thead > tr{
+	height: 40px;
+	background-color: #F0F0F0;
+}
+
+tbody td{
+	text-align: center;
+}

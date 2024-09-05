@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/myLibrary/library-style.css">
+    <link rel="stylesheet" href="/resources/css/myPage/book-style.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -17,7 +17,7 @@
 	<section class="container">
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
 		
-		<section class="library-area">
+		<section class="book-area">
 			<h1>도서현황</h1>
 			<div class="btn-area">
 				<button class="selected">대출중인 도서</button>
@@ -25,7 +25,7 @@
 				<button>예약내역</button>
 				<button>신청내역</button>
 			</div>
-			<p>대출중인 도서</p>
+			<p>대출중인 도서 : 4권</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -65,5 +65,7 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	
+	<script src="/resources/js/book.js"></script>
 </body>
 </html>
