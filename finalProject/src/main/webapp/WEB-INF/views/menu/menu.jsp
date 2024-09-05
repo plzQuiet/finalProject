@@ -113,8 +113,8 @@
 		</section>
 
 	</section>
-	<script src="/resources/js/common/modal.js" defer></script>
 	<script src="/resources/js/menu/menu.js" defer></script>
+	<script src="/resources/js/common/modal.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

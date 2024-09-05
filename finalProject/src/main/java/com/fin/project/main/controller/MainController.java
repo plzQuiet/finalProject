@@ -37,6 +37,7 @@ public class MainController {
 	public String searchBookForward() {
 		return "search/searchBook";
 	}
+
 	
 	@GetMapping("/notice")
 	public String noticeListForword() {
@@ -58,6 +59,11 @@ public class MainController {
 		return "board/reviewList";
 	}
 	
-	
-	
+
+	@GetMapping("/bookRequest")
+	public String bookRequestForward() {
+		return "search/bookRequest";
+	}
+
+
 }
