@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Detail</title>
 
-    <link rel="stylesheet" href="../../css/board/reviewDetail-style.css">
+    <link rel="stylesheet" href="/resources/css/main-style.css">
+    <link rel="stylesheet" href="/resources/css/board/reviewDetail-style.css">
+    <link rel="stylesheet" href="/resources/css/board/comment-style.css">
 </head>
 
 <body>
 
-    <header>header 부분</header>
-
-    <!-- 상단바 밑 사진 -->
-    <div id="img_div"></div>
+    <!-- header -->
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <section class="main-content-suround-section">
         <article class="side-menu-article">
@@ -122,60 +126,15 @@
                 </div> -->
 
             <!-- </form> -->
-            <!-- 댓글 작성된 영역 -->
-            <div id="commentArea">
-                <div class="comment-list-area">
-
-                    <div class="comment-detail">
-                        <div>
-                            <p class="comment-info">
-                                <!-- 이름 -->
-                                <span class="comment-writer">김길동</span>
-
-                                <!-- 작성일 -->
-                                <span class="comment-date">2024-09-25</span>
-                            </p>
-
-                            <!-- 댓글 내용 -->
-                            <p>저랑 취향이 같네용</p>
-                        </div>
-                        <!-- 버튼 영역 -->
-                        <!-- 댓글 작성자만 작성 가능 -->
-                        <div class="comment-btn-area">
-                            <!-- js 필요 -->
-                            <button>수정</button>
-                            <button>삭제</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 댓글 작성하는 영역 -->
-                <!-- 관리자만 보이는 영역 -->
-                <div class="comment-write-area">
-                    <textarea id="commentContent"></textarea>
-                    <button id="commentAdd">등록</button>
-                </div>
+           
+           <jsp:include page="/WEB-INF/views/board/comment.jsp"/>
         </section>
 
 
     </section>
 
-    <footer>
-        <article>
-            <a href="#">개인정보처리방침</a>
-            <span>|</span>
-            <a href="#"> 영상정보처리기 운영·관리방침 </a>
-        </article>
-        <div>
-            <img src="../../images/logo.png">
-            <div>
-                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
-                <p> 전화번호 : 1544-9970 </p>
-                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
-            </div>
-            <img src="../../images/wa_logo.png">
-        </div>
-    </footer>
+    <!-- footer -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
 </body>

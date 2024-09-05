@@ -247,16 +247,18 @@ h5{color: #555;}
 }
 
 .btn-area button{
-    background-color: white;
-    border: 1px solid #8FB788;
+    background-color: #8FB788;
+    border: #8FB788;
+    color: white;
     width: 70px;
     height: 30px;
     margin-left: 10px;
 }
 
 .btn-area button:hover{
-    background-color: #8FB788;
-    color: white;
+    background-color: white;
+    border: 1px solid #8FB788;
+    color: black;
 }
 
 /* 삭제버튼 */

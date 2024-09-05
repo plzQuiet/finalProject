@@ -197,7 +197,7 @@ input{
 }
 
 #searchBtn{
-    /* width: 40%; */
+    width: 10%;
     border: none;
     background-color: white;
     cursor: pointer;
@@ -302,6 +302,7 @@ input{
     width: 24px;
     margin: 0 5px;
     text-align: center;
+    cursor: pointer;
 }
 
 .pagination a{

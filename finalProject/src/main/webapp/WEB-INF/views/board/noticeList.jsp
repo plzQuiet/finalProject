@@ -1,24 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QnA</title>
+    <title>Notice</title>
 
-    <link rel="stylesheet" href="/resources/css/board/qnaList-style.css">
+    <link rel="stylesheet" href="/resources/css/main-style.css">
+    <link rel="stylesheet" href="/resources/css/board/noticeList-style.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-    <header>header 부분</header>
+    <!-- header -->
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <!-- 상단바 밑 사진 -->
-    <div id="img_div"></div>
-
-    <section class="main-content-suround-section">
+	<section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
@@ -33,10 +36,10 @@
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">문의사항</div>
+            <div class="content-title">공지사항</div>
             <div class="title-line"></div>
-
-            <!-- 검색창 -->
+            
+            <!-- 검색창 --> 
             <form action="#">
                 <div class="search-area">
                     <select name="key" id="searchKey">
@@ -57,9 +60,7 @@
                         <thead>
                             <tr>
                                 <th>번호</th>
-                                <!-- 비공개 글이면 자물쇠 처리 -->
                                 <th>제목</th>
-                                <!-- 이름 일부 암호 처리: 홍** -->
                                 <th>작성자</th>
                                 <th>작성일</th>
                                 <th>조회수</th>
@@ -75,26 +76,22 @@
                                     </tr>
                                 </c:when>
 
-                                <!-- <c:otherwise>
-                                <c:forEach var="#" items="#">
-                                게시글 조회 시 글 목록 존재 O
-                                <td>번호</td>
-                                <td>
-                                    제목
-                                    // 비공개 글 일 경우 자물쇠 표시
-                                    <i class="fa-solid fa-lock"></i>
-                                </td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                                </c:forEach>
-                            </c:otherwise> -->
+                                <%-- <c:otherwise>
+                                    <c:forEach var="#" items="#">
+                                    게시글 조회 시 글 목록 존재 O
+                                    <td>번호</td>
+                                    <td>제목</td>
+                                    <td>작성자</td>
+                                    <td>작성일</td>
+                                    <td>조회수</td>
+                                    </c:forEach>
+                                </c:otherwise> --%>
                             </c:choose>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 로그인하면 보이는 글쓰기 버튼 -->
+                <!-- 관리자에게만 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
                     <c:if test="#">
                         <button id="writeBtn">글쓰기</button>
@@ -127,31 +124,15 @@
                     </ul>
 
                 </div>
-
+               
             </section>
         </section>
 
 
     </section>
 
-    <footer>
-        <article>
-            <a href="#">개인정보처리방침</a>
-            <span>|</span>
-            <a href="#"> 영상정보처리기 운영·관리방침 </a>
-        </article>
-        <div>
-            <img src="../../images/logo.png">
-            <div>
-                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
-                <p> 전화번호 : 1544-9970 </p>
-                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
-            </div>
-            <img src="../../images/wa_logo.png">
-        </div>
-    </footer>
-
+    <!-- footer -->
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 </body>
-
 </html>
