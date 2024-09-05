@@ -1,0 +1,125 @@
+/* 그날 일정 css */
+.todayList-surround{
+    flex-basis: 40%;
+    border: 2px solid #d4d4d4;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-surround{
+    border: 1px solid #555;
+    border-radius: 5px;
+    flex-basis: 90%;
+    width: 95%;
+    overflow: auto;
+}
+
+.todo-surround > table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+}
+
+.todo-surround tr{
+    border: 1px solid #d4d4d4;
+}
+
+.todo-surround th{
+    padding: 5px;
+    border: 1px solid #d4d4d4;
+}
+
+.todo-surround th:nth-child(1){ width: 10%;}
+.todo-surround th:nth-child(2){ width: 10%;}
+.todo-surround th:nth-child(3){ width: 10%;}
+.todo-surround th:nth-child(4){ width: 10%;}
+.todo-surround th:nth-child(5){ width: 10%;}
+
+.todo-surround tbody td {
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #d4d4d4;
+}
+
+#add-todo{
+    padding: 10px;
+    cursor: pointer;
+    
+}
+
+#add-todo:hover{
+    background-color: #d4d4d4;
+}
+
+.todo-surround tbody button{
+    border-radius: 5px ;
+    padding: 5px 0;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    width: 90%;
+}
+
+.todo-surround tbody button:hover{
+    background-color: #d4d4d4 ;
+    color: black;
+}
+
+.scheduleUpdate{
+    border: 0;
+    background-color: #8FB788;
+    margin-bottom: 3px;
+    color: white;
+   
+}
+
+.scheduleDelete{
+    border: 1px solid #d4d4d4;
+    background-color: white;
+    color: red;
+}
+
+/* 편집 팝업 영역 */
+.edit-popup_box{	
+    width:500px;
+	max-height: 500px;}
+
+/* 편집 팝업 내용 영역 */
+.edit-popup_content > div{
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-popup_content > div > div{margin-top: 10px;}
+
+
+.edit-popup_content > div > div > span{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 800px;
+    width: 20%;
+}
+
+.edit-popup_content > div > div > input{
+    font-size: 16px;
+    padding: 5px 5px 5px 10px;
+    border: 1px solid #d4d4d4;
+	border-radius: 5px;
+
+}
+
+.edit-popup_content > div > div > input[name='scheduleName']{
+    width: 70%;
+}
+
+#calendarCategory{
+    font-size: 16px;
+    padding: 5px 5px 5px 10px;
+    border: 1px solid #d4d4d4;
+	border-radius: 5px;
+}
