@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
-	<main>
+	
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 		<section class="main">
 			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
@@ -87,6 +87,6 @@
 			</section>
 
 		</section>
-	</main>
+	
 </body>
 </html>
