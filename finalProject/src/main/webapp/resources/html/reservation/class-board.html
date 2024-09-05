@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notice</title>
 
-    <link rel="stylesheet" href="../../css/reservation/class-test.css">
+    <link rel="stylesheet" href="../../css/reservation/class-board.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
@@ -21,27 +21,28 @@
 	<section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
-            <div class="category">이용자 마당</div>
+            <div class="category">참여 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
-                <li class="side1"><a href="#">문의사항</a></li>
-                <li class="side2"><a href="#">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+                <li class="side-current"> <a href="#" class="current">교육/문화 프로그램</a></li>
+                <li class="side1"><a href="#">열람실</a></li>
+                <li class="side2"><a href="#">세미나실</a></li>
             </ul>
 
         </article>
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">공지사항</div>
+            <div class="content-title">교육/문화 프로그램</div>
             <div class="title-line"></div>
             
             <!-- 검색창 --> 
             <form action="#">
+                <span>전체00건</span>
                 <div class="search-area">
                     <select name="key" id="searchKey">
                         <option value="t">제목</option>
                         <option value="c">내용</option>
+                        <option value="tc">제목+내용</tion>
                     </select>
 
                     <input type="text" name="" id="" placeholder="검색어 입력">
@@ -56,34 +57,34 @@
                     <table class="list-table">
                         <thead>
                             <tr>
-                                <th>번호</th>
+                                <th>상태</th>
                                 <th>제목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조회수</th>
+                                <th>모집기간</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
-                            <c:choose>
+                           <!--  <c:choose>
                                 <c:when test="#">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
-                                </c:when>
+                                </c:when> -->
 
-                                <!-- <c:otherwise>
+                                <c:otherwise>
                                     <c:forEach var="#" items="#">
-                                    게시글 조회 시 글 목록 존재 O
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>작성자</td>
-                                    <td>작성일</td>
-                                    <td>조회수</td>
+                                        <td>기간마감</td>
+                                        <td>000 프로그램</td>
+                                        <td>2024-08-09 ~ 2024-08-10</td>
                                     </c:forEach>
-                                </c:otherwise> -->
+                                </c:otherwise>
                             </c:choose>
+                        </tbody>
+                        <tbody>
+                            <td>신청가능</td>
+                            <td>000 프로그램</td>
+                            <td>2024-08-09 ~ 2024-08-10</td>
                         </tbody>
                     </table>
                 </div>
