@@ -566,6 +566,14 @@
             console.log(selectArray);
             dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
             /* e.dateStr - 클릭한 날짜 가져옴 */
+
+            /* 선택한 날짜에서 금요일 구하는 코드
+            let day = new Date(selectDate).getDay();
+            console.log(day);
+            if(day == 5){
+                alert("금요일은 선택할 수 없습니다.");
+                return;
+            } */
           }
           
         });
