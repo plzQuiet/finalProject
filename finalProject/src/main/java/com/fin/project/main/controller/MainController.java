@@ -59,12 +59,11 @@ public class MainController {
 		return "board/reviewList";
 	}
 	
-	
-	
 
 	@GetMapping("/bookRequest")
 	public String bookRequestForward() {
 		return "search/bookRequest";
 	}
+
 
 }
