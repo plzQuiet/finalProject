@@ -136,6 +136,13 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
     color: white;
 }
 
+
+.main{
+    width: 1200px;
+    min-height: 600px;
+    margin: auto;
+}
+
 /* footer 영역 */
 footer {
 	margin-top: 50px;
