@@ -55,10 +55,10 @@
 				</ul>
 			</li>
 	        <li>
-				<a href="#">내 서재</a>
+				<a href="/myLibrary/book">내 서재</a>
 				<ul>
-					<li><a href="#">나의 도서관</a></li>
-					<li><a href="#">결제내역</a></li>
+					<li><a href="/myLibrary/book">나의 도서관</a></li>
+					<li><a href="/myPayment">결제내역</a></li>
 					<li><a href="#">회원정보</a></li>
 				</ul>
 			</li>
@@ -89,10 +89,9 @@
 	<div></div>
 </header>
 
-<c:set var="forwardAddr" value="${requestScope['javax.servlet.forward.servlet_path']}"/>
-<c:set var="addrArr" value="${fn:split(forwardAddr, '/')}" />
+<c:set var="requestAddr" value="${requestScope['javax.servlet.forward.servlet_path']}"/>
 
-<c:if test="${forwardAddr != '/'}">
+<c:if test="${requestAddr != '/'}">
     <div class="library-book">
     	<img src="/resources/images/library_book.png">
     </div>
