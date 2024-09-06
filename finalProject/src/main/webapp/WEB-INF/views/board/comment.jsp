@@ -12,14 +12,15 @@
 					<span class="comment-writer">김길동</span>
 
 					<!-- 작성일 -->
+					<!-- 수정하면 수정일 == 작성일 -->
 					<span class="comment-date">2024-09-25</span>
 				</p>
 
 				<!-- 댓글 내용 -->
-				<p>저랑 취향이 같네용</p>
+				<p class="comment-content">저랑 취향이 같네용</p>
 			</div>
 			<!-- 버튼 영역 -->
-			<!-- 댓글 작성자만 작성 가능 -->
+			<!-- 로그인 후 댓글 작성자만 작성 가능 -->
 			<div class="comment-btn-area">
 				<!-- js 필요 -->
 				<button>수정</button>

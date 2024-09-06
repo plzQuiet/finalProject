@@ -65,7 +65,7 @@
                 <div class="img-box">
                     <!-- 등록한 이미지가 있으면 보여줘야하는 영역 -->
                     <div class="boardImg">
-                        <img src="../../images/library_book.png">
+                        <img src="/resources/images/library_book.png">
                     </div>
                 </div>
 
@@ -136,6 +136,8 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <!-- comment.js 연결 -->
+    <script src="/resources/js/board/comment.js"></script>
 
 </body>
 

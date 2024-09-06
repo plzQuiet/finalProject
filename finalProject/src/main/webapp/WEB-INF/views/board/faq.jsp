@@ -42,7 +42,7 @@
             <section class="content-detail-section">
                 <div class="faq-container">
 
-                    <div class="faq-question"><h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서관 운영시간이 어떻게 되나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서관 운영시간이 어떻게 되나요?
                     </div>
 
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i> 
@@ -52,7 +52,7 @@
                     </p>
 
     
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i>  도서 대출과 반납은 어디서 할 수 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서 대출과 반납은 어디서 할 수 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;<b>2층</b>에 위치한 <b>문헌정보실</b>에서 대출과 반납을 할 수 있습니다. 또한 반납의 경우 <b>1층</b>에 위치한 <b>데스크</b>와 <b>근처 무인반납기</b>를 통해 반납을 하실 수 있습니다. 
@@ -60,7 +60,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서 대출 기한은 어떻게 되나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서 대출 기한은 어떻게 되나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp; 대출은 <b>최대 2주</b>의 기한이 주어집니다. 
@@ -68,7 +68,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 클래스 신청은 어디서 할 수 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 클래스 신청은 어디서 할 수 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;클래스 신청을 원하시는 회원분들께서는 <b>'참여 마당'</b> 카테고리를 통해 신청하실 수 있습니다. 
@@ -77,7 +77,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 희망 도서 신청은 어디서 할 수 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 희망 도서 신청은 어디서 할 수 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;희망도서 신청을 원하시는 회원분들께서는 <b>'자료 검색'</b> 카테고리를 통해 신청하실 수 있습니다.
@@ -86,7 +86,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서관 내 식당과 카페 이용객에 관해 제한이 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서관 내 식당과 카페 이용객에 관해 제한이 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;제한은 없습니다. 다만, <b>사이트 내</b>에서 식권을 구매하거나 카페 메뉴를 결제하고자 하는 이용객분들은 회원가입 진행 후 이용이 가능합니다.
@@ -94,7 +94,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 식권 결제는 어떻게 이루어지나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 식권 결제는 어떻게 이루어지나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;식권 결제를 원하시는 회원분들께서는 <b>'맛있는 도서관'</b> 카테고리를 통해 식권을 구매한 후 도서관 내에서 식당을 이용하실 수 있습니다.
@@ -102,7 +102,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 대관실 예약은 어떻게 할 수 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 대관실 예약은 어떻게 할 수 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;대관실 예약을 원하시는 회원분들께서는 <b>'참여 마당'</b> 카테고리를 통해 예약하실 수 있습니다.
@@ -111,7 +111,7 @@
                     </p>
 
 
-                    <div class="faq-question"> <h4><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 비회원도 열람실을 이용할 수 있나요?</h4>
+                    <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 비회원도 열람실을 이용할 수 있나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
                         &nbsp;<b>이용하실 수 없습니다.</b> 열람실을 이용하실 이용객분들께서는 사이트 혹은 도서관에 방문하셔서 회원가입 진행 후 이용하실 수 있습니다. 
