@@ -12,6 +12,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
+		<p></p>
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
 		<section class="main-content">
 			<div class="main-title">자료 검색</div>
@@ -110,7 +111,7 @@
 				</div>
 
 				<!-- 예약 / 소장 정보 버튼 클릭 시 -->
-				<div class="searchBodyDetail">
+				<div class="searchBodyDetail" style="display: none;" >
 					<table class="detailTable">
 						<thead>
 							<tr>
@@ -145,5 +146,8 @@
 
 		</section>
 	</section>
+	<script src="/resources/js/search/search.js"></script>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	
 </body>
 </html>
