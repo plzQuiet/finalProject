@@ -34,6 +34,7 @@
 	width:100%;
 	border:1px solid #ddd;
 	height:90px;
+	margin-bottom:30px;
 }
 .apply-box-img{
 	border-right: 1px solid #ddd;
@@ -42,6 +43,7 @@
 .apply-box-index{
 	display:flex;
 	align-items: center;	
+	
 }
 .apply-box-index > p {
 	margin-left: 10px;
@@ -52,12 +54,84 @@
 	margin-bottom: 30px;
 }
 
+.apply-book-details > ul > li{
+	margin-left:30px;
+}
 .apply-area{
 	display: flex;
 	border: 1px solid #ddd;
+	border-radius: 5px;
 	width: 100%;
+	background-color: #d4d4d4;
+	height: 50px;
 	
 }
+.apply-text{
+	margin-top:15px;
+	margin-left:15px;
+	margin-right:15px;
+}
+.last-line{
+	margin-bottom:30px;
+}
 .line{
-	width:100px;
+	width:40px;
+	border: 1px solid #8FB788;
+}
+
+#apply-btn{
+	background-color: white;
+	color : #8FB788;
+	border: 1px solid #8FB788;
+	cursor: pointer;
+	height: 40px;	
+	width: 60px;
+	margin:auto;
+	border-radius:5px;
+	
+}
+
+#request-btn{
+	background-color: #8FB788;
+	color : white;
+	border: #8FB788;
+	cursor: pointer;
+	height: 40px;	
+	margin: auto;
+	width: 60px;
+	border-radius:5px;
+}
+
+
+
+.request-form{
+	margin-top:30px;
+}
+
+table, tr, th, td	{
+	border: 1px solid #ddd;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+table th{
+	text-align:center;
+	width: 120px;
+	height: 60px;
+	color: white;
+	background-color: #8FB788;
+}
+
+
+.opinion{
+	height: 200px;
+}
+
+.btn-area{
+	background-color: #ddd;
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
 }

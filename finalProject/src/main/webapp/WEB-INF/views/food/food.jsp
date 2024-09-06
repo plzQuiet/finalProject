@@ -3,8 +3,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Menu</title>
-	<link rel="stylesheet" href="/resources/css/menu/menu.css">
+	<title>Food</title>
+	<link rel="stylesheet" href="/resources/css/food/food.css">
 	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 	<link rel="stylesheet" href="/resources/css/main-style.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
@@ -88,20 +88,20 @@
 					<div class="meal-detail">
 						<div class="snack-menu">
 							<div class="snack-menu-detail">
-								<img src="/resources/images/menu/ramen.png">
+								<img src="/resources/images/food/ramen.png">
 								<p>라면</p>
 							</div>
 							<div class="snack-menu-detail">
-								<img src="/resources/images/menu/ramen.png">
+								<img src="/resources/images/food/ramen.png">
 								<p>라면</p>
 							</div>
 							<div class="snack-menu-detail">
-								<img src="/resources/images/menu/ramen.png">
+								<img src="/resources/images/food/ramen.png">
 								<p>라면</p>
 							</div>
 							
 							<div class="snack-menu-detail">
-								<img src="/resources/images/menu/ramen.png">
+								<img src="/resources/images/food/ramen.png">
 								<p>라면</p>
 							</div>
 							
@@ -113,8 +113,7 @@
 		</section>
 
 	</section>
-	<script src="/resources/js/menu/menu.js" defer></script>
-	<script src="/resources/js/common/modal.js" defer></script>
+	<script src="/resources/js/food/food.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

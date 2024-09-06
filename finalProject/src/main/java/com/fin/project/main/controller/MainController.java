@@ -12,15 +12,15 @@ public class MainController {
 		return "common/main";
 	}
 		
-	@GetMapping("/menu")
+	@GetMapping("/food")
 	public String menuForward() {
-		return "menu/menu";
+		return "food/food";
 	}
 	
 
 	@GetMapping("/cafe")
 	public String cafeForward() {
-		return "menu/cafe";
+		return "food/cafe";
 	}
 	
 	@GetMapping("/search")
@@ -63,6 +63,16 @@ public class MainController {
 	@GetMapping("/bookRequest")
 	public String bookRequestForward() {
 		return "search/bookRequest";
+	}
+	
+	@GetMapping("/bookRequestForm")
+	public String bookRequestFormForward() {
+		return "search/bookRequestForm";
+	}
+	
+	@GetMapping("/requestHistory")
+	public String requestHistoryForward() {
+		return "search/requestHistory";
 	}
 
 
