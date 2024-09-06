@@ -3,9 +3,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>cafe</title>
+	<title>Cafe</title>
 	
-	<link rel="stylesheet" href="/resources/css/menu/cafe.css">
+	<link rel="stylesheet" href="/resources/css/food/cafe.css">
 	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 	<link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
@@ -13,7 +13,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<section class="main">
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
-
+		
 		<section class="main-content">
 			<div class="content-title">카페</div>
 			<div class="title-line"></div>
@@ -67,5 +67,7 @@
 			</section>
 		</section>
 	</section>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

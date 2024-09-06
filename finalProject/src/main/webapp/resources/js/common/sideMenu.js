@@ -3,7 +3,7 @@ const sideMenuArticle = document.getElementsByClassName("side-menu-article");
 sideMenuArticle[0].innerHTML = "";
 
 switch(path){
-    case "menu" :{
+    case "food" :{
         /* 카테고리 */
         const category = document.createElement("div");
         category.classList.add("category");
@@ -15,11 +15,12 @@ switch(path){
 
         /* li-sidemenu */
         const sideLi1 = document.createElement("li");
+        
         sideLi1.classList.add("side-current");
         sideA1 = document.createElement("a");
         sideA1.classList.add("side-current-a");
         sideA1.innerText="구내식당";
-        sideA1.setAttribute("href", "/menu")
+        sideA1.setAttribute("href", "/food")
         sideLi1.append(sideA1);
 
         const sideLi2 = document.createElement("li");
@@ -33,6 +34,7 @@ switch(path){
 
         sideMenuArticle[0].append(category, sideUl);
     }
+    
     break;
 
     case "cafe" : {
@@ -50,7 +52,7 @@ switch(path){
        
         sideA1 = document.createElement("a");
         sideA1.innerText="구내식당";
-        sideA1.setAttribute("href", "/menu")
+        sideA1.setAttribute("href", "/food")
         sideLi1.append(sideA1);
  
         const sideLi2 = document.createElement("li");
