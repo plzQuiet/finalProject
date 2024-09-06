@@ -133,6 +133,9 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <!-- comment.js 연결 -->
+    <script src="/resources/js/board/comment.js"></script>
+
 </body>
 
 </html>

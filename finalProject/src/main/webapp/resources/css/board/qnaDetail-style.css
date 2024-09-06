@@ -234,7 +234,7 @@ h5{color: #555;}
 .btn-area{
     text-align: right;
     border-bottom: 3px solid #008C1D;
-    padding: 12px;
+    padding-bottom: 12px;
 }
 
 .btn-area button{
@@ -289,60 +289,6 @@ h5{color: #555;}
     align-items: center;
     border-bottom: 1px solid #d4d4d4;
 }
-
-
-/* 댓글 수정/삭제 버튼 */
-
-.comment-btn-area button{
-    background-color: #8FB788;
-    border: none;
-    color: white;
-    width: 50px;
-    height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-    margin-top: 40px;
-}
-
-.comment-btn-area button:hover{
-    background-color: white;
-    border: 1px solid #8FB788;
-    color: black;
-}
-
-/* 댓글 작성하는 영역 */
-
-.comment-write-area{
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.comment-write-area textarea{
-    margin-right: 10px;
-    resize: none;
-    width: 90%;
-    height: 80px;
-}
-
-.comment-write-area button{
-    border: none;
-    background-color: #8FB788;
-    color: white;
-    width: 10%;
-    cursor: pointer;
-}
-
-.comment-write-area button:hover{
-    background-color: white;
-    border: 1px solid #8FB788;
-    color: black;
-}
-
-
-
-
-
 
 
 /* footer 영역 */
