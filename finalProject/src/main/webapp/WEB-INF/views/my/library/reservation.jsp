@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/my/my-style.css">
+    <link rel="stylesheet" href="/resources/css/my/list-style.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -17,7 +17,7 @@
 	<section class="container">
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
 		
-		<section class="my-area">
+		<section class="list-area">
 			<h1>예약 및 신청</h1>
 			<div class="btn-area">
 				<button class="selected">좌석 예약현황</button>

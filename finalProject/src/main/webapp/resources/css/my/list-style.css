@@ -10,12 +10,12 @@
 	background-color: gray;
 }
 
-.my-area{
+.list-area{
 	width: 774px;
 	padding: 50px;
 }
 
-.my-area > h1{
+.list-area > h1{
 	padding-bottom: 20px;
     font-size: 40px;
     border-bottom: 2px solid #ddd;
