@@ -64,6 +64,16 @@ public class MainController {
 	public String bookRequestForward() {
 		return "search/bookRequest";
 	}
+	
+	@GetMapping("/bookRequestForm")
+	public String bookRequestFormForward() {
+		return "search/bookRequestForm";
+	}
+	
+	@GetMapping("/requestHistory")
+	public String requestHistoryForward() {
+		return "search/requestHistory";
+	}
 
 
 }
