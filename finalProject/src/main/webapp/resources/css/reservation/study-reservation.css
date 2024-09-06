@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* body 전체 */
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* 사이즈 테두리 부분 포함 */
+    box-sizing: border-box;
+}
+
+/* 예약 시스템 header 시작*/
+header{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    align-items: center;
+    background-color: #0054b4;
+}
+
+
+#homeLogo{
+    height: 100px;
+    padding-right: 10px;
+}
+
+nav{
+    width: 1024px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+header>nav>ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header> nav> ul >li{
+    list-style-type: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header> nav> ul:first-child >li>a {
+    display: flex;
+    align-items: center;
+}
+
+
+header>nav>ul>li>a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+}
+/* 예약 시스템 header 끝*/
+
+/* 내용 영역 */
+.main-content-suround-section{
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-direction: column; /*  */
+}
+
+/* 페이지 메인 내용 section */
+.content-suround-section{
+    
+    width: 100%;
+}
+
+/* 좌석 현황 */
+.seat-status-section{
+    width: 1000px;
+}
+
+/* 좌석 조회 및 선택 */
+.seat-select-section{
+    width: 1000px;
+}

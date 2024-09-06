@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Detail</title>
+
+    <link rel="stylesheet" href="../../css/common/sideMenu.css">
+    <link rel="stylesheet" href="../../css/reservation/class-detail.css">
+</head>
+
+<body>
+
+    <header>header 부분</header>
+
+    <!-- 상단바 밑 사진 -->
+    <div id="img_div"></div>
+
+    <section class="main-content-suround-section">
+        <article class="side-menu-article">
+            <!-- 사이드 메뉴 -->
+            <div class="category">참여 마당</div>
+            <ul class="side-menu">
+                <li class="side-current"> <a href="#" class="current">교육문화 프로그램</a></li>
+                <li class="side1"><a href="#">열람실</a></li>
+                <li class="side2"><a href="#">세미나실</a></li>
+            </ul>
+
+        </article>
+
+        <!-- 공지사항 목록 -->
+        <section class="content-suround-section">
+            <div class="content-title">교육문화 프로그램</div>
+            <div class="title-line"></div>
+
+            <!-- 게시글 상세 화면 -->
+            <section class="board-detail">
+                <!-- 제목 -->
+                <h1 class="board-title">React 클래스</h1>
+
+                <!-- 작성자 / 작성일 / 조회수 -->
+                <div class="board-nav">
+                    <span>교육기간 : 2024-09-25 ~ 2024-09-27</span>&nbsp;|&nbsp;
+                    <span>신청기간 : 2024-0819 ~ 2024-09-08 </span>
+                </div>
+
+                <!-- 이미지 보여지는 영역 -->
+                <!-- 썸네일 X -->
+                <div class="img-box">
+                    <!-- 등록한 이미지가 있으면 보여줘야하는 영역 -->
+                    <div class="boardImg">
+                        <img src="../../images/bookThumbnail.jpg">
+                    </div>
+                </div>
+
+                <!-- 게시글 내용 -->
+                <div class="board-content">
+                    클래스 내용을 소개합니다.
+                </div>
+
+                <!-- 버튼 영역(회원) -->
+                <div class="btn-area">
+                    <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
+                    <button id="applyBtn">신청</button>
+
+                    <button id="listBtn">목록으로</button>
+                </div>
+
+                <!-- 버튼 영역(관리자) -->
+                <div class="btn-area">
+                    <button id="updateBtn">수정</button>
+                    <button id="updateBtn">삭제</button>
+                    
+                    <button id="listBtn">목록으로</button>
+                </div>
+
+            </section>
+
+        </section>
+
+    </section>
+
+    <footer>
+        <article>
+            <a href="#">개인정보처리방침</a>
+            <span>|</span>
+            <a href="#"> 영상정보처리기 운영·관리방침 </a>
+        </article>
+        <div>
+            <img src="../../images/logo.png">
+            <div>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
+                <p> 전화번호 : 1544-9970 </p>
+                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+            </div>
+            <img src="../../images/wa_logo.png">
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
