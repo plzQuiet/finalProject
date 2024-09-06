@@ -18,5 +18,6 @@
 	<mappers>
 		<mapper resource="/mappers/ajax-mapper.xml"/>
 		<mapper resource="/mappers/email-mapper.xml"/>
+		<mapper resource="/mappers/intro-mapper.xml"/>
 	</mappers>
 </configuration>
