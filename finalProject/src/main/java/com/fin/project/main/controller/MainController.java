@@ -12,15 +12,15 @@ public class MainController {
 		return "common/main";
 	}
 		
-	@GetMapping("/menu")
+	@GetMapping("/food")
 	public String menuForward() {
-		return "menu/menu";
+		return "food/food";
 	}
 	
 
 	@GetMapping("/cafe")
 	public String cafeForward() {
-		return "menu/cafe";
+		return "food/cafe";
 	}
 	
 	@GetMapping("/search")
