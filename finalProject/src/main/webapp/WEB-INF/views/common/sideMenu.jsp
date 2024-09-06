@@ -22,4 +22,4 @@
 
 </article>
 
-<script src="/resources/js/common/sideMenu.js"></script>
+<!-- <script src="/resources/js/common/sideMenu.js"></script> -->
