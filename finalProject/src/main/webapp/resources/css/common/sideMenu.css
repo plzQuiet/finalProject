@@ -29,6 +29,8 @@
 	border-bottom-right-radius: 10px 10px;
 	/* ul 스타일 없엠 */
 	list-style-type: none;
+
+	overflow: hidden;
 }
 
 /* 사이즈 메뉴 ul 바로 아래 li(레벨2) */
@@ -36,6 +38,7 @@
 	border-top: 1px solid #d4d4d4;
 	text-align: center;
 	transition-duration: 0.3s;
+
 }
 
 /* 레벨2 메뉴에 a 태그 */
