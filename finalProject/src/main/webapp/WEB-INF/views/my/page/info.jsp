@@ -19,26 +19,34 @@
 
 		<section class="myPage">
 
-			<h1 class="myPage-title">비밀번호 변경</h1>
-			<span class="myPage-subject">현재 비밀번호가 일치하는 경우 새 비밀번호로 변경할 수 있습니다.</span>
+			<h1 class="myPage-title">내 정보</h1>
 
-			<form action="changePw" method="POST" name="myPageFrm" id="changePwFrm">
 
-				<div class="myPage-row">
-					<label>현재 비밀번호</label> <input type="password" name="currentPw" id="currentPw" maxlength="30">
+			<div class="myPage-wrapper"></div>
+
+			<section class="my-book-info-wrapper">
+				<div>
+					<span>대출중인도서</span>
+					<span>0</span>
 				</div>
-
-				<div class="myPage-row">
-					<label>새 비밀번호</label> <input type="password" name="newPw" id="newPw" maxlength="30">
+				<div>
+					<span>연체중인도서</span>
+					<span>0</span>
 				</div>
-
-				<div class="myPage-row">
-					<label>새 비밀번호 확인</label> <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">
+				<div>
+					<span>예약중인도서</span>
+					<span>0</span>
 				</div>
-
-				<button class="myPage-submit">변경하기</button>
-
-			</form>
+				<div>
+					<span>반납완료도서</span>
+					<span>0</span>
+				</div>
+				<div>
+					<span>신청중인도서</span>
+					<span>0</span>
+				</div>
+				<div></div>
+			</section>
 
 		</section>
 	</section>

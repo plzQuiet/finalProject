@@ -44,7 +44,7 @@
 					<li><a href="/notice">공지사항</a></li>
 					<li><a href="/qna">문의사항</a></li>
 					<li><a href="/faq">자주 묻는 질문</a></li>
-					<li><a href="/review">책후기 나눠요</a></li>
+					<li><a href="/review">책 후기 나눠요</a></li>
 				</ul>
 			</li>
 	        <li>
@@ -59,7 +59,7 @@
 				<ul>
 					<li><a href="/myLibrary/book">나의 도서관</a></li>
 					<li><a href="/myPayment">결제내역</a></li>
-					<li><a href="#">회원정보</a></li>
+					<li><a href="/myPage/info">회원정보</a></li>
 				</ul>
 			</li>
 	    </ul>
