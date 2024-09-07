@@ -16,15 +16,15 @@
 	    <ul>
 	        <li><a href="/"><img id="homeLogo" src="/resources/images/logo.png">자바 라이브러리</a></li>
 	        <li>
-				<a href="#">도서관 안내</a>
+				<a href="/intro/1">도서관 안내</a>
 				<ul>
-					<li><a href="#">도서관 소개</a></li>
-					<li><a href="#">이용안내</a></li>
-					<li><a href="#">시설안내</a></li>
+					<li><a href="/intro/1/7">도서관 소개</a></li>
+					<li><a href="/intro/1/8">이용안내</a></li>
+					<li><a href="/intro/1/9">시설안내</a></li>
 				</ul>
 			</li>
 	        <li>
-				<a href="/2">자료 검색</a>
+				<a href="#">자료 검색</a>
 				<ul>
 					<li><a href="#">통합 자료 검색</a></li>
 					<li><a href="#">희망 도서 신청</a></li>
