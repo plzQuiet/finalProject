@@ -5,8 +5,8 @@ const checkObj = {
     "memberPwConfirm" : false,
     "memberName" : false,
     "memberGender" : false,
-    "memberDOB" : false,
-    "memberTel" : false,
+    "memberDateOfBirth" : false,
+    "memberPhoneNo" : false,
     "authKey" : false
 }
 
@@ -157,71 +157,70 @@ memberName.addEventListener("input", () => {
 })
 
 // 생년월일 유효성 검사
-const memberDOB = document.getElementById("memberDOB");
+const memberDateOfBirth = document.getElementById("memberDateOfBirth");
 const dobMessage = document.getElementById("dobMessage");
 
-memberDOB.addEventListener("input", () => {
+memberDateOfBirth.addEventListener("input", () => {
 
-    if(memberDOB.value.trim().length == 0) {
+    if(memberDateOfBirth.value.trim().length == 0) {
         dobMessage.innerText = "생년월일을 입력해주세요.";
-        memberDOB.value = "";
+        memberDateOfBirth.value = "";
         dobMessage.classList.remove("confirm", "error");
 
-        checkObj.memberDOB = false;
+        checkObj.memberDateOfBirth = false;
         return;
     }
 
     const regExp = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
-    if(regExp.test(memberDOB.value)) {
+    if(regExp.test(memberDateOfBirth.value)) {
 
         dobMessage.innerText = "유효한 형식입니다."
         dobMessage.classList.add("confirm");
         dobMessage.classList.remove("error");
 
-        checkObj.memberDOB = true;
+        checkObj.memberDateOfBirth = true;
 
     }else {
         dobMessage.innerText = "유효하지 않은 생년월일 형식입니다."
         dobMessage.classList.add("error");
         dobMessage.classList.remove("confirm");
 
-        checkObj.memberDOB = false;
+        checkObj.memberDateOfBirth = false;
     }
 
 })
 
-// 전화번호 유효성 검사
-const memberTel = document.getElementById("memberTel");
-const telMessage = document.getElementById("telMessage");
+const memberPhoneNo = document.getElementById("memberPhoneNo");
+const pnoMessage = document.getElementById("pnoMessage");
 
-memberTel.addEventListener("input", () => {
+memberPhoneNo.addEventListener("input", () => {
 
-    if(memberTel.value.trim().length == 0) {
-        telMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
-        memberTel.value = "";
-        telMessage.classList.remove("confirm", "error");
+    if(memberPhoneNo.value.trim().length == 0) {
+        pnoMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
+        memberPhoneNo.value = "";
+        pnoMessage.classList.remove("confirm", "error");
 
-        checkObj.memberTel = false;
+        checkObj.memberPhoneNo = false;
         return;
     }
 
     const regExp = /^0(10|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
 
-    if(regExp.test(memberTel.value)) {
+    if(regExp.test(memberPhoneNo.value)) {
 
-        telMessage.innerText = "유효한 형식입니다."
-        telMessage.classList.add("confirm");
-        telMessage.classList.remove("error");
+        pnoMessage.innerText = "유효한 형식입니다."
+        pnoMessage.classList.add("confirm");
+        pnoMessage.classList.remove("error");
 
-        checkObj.memberTel = true;
+        checkObj.memberPhoneNo = true;
 
     }else {
-        telMessage.innerText = "유효하지 않은 전화번호 형식입니다."
-        telMessage.classList.add("error");
-        telMessage.classList.remove("confirm");
+        pnoMessage.innerText = "유효하지 않은 전화번호 형식입니다."
+        pnoMessage.classList.add("error");
+        pnoMessage.classList.remove("confirm");
 
-        checkObj.memberTel = false;
+        checkObj.memberPhoneNo = false;
     }
 
 })
@@ -349,8 +348,8 @@ document.getElementById("signUpFrm").addEventListener("submit", e=>{
                 case "memberPwConfirm"  : str="비밀번호 확인이"; break;
                 case "memberName"       : str="이름이"; break;
                 case "memberGender"     : str="성별이"; break;
-                case "memberDOB"        : str="생년월일이"; break;
-                case "memberTel"        : str="전화번호가"; break;
+                case "memberDateOfBirth": str="생년월일이"; break;
+                case "memberPhoneNo"    : str="전화번호가"; break;
                 case "authKey"          : str="인증번호가"; break;
             }
 

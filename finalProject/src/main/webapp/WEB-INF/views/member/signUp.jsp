@@ -12,7 +12,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 	<section class="signUp-content">
-		<form action="/signUp" name="signUp-form" id="signUpFrm" method="post">
+		<form action="/member/signUp" name="signUp-form" id="signUpFrm" method="post">
 			<h3>회원 정보 입력</h3>
 
 			<label for="memberEmail">
@@ -77,20 +77,20 @@
 			</label>
 			
 			<div class="signUp-input-area">
-				<input type="text" id="memberDOB" name="memberDOB" placeholder="숫자 8자리 (ex. 19980909)" maxlength="8">
+				<input type="text" id="memberDateOfBirth" name="memberDateOfBirth" placeholder="숫자 8자리 (ex. 19980909)" maxlength="8">
 			</div>
 			
 			<span class="signUp-message" id="dobMessage"></span>
 
-			<label for="memberTel">
+			<label for="memberPhonoNo">
 				<span class="required">*</span> 휴대폰번호
 			</label>
 
 			<div class="signUp-input-area">
-				<input type="text" id="memberTel" name="memberTel" placeholder="(-없이 숫자만 입력)" maxlength="11">
+				<input type="text" id="memberPhoneNo" name="memberPhoneNo" placeholder="(-없이 숫자만 입력)" maxlength="11">
 			</div>
 
-			<span class="signUp-message" id="telMessage"></span>
+			<span class="signUp-message" id="pnoMessage"></span>
 			
 			<label for="memberAddress">주소</label>
 
