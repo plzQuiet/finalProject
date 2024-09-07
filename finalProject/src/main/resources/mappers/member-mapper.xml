@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+
+	<resultMap type="Member" id="member_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberPw" column="MEMBER_PW"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="memberPhoneNo" column="MEMBER_PNO"/>
+		<result property="memberGender" column="MEMBER_GENDER"/>
+		<result property="memberDateOfBirth" column="MEMBER_DOB"/>
+		<result property="memberAddress" column="MEMBER_ADDR"/>
+		<result property="memberDeleteFlag" column="MEMBER_DEL_FL"/>
+		<result property="enrollDate" column="ENROLL_DT"/>
+		<result property="authority" column="AUTHORITY"/>
+	</resultMap>
+	
+	<insert id="signUp">
+		INSERT INTO MEMBER VALUES(
+			SEQ_MEMBER_NO.NEXTVAL,
+			#{memberEmail},
+			#{memberPw},
+			#{memberName},
+			#{memberPhoneNo},
+			#{memberGender},
+			#{memberDateOfBirth},
+			#{memberAddress},
+			DEFAULT,
+			DEFAULT,
+			DEFAULT
+		)
+	</insert>
+
+	<select id="login" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NAME, MEMBER_PW,
+			MEMBER_PNO, MEMBER_ADDR, MEMBER_GENDER, MEMBER_DOB,
+			MEMBER_ADDR, AUTHORITY,
+			TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT
+			FROM MEMBER
+			WHERE MEMBER_DEL_FL = 'N'
+			AND MEMBER_EMAIL = #{memberEmail}
+	</select>
+
+</mapper>

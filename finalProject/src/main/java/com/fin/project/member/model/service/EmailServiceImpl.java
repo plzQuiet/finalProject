@@ -31,25 +31,8 @@ public class EmailServiceImpl implements EmailService {
 		String key = "";
 		
 		for(int i=0; i<6; i++) {
-			
-			int sel1 = (int)(Math.random() * 3);
-			
-			if(sel1 == 0) {
-				int num = (int)(Math.random() * 10);
-				key += num;
-				
-			}else {
-				char ch = (char)(Math.random() * 26 + 'A');
-				
-				int sel2 = (int)(Math.random() * 2);
-				
-				if(sel2 == 0) {
-					ch = (char)(ch + ('a' - 'A'));
-				}
-				
-				key += ch;
-			}
-			
+			int num = (int)(Math.random() * 10);
+			key += num;
 		}
 		
 		return key;
