@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<section class="main">
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
@@ -26,7 +27,7 @@
 				<article class="cafe-menu">
 					<div class="cafe-menu-area">
 						<a href="#">
-							<img src="/resources/images/menu/americano.png">
+							<img src="/resources/images/food/americano.png">
 							<p>아이스 아메리카노</p>
 							<p>3500원</p>
 						</a>
@@ -34,7 +35,7 @@
 					
 					<div class="cafe-menu-area">
 						<a href="#">
-							<img src="/resources/images/menu/americano.png">
+							<img src="/resources/images/food/americano.png">
 							<p>아이스 아메리카노</p>
 							<p>3500원</p>
 						</a>
@@ -42,7 +43,7 @@
 					
 					<div class="cafe-menu-area">
 						<a href="#">
-							<img src="/resources/images/menu/americano.png">
+							<img src="/resources/images/food/americano.png">
 							<p>아이스 아메리카노</p>
 							<p>3500원</p>
 						</a>
@@ -50,7 +51,7 @@
 					
 					<div class="cafe-menu-area">
 						<a href="#">
-							<img src="/resources/images/menu/americano.png">
+							<img src="/resources/images/food/americano.png">
 							<p>아이스 아메리카노</p>
 							<p>3500원</p>
 						</a>
@@ -58,7 +59,7 @@
 					
 					<div class="cafe-menu-area">
 						<a href="#">
-							<img src="/resources/images/menu/jamonghoneyblended.jpg">
+							<img src="/resources/images/food/jamonghoneyblended.jpg">
 							<p>자몽 허니 블렌디드</p>
 							<p>3500원</p>
 						</a>
@@ -69,5 +70,6 @@
 	</section>
 	
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	<script src="/resources/js/food/cafe.js"></script>
 </body>
 </html>
