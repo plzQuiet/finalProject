@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="main-content-suround-section">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/intro/sideMenu.jsp"></jsp:include>
 		
 		<section class="content-suround-section">
 			<div>
@@ -46,8 +46,7 @@
                 
             </section>
       </section>
-		
-	</section>
+	
 	
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
