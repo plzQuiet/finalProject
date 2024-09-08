@@ -98,8 +98,8 @@ main{
 }
 
 /*  cafe 모달 */
-.popup_box{
-	width: 800px !important;
+.mcafe-popupBox{
+	width: 850px !important;
 }
 
 .popup_content .mcafe{
@@ -207,9 +207,14 @@ main{
 .mcafe .mcafe-cart-area .mcafe-cart-list{
 	box-shadow: 1px 1px 1px 1px #d4d4d4;
 	border-radius: 10px;
-	width: 75%;
+	width: 70%;
 	height: 200px;
 	overflow-y:  auto;
+	margin: 0 10px;
+}
+
+.mcafe .mcafe-cart-area .mcafe-cart-list table{
+	width: 100%;
 }
 
 .mcafe .mcafe-cart-area .mcafe-price{
@@ -228,9 +233,34 @@ main{
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 10px;
+	width: 100%;
 }
 
-.mcafe-cart-area .mcafe-cart .mcafe-cart-menu p{
-	font-size: 15px;
+.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea #qty-result,
+.mcafe-cart-area .mcafe-cart .mcafe-cart-menu span{
+	font-size: 13px;
 	color: black !important;
+	font-weight: 800;
+}
+
+.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea input,
+.mcafe-cart-area .mcafe-cart .mcafe-cart-menu #cancelBtn{
+	border: 0;
+	background-color: #8FB788;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	font-size: 15px;
+}
+
+.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea input:hover,
+.mcafe-cart-area .mcafe-cart .mcafe-cart-menu #cancelBtn:hover{
+	background-color: #008c1d;
+}
+
+.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea{
+	display: flex;
+	align-items: center;
 }
