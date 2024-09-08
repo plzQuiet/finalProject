@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="/resources/css/food/cafe.css">
 	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 	<link rel="stylesheet" href="/resources/css/main-style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>

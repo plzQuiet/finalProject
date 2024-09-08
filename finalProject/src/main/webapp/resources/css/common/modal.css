@@ -184,7 +184,7 @@
 	cursor: pointer;
 }
 
-.meal-ticket-btnArea button:hover{
+.meal-ticket-btnArea input:hover{
 	background-color: #008c1d;
 }
 

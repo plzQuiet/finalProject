@@ -13,7 +13,7 @@ payBtn.addEventListener("click", ()=> {
                                         <div class="mcafe-menu-area">
 											<p>메뉴 :</p>
 											<div class="mcafe-menu-list">
-												<div class="mcafe-menu">
+												<div class="mcafe-menu" onclick='addMenu()'>
 													<img src="/resources/images/food/americano.png">
 													<div class="mcafe-menu-detail">
 														<h4>아메리카노 (Iced)</h4>
@@ -24,41 +24,7 @@ payBtn.addEventListener("click", ()=> {
 													</div>
 												</div>
 
-												<div class="mcafe-menu">
-													<img src="/resources/images/food/americano.png">
-													<div class="mcafe-menu-detail">
-														<h4>아메리카노 (Iced)</h4>
-														<span>아이스 아메리카노이다. 생명수이다.</span>
-														<div class="mcafe-menu-price">
-															<span>3500원</span>
-														</div>
-													</div>
-												</div>
-
-												
-												<div class="mcafe-menu">
-													<img src="/resources/images/food/americano.png">
-													<div class="mcafe-menu-detail">
-														<h4>아메리카노 (Iced)</h4>
-														<span>아이스 아메리카노이다. 생명수이다.</span>
-														<div class="mcafe-menu-price">
-															<span>3500원</span>
-														</div>
-													</div>
-												</div>
-												
-												<div class="mcafe-menu">
-													<img src="/resources/images/food/americano.png">
-													<div class="mcafe-menu-detail">
-														<h4>아메리카노 (Iced)</h4>
-														<span>아이스 아메리카노이다. 생명수이다.</span>
-														<div class="mcafe-menu-price">
-															<span>3500원</span>
-														</div>
-													</div>
-												</div>
-
-												<div class="mcafe-menu">
+												<div class="mcafe-menu" onclick='addMenu()'>
 													<img src="/resources/images/food/americano.png">
 													<div class="mcafe-menu-detail">
 														<h4>아메리카노 (Iced)</h4>
@@ -76,55 +42,13 @@ payBtn.addEventListener("click", ()=> {
 											<div class="mcafe-cart">
 												<p>장바구니 :</p>
 												<div class="mcafe-cart-list">
-													<div class="mcafe-cart-menu">
-														<p>아메리카노(Iced)</p>
-														<div class="meal-ticket-btnArea">
-															<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-															<div id="qty-result">0</div>
-															<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
-														</div>
-													</div>
-													
-													<div class="mcafe-cart-menu">
-														<p>아메리카노(Iced)</p>
-														<div class="meal-ticket-btnArea">
-															<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-															<div id="qty-result">0</div>
-															<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
-														</div>
-													</div>
-
-													<div class="mcafe-cart-menu">
-														<p>아메리카노(Iced)</p>
-														<div class="meal-ticket-btnArea">
-															<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-															<div id="qty-result">0</div>
-															<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
-														</div>
-													</div>
-
-													<div class="mcafe-cart-menu">
-														<p>아메리카노(Iced)</p>
-														<div class="meal-ticket-btnArea">
-															<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-															<div id="qty-result">0</div>
-															<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
-														</div>
-													</div>
-
-													<div class="mcafe-cart-menu">
-														<p>아메리카노(Iced)</p>
-														<div class="meal-ticket-btnArea">
-															<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-															<div id="qty-result">0</div>
-															<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
-														</div>
-													</div>
+													<table class="mcafe-cart-table">
+													</table>
 												</div>
 											</div>
 											<div class="mcafe-price">
 												<p>가격 :</p>
-												<p>가격금액</p>
+												<div id="price-result"></div>
 											</div>
                                         </div>
                                     </div>
@@ -133,8 +57,9 @@ payBtn.addEventListener("click", ()=> {
 										<button id="cancel_btn">취소</button>
 									</div>
 								`
+	const popupBox = document.getElementsByClassName("popup_box")[0];
+	popupBox.classList.add("mcafe-popupBox");
 	popUpLayer.style.display = 'block';
-	  
 
 	/* 동적으로 생성된 버튼에 이벤트 리스너 추가 */
 	const confirmBtn = document.getElementById("confirm_btn");
@@ -149,7 +74,7 @@ payBtn.addEventListener("click", ()=> {
 				pg: "kakaopay.TC0ONETIME", 	//pg사명 or pg사명.CID (잘못 입력할 경우, 기본 PG사가 띄워짐)
 				pay_method : "card",
 				merchant_uid : "merchant_" + new Date().getTime(),	// 가맹점 주문번호(아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
-				name:"식권", //결제창에 노출될 상품명
+				name:"카페", //결제창에 노출될 상품명
 				amount : price	// 금액
 				/* 나중에 DB와 연결할 때 쓸 듯 */
 				/*
@@ -161,8 +86,10 @@ payBtn.addEventListener("click", ()=> {
 				*/
 			}, function(resp){	// callback
 				var result = '';
+				popupBox.classList.remove("mcafe-popupBox");
+				
 				if(resp.success){
-					popUpHeader[0].innerHTML= "<p>식권 구매</p>"
+					popUpHeader[0].innerHTML= "<p>음료 구매</p>"
 					popUpContent[0].innerHTML = `<div class="pay-meal-ticket">
 													<p>구매가 완료되었습니다.</p>
 												</div>
@@ -202,4 +129,83 @@ payBtn.addEventListener("click", ()=> {
 		popUpLayer.style.display = 'none';
 	})
 
+
 });
+
+/* function - cancel() */
+function cancelMenu(){
+	const mCartMenu = document.getElementsByClassName("mcafe-cart-menu")[0];
+	mCartMenu.remove();
+	qty=0;
+	price =0;
+	return;
+}
+
+
+/* function - add() */
+function addMenu(){
+	const mCartTable = document.getElementsByClassName("mcafe-cart-table")[0];
+	mCartTable.innerHTML += `
+								<tr class="mcafe-cart-menu">
+									<td>
+										<span>아메리카노(Iced)</span>
+										<input type="button" value='x' onclick='cancelMenu()' id="cancelBtn"/>
+									</td>
+									<td class="meal-ticket-btnArea">
+										<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
+										<div id="qty-result">1</div>
+										<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
+									</td>
+								</tr>
+							`
+	const priceResult = document.getElementById("price-result");
+	priceResult.innerText = 3500 + "원";
+}
+
+/* count 함수  */
+
+let qty = 0;
+let price = 0;
+
+function count(type){
+	const qtyResult = document.getElementById("qty-result");
+	const priceResult = document.getElementById("price-result");
+
+	if(qty >= 1){
+		// 더하기/ 빼기
+		if(type === "plus"){
+			qty += 1;
+			price = 6000 * qty;
+		}else if(type === "minus"){
+			qty -= 1;
+			price = 6000 * qty;
+		}
+
+	}else{
+		// 더하기/ 빼기
+		if(type === "plus"){
+			qty += 1;
+			price = 6000 * qty;
+		}
+	}
+ 	
+	if(qty>0){
+		document.getElementById("minusBtn").disabled=false;
+	}else{
+		document.getElementById("minusBtn").disabled=true;
+	}
+	
+	// 결과 출력
+	qtyResult.innerText = qty;
+	priceResult.innerText = price + "원";
+}
+
+
+/* agree 함수 */
+function agree(){
+	qty= 0;
+	price=0;
+	popUpLayer.style.display = 'none';
+}
+
+/* 나중에 DB 연결 작업할 때 바뀔 예정 */
