@@ -1,5 +1,7 @@
 package com.fin.project.member.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,14 @@ public class MemberDAO {
 
 	public Member login(Member inputMember) {
 		return sqlSession.selectOne("memberMapper.login", inputMember);
+	}
+
+	public int findId(Member inputMember) {
+		return sqlSession.selectOne("memberMapper.findId", inputMember);
+	}
+
+	public int resetPw(Map<String, Object> map) {
+		return sqlSession.update("memberMapper.resetPw", map);
 	}
 	
 }

@@ -64,17 +64,28 @@
 			</li>
 	    </ul>
 	    
-	    <div class="header-top-menu">
-			<c:choose>
-				<c:when test="${empty loginMember}">
-					<a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
-				</c:when>
-		
-				<c:otherwise>
-					<a href="/member/logout">로그아웃</a>
-				</c:otherwise>
-			</c:choose>
-		</div>
+        <div class="header-top-menu">
+            <c:choose>
+                <c:when test="${empty loginMember}">
+                    <!-- 로그인 X -->
+                    <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
+                </c:when>
+        
+                <c:otherwise>
+                    <!-- 로그인 O -->
+                    <label for="headerMenuToggle"> ${loginMember.memberName}
+                        <i class="fa-solid fa-caret-down"></i>
+                    </label>
+        
+                    <input type="checkbox" id="headerMenuToggle">
+        
+                    <div class="header-menu">
+                        <a href="/myPage/info">내정보</a>
+                        <a href="/member/logout">로그아웃</a>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+        </div>
 	</nav>
 	<div></div>
 </header>

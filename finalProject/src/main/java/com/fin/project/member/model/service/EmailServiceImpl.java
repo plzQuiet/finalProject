@@ -10,6 +10,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fin.project.member.model.dao.EmailDAO;
 
@@ -57,6 +58,7 @@ public class EmailServiceImpl implements EmailService {
 		return key;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int signUp(String email, String title) {
 		

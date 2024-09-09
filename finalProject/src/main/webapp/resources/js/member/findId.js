@@ -1,6 +1,6 @@
 const checkObj = {
     "memberName" : false,
-    "memberTel" : false
+    "memberPhoneNo" : false
 }
 
 const memberName = document.getElementById("memberName");
@@ -37,36 +37,36 @@ memberName.addEventListener("input", () => {
 
 })
 
-const memberTel = document.getElementById("memberTel");
-const telMessage = document.getElementById("telMessage");
+const memberPhoneNo = document.getElementById("memberPhoneNo");
+const pnoMessage = document.getElementById("pnoMessage");
 
-memberTel.addEventListener("input", () => {
+memberPhoneNo.addEventListener("input", () => {
 
-    if(memberTel.value.trim().length == 0) {
-        telMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
-        memberTel.value = "";
-        telMessage.classList.remove("confirm", "error");
+    if(memberPhoneNo.value.trim().length == 0) {
+        pnoMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
+        memberPhoneNo.value = "";
+        pnoMessage.classList.remove("confirm", "error");
 
-        checkObj.memberTel = false;
+        checkObj.memberPhoneNo = false;
         return;
     }
 
     const regExp = /^0(10|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
 
-    if(regExp.test(memberTel.value)) {
+    if(regExp.test(memberPhoneNo.value)) {
 
-        telMessage.innerText = "유효한 형식입니다."
-        telMessage.classList.add("confirm");
-        telMessage.classList.remove("error");
+        pnoMessage.innerText = "유효한 형식입니다."
+        pnoMessage.classList.add("confirm");
+        pnoMessage.classList.remove("error");
 
-        checkObj.memberTel = true;
+        checkObj.memberPhoneNo = true;
 
     }else {
-        telMessage.innerText = "유효하지 않은 전화번호 형식입니다."
-        telMessage.classList.add("error");
-        telMessage.classList.remove("confirm");
+        pnoMessage.innerText = "유효하지 않은 전화번호 형식입니다."
+        pnoMessage.classList.add("error");
+        pnoMessage.classList.remove("confirm");
 
-        checkObj.memberTel = false;
+        checkObj.memberPhoneNo = false;
     }
 
 })
@@ -78,7 +78,7 @@ document.getElementById("findIdFrm").addEventListener("submit", e=>{
 
             switch(key){
                 case "memberName"       : str="이름이"; break;
-                case "memberTel"        : str="전화번호가"; break;
+                case "memberPhoneNo"        : str="전화번호가"; break;
             }
 
             alert(str + " 유효하지 않습니다.");

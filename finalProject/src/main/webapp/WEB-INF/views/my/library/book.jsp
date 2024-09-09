@@ -65,7 +65,9 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-	
+	<script>
+		const loginMemberNo = "${loginMember.memberNo}";
+	</script>
 	<script src="/resources/js/myPage/book.js"></script>
 </body>
 </html>

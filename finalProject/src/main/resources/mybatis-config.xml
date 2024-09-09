@@ -23,5 +23,6 @@
 		<mapper resource="/mappers/intro-mapper.xml"/>
 		<mapper resource="/mappers/member-mapper.xml"/>
 		<mapper resource="/mappers/food-mapper.xml"/>
+		<mapper resource="/mappers/myPage-mapper.xml"/>
 	</mappers>
 </configuration>

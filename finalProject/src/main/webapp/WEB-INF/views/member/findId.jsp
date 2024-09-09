@@ -31,10 +31,10 @@
 		
 		<div class="findId-input-area">
 			<span>전화번호</span>
-			<input type="text" name="memberTel" id="memberTel">
+			<input type="text" name="memberPhoneNo" id="memberPhoneNo">
 		</div>
 		
-		<span class="findPw-message" id="telMessage"></span>
+		<span class="findPw-message" id="pnoMessage"></span>
 		
 		
 		<div class="btn-area">

@@ -8,4 +8,8 @@ public interface MemberService {
 
 	Member login(Member inputMember);
 
+	int findId(Member inputMember);
+
+	int resetPw(String memberEmail);
+	
 }
