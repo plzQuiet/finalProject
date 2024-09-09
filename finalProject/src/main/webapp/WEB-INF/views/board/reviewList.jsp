@@ -26,10 +26,10 @@
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
-                <li class="side1"><a href="#">문의사항</a></li>
-                <li class="side2"><a href="#">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+                <li class="side-current"> <a href="/notice" class="current">공지사항</a></li>
+                <li class="side1"><a href="/qna">문의사항</a></li>
+                <li class="side2"><a href="/faq">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="/review">책 후기 나눠요</a></li>
             </ul>
 
         </article>
@@ -45,7 +45,6 @@
                     <select name="key" id="searchKey">
                         <option value="t">제목</option>
                         <option value="c">내용</option>
-                        <option value="w">작성자</option>
                     </select>
 
                     <input type="text" name="" id="" placeholder="검색어 입력">

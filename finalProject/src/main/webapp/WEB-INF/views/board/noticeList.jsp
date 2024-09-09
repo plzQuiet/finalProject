@@ -26,10 +26,10 @@
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
-                <li class="side1"><a href="#">문의사항</a></li>
-                <li class="side2"><a href="#">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+                <li class="side-current"> <a href="/notice" class="current">공지사항</a></li>
+                <li class="side1"><a href="/qna">문의사항</a></li>
+                <li class="side2"><a href="/faq">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="/review">책 후기 나눠요</a></li>
             </ul>
 
         </article>
@@ -70,22 +70,22 @@
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
                             <c:choose>
-                                <c:when test="#">
+                                <c:when test="${empty boardList}">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when>
 
-                                <%-- <c:otherwise>
-                                    <c:forEach var="#" items="#">
-                                    게시글 조회 시 글 목록 존재 O
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>작성자</td>
-                                    <td>작성일</td>
-                                    <td>조회수</td>
+                                <c:otherwise>
+                                    <c:forEach var="board" items="${boardList}">
+                                    <!-- 게시글] 조회 시 글 목록 존재 O -->
+                                    <td>{board.boardNo}</td>
+                                    <td>{board.boardTitle}</td> 
+                                    <td>{board.memberName}</td>
+                                    <td>{board.boardCreateDate}</td>
+                                    <td>{board.readCount}</td>
                                     </c:forEach>
-                                </c:otherwise> --%>
+                                </c:otherwise>
                             </c:choose>
                         </tbody>
                     </table>
@@ -93,7 +93,7 @@
 
                 <!-- 관리자에게만 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
-                    <c:if test="#">
+                    <c:if test="">
                         <button id="writeBtn">글쓰기</button>
                     </c:if>
                 </div>
