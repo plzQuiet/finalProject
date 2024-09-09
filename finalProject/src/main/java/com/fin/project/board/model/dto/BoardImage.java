@@ -8,6 +8,13 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BoardImage {
+	
+	private int imageNo;
+	private String imageOriginal;
+	private String imageReName;
+	private int imageOrder;
+	private int boardNo;
+	private String imagePath;
 
 
 }

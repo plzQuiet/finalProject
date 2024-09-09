@@ -103,8 +103,6 @@ header{
     padding: 15px;
     transition-duration: 0.3s;
 
-    
-    
 }
 
 /* 레벨 2메뉴 a태그 hover */
@@ -213,14 +211,9 @@ input{
 
 
 
-
-
-
-
 /* 게시글 목록 */
 .board-list{
     width: 100%;
-    /* background-color: red; */
     margin: 10px auto; 
 }
 
@@ -267,7 +260,7 @@ input{
 .list-table tr > *:nth-of-type(3){width: 14%;}
 
 /* 작성일 */
-.list-table tr > *:nth-of-type(4){width: 12%;}
+.list-table tr > *:nth-of-type(4){width: 13%;}
 
 /* 조회수 */
 .list-table tr > *:nth-of-type(5){width: 8%;}

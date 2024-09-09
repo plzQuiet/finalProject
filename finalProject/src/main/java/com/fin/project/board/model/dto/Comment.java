@@ -8,5 +8,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Comment {
+	
+	private int commentNo;
+	private int memberNo;
+	private int boardNo;
+	private String commentContent;
+	private String commentCreateDate;
+	private String commentDeleteFlag;
 
 }

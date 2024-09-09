@@ -27,7 +27,7 @@ public class Board {
 	private String memberName;
 
 	// == boardCode
-	private int categoryCode;
+	private int cateCode;
 	
 	// 이미지
 	private List<BoardImage> imageList;
