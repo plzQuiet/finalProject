@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<section class="main">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/food/sideMenu.jsp"></jsp:include>
 		
 		<section class="main-content">
 			<div class="content-title">카페</div>

@@ -236,6 +236,11 @@ main{
 	width: 100%;
 }
 
+.mcafe-cart-area .mcafe-cart .mcafe-cart-menu td:first-child{
+	display: flex;
+	gap: 10px;
+}
+
 .mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea #qty-result,
 .mcafe-cart-area .mcafe-cart .mcafe-cart-menu span{
 	font-size: 13px;
@@ -253,6 +258,9 @@ main{
 	width: 20px;
 	height: 20px;
 	font-size: 15px;
+	/* 가운데 정렬 맞추기 용 */
+	padding-bottom : 10px;
+	padding-right: 1px;
 }
 
 .mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea input:hover,

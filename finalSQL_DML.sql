@@ -1,0 +1,17 @@
+-- FOOD -- 
+-- CAFE 제외 식당 게시판 메뉴
+SELECT * FROM FOOD 
+WHERE TYPE_NO IN (0, 1)
+AND FOOD_DEL_ST = 'N';
+
+-- 백반 메뉴
+SELECT * FROM (
+    SELECT ROWNUM NUM, A.* FROM (
+        SELECT FOOD_NAME, FOOD_PRICE FROM FOOD F
+         WHERE TYPE_NO=0
+        AND FOOD_DEL_ST='N'
+        ORDER BY FOOD_NO ASC
+    )A
+)
+WHERE NUM BETWEEN 1 AND 5;
+

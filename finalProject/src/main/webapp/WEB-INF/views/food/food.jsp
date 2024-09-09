@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -14,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<section class="main">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/food/sideMenu.jsp"></jsp:include>
 		
 		<section class="main-content">
 			<div class="content-title">구내식당</div>
@@ -41,7 +42,7 @@
 						<tbody>
 							<tr>
 								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
+								<td>떡볶이</td>
 								<td>춘천 닭갈비</td>
 								<td>춘천 닭갈비</td>
 								<td rowspan="5" class="holiday">휴관일</td>
