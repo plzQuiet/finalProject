@@ -4,12 +4,14 @@ const thead = document.querySelector("#list-table > thead");
 const tbody = document.querySelector("#list-table > tbody");
 
 btn[0].addEventListener("click", e=>{
-    fetch("/booksLoan")
+    fetch("/booksLoan?memberNo=" + loginMemberNo)
     .then(resp => resp.json())
     .then(list => {
         if(list == null){
             return;
         }
+
+        console.log(list)
 
         thead.innerHTML = `<tr>
                                 <th>등록번호</th>
@@ -33,13 +35,13 @@ btn[0].addEventListener("click", e=>{
         for(let i=0; i<btn.length; i++){
             btn[i].classList.remove("selected");
         }
-        btn[0].classList.add("selected");
+        e.target.classList.add("selected");
     })
     .catch(e=>console.log(e))
 })
 
 btn[1].addEventListener("click", e=>{
-    fetch("/loanHistory")
+    fetch("/loanHistory?memberNo=" + loginMemberNo)
     .then(resp => resp.json())
     .then(list => {
         if(list == null){
@@ -55,7 +57,7 @@ btn[1].addEventListener("click", e=>{
 })
 
 btn[2].addEventListener("click", e=>{
-    fetch("/reservationBook")
+    fetch("/reservationBook?memberNo=" + loginMemberNo)
     .then(resp => resp.json())
     .then(list => {
         if(list == null){
@@ -71,7 +73,7 @@ btn[2].addEventListener("click", e=>{
 })
 
 btn[3].addEventListener("click", e=>{
-    fetch("/bookRequestHistory")
+    fetch("/bookRequestHistory?memberNo=" + loginMemberNo)
     .then(resp => resp.json())
     .then(list => {
         if(list == null){

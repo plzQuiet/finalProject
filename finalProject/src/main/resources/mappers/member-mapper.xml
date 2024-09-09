@@ -41,5 +41,18 @@
 			WHERE MEMBER_DEL_FL = 'N'
 			AND MEMBER_EMAIL = #{memberEmail}
 	</select>
+	
+	<select id="findId" resultType="_int">
+		SELECT MEMBER_EMAIL FROM MEMBER
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_NAME = #{memberName}
+		AND MEMBER_PNO = #{memberPhoneNo}
+	</select>
+	
+	<update id="resetPw">
+		UPDATE MEMBER SET MEMBER_PW = #{memberPw}
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_EMAIL = #{memberEmail}
+	</update>
 
 </mapper>

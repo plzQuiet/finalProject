@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myPageMapper">
+
+	<update id="update">
+		UPDATE MEMBER SET MEMBER_NAME = #{memberName},
+		MEMBER_PNO = #{memberPhoneNo},
+		MEMBER_ADDR = #{memberAddress}
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_NO = #{memberNo}
+	</update>
+	
+	<select id="selectEncPw" resultType="string">
+		SELECT MEMBER_PW FROM MEMBER WHERE MEMBER_NO = ${memberNo}
+	</select>
+	
+	<update id="changePw">
+		UPDATE MEMBER SET MEMBER_PW = #{encode}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
+</mapper>

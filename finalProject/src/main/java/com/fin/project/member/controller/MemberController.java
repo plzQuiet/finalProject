@@ -1,10 +1,11 @@
 package com.fin.project.member.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.member.model.dto.Member;
 import com.fin.project.member.model.service.MemberService;
-
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("/member")
@@ -51,9 +49,9 @@ public class MemberController {
 		return "member/findId";
 	}
 
-	@GetMapping("/findPw")
+	@GetMapping("/resetPw")
 	public String findPw() {
-		return "member/findPw";
+		return "member/resetPw";
 	}
 	
 	@PostMapping("/signUp")
@@ -112,6 +110,50 @@ public class MemberController {
 		}else {
 			path += referer;
 		}
+		
+		return path;
+	}
+	
+	@PostMapping("/findId")
+	public String findId(Member inputMember, RedirectAttributes ra) {
+		
+		int result = service.findId(inputMember);
+		
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "아이디 찾기 성공";
+			path += "/";
+			
+		}else {
+			message = "아이디 찾기 실패 ㅠㅠ";
+			path += "findId";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	@PostMapping("/resetPw")
+	public String resetPw(String memberEmail, RedirectAttributes ra) {
+		
+		int result = service.resetPw(memberEmail);
+		
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "초기화 된 비밀번호 000000";
+			path += "/";
+			
+		}else {
+			message = "아이디 찾기 실패 ㅠㅠ";
+			path += "findId";
+		}
+		
+		ra.addFlashAttribute("message", message);
 		
 		return path;
 	}

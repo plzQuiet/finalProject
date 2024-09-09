@@ -26,12 +26,12 @@
 
 				<div class="myPage-row">
 					<label>이름</label>
-					<input type="text" name="memberName" id="memberName">
+					<input type="text" name="memberName" id="memberName" value=${loginMember.memberName}>
 				</div>
 
 				<div class="myPage-row">
 					<label>전화번호</label>
-					<input type="password" name="memberPno" id="memberPno">
+					<input type="password" name="memberPhoneNo" id="memberPhoneNo" value=${loginMember.memberPhoneNo}>
 				</div>
 
 				<div class="myPage-row info-title">
