@@ -7,7 +7,7 @@
 <c:set var="libTitle" value="${another.libTitle }"/>
 <c:set var="board" value="${another.board}"/>
 <c:set var="libAdd" value="${another.libAdd}"/>
-
+<%-- 가져온 값 변수에 담음 --%>
 <meta charset="UTF-8">
 <title>JavaLibrary - 주변 도서관</title>
 
