@@ -7,16 +7,19 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.fin.project.food.model.dto.Food;
+
 @Repository
 public class FoodDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
  
-	/** 음식 메뉴 갖고 오기
-	 * @return
+
+	/** 음식 메뉴 가져오기
+	 * @return foodList
 	 */
-	public List<Map<String, Object>> selectFoodList() {
+	public List<Food> selectFoodList() {
 		return sqlSession.selectList("foodMapper.selectFoodList");
 	}
 

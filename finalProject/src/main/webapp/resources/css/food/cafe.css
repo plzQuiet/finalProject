@@ -163,6 +163,7 @@ main{
 .popup_content .mcafe .mcafe-menu-area .mcafe-menu img{
 	max-width: 150px;
 	max-height: 100px;
+	margin: 10px;
 }
 
 .popup_content .mcafe .mcafe-menu .mcafe-menu-detail {
@@ -174,7 +175,7 @@ main{
 }
 
 .popup_content .mcafe .mcafe-menu .mcafe-menu-detail span{
-	font-size: 10px;
+	font-size: 13px;
 }
 
 
@@ -258,6 +259,10 @@ main{
 	width: 20px;
 	height: 20px;
 	font-size: 15px;
+	
+}
+
+.mcafe-cart-area .mcafe-cart .mcafe-cart-menu #cancelBtn{
 	/* 가운데 정렬 맞추기 용 */
 	padding-bottom : 10px;
 	padding-right: 1px;

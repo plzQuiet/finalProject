@@ -322,13 +322,7 @@ INSERT INTO CALENDAR VALUES( SEQ_CALENDAR_NO.NEXTVAL, '휴관일', '2025-12-26',
 
 COMMIT;
 
-
--- COFFEE
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블렌디드', 3500, DEFAULT, '/resources/images/food/jamonghoneyblended.jpg', '자몽 허니 블렌디드이다. 경진언니의 픽이다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
--- 백반 -- 
+-------------------------------------------------------- 백반 ----------------------------------------------------- 
 -- 첫번째 메뉴 --
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '오징어뭇국', DEFAULT, DEFAULT, NULL, NULL);
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '된장국', DEFAULT, DEFAULT, NULL, NULL);
@@ -373,6 +367,16 @@ INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '콩자반', DEFAULT, DEFAULT, N
 -- 금(휴관일) --
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '미역줄기볶음', DEFAULT, DEFAULT, NULL, NULL);
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '오이', DEFAULT, DEFAULT, NULL, NULL);
+
+
+-- 스낵 --
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '돈까스', DEFAULT, DEFAULT, '/resources/images/food/porkCutlet.png', null);
+
+-- COFFEE
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블랙티', 5700, DEFAULT, '/resources/images/food/jamongHoneyBlackTea.jpg', '자몽 허니 블랙티이다. 경진언니의 픽이다.');
 commit;
 
 BEGIN

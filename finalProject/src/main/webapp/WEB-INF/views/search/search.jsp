@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <body>
 	<main>
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>

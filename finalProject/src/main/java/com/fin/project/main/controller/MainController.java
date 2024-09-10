@@ -12,13 +12,14 @@ public class MainController {
 		return "common/main";
 	}
 		
-	@GetMapping("/food")
-	public String menuForward() {
-		return "food/food";
-	}
 	
+	@RequestMapping("/food") 
+	public String menuForward() { 
+		return "food/food"; 
+	}
+	 
 
-	@GetMapping("/cafe")
+	@RequestMapping("/cafe")
 	public String cafeForward() {
 		return "food/cafe";
 	}
