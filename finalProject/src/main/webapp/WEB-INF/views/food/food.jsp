@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 
 <html>
@@ -40,73 +43,39 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>춘천 닭갈비</td>
-								<td>떡볶이</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td rowspan="5" class="holiday">휴관일</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-							</tr>
-							<tr>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-							</tr>
-							<tr>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-							</tr>
-							<tr>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-							</tr>
-							<tr>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-								<td>춘천 닭갈비</td>
-							</tr>
-						</tbody>
+							<!-- 고마워요 재능충~!~!~!~! -->
+							<c:forEach var="food" items="${foodList}" varStatus="status">
+								<c:if test="${food.typeNo == 0}">
+									<c:if test ="${status.index % 6 == 0}">
+										<tr>
+									</c:if>
+									
+									<c:if test ="${status.index == 4}">
+										<td rowspan="5" class="holiday">휴관일</td>
+									</c:if>
+										
+									<td>${food.foodName}</td>
+									
+									<c:if test ="${status.index % 6 == 5}">
+										</tr>
+									</c:if>	
+								</c:if>
+							</c:forEach> 
+						</tbody>	
 					</table>
 				</article>
 				<article class="snack">
 					<p class="meal-title">분식</p>
 					<div class="meal-detail">
 						<div class="snack-menu">
-							<div class="snack-menu-detail">
-								<img src="/resources/images/food/ramen.png">
-								<p>라면</p>
-							</div>
-							<div class="snack-menu-detail">
-								<img src="/resources/images/food/ramen.png">
-								<p>라면</p>
-							</div>
-							<div class="snack-menu-detail">
-								<img src="/resources/images/food/ramen.png">
-								<p>라면</p>
-							</div>
-							
-							<div class="snack-menu-detail">
-								<img src="/resources/images/food/ramen.png">
-								<p>라면</p>
-							</div>
-							
-							
+							<c:forEach var="food" items="${foodList}" varStatus="status">
+								<c:if test="${food.typeNo == 1}">
+									<div class="snack-menu-detail">
+										<img src="${food.foodImg}">
+										<p>${food.foodName}</p>
+									</div>
+								</c:if>
+							</c:forEach>
 						</div>
 					</div>
 				</article>
