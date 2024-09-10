@@ -98,6 +98,13 @@ INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user03@kh.or.kr',
 INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user04@kh.or.kr', 
     '$2a$10$i6IHXqyhAXEz/FWz/eTjUuESsOZDtfha2SSNtI06PgQE16RlP6ucS',
     '유저사', '01044444444', 'M', '19960928', DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+
+-- 관리자 아이디
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'admin', 
+    '$2a$10$Hnbx25.rNytA8k974TK5fO/pgFxbceVUar18GrpOanU78QTmYjFn2',
+    '관리자', '01012341234', 'M', '19950827', DEFAULT, DEFAULT, DEFAULT, 2);
+
+
 COMMIT;
 
 -- CALENDAR
@@ -315,13 +322,7 @@ INSERT INTO CALENDAR VALUES( SEQ_CALENDAR_NO.NEXTVAL, '휴관일', '2025-12-26',
 
 COMMIT;
 
-
--- COFFEE
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블렌디드', 3500, DEFAULT, '/resources/images/food/jamonghoneyblended.jpg', '자몽 허니 블렌디드이다. 경진언니의 픽이다.');
-INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
--- 백반 -- 
+-------------------------------------------------------- 백반 ----------------------------------------------------- 
 -- 첫번째 메뉴 --
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '오징어뭇국', DEFAULT, DEFAULT, NULL, NULL);
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '된장국', DEFAULT, DEFAULT, NULL, NULL);
@@ -366,4 +367,54 @@ INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '콩자반', DEFAULT, DEFAULT, N
 -- 금(휴관일) --
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '미역줄기볶음', DEFAULT, DEFAULT, NULL, NULL);
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '오이', DEFAULT, DEFAULT, NULL, NULL);
+
+
+-- 스낵 --
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '돈까스', DEFAULT, DEFAULT, '/resources/images/food/porkCutlet.png', null);
+
+-- COFFEE
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블랙티', 5700, DEFAULT, '/resources/images/food/jamongHoneyBlackTea.jpg', '자몽 허니 블랙티이다. 경진언니의 픽이다.');
 commit;
+
+BEGIN
+   FOR I IN 1..20 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+                5, 15,
+              I || '번째 공지사항',
+              I || '번째 공지사항 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+
+BEGIN
+   FOR I IN 1..100 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+              CEIL(DBMS_RANDOM.VALUE(0,4)), 16,
+              I || '번째 문의사항',
+              I || '번째 문의사항 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+--DELETE FROM BOARD;
+BEGIN
+   FOR I IN 1..200 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+             CEIL(DBMS_RANDOM.VALUE(0,4)), 18,
+              I || '번째 후기글',
+              I || '번째 후기글 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+commit;
+
+
+

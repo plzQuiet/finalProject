@@ -256,7 +256,7 @@ input{
 .list-table tr > *:nth-of-type(4){width: 13%;}
 
 /* 조회수 */
-.list-table tr > *:nth-of-type(5){width: 8%;}
+.list-table tr > *:nth-of-type(5){width: 10%;}
 
 /* 글쓰기 버튼 */
 .btn-area{
@@ -264,6 +264,11 @@ input{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-area button{
+    border-radius: 5px;
 }
 
 #writeBtn{
@@ -275,6 +280,7 @@ input{
     border: 1px solid #8FB788;
     background-color: white;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 #writeBtn:hover{
@@ -311,12 +317,11 @@ input{
     font-weight: bold;
 }
 
-.currentPage{
+.current{
     background-color: #8FB788;
     border-radius: 30%;
     color: white !important;
     letter-spacing: 0 !important;
-
 }
 
 /* footer 영역 */

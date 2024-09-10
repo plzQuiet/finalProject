@@ -6,35 +6,38 @@ const popUpContent = document.getElementsByClassName("popup_content");
 
 /* 음료 구매 모달 */
 payBtn.addEventListener("click", ()=> {
-	  
+	/* 비동기 형식 */
+	fetch("/api/cafe")
+	.then(resp => resp.json())
+	.then(result => {
+		let html = ``;
+		result.forEach(coffee => {
+			html += `<div class="mcafe-menu" onclick='addCartMenu()'>
+						<img src="${coffee.foodImg}">
+						<div class="mcafe-menu-detail">
+							<h4>${coffee.foodName}</h4>
+							<span>${coffee.foodDes}</span>
+							<div class="mcafe-menu-price">
+								<span>${coffee.foodPrice}원</span>
+							</div>
+						</div>
+					</div>`
+		})
+
+		$('.mcafe-menu-list').html(html)
+	})
+	.catch( e => {
+		console.log("예외 발생!")
+		console.log(e)
+	})
+
+
 	popUpHeader[0].innerHTML= "<p>음료 구매</p>"
 	popUpContent[0].innerHTML = `
                                     <div class="mcafe">
                                         <div class="mcafe-menu-area">
 											<p>메뉴 :</p>
 											<div class="mcafe-menu-list">
-												<div class="mcafe-menu" onclick='addMenu()'>
-													<img src="/resources/images/food/americano.png">
-													<div class="mcafe-menu-detail">
-														<h4>아메리카노 (Iced)</h4>
-														<span>아이스 아메리카노이다. 생명수이다.</span>
-														<div class="mcafe-menu-price">
-															<span>3500원</span>
-														</div>
-													</div>
-												</div>
-
-												<div class="mcafe-menu" onclick='addMenu()'>
-													<img src="/resources/images/food/americano.png">
-													<div class="mcafe-menu-detail">
-														<h4>아메리카노 (Iced)</h4>
-														<span>아이스 아메리카노이다. 생명수이다.</span>
-														<div class="mcafe-menu-price">
-															<span>3500원</span>
-														</div>
-													</div>
-												</div>
-												
 											</div>
 											
                                         </div>
@@ -133,7 +136,7 @@ payBtn.addEventListener("click", ()=> {
 });
 
 /* function - cancel() */
-function cancelMenu(){
+function cancelCartMenu(){
 	const mCartMenu = document.getElementsByClassName("mcafe-cart-menu")[0];
 	mCartMenu.remove();
 	qty=0;
@@ -143,13 +146,13 @@ function cancelMenu(){
 
 
 /* function - add() */
-function addMenu(){
+function addCartMenu(){
 	const mCartTable = document.getElementsByClassName("mcafe-cart-table")[0];
 	mCartTable.innerHTML += `
 								<tr class="mcafe-cart-menu">
 									<td>
 										<span>아메리카노(Iced)</span>
-										<input type="button" value='x' onclick='cancelMenu()' id="cancelBtn"/>
+										<input type="button" value='x' onclick='cancelCartMenu()' id="cancelBtn"/>
 									</td>
 									<td class="meal-ticket-btnArea">
 										<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>

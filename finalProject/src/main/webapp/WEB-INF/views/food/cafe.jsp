@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,45 +30,18 @@
 				</div>
 
 				<article class="cafe-menu">
-					<div class="cafe-menu-area">
-						<a href="#">
-							<img src="/resources/images/food/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
-						</a>
-					</div>
-					
-					<div class="cafe-menu-area">
-						<a href="#">
-							<img src="/resources/images/food/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
-						</a>
-					</div>
-					
-					<div class="cafe-menu-area">
-						<a href="#">
-							<img src="/resources/images/food/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
-						</a>
-					</div>
-					
-					<div class="cafe-menu-area">
-						<a href="#">
-							<img src="/resources/images/food/americano.png">
-							<p>아이스 아메리카노</p>
-							<p>3500원</p>
-						</a>
-					</div>
-					
-					<div class="cafe-menu-area">
-						<a href="#">
-							<img src="/resources/images/food/jamonghoneyblended.jpg">
-							<p>자몽 허니 블렌디드</p>
-							<p>3500원</p>
-						</a>
-					</div>
+				
+					<c:forEach var="food" items="${foodList}" varStatus="status">
+						<c:if test="${food.typeNo == 2}">
+							<div class="cafe-menu-area">
+								<a href="#">
+									<img src="${food.foodImg}">
+									<p>${food.foodName}</p>
+									<p>${food.foodPrice}원</p>
+								</a>
+							</div>
+						</c:if>
+					</c:forEach>
 				</article>
 			</section>
 		</section>

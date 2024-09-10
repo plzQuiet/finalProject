@@ -144,8 +144,10 @@ table * {border : 1px solid #ddd;}
 }
 
 .snack .snack-menu-detail img{
-	max-width: 100%;
+	width: 225px;
+	height: 225px;
 	object-fit: cover;
+	border-radius: 15px;
 }
 
 .snack-menu-detail p{
