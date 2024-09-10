@@ -118,6 +118,7 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
     right: 0;
     margin-top: 5px;
     border: 1px solid black;
+    background-color: white;
 }
 
 .header-menu > a {
@@ -128,11 +129,11 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
 }
 
 .header-menu > a:first-child{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
 }
 
 .header-menu > a:hover{
-    background-color: #455ba8;
+    background-color: #8FB788;
     color: white;
 }
 

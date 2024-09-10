@@ -17,7 +17,6 @@
 	<form action="/member/login" method="post" name="loginFrm" id="loginFrm">
 		<div class="login-logo">
 			<img src="/resources/images/logo.png">
-			로그인
 		</div>
 		
 		

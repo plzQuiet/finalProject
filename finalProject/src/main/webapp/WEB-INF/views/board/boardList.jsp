@@ -2,45 +2,56 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
+
+<c:forEach items="${category}" var="catelist">
+    <c:if test="${catelist.CAT_CODE == cateCode}">
+        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QnA</title>
+    <title>이용자 마당</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/board/qnaList-style.css">
+    <link rel="stylesheet" href="/resources/css/board/boardList-style.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
+    <!-- 게시글 목록 공통 화면 -->
+
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-    <section class="main-content-suround-section">
+	<section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="/notice" class="current">공지사항</a></li>
-                <li class="side1"><a href="/qna">문의사항</a></li>
-                <li class="side2"><a href="/faq">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="/review">책 후기 나눠요</a></li>
+                <li><a href="/board/15">공지사항</a></li>
+                <li class="side1"><a href="/board/16">문의사항</a></li>
+                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
         </article>
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">문의사항</div>
+            <div class="content-title">${cateName}</div>
             <div class="title-line"></div>
-
-            <!-- 검색창 -->
-            <form action="notice" method="get" id="boardSearch">
+            
+            <!-- 검색창 --> 
+            <form action="${cateCode}" method="get" id="boardSearch">
                 <div class="search-area">
                     <select name="key" id="searchKey">
                         <option value="t">제목</option>
@@ -55,16 +66,13 @@
 
             <!-- 게시글 목록 -->
             <section class="board-list">
+            
                 <div class="list-wrapper">
                     <table class="list-table">
                         <thead>
                             <tr>
                                 <th>번호</th>
-
-                                <!-- 비공개 글이면 자물쇠 처리 -->
                                 <th>제목</th>
-                                <!-- 홍길동 -> 홍 
-                                이름 일부 암호 처리: 홍** -->
                                 <th>작성자</th>
                                 <th>작성일</th>
                                 <th>조회수</th>
@@ -82,29 +90,43 @@
 
                                 <c:otherwise>
                                     <c:forEach var="board" items="${boardList}">
-                                        <!-- 게시글 조회 시 글 목록 존재 O -->
-                                        <td>${board.boardNo}</td>
-                                        <td>
-                                            <a href="/board/16/${board.boardNo}?cp=${pagination.currentPage}${qs}"></a>
-                                            <c:if test="${board.boardSecretFlag == 'Y'}">
-                                                <i class="fa-solid fa-lock"></i>
-                                            </c:if>
-                                        </td>
-                                        <td>${fn:substring(board.memberName, 0, 1)}**</td>
-                                        <td>${board.boardCreateDate}</td>
-                                        <td>${board.readCount}</td>
+                                        <tr>
+                                            <!-- 게시글] 조회 시 글 목록 존재 O -->
+                                            <td>${board.boardNo}</td>
+                                            <td>
+                                                <a href="/board/${cateCode}/${board.boardNo}?cp=${pagination.currentPage}${qs}">${board.boardTitle}</a>
+                                                [${board.commentCount}]
+                                                <c:if test="${board.boardSecretFlag == 'Y'}">
+                                                    <i class="fa-solid fa-lock"></i> 
+                                                </c:if>
+                                            </td> 
+                                            <td>${board.memberName}</td>
+                                            <td>${board.boardCreateDate}</td>
+                                            <td>${board.readCount}</td>
+                                        </tr>
                                     </c:forEach>
-                                </c:otherwise> 
+                                </c:otherwise>
                             </c:choose>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 로그인하면 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
-                    <c:if test="${!empty loginMember}">
-                        <button id="writeBtn">글쓰기</button>
-                    </c:if>
+                    <c:choose>
+                        <%-- 공지사항 : 관리자에게만 보임 --%>
+                        <c:when test="${cateCode == 15}">
+                            <c:if test="${loginMember.authority == 2}">
+                                <button id="writeBtn">글쓰기</button>
+                            </c:if>
+                        </c:when>
+                        
+                        <c:otherwise>
+                            <%-- 회원만 글쓰기 가능 --%>
+                            <c:if test="${!empty loginMember}">
+                                <button id="writeBtn">글쓰기</button>
+                            </c:if>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
 
                 <!-- pagination -->
@@ -112,23 +134,23 @@
 
                     <ul class="pagination">
                         <!-- 첫 페이지로 이동 : << -->
-                        <li><a href="/notice?cp=1${qs}">&lt;&lt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=1${qs}">&lt;&lt;</a></li>
 
                         <!-- 이전 목록 마지막 페이지로 이동 : < -->
-                        <li><a href="/notice?cp=${pagination.prevPage}${qs}">&lt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=${pagination.prevPage}${qs}">&lt;</a></li>
 
                         <!-- 특정 페이지로 이동 -->
                         <!-- 1페이지 씩 이동 -->
                         <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
                             <c:choose>
                                 <c:when test="${i == pagination.currentPage}">
-                                    <!-- 현재 페이지 -->
+                                    <%-- 현재 페이지 --%>
                                     <li><a class="current">${i}</a></li>
                                 </c:when>
 
                                 <c:otherwise>
                                     <%-- 현재 페이지 제외한 나머지 --%>
-                                    <li><a href="/notice?cp=${i}${qs}">${i}</a></li>
+                                    <li><a href="/board/${cateCode}?cp=${i}${qs}">${i}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
@@ -138,14 +160,14 @@
                         <li>5</li> --%>
 
                         <!-- 다음 목록 시작 페이지로 이동 : > -->
-                        <li><a href="/notice?cp=${pagination.nextPage}${qs}">&gt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=${pagination.nextPage}${qs}">&gt;</a></li>
 
                         <!-- 마지막 페이지로 이동 : >> -->
-                        <li><a href="/notice?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
                     </ul>
 
                 </div>
-
+               
             </section>
         </section>
 
@@ -155,9 +177,21 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    
+    <script>
+        const cateCode = "${cateCode}";
 
+        console.log(cateCode);
+
+        const li = document.querySelectorAll(".side-menu > li");
+
+        switch(cateCode){
+            case "15" : li[0].classList.add("side-current"); break;
+            case "16" : li[1].classList.add("side-current"); break;
+            case "17" : li[2].classList.add("side-current"); break;
+            case "18" : li[3].classList.add("side-current"); break;
+        } 
+
+    </script>
 
 </body>
-
 </html>
