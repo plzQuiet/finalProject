@@ -139,9 +139,13 @@ function count(type){
 	priceResult.innerText = price;
 }
 
-
+/* 결제 완료 후 완료되었습니다. 했을 때 확인 버튼 */
 function agree(){
 	qty= 0;
 	price=0;
 	popUpLayer.style.display = 'none';
 }
+
+/*  */
+
+
