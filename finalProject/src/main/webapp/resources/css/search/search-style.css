@@ -352,3 +352,121 @@ table tbody td:nth-child(n+5){
 	border: 1px solid #8FB788;	
 }
 
+/* 모달 전체 배경 */
+.modal {
+	position:fixed;
+	top:0;
+	left:0;
+	z-index: 10000; 
+	width: 100%; 
+	height: 100%; 
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+}
+
+
+
+/* 도서 예약 모달 */
+.popup_box_res{
+	position: relative;
+	top:50%;
+	left:50%; 
+	width:800px;
+	height: 350px;
+	transform:translate(-50%, -50%);
+	z-index:1002;
+	box-sizing:border-box;
+	background:#fff;
+	box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	border-radius:10px;
+}
+.popup_content_top{
+	margin-bottom: 10px;
+}
+
+.popup_content_top #message_box{
+	font-size: small;
+	text-align: left;
+	padding-left: 20px;
+}
+
+
+.popup_content_bar{
+	border:1px solid #d4d4d4;
+}
+
+.popup_content_mid{
+	width:100%;
+	display: flex;
+	padding-left: 20px;
+}
+.popup_content_left{
+	width:30%;
+	height: 180px; 
+	border: 0.5px solid #ddd;
+}
+.popup_content_right{
+	width: 30%;
+	padding-left:10px;
+	height: 180px; 
+}
+.detailBox{
+	width: 40%;
+	height: 180px;
+	margin-right:10px;
+}
+.detailBox h2{
+	margin-bottom:10px;
+}
+.detailBox ul li{
+	list-style-type: none;
+	font-size:14px;
+	margin-bottom:3px;
+}
+.popup_content_right >h2 {
+	padding-bottom:10px;
+}
+.popup_content_right > p{
+	font-size:14px;
+	padding-bottom: 4px;
+}
+.popup_btn{
+	display: flex;
+	justify-content: center;
+	margin-top:10px;
+}
+.popup_btn button{
+	width: 100px;
+	height: 50px;
+	margin-right:20px;
+}
+.popup_btn #confirm_btn{
+	background-color : #8FB788;
+	color : white;
+	border-radius: 10px;
+	border : none;
+	font-weight : 800;
+}
+.popup_btn #cancel_btn{
+	border : 2px solid #8FB788;
+	background-color : white;
+	color :#8FB788;
+	border-radius: 10px;
+	font-weight : 800;
+}
+.popup_btn #confirm_btn:hover{
+	cursor : pointer;
+	box-shadow: 1px 1px 1px 1px gray;
+	background-color: #008c1d;
+}
+.popup_btn #cancel_btn:hover{
+	cursor : pointer;
+	color: white;
+	box-shadow: 1px 1px 1px 1px gray;
+	background-color: #d4d4d4;
+	border: none;
+}
+
+

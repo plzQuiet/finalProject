@@ -7,10 +7,12 @@
 <title>자료 검색</title>
 <link rel="stylesheet" href="/resources/css/search/search-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+<link rel="stylesheet" href="/resources/css/common/modal.css">
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/search/searchModal.jsp"></jsp:include>
 	<section class="main">
 		<p></p>
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
@@ -111,7 +113,7 @@
 				</div>
 
 				<!-- 예약 / 소장 정보 버튼 클릭 시 -->
-				<div class="searchBodyDetail" style="display: none;" >
+				<div class="searchBodyDetail" style="display: none;">
 					<table class="detailTable">
 						<thead>
 							<tr>
@@ -140,14 +142,15 @@
 					</table>
 				</div>
 				<hr>
-				
+
 
 			</section>
 
 		</section>
 	</section>
+	
 	<script src="/resources/js/search/search.js"></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-	
+
 </body>
 </html>
