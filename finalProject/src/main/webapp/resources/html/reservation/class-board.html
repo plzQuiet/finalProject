@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../../css/common/sideMenu.css">
     <link rel="stylesheet" href="../../css/reservation/class-board.css">
+    <link rel="stylesheet" href="../../css/reservation/modal.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
@@ -17,9 +18,9 @@
     <header>header 부분</header>
 
     <!-- 상단바 밑 사진 -->
-	<div id="img_div"></div>
+    <div id="img_div"></div>
 
-	<section class="main-content-suround-section">
+    <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
             <div class="category">참여 마당</div>
@@ -35,8 +36,8 @@
         <section class="content-suround-section">
             <div class="content-title">교육문화 프로그램</div>
             <div class="title-line"></div>
-            
-            <!-- 검색창 --> 
+
+            <!-- 검색창 -->
             <form action="#">
                 <span>전체00건</span>
                 <div class="search-area">
@@ -66,20 +67,20 @@
 
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
-                           <!--  <c:choose>
+                            <!--  <c:choose>
                                 <c:when test="#">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when> -->
 
-                                <c:otherwise>
-                                    <c:forEach var="#" items="#">
-                                        <td>기간마감</td>
-                                        <td>000 프로그램</td>
-                                        <td>2024-08-09 ~ 2024-08-10</td>
-                                    </c:forEach>
-                                </c:otherwise>
+                            <c:otherwise>
+                                <c:forEach var="#" items="#">
+                                    <td>기간마감</td>
+                                    <td>000 프로그램</td>
+                                    <td>2024-08-09 ~ 2024-08-10</td>
+                                </c:forEach>
+                            </c:otherwise>
                             </c:choose>
                         </tbody>
                         <tbody>
@@ -93,7 +94,7 @@
                 <!-- 관리자에게만 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
                     <c:if test="#">
-                        <button id="writeBtn">글쓰기</button>
+                        <button id="writeBtn" onclick="writeModal(this)">글쓰기</button>
                     </c:if>
                 </div>
 
@@ -123,7 +124,7 @@
                     </ul>
 
                 </div>
-               
+
             </section>
         </section>
 
@@ -147,7 +148,26 @@
         </div>
     </footer>
 
+    <!-- 알림창 모달-->
+    <div id="popup_layer">
+        <div class="popup_box">
+            <div class="popup_header">
+                <p>교육문화 프로그램</p>
+            </div>
 
+            <!--팝업 컨텐츠 영역-->
+            <div class="popup_content">
+                <p> 게시글을 작성 하시겠습니까?</p>
+            </div>
+            <!--팝업 버튼 영역-->
+            <div class="popup_btn">
+                <button id="confirm_btn">확인</button>
+                <button id="cancel_btn">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/reservation/class-board.js"></script>
 </body>
 
 </html>
