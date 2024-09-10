@@ -9,9 +9,10 @@ import lombok.ToString;
 @ToString
 public class LibAnother {
 	
-	private int boardNo;
-	private String libraryAddress;
-	private String searchLat;
-	private String searchLng;
+	
+	private int boardNo; // 보드번호
+	private String libraryAddress; // 주변 도서관 주소
+	private String searchLat; // 주변 도서관 위도
+	private String searchLng; // 주변 도서관 경도
 
 }

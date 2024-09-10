@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.fin.project.intro.service.IntroService;
+import com.fin.project.intro.model.service.IntroService;
+
+
 
 public class CategoryInterceptor implements HandlerInterceptor {
 	
@@ -25,7 +27,6 @@ public class CategoryInterceptor implements HandlerInterceptor {
 		
 		if(application.getAttribute("category") == null) {
 			List<Map<String, Object>> category = service.selectCategoryList();
-			System.out.println(category);
 			
 			application.setAttribute("category", category);
 		}

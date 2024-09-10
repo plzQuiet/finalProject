@@ -1,13 +1,18 @@
-/* 알림창 모달 */
+/* 삭제 알림창 모달 */
 const popupLayer = document.getElementById("popup_layer");
 const cancelPopup = document.getElementById("cancel_btn");
 
-/* 알림창 모달 열기 */
+/* 삭제 알림창 모달 열기 */
 function openModal(e){
     popupLayer.style.display = "block";
 }
 
-/* 알림창 모달 닫기 */
+/* 삭제 함수 */
+function deleteLibAn(boardNo){
+    location.href = "/intro/1/7/28/delete/"+boardNo;
+}
+
+/* 삭제 알림창 모달 닫기 */
 cancelPopup.addEventListener("click",() => {
     popupLayer.style.display = "none";
 });
@@ -17,8 +22,8 @@ const editPopup = document.getElementById("edit-popup_layer");
 const editPopupClose = document.getElementById("edit-popup-close");
 
 /* 모달 input들 */
-const libraryName = document.querySelector('input[name="libraryName"]');
-const libraryIntroText = document.querySelector('textarea[name="popupIntro"]');
+const libraryName = document.querySelector('input[name="boardTitle"]');
+const libraryIntroText = document.querySelector('textarea[name="boardContent"]');
 let addressInput = document.getElementById("libraryAddress");
 const searchMap = document.getElementById("searchMap");
 
@@ -27,10 +32,22 @@ const searchMap = document.getElementById("searchMap");
 function openEditModal(e){
     editPopup.style.display = "block";
 
+    
+    libraryName.value = "";
+    libraryIntroText.value = "";
+    addressInput.value = "";
+
+    for(let i = 0; i < preview.length; i++){
+        preview[i].setAttribute("src","");
+    }
+    
+
     /* 모달 지도 초기화 */
     map2.relayout();
     map2.setCenter(mapOptions.center);
     map.setLevel(mapOptions.level);
+
+    editLibFrm.setAttribute("action","/intro/1/7/28/insert");
     
 }
 
@@ -89,17 +106,23 @@ modalClose.addEventListener("click", function(){
 })();
 
 /* 지도 */
+const libraryLat = document.getElementsByName("libraryLat")[0];
+const libraryLng = document.getElementsByName("libraryLng")[0];
+
+
+
+let mapCur = document.getElementById("map");
+if(mapCur != null){
 var container = document.getElementById('map');
-container.inner
 var options = {
-    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    center: new kakao.maps.LatLng(libraryLat.value, libraryLng.value),
     level: 3
 };
 
 var map = new kakao.maps.Map(container, options);
 
 // 마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+var markerPosition  = new kakao.maps.LatLng(libraryLat.value, libraryLng.value); 
 
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({
@@ -108,7 +131,7 @@ var marker = new kakao.maps.Marker({
 
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
-
+}
 
 
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
@@ -123,15 +146,27 @@ const curLibraryAdd = document.getElementById("anLibraryAddress");
 const curLibraryIntro = document.getElementById("anLibraryIntro");
 const curLibraryLat = document.getElementsByName("libraryLat")[0];
 const curLibraryLng = document.getElementsByName("libraryLng")[0];
-const curLibraryImg = document.querySelectorAll(".library-another-images-area img");
+const editLibFrm = document.getElementsByName("editIntroFrm")[0];
+
+/* 경로 */
+const curLat = document.querySelector("[name='searchLat']");
+const curLng = document.querySelector("[name='searchLng']");
+
+/* 편집 이미지 */
+const img1 = document.getElementById("img1");
+const img2 = document.getElementById("img2");
+const img3 = document.getElementById("img3");
+const img4 = document.getElementById("img4");
 
 /* 지도의 위도 경도 */
 let position;
 let lat = 33.450701;
 let lng = 126.570667;
 
-function openUpdateModal(e){
+function openUpdateModal(e, boardNo){
     editPopup.style.display = "block";
+
+    editLibFrm.setAttribute("action","/intro/1/7/28/update" +"/" + boardNo);
 
     /* 모달 지도 초기화 */
     map2.relayout();
@@ -142,21 +177,27 @@ function openUpdateModal(e){
     libraryIntroText.value = curLibraryIntro.innerText;
     addressInput.value = curLibraryAdd.innerText;
 
-    for(let i = 0; i < curLibraryImg.length; i++){
-        preview[i].setAttribute("src", curLibraryImg[i].getAttribute("src"));
-    }
-
-    if(curLibraryLat.value.trim().length != 0){
-        lat = curLibraryLat.value;
-    }
-
-    if(curLibraryLng.value.trim().length != 0){
-        lng = curLibraryLng.value;
-    }
-
+    fetch("/intro/getImageList?boardNo="+boardNo)
+    .then(resp => resp.json())
+    .then(imageList => {
+        if(imageList != null){
+            for(let img of imageList){
+                preview[img.imageOrder].setAttribute("src", img.imagePath + img.imageReName);
+            }
+        }
+    })
+    .catch(e => {console.log(e)})
+    
 }
 
 
+
+(function(){
+    if(libraryLat != null && libraryLng != null){
+        lat = libraryLat.value;
+        lng = libraryLng.value;
+    }
+})();
 
 /* 편집 팝업 주소 검색 */
 var mapContainer = document.getElementById('map2');
@@ -206,8 +247,9 @@ searchMap.addEventListener("click", function() {
         console.log("lat : " + lat);
         console.log("lng : " + lng);
 
-        document.querySelector("[name='searchLat']").value = lat;
-        document.querySelector("[name='searchLng']").value = lng;
+        curLat.value = lat;
+        curLng.value = lng;
+
     }
 
     });
@@ -289,20 +331,14 @@ for(let i = 0; i < inputImage.length; i++){
 // JS 배열은 string에 대입되거나 출력될때 
 // 요소, 요소, 요소 형태의 문자열을 반환한다!
 
-const editLibrary = document.getElementById("edit-confirm_btn");
+const introFrm = document.getElementById("editIntroFrm");
 
-editLibrary.addEventListener("click", e => {
+introFrm.addEventListener("submit", function(e) {
+
 if(libraryName.value.trim().length == 0){
     e.preventDefault();
     alert("도서관 명을 입력해주세요.");
     libraryName.focus();
-    return;
-}
-
-if(libraryIntroText.value.trim().length == 0){
-    e.preventDefault();
-    alert("도서관 소개글을 입력해주세요.");
-    libraryIntroText.focus();
     return;
 }
 
@@ -313,7 +349,16 @@ if(addressInput.value.trim().length == 0){
     return;
 }
 
+if(libraryIntroText.value.trim().length == 0){
+    e.preventDefault();
+    alert("도서관 소개글을 입력해주세요.");
+    libraryIntroText.focus();
+    return;
+}
+
+curLat.value = lat;
+curLng.value = lng;
+
 document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
 
-e.preventDefault();
 })

@@ -17,7 +17,7 @@ public interface IntroService {
 	 */
 	List<Map<String, Object>> selectCategoryList();
 
-	/** 주변도서관 도서관 명 얻어오는 Service
+	/** 주변도서관 도서관명 얻어오는 Service
 	 * @param catLevel2
 	 * @return map
 	 */
@@ -60,7 +60,7 @@ public interface IntroService {
 	 */
 	int deleteLibAn(int boardNo);
 
-	/** 주변 도서관 imageList 가져오기
+	/** 주변 도서관 imageList 가져오기 Service
 	 * @param boardNo
 	 * @return imageList
 	 */
