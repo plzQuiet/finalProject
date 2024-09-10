@@ -18,7 +18,7 @@ public class Board {
 	private String boardUpdateDate;
 	private int readCount;
 	private String boardDeleteFlag;
-	private String boardScreatFlag;
+	private String boardSecretFlag;
 	
 	private int commentCount; 
 

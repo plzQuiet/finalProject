@@ -15,6 +15,9 @@
 	<typeAliases>
 		<typeAlias type="com.fin.project.member.model.dto.Member" alias="Member"/>
 		<typeAlias type="com.fin.project.food.model.dto.Food" alias="Food"/>
+		<typeAlias type="com.fin.project.board.model.dto.Board" alias="Board"/>
+		<typeAlias type="com.fin.project.board.model.dto.Board" alias="Comment"/>
+		<typeAlias type="com.fin.project.board.model.dto.BoardImage" alias="BoardImage"/>
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
@@ -24,5 +27,6 @@
 		<mapper resource="/mappers/member-mapper.xml"/>
 		<mapper resource="/mappers/food-mapper.xml"/>
 		<mapper resource="/mappers/myPage-mapper.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
 	</mappers>
 </configuration>

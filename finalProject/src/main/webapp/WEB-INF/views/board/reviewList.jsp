@@ -40,14 +40,14 @@
             <div class="title-line"></div>
 
              <!-- 검색창 --> 
-             <form action="#">
+             <form action="notice" method="get" id="boardSearch">
                 <div class="search-area">
                     <select name="key" id="searchKey">
                         <option value="t">제목</option>
                         <option value="c">내용</option>
                     </select>
 
-                    <input type="text" name="" id="" placeholder="검색어 입력">
+                    <input type="text" name="query" id="searchQuery" placeholder="검색어 입력">
 
                     <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
@@ -70,22 +70,25 @@
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
                             <c:choose>
-                                <c:when test="#">
+                                <c:when test="${empty boardList}">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when>
 
-                                <%-- <c:otherwise>
-                                    <c:forEach var="#" items="#">
-                                    게시글 조회 시 글 목록 존재 O
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>작성자</td>
-                                    <td>작성일</td>
-                                    <td>조회수</td>
+                                <c:otherwise>
+                                    <c:forEach var="board" items="${boardList}">
+                                        <%-- 게시글 조회 시 글 목록 존재 O --%>
+                                        <td>${board.boardNo}</td>
+                                        <td>
+                                            <a href="/notice/${board.boardNo}?cp=${pagination.currentPage}${qs}">${board.boardTitle}</a>
+                                            [${board.commentCount}]
+                                        </td> 
+                                        <td>${board.memberNo}</td>
+                                        <td>${board.boardCreateDate}</td>
+                                        <td>${board.readCount}</td>
                                     </c:forEach>
-                                </c:otherwise> --%>
+                                </c:otherwise>
                             </c:choose>
                         </tbody>
                     </table>
@@ -93,7 +96,7 @@
 
                 <!-- 로그인하면 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
-                    <c:if test="#">
+                    <c:if test="${!empty loginMember}">
                         <button id="writeBtn">글쓰기</button>
                     </c:if>
                 </div>
@@ -103,24 +106,36 @@
 
                     <ul class="pagination">
                         <!-- 첫 페이지로 이동 : << -->
-                        <li><a href="#">&lt;&lt;</a></li>
+                        <li><a href="/notice?cp=1${qs}">&lt;&lt;</a></li>
 
                         <!-- 이전 목록 마지막 페이지로 이동 : < -->
-                        <li><a href="#">&lt;</a></li>
+                        <li><a href="/notice?cp=${pagination.prevPage}${qs}">&lt;</a></li>
 
                         <!-- 특정 페이지로 이동 -->
                         <!-- 1페이지 씩 이동 -->
-                        <li class="currentPage">1</li>
-                        <li>2</li>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+                                <c:when test="${i == pagination.currentPage}">
+                                    <!-- 현재 페이지 -->
+                                    <li><a class="current">${i}</a></li>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <%-- 현재 페이지 제외한 나머지 --%>
+                                    <li><a href="/notice?cp=${i}${qs}">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        <%-- <li>2</li>
                         <li>3</li>
                         <li>4</li>
-                        <li>5</li>
+                        <li>5</li> --%>
 
                         <!-- 다음 목록 시작 페이지로 이동 : > -->
-                        <li><a href="#">&gt;</a></li>
+                        <li><a href="/notice?cp=${pagination.nextPage}${qs}">&gt;</a></li>
 
                         <!-- 마지막 페이지로 이동 : >> -->
-                        <li><a href="#">&gt;&gt;</a></li>
+                        <li><a href="/notice?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
                     </ul>
 
                 </div>

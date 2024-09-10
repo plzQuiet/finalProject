@@ -39,12 +39,12 @@
 				</ul>
 			</li>
 	        <li>
-				<a href="#">이용자 마당</a>
+				<a href="/board/15">이용자 마당</a>
 				<ul>
-					<li><a href="/notice">공지사항</a></li>
-					<li><a href="/qna">문의사항</a></li>
-					<li><a href="/faq">자주 묻는 질문</a></li>
-					<li><a href="/review">책 후기 나눠요</a></li>
+					<li><a href="/board/15">공지사항</a></li>
+					<li><a href="/board/16">문의사항</a></li>
+					<li><a href="/board/17">자주 묻는 질문</a></li>
+					<li><a href="/board/18">책 후기 나눠요</a></li>
 				</ul>
 			</li>
 	        <li>
@@ -80,7 +80,7 @@
                     <input type="checkbox" id="headerMenuToggle">
         
                     <div class="header-menu">
-                        <a href="/myPage/info">내정보</a>
+                        <a href="/myPage/info">내 서재</a>
                         <a href="/member/logout">로그아웃</a>
                     </div>
                 </c:otherwise>

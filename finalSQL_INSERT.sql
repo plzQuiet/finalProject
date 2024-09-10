@@ -98,6 +98,13 @@ INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user03@kh.or.kr',
 INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user04@kh.or.kr', 
     '$2a$10$i6IHXqyhAXEz/FWz/eTjUuESsOZDtfha2SSNtI06PgQE16RlP6ucS',
     '유저사', '01044444444', 'M', '19960928', DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+
+-- 관리자 아이디
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'admin', 
+    '$2a$10$Hnbx25.rNytA8k974TK5fO/pgFxbceVUar18GrpOanU78QTmYjFn2',
+    '관리자', '01012341234', 'M', '19950827', DEFAULT, DEFAULT, DEFAULT, 2);
+
+
 COMMIT;
 
 -- CALENDAR
@@ -371,3 +378,43 @@ INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 350
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블랙티', 5700, DEFAULT, '/resources/images/food/jamongHoneyBlackTea.jpg', '자몽 허니 블랙티이다. 경진언니의 픽이다.');
 commit;
+
+BEGIN
+   FOR I IN 1..20 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+                5, 15,
+              I || '번째 공지사항',
+              I || '번째 공지사항 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+
+BEGIN
+   FOR I IN 1..100 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+              CEIL(DBMS_RANDOM.VALUE(0,4)), 16,
+              I || '번째 문의사항',
+              I || '번째 문의사항 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+--DELETE FROM BOARD;
+BEGIN
+   FOR I IN 1..200 LOOP
+      INSERT INTO BOARD 
+      VALUES( SEQ_BOARD_NO.NEXTVAL,
+             CEIL(DBMS_RANDOM.VALUE(0,4)), 18,
+              I || '번째 후기글',
+              I || '번째 후기글 내용 입니다.',
+              DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+   END LOOP;
+END;
+/
+commit;
+
+
+
