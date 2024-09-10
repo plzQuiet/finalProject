@@ -141,7 +141,7 @@ public class IntroServiceImpl implements IntroService {
 		return libAn;
 	}
 
-	// 주변 도서관 수정 서비스
+	// 주변 도서관 수정(update) 서비스
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int libAnUpdate(Board board, String webPath, String filePath, LibAnother lib, String deleteList,
