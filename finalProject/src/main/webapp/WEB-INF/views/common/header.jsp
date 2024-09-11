@@ -31,11 +31,11 @@
 				</ul>
 			</li>
 	        <li>
-				<a href="#">참여마당</a>
+				<a href="/scheduling/12">참여마당</a>
 				<ul>
-					<li><a href="#">교육/문화 프로그램</a></li>
-					<li><a href="#">열람실</a></li>
-					<li><a href="#">세미나실</a></li>
+					<li><a href="/scheduling/12">교육문화 프로그램</a></li>
+					<li><a href="/scheduling/13">열람실</a></li>
+					<li><a href="/scheduling/14">세미나실</a></li>
 				</ul>
 			</li>
 	        <li>
