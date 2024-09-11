@@ -26,7 +26,7 @@ public class IntroServiceImpl2 implements IntroService2 {
 		return dao.getTypeCalendar(type);
 	}
 
-	// 캘랜더에서 type 별로 특정일 일정 가져오기
+	// 캘랜더에서 type 별로 특정일 일정 가져오기 서비스
 	@Override
 	public List<Calendar> getDateCalendar(Calendar cal) {
 		
@@ -36,13 +36,13 @@ public class IntroServiceImpl2 implements IntroService2 {
 		return dao.getDateCalendar(cal);
 	}
 
-	// 캘랜더에서 휴관일, 행사 일정 가져오기
+	// 캘랜더에서 휴관일, 행사 일정 가져오기 서비스
 	@Override
 	public List<Calendar> getHECal() {
 		return dao.getHECal();
 	}
 
-	// 특정일 휴관일, 행사 일정 가져오기
+	// 특정일 휴관일, 행사 일정 가져오기 서비스
 	@Override
 	public List<Calendar> selectGetDate(String date) {
 		return dao.selectGetDate(date);
