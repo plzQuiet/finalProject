@@ -84,13 +84,13 @@ public class IntroController {
 			
 			Map<String, Object> another = service.selectAnotherLib(catLevel3);
 			List<Map<String, Object>> libTitle = new ArrayList<Map<String,Object>>();
-			if(!another.isEmpty()) {
+			if(another != null) {
 				libTitle = (List<Map<String, Object>>) another.get("libTitle");
 			}
 			
-			if(libTitle != null) {
-				
-				Map<String,Object> another2 = service.selectLibAn( catLevel3, Integer.parseInt(String.valueOf((libTitle.get(0).get("BOARD_NO")))) );
+			if(!libTitle.isEmpty()) {
+				System.out.println(libTitle);
+				Map<String,Object> another2 = service.selectLibAn( catLevel3, Integer.parseInt( String.valueOf((libTitle.get(0).get("BOARD_NO")))) );
 				model.addAttribute("another", another2);
 				
 			}else {
@@ -153,6 +153,7 @@ public class IntroController {
 			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3;
 		}
 		
+		
 		ra.addFlashAttribute("message", message);
 		
 		return path;
@@ -208,6 +209,8 @@ public class IntroController {
 			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3;
 		}
 		
+		System.out.println(message);
+		
 		ra.addFlashAttribute("message", message);
 		
 		return path;
@@ -231,6 +234,8 @@ public class IntroController {
 			message = "주변 도서관 삭제를 실패했습니다.";
 			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
 		}
+		
+		System.out.println(message);
 		
 		ra.addFlashAttribute("message", message);
 		

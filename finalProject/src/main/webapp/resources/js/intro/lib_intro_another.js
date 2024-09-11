@@ -31,7 +31,6 @@ const searchMap = document.getElementById("searchMap");
 /* 편집 모달 열기 */
 function openEditModal(e){
     editPopup.style.display = "block";
-
     
     libraryName.value = "";
     libraryIntroText.value = "";
