@@ -237,12 +237,21 @@ public class IntroController {
 		return path;
 	}
 	
+	// 주변 도서관 이미지 목록 조회 비동기
 	@GetMapping(value="/getImageList", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<BoardImage> getImageList(int boardNo) {
 		
 		return service.getImageList(boardNo);
 		
+	}
+	
+	// 일정 편집 페이지 이동
+	@GetMapping("/{catLevel1:1}/{catLevel2:8}/{catLevel3:30}/calEdit")
+	public String gotoEditCal(@PathVariable("catLevel1") int catLevel1, 
+			@PathVariable("catLevel2") int catLevel2,
+			@PathVariable("catLevel3") int catLevel3) {
+		return "intro/lib_cal_edit";
 	}
 
 }

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +28,7 @@
 
             <section class="content-detail-section">
                 <div class="calendar-category-suround">
-                    <span class="calendar-category"> <span class="category-color gong"></span> 공휴일</span>
                     <span class="calendar-category"> <span class="category-color hue"></span> 휴관일</span>
-                    <span class="calendar-category"> <span class="category-color classDay"></span> 클래스</span>
                     <span class="calendar-category"> <span class="category-color eventDay"></span> 행사</span>
                 </div>
 
@@ -122,9 +121,7 @@
                     <div class="calCategory-surround">
                         <span>종류</span>
                         <select name="calendarCategory" id="calendarCategory">
-                            <option value="nationalHoliday">공휴일</option>
                             <option value="libraryHoliday">휴관일</option>
-                            <option value="libraryClass">클래스</option>
                             <option value="libraryEvent">행사</option>
                         </select>
                     </div>

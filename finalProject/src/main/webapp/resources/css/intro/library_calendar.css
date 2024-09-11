@@ -9,9 +9,20 @@
 }
 
 .calendar-category{
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
     margin: 10px;
+    box-shadow: 2px 2px 3px #d4d4d4;
+    cursor: pointer;
+}
+
+.calendar-category:hover{
+    background-color: #80afe1;
+    color: white;
 }
 
 .category-color{
@@ -73,6 +84,11 @@ color: rgba(0, 4, 255, 0.3);
 font-size:15px;
 }
 
+/* 달력 이벤트 제목 */
+.fc-event-title{
+    text-overflow: ellipsis;
+}
+
 /* 달력 버튼 영역 */
 .calendar-btn-area{
     position: absolute;
@@ -112,3 +128,12 @@ font-size:15px;
     font-size: 25px;
     font-weight: bold;
 }
+
+#selectCalArea{
+    margin: 10px ;
+    font-size: 15px;
+    font-weight: 300px;
+    line-height: 30px;
+}
+
+
