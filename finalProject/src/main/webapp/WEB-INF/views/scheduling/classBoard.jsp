@@ -1,24 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
+
+<c:forEach items="${category}" var="catelist">
+    <c:if test="${catelist.CAT_CODE == cateCode}">
+        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class</title>
+    <title>JavaLibrary - 교육문화 프로그램</title>
 
-    <link rel="stylesheet" href="../../css/common/sideMenu.css">
-    <link rel="stylesheet" href="../../css/reservation/class-board.css">
-    <link rel="stylesheet" href="../../css/reservation/modal.css">
+    <link rel="stylesheet" href="/resources/css/main-style.css">
+    <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+    <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/class-board.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/modal.css">
     <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-    <header>header 부분</header>
-
-    <!-- 상단바 밑 사진 -->
-    <div id="img_div"></div>
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
     <section class="main-content-suround-section">
         <article class="side-menu-article">
@@ -46,7 +58,7 @@
                         <option value="tc">제목+내용</tion>
                     </select>
 
-                    <input type="text" name="" id="" placeholder="검색어 입력">
+                    <input type="text" name="query" id="query" placeholder="검색어 입력">
 
                     <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
@@ -66,20 +78,20 @@
 
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
-                            <!--  <c:choose>
+                            <c:choose>
                                 <c:when test="#">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
-                                </c:when> -->
+                                </c:when>
 
-                            <c:otherwise>
-                                <c:forEach var="#" items="#">
-                                    <td>기간마감</td>
-                                    <td>000 프로그램</td>
-                                    <td>2024-08-09 ~ 2024-08-10</td>
-                                </c:forEach>
-                            </c:otherwise>
+                                <c:otherwise>
+                                    <c:forEach var="#" items="#">
+                                        <td>기간마감</td>
+                                        <td>000 프로그램</td>
+                                        <td>2024-08-09 ~ 2024-08-10</td>
+                                    </c:forEach>
+                                </c:otherwise>
                             </c:choose>
                         </tbody>
                         <tbody>
@@ -101,25 +113,33 @@
                 <div class="pagination-area">
 
                     <ul class="pagination">
-                        <!-- 첫 페이지로 이동 : << -->
-                        <li><a href="#">&lt;&lt;</a></li>
+                        <!-- 첫 페이지로 이동 -->
+                        <li><a href="/board/${cateCode}?cp=1${qs}">&lt;&lt;</a></li>
 
-                        <!-- 이전 목록 마지막 페이지로 이동 : < -->
-                        <li><a href="#">&lt;</a></li>
+                        <!-- 이전 목록 마지막 페이지로 이동 -->
+                        <li><a href="/board/${cateCode}?cp=${pagination.prevPage}${qs}">&lt;</a></li>
 
                         <!-- 특정 페이지로 이동 -->
                         <!-- 1페이지 씩 이동 -->
-                        <li class="currentPage">1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+
+                                <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <li><a href="/board/${cateCode}?cp=${i}${qs}">${i}</a></li>
+                                </c:otherwise>
+
+                            </c:choose>
+                        </c:forEach>
 
                         <!-- 다음 목록 시작 페이지로 이동 : > -->
-                        <li><a href="#">&gt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=${pagination.nextPage}${qs}">&gt;</a></li>
 
                         <!-- 마지막 페이지로 이동 : >> -->
-                        <li><a href="#">&gt;&gt;</a></li>
+                        <li><a href="/board/${cateCode}?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
                     </ul>
 
                 </div>
@@ -130,22 +150,7 @@
 
     </section>
 
-    <footer>
-        <article>
-            <a href="#">개인정보처리방침</a>
-            <span>|</span>
-            <a href="#"> 영상정보처리기 운영·관리방침 </a>
-        </article>
-        <div>
-            <img src="../../images/logo.png">
-            <div>
-                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
-                <p> 전화번호 : 1544-9970 </p>
-                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
-            </div>
-            <img src="../../images/wa_logo.png">
-        </div>
-    </footer>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 </body>
 

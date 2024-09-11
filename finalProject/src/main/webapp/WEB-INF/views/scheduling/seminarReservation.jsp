@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>세미나실 예약 시스템</title>
-    <link rel="stylesheet" href="../../css/reservation/seminar-reservation.css">
+    <title>도서관 예약 시스템</title>
+    <link rel="stylesheet" href="/resources/css/scheduling/seminar-reservation.css">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 </head>
 
@@ -15,7 +19,7 @@
             <ul>
                 <li>
                     <a href="#">
-                        <img src="../../images/logo.png" alt="로고" id="homeLogo">
+                        <img src="/resources/images/logo.png" alt="로고" id="homeLogo">
                         <span>도서관 예약 시스템</span>
                     </a>
                 </li>
@@ -63,18 +67,18 @@
             <a href="#"> 영상정보처리기 운영·관리방침 </a>
         </article>
         <div>
-            <img src="../../images/logo.png">
+            <img src="/resources/images/logo.png">
             <div>
                 <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
                 <p> 전화번호 : 1544-9970 </p>
                 <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
             </div>
-            <img src="../../images/wa_logo.png">
+            <img src="/resources/images/wa_logo.png">
         </div>
     </footer>
 
 
-    <script src="../../js/reservation/seminar-reservation.js"></script>
+    <script src="/resources/js/scheduling/seminar-reservation.js"></script>
 </body>
 
 </html>

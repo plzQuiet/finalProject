@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서관 예약 시스템</title>
 
-    <link rel="stylesheet" href="/resources/css/reservation/study-reservation.css">
-    <link rel="stylesheet" href="/resources/css/reservation/reservModal.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/study-reservation.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/reservModal.css">
 
 </head>
 
@@ -397,7 +397,7 @@
         </div>
     </div>
 
-    <script src="/resources/js/reservation/class-board.js"></script>
+    <script src="/resources/js/scheduling/class-board.js"></script>
 
 
 </body>

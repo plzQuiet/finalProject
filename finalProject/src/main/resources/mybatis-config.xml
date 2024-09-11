@@ -20,6 +20,7 @@
 		<typeAlias type="com.fin.project.board.model.dto.Comment" alias="Comment"/>
 		<typeAlias type="com.fin.project.intro.model.dto.LibAnother" alias="LibAnother"/>
 		<typeAlias type="com.fin.project.intro.model.dto.Calendar" alias="Calendar"/>
+		<typeAlias type="com.fin.project.scheduling.model.dto.Board" alias="Class"/>
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
@@ -30,5 +31,6 @@
 		<mapper resource="/mappers/food-mapper.xml"/>
 		<mapper resource="/mappers/myPage-mapper.xml"/>
 		<mapper resource="/mappers/board-mapper.xml"/>
+		<mapper resource="/mappers/class-mapper.xml"/>
 	</mappers>
 </configuration>
