@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/resources/css/main-style.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<script src="https://kit.fontawesome.com/cb5f1fee4d.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/modal.jsp"></jsp:include>
@@ -28,7 +29,19 @@
 				<article class="week-meal">
 					<div class="week-meal-btn-area">
 						<p class="meal-title">백반</p>
-						<button id="pay-btn">식권 구매</button>
+						<c:if test="${!empty loginMember }">
+							<c:choose>
+								<c:when test="${loginMember.authority == 1 }">
+									<button id="pay-btn">식권 구매</button>
+								</c:when>
+								<c:otherwise>
+									<div>
+										<button id="menu-add-btn">메뉴 추가</button>
+										<button id="menu-update-btn">메뉴 수정</button>
+									</div>
+								</c:otherwise>						
+							</c:choose>
+						</c:if>
 					</div>
 					<table>
 						<thead>
@@ -71,6 +84,9 @@
 							<c:forEach var="food" items="${foodList}" varStatus="status">
 								<c:if test="${food.typeNo == 1}">
 									<div class="snack-menu-detail">
+										<c:if test="${loginMember.authority == 2 }">
+											<button id="menu-del-btn"><i class="fa-solid fa-xmark"></i></button>
+										</c:if>
 										<img src="${food.foodImg}">
 										<p>${food.foodName}</p>
 									</div>

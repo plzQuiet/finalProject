@@ -140,6 +140,7 @@ table * {border : 1px solid #ddd;}
 	display: flex;
 	flex-direction: column;
 	align-items:center;
+	position: relative;
 	
 }
 
@@ -154,3 +155,117 @@ table * {border : 1px solid #ddd;}
 	margin-top: 10px;
 }
 
+#menu-add-btn,
+#menu-update-btn{
+	padding: 10px;
+	background-color: white;
+	border: 2px solid #8FB788;
+	border-radius: 10px;
+	color: #8FB788;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+#menu-add-btn:hover,
+#menu-update-btn:hover{
+	color:white;
+	background-color:  #8FB788;
+}
+
+
+#menu-del-btn{
+	background-color: #8FB788;
+	color: white;
+	border: 0;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 15px;
+	padding: 5px 7px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+#menu-del-btn:hover{
+	background-color: #008c1d;
+}
+
+/* ********************************** */
+/* menu 추가 영역 모달 */
+/* ********************************** */
+.menu-add-area{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu-add-popupBox{
+	width: 850px !important;
+}
+
+.menu-add-area .menu-name-area{
+	width: 30%;
+	display: flex;
+}
+
+.menu-add-area .menu-name-area input{
+	height: 30px;
+	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+	border: none;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.menu-add-area .menu-name-area input:focus{
+	outline: none;
+}
+
+.menu-add-area .image-area{
+	width: 68%;
+	display: flex;
+}
+
+.menu-add-area .menu-name-area p,
+.menu-add-area .image-area p{
+	color: #8FB788 !important;
+	font-size: 15px;
+	font-weight: 800;
+	word-break: break-word;
+}
+
+.menu-add-area .image-area .right-image-area pre{
+	font-size: 10px;
+	width: 100%;
+	overflow: auto;
+	white-space: pre-wrap; /* pre tag내에 word wrap */
+}
+
+.menu-add-area .image-area .left-image-area{
+	width: 45%;
+}
+
+.menu-add-area .image-area .right-image-area{
+	width: 50%;
+}
+
+/* 미리보기 영역 */
+.menu-add-area .image-area .left-image-area > label{
+	width: 200px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+	border-radius: 10px;
+}
+
+/* file 타입 input */
+.menu-add-area .image-area .left-image-area .inputImage{display: none;}
+
+
+/* 미리보기 이미지 */
+.menu-add-area .image-area .left-image-area .preview{
+	max-width: 100%;
+	max-height: 100%;
+}
+  

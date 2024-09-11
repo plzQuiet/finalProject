@@ -77,12 +77,14 @@ main{
     gap: 20px 75px;
 }
 
-.cafe-menu-area a{
+.cafe-menu-area {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 }
+
 
 .cafe-menu-area  img{
 	max-width:200px;
@@ -176,6 +178,8 @@ main{
 
 .popup_content .mcafe .mcafe-menu .mcafe-menu-detail span{
 	font-size: 13px;
+	width: 100%;
+	word-break: keep-all;
 }
 
 
@@ -276,4 +280,39 @@ main{
 .mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea{
 	display: flex;
 	align-items: center;
+}
+
+#menu-add-btn,
+#menu-update-btn{
+	padding: 10px;
+	background-color: white;
+	border: 2px solid #8FB788;
+	border-radius: 10px;
+	color: #8FB788;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+#menu-add-btn:hover,
+#menu-update-btn:hover{
+	color:white;
+	background-color:  #8FB788;
+}
+
+
+#menu-del-btn{
+	background-color: #8FB788;
+	color: white;
+	border: 0;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 15px;
+	padding: 5px 7px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+#menu-del-btn:hover{
+	background-color: #008c1d;
 }
