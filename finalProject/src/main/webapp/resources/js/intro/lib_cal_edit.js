@@ -142,6 +142,7 @@ function deleteShedule(calNo, delDate) {
     if(result > 0){
       getTypeCal();
       createSchedule(delDate);
+      delPop.style.display = "none";
     }
   })
   .catch(e => {console.log(e)}) 
@@ -303,7 +304,7 @@ function createSchedule(date){
         const delBtn = document.createElement("button");
         delBtn.innerText = "삭제";
         delBtn.classList.add("scheduleDelete");
-        delBtn.setAttribute("onClick","deleteShedule(" + r.calendarNo +",'"+ r.startDt +"')");
+        delBtn.setAttribute("onClick","openDelPopUp(" + r.calendarNo +",'"+ r.startDt +"')");
         console.log(r.startDt);
 
         eventBtnArea.append(upBtn,delBtn);
@@ -325,8 +326,14 @@ function createSchedule(date){
 /* ---------------------------------------------------------------------------------------------------------------- */
 /* 편집 모달 열기 */
 const editPopup = document.getElementById("edit-popup_layer");
+
 document.getElementById("add-todo").addEventListener("click",() => {
     editPopup.style.display = "block";
+
+    scheduleName.value = '';
+    startDate.value = '';
+    endDate.value = '';
+    document.getElementsByTagName("option")[0].selected = true;
 
     startDate.value = selectDate;
     confirmBtn.setAttribute("onClick", "insertSchedule()");
@@ -366,6 +373,20 @@ function openPopUpdate(e,calNo){
 
     editPopup.style.display = "block";
 
+}
+
+const delPop = document.getElementById("popup_layer");
+
+/* 삭제 알람창 취소 클릭시 */
+document.getElementById("cancel_btn").addEventListener("click",() => {
+  delPop.style.display = "none";
+})
+
+/* 삭제 알림창 열기 함수 */
+function openDelPopUp(calNo, date){
+  delPop.style.display = "block";
+
+  document.getElementById("confirm_btn").setAttribute("onClick","deleteShedule("+calNo+",'"+date+"')");
 }
 
 
