@@ -3,13 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:set var="pagination" value="${map.pagination}" />
-<c:set var="boardList" value="${map.boardList}" />
+<c:set var="classBoardList" value="${map.classBoardList}" />
 
-<c:forEach items="${category}" var="catelist">
-    <c:if test="${catelist.CAT_CODE == cateCode}">
-        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
-    </c:if>
-</c:forEach>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -29,9 +24,8 @@
 </head>
 
 <body>
-
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
+    ${map}
     <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
@@ -79,26 +73,22 @@
                         <tbody>
                             <!-- 게시글 조회 시 글 목록 존재 X -->
                             <c:choose>
-                                <c:when test="#">
+                                <c:when test="${empty classBoardList}">
                                     <tr>
                                         <th colspan="5">게시글이 존재하지 않습니다.</th>
                                     </tr>
                                 </c:when>
 
                                 <c:otherwise>
-                                    <c:forEach var="#" items="#">
-                                        <td>기간마감</td>
-                                        <td>000 프로그램</td>
-                                        <td>2024-08-09 ~ 2024-08-10</td>
+                                    <c:forEach var="classBoard" items="${classBoardList}">
+                                        <td>기간마감, 신청가능, 인원마감</td>
+                                        <td>${classBoard.boardTitle}</td>
+                                        <td>${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</td>
                                     </c:forEach>
                                 </c:otherwise>
                             </c:choose>
                         </tbody>
-                        <tbody>
-                            <td>신청가능</td>
-                            <td>000 프로그램</td>
-                            <td>2024-08-09 ~ 2024-08-10</td>
-                        </tbody>
+                     
                     </table>
                 </div>
 
