@@ -242,7 +242,7 @@ main{
 	gap: 10px;
 }
 
-.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea #qty-result,
+.mcafe-cart .mcafe-cart-menu .meal-ticket-btnArea .qty-result,
 .mcafe-cart-area .mcafe-cart .mcafe-cart-menu span{
 	font-size: 13px;
 	color: black !important;
