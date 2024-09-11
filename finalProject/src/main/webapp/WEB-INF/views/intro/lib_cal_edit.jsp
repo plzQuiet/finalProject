@@ -122,6 +122,26 @@
           </div>
         </div>
         </div>
+
+        <!-- 알림창 모달-->
+	<div id="popup_layer">
+		<div class="popup_box">
+			  <div class="popup_header">
+				  <p>일정 삭제</p>
+			  </div>
+			  
+			<!--팝업 컨텐츠 영역-->
+			<div class="popup_content">
+				<p> 정말 삭제 하시겠습니까?
+				</p>
+			</div>
+			<!--팝업 버튼 영역-->
+			<div class="popup_btn">
+				<button id="confirm_btn">확인</button>
+				<button id="cancel_btn">취소</button>
+			</div>
+		</div>
+	  </div>
         
      <script src="/resources/js/intro/lib_cal_edit.js"></script>
 	

@@ -288,7 +288,8 @@
 		UPDATE CALENDAR SET 
 		    CALENDAR_NAME = #{calendarName},
 		    START_DT = #{startDt},
-		    END_DT = #{endDt} 
+		    END_DT = #{endDt} ,
+		    CALENDAR_TYPE = ${calendarType}
 		WHERE CALENDAR_NO = ${calendarNo}
 	</update>
 	
