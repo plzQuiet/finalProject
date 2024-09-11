@@ -1,0 +1,69 @@
+package com.fin.project.my.library.model.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fin.project.board.model.dto.Pagination;
+import com.fin.project.my.library.model.dao.MyLibraryDAO;
+
+@Service
+public class MyLibraryServiceImpl implements MyLibraryService {
+	
+	@Autowired
+	private MyLibraryDAO dao;
+
+	@Override
+	public List<Map<String, Object>> booksLoan(int memberNo) {
+		return dao.booksLoan(memberNo);
+	}
+
+	@Override
+	public Map<String, Object> loanHistory(int memberNo, int cp) {
+		
+		int listCount = dao.getLoanHistory(memberNo);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		List<Map<String, Object>> bList = dao.loanHistory(memberNo, pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("bList", bList);
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> reservationBook(int memberNo, int cp) {
+		
+		int listCount = dao.getReservationBook(memberNo);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		List<Map<String, Object>> bList = dao.reservationBook(memberNo, pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("bList", bList);
+		
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> bookRequestHistory(int memberNo, int cp) {
+		
+		int listCount = dao.getBookRequestHistory(memberNo);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		List<Map<String, Object>> bList = dao.bookRequestHistory(memberNo, pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("bList", bList);
+		
+		return map;
+	}
+
+}
