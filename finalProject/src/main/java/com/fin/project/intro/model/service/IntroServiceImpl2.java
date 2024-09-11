@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fin.project.intro.model.dao.IntroDAO2;
 import com.fin.project.intro.model.dto.Calendar;
@@ -45,6 +46,27 @@ public class IntroServiceImpl2 implements IntroService2 {
 	@Override
 	public List<Calendar> selectGetDate(String date) {
 		return dao.selectGetDate(date);
+	}
+
+	// 특정 일정 삭제 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int deleteShedule(int calNo) {
+		return dao.deleteShedule(calNo);
+	}
+
+	// 특정 일정 추가 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int insertShedule(Calendar insertCal) {
+		return dao.insertShedule(insertCal);
+	}
+
+	// 특정 일정 수정 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateShedule(Calendar updateCal) {
+		return dao.updateShedule(updateCal);
 	}
 
 }

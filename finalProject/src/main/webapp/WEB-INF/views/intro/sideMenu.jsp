@@ -40,7 +40,7 @@
 							</c:when>
 
 							<c:otherwise>
-								<li class="last-menu"><a href="/intro/${cat.CAT_CODE}/${cat2.CAT_CODE}">${cat2.CAT_NAME }</a></li>
+								<li><a href="/intro/${cat.CAT_CODE}/${cat2.CAT_CODE}">${cat2.CAT_NAME }</a></li>
 							</c:otherwise>
 						</c:choose>
 
