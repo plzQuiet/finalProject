@@ -39,7 +39,7 @@
 
             <!-- 게시글 작성 화면 -->
             <!-- notice / bookreview 공통 -->
-            <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+            <form action="/board2/${cateCode}/insert" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                 <!-- 제목 -->
                 <h1 class="board-title">
                     <input type="text" name="boardTitle" placeholder="제목 입력">
@@ -85,6 +85,8 @@
 
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script src="/resources/js/board/boardWrite.js"></script>
 
 </body>
 </html>

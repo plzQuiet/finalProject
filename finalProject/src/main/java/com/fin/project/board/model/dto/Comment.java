@@ -15,5 +15,6 @@ public class Comment {
 	private String commentContent;
 	private String commentCreateDate;
 	private String commentDeleteFlag;
+	private String memberName;
 
 }

@@ -44,15 +44,15 @@
 
                 <!-- 작성자 이름 영역 -->
                 <!-- db에서 memberName 불러올 것 -->
-                <div class="member-name"><h3>홍길동</h3></div>
+                <div class="member-name"><h3>${loginMember.memberName}</h3></div>
 
                 <!-- 공개/비공개 -->
                 <div class="board-type">
                     <span>공개 여부</span> 
-                    <input type="radio" name="option" id="public">
+                    <input type="radio" name="option" id="public" value="N">
                     <label for="public">공개</label>
 
-                    <input type="radio" name="option" id="private">
+                    <input type="radio" name="option" id="private" value="Y">
                     <label for="private">비공개</label>
                 </div>
 
