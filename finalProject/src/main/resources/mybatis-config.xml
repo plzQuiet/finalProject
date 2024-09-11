@@ -32,5 +32,6 @@
 		<mapper resource="/mappers/myPage-mapper.xml"/>
 		<mapper resource="/mappers/board-mapper.xml"/>
 		<mapper resource="/mappers/class-mapper.xml"/>
+		<mapper resource="/mappers/myLibrary-mapper.xml"/>
 	</mappers>
 </configuration>

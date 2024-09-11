@@ -1,0 +1,44 @@
+.side-menu{width: 200px;}
+
+a{display: block;}
+
+.side-menu > div{
+	height: 140px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #008C1D;
+	color: white;
+	text-align: center;
+	line-height: 140px;
+	border-radius: 10px 10px 0 0;
+}
+
+.side-menu > ul{list-style: none;}
+
+.side-menu > ul > li{
+	border: 1px solid #ddd;
+}
+
+.side-menu > ul > li > a{
+	font-weight: bold;
+	padding: 20px;
+}
+
+.side-menu > ul > li:nth-of-type(1) > a {
+	background-color: #8FB788;
+	color: white;
+}
+
+.side-menu > ul > li:last-of-type{
+	border-radius: 0 0 10px 10px;
+}
+
+.side-wrap {
+	height: 165px;
+	padding: 20px;
+}
+
+.side-wrap > a{
+	margin-bottom: 10px;
+	font-size: 13px;
+}
