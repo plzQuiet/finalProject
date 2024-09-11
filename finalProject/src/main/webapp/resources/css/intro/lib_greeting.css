@@ -5,4 +5,5 @@
 	background: url("/resources/images/intro/greeting_book.jpg") no-repeat
 		center 20%;
 	background-size: cover;
+	margin-bottom: 30px;
 }

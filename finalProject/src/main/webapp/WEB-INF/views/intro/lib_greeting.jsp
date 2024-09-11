@@ -41,7 +41,7 @@
                     <br>
                     감사합니다. <br>
                     <br>
-                    조용히해조 조장 <br>
+                    <strong>조용히해조 조장</strong> <br>
 
                 </p>
             </section>
