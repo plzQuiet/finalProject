@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaLibrary - 교육문화 프로그램</title>
 
+    <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
-    <link rel="stylesheet" href="/resources/css/reservation/class-detail.css">
-    <link rel="stylesheet" href="/resources/css/reservation/modal.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/class-detail.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/modal.css">
 
 </head>
 
@@ -107,7 +108,7 @@
         </div>
     </div>
 
-    <script src="/resources/js/reservation/class-board.js"></script>
+    <script src="/resources/js/scheduling/class-board.js"></script>
 </body>
 
 </html>
