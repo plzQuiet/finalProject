@@ -29,4 +29,22 @@ public interface IntroService2 {
 	 */
 	List<Calendar> selectGetDate(String date);
 
+	/** 특정 일정 삭제
+	 * @param calNo
+	 * @return result
+	 */
+	int deleteShedule(int calNo);
+
+	/** 특정 일정 추가
+	 * @param insertCal
+	 * @return result
+	 */
+	int insertShedule(Calendar insertCal);
+
+	/** 특정일 일정 수정
+	 * @param updateCal
+	 * @return result
+	 */
+	int updateShedule(Calendar updateCal);
+
 }

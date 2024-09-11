@@ -62,4 +62,29 @@ public class IntroDAO2 {
 		return sqlSession.selectList("introMapper.selectGetDate", date);
 	}
 
+	/** 특정 일정 삭제 DAO
+	 * @param calNo
+	 * @return result
+	 */
+	public int deleteShedule(int calNo) {
+		return sqlSession.delete("introMapper.deleteShedule", calNo);
+	}
+
+	/** 특정 일정 추가 DAO
+	 * @param insertCal
+	 * @return result
+	 */
+	public int insertShedule(Calendar insertCal) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("introMapper.insertShedule", insertCal);
+	}
+
+	/** 특정 일정 수정 DAO
+	 * @param updateCal
+	 * @return result
+	 */
+	public int updateShedule(Calendar updateCal) {
+		return sqlSession.update("introMapper.updateShedule", updateCal);
+	}
+
 }

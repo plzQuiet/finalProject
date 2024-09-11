@@ -235,8 +235,8 @@
 	        TO_CHAR(RECRUITMENT_END_DT,'YYYY-MM-DD') RECRUITMENT_END_DT
 	FROM CLASS_SCHEDULE S
 	JOIN BOARD B ON(B.BOARD_NO = S.BOARD_NO)
-	WHERE ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{startDt}) OR TO_CHAR((END_DT + 1), 'YYYY-MM-DD') IN(#{startDt}) 
-	OR #{startDt} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR((END_DT + 1), 'YYYY-MM-DD') )
+	WHERE ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{startDt}) OR TO_CHAR(END_DT, 'YYYY-MM-DD') IN(#{startDt}) 
+	OR #{startDt} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR(END_DT, 'YYYY-MM-DD') )
 	</select>
 	
 	<!-- 일정 중 타입별 특정일 일정 가져오기 -->
@@ -247,8 +247,8 @@
 	    CALENDAR_TYPE
 	FROM CALENDAR
 	WHERE CALENDAR_TYPE = ${calendarType}
-	AND ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{startDt}) OR TO_CHAR((END_DT + 1), 'YYYY-MM-DD') IN(#{startDt}) 
-	OR #{startDt} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR((END_DT + 1), 'YYYY-MM-DD') )
+	AND ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{startDt}) OR TO_CHAR(END_DT, 'YYYY-MM-DD') IN(#{startDt}) 
+	OR #{startDt} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR(END_DT, 'YYYY-MM-DD') )
 	</select>
 	
 	<!-- 일정 휴관일, 행사 일정 가져오기 -->
@@ -269,8 +269,28 @@
 	    CALENDAR_TYPE
 	FROM CALENDAR
 	WHERE CALENDAR_TYPE IN(2,3)
-	AND ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{date}) OR TO_CHAR((END_DT + 1), 'YYYY-MM-DD') IN(#{date}) 
-	OR #{date} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR((END_DT + 1), 'YYYY-MM-DD') )
+	AND ( TO_CHAR( START_DT, 'YYYY-MM-DD') IN(#{date}) OR TO_CHAR(END_DT, 'YYYY-MM-DD') IN(#{date}) 
+	OR #{date} BETWEEN TO_CHAR( START_DT, 'YYYY-MM-DD') AND TO_CHAR(END_DT, 'YYYY-MM-DD') )
 	</select>
+	
+	<!-- 특정 일정 삭제 -->
+	<delete id="deleteShedule">
+		DELETE FROM CALENDAR WHERE CALENDAR_NO = ${calNo}
+	</delete>
+	
+	<!-- 특정 일정 추가 -->
+	<insert id="insertShedule">
+		INSERT INTO CALENDAR VALUES(SEQ_CALENDAR_NO.NEXTVAL, #{calendarName} , #{startDt}, #{endDt}, ${calendarType})
+	</insert>
+	
+	<!-- 특정 일정 수정 -->
+	<update id="updateShedule">
+		UPDATE CALENDAR SET 
+		    CALENDAR_NAME = #{calendarName},
+		    START_DT = #{startDt},
+		    END_DT = #{endDt} 
+		WHERE CALENDAR_NO = ${calendarNo}
+	</update>
+	
 	
 </mapper>

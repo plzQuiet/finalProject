@@ -60,19 +60,6 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>일정</td>
-                                        <td>2024-09-04</td>
-                                        <td>2024-09-08</td>
-                                        <td>행사</td>
-                                        <td>
-                                            <button class="scheduleUpdate" onClick="openPopUdate(this)">수정</button>
-                                            <button class="scheduleDelete">X</button>
-                                        </td>
-                                    </tr>
-
-                                    
-
                                 </tbody>
 
                                 <tfoot>
@@ -121,8 +108,8 @@
                     <div class="calCategory-surround">
                         <span>종류</span>
                         <select name="calendarCategory" id="calendarCategory">
-                            <option value="libraryHoliday">휴관일</option>
-                            <option value="libraryEvent">행사</option>
+                            <option value="2">휴관일</option>
+                            <option value="3">행사</option>
                         </select>
                     </div>
                 </div>

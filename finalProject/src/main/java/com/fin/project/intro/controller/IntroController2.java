@@ -3,11 +3,12 @@ package com.fin.project.intro.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fin.project.intro.model.dto.Calendar;
@@ -44,4 +45,22 @@ public class IntroController2 {
 		return service.selectGetDate(date);
 	}
 	
+	// 특정일 휴관일, 행사 삭제
+	@DeleteMapping("/deleteShedule")
+	public int deleteShedule(@RequestBody int calNo) {
+		return service.deleteShedule(calNo);
+	}
+	
+	// 특정일 일정 추가
+	@PostMapping("/insertShedule")
+	public int insertShedule(@RequestBody Calendar insertCal) {
+		return service.insertShedule(insertCal);
+	}
+	
+	// 특정일 일정 수정
+	@PutMapping("/updateShedule")
+	public int updateShedule(@RequestBody Calendar updateCal) {
+		System.out.println(updateCal);
+		return service.updateShedule(updateCal);
+	}
 }

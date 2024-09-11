@@ -54,10 +54,98 @@ prevBtn.addEventListener("click",function(){ calendar.prev();})
 nextBtn.addEventListener("click",function() {calendar.next();})
 
 /* 일정 등록 메소드 */
-function insertSchedule(){}
+function insertSchedule(){
+
+  let calType;
+
+  for(let i = 0; i < calCateOption.length; i++){
+    if(calCateOption[i].selected == true){
+        calType = calCateOption[i].value;
+    }
+  }
+  
+  const insertCal = {
+    calendarName : scheduleName.value,
+    startDt : startDate.value,
+    endDt : endDate.value,
+    calendarType : calType
+  }
+
+  fetch("/intro2/insertShedule",{
+    method : "POST",
+    headers : {"Content-type" : "application/json"},
+    body : JSON.stringify(insertCal)
+  })
+  .then(resp => resp.text())
+  .then(result => {
+    if(result > 0){
+      getTypeCal();
+      createSchedule(startDate.value);
+      editPopup.style.display = "none";
+    }else{
+      alert("등록 안됨");
+    }
+  })
+  .catch(e => {console.log(e)});
+}
 
 /* 일정 수정 메소드 */
-function updateSchedule() {}
+function updateSchedule(calNo) {
+
+  let calType;
+
+  for(let i = 0; i < calCateOption.length; i++){
+    if(calCateOption[i].selected == true){
+        calType = calCateOption[i].value;
+    }
+  }
+  
+  const updateCal = {
+    calendarNo : calNo,
+    calendarName : scheduleName.value,
+    startDt : startDate.value,
+    endDt : endDate.value,
+    calendarType : calType
+  }
+
+  fetch("/intro2/updateShedule",{
+    method : "PUT",
+    headers : {"Content-type" : "application/json"},
+    body : JSON.stringify(updateCal)
+  })
+  .then(resp => resp.text())
+  .then(result => {
+    if(result > 0){
+      getTypeCal();
+      createSchedule(startDate.value);
+      editPopup.style.display = "none";
+    }else{
+      alert("수정 안됨");
+    }
+  })
+  .catch(e => {console.log(e)})
+
+}
+
+/* 일정 삭제 메소드 */
+function deleteShedule(calNo, delDate) {
+  console.log(calNo);
+  console.log(delDate);
+
+  fetch("/intro2/deleteShedule",{
+    method : "DELETE",
+    headers : {"Content-type" : "application/json"},
+    body : calNo
+  })
+  .then(resp => resp.text())
+  .then(result => {
+    if(result > 0){
+      getTypeCal();
+      createSchedule(delDate);
+    }
+  })
+  .catch(e => {console.log(e)}) 
+}
 
 /* 캘런더 이번트 가져오는 메소드 */
 function getTypeCal(){
@@ -136,9 +224,6 @@ events: event ,
     /* 캘런더 날짜 선택 시 함수 수행*/
   dateClick : function(e){
     selectDate = e.dateStr;
-    let selectArray = selectDate.split("-");
-    console.log(selectArray);
-    dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
 
     createSchedule(selectDate);
     /* e.dateStr - 클릭한 날짜 가져옴 */
@@ -166,22 +251,72 @@ const tbody = document.querySelector(".todo-surround > table > tbody");
 /* 일정 목록 생성 */
 function createSchedule(date){
 
+  let selectArray = date.split("-");
+  console.log(selectArray);
+  dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
+
   fetch("/intro2/selectGetDate?date="+date)
   .then(resp => resp.json())
   .then(result =>{
-
+    console.log(result);
     /* 일정 리스트를 담아둘 tbody */
     tbody.innerHTML = "";
     if(result != null){
 
       for(let r of result){
 
-        const tr = document
+        /* 일정 담을 tr */
+        const tr = document.createElement("tr");
+
+        /* 일정 제목 */
+        const eventTitle = document.createElement("td");
+        eventTitle.innerText = r.calendarName;
+
+        /* 일정 시작일 */
+        const eventStart = document.createElement("td");
+        eventStart.innerText = r.startDt;
+
+        /* 일정 종료일 */
+        const eventEnd = document.createElement("td");
+        if(r.endDt != null){
+          eventEnd.innerText = r.endDt;
+        }
+
+        /* 일정 타입 */
+        const eventType = document.createElement("td");
+        if(r.calendarType == 2){
+          eventType.innerText = "휴관일";
+        }else{
+          eventType.innerText = "행사";
+        }
+
+        /* 비고(버튼 영역) */
+        const eventBtnArea = document.createElement("td");
+
+        /* 수정 버튼 */
+        const upBtn = document.createElement("button");
+        upBtn.innerText = "수정"
+        upBtn.classList.add("scheduleUpdate");
+        upBtn.setAttribute("onClick","openPopUpdate(this,"+ r.calendarNo +")")
+
+        /* 삭제 버튼 */
+        const delBtn = document.createElement("button");
+        delBtn.innerText = "삭제";
+        delBtn.classList.add("scheduleDelete");
+        delBtn.setAttribute("onClick","deleteShedule(" + r.calendarNo +",'"+ r.startDt +"')");
+        console.log(r.startDt);
+
+        eventBtnArea.append(upBtn,delBtn);
+
+        /* tr 삽입 */
+        tr.append(eventTitle,eventStart,eventEnd,eventType,eventBtnArea);
+
+        /* tbody에 tr 삽입 */
+        tbody.append(tr);
       }
 
-    }else{
-
     }
+
   })
   .catch(e => {console.log(e)})
 
@@ -193,6 +328,7 @@ const editPopup = document.getElementById("edit-popup_layer");
 document.getElementById("add-todo").addEventListener("click",() => {
     editPopup.style.display = "block";
 
+    startDate.value = selectDate;
     confirmBtn.setAttribute("onClick", "insertSchedule()");
 });
 
@@ -208,7 +344,7 @@ editPopupClose.addEventListener("click",() => {
 });
 
 /* 수정 버튼 클릭시 */
-function openPopUdate(e){
+function openPopUpdate(e,calNo){
     const parentNode = e.parentElement;
     const calCate = parentNode.previousElementSibling;
     for(let i = 0; i < calCateOption.length; i++){
@@ -226,7 +362,7 @@ function openPopUdate(e){
     const scheduleNm = startDt.previousElementSibling;
     scheduleName.value = scheduleNm.innerText;
 
-    confirmBtn.setAttribute("onClick","updateSchedule()");
+    confirmBtn.setAttribute("onClick","updateSchedule(" + calNo + ")");
 
     editPopup.style.display = "block";
 
