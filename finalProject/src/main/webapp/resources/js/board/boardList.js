@@ -20,7 +20,7 @@ const options = document.getElementById("searchKey > option");
 (()=>{
     const params = new URL(location.href).searchParams;
 
-    const key = params.get("key"); // t,c 중 하나
+    const keyword = params.get("keyword"); // t / c / tc / w 중 한 개
     const query = params.get("query"); // 검색어
 
     // 검색어 입력 시

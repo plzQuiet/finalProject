@@ -53,12 +53,16 @@
             <!-- 검색창 --> 
             <form action="${cateCode}" method="get" id="boardSearch">
                 <div class="search-area">
-                    <select name="key" id="searchKey">
+                    <select name="keyword" id="searchKey">
                         <option value="t">제목</option>
                         <option value="c">내용</option>
+                        <option value="tc">제목+내용</option>
+                        <c:if test="${cateCode == 18}">
+                            <option value="w">작성자</option>
+                        </c:if>
                     </select>
 
-                    <input type="text" name="query" id="searchQuery" placeholder="검색어 입력">
+                    <input type="search" name="query" id="searchQuery" placeholder="검색어 입력">
 
                     <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
@@ -99,9 +103,23 @@
                                                 <c:if test="${board.boardSecretFlag == 'Y'}">
                                                     <i class="fa-solid fa-lock"></i> 
                                                 </c:if>
-                                            </td> 
-                                            <td>${board.memberName}</td>
-                                            <td>${board.boardCreateDate}</td>
+                                            </td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${cateCode == 16}">
+                                                        ${fn:substring(board.memberName, 0,1)}**
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${board.memberName}
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                            <td>
+                                                <c:if test="${board.boardUpdateDate != null }">
+                                                    ${board.boardUpdateDate}
+                                                </c:if>
+                                                ${board.boardCreateDate}
+                                            </td>
                                             <td>${board.readCount}</td>
                                         </tr>
                                     </c:forEach>
@@ -176,6 +194,9 @@
 
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <!-- boardList.js 연결 -->
+    <script src="/resources/js/board/boardList.js"></script>
 
     <script>
         const cateCode = "${cateCode}";
