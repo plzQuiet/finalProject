@@ -19,6 +19,7 @@
 		<typeAlias type="com.fin.project.board.model.dto.BoardImage" alias="BoardImage"/>
 		<typeAlias type="com.fin.project.board.model.dto.Comment" alias="Comment"/>
 		<typeAlias type="com.fin.project.intro.model.dto.LibAnother" alias="LibAnother"/>
+		<typeAlias type="com.fin.project.intro.model.dto.Calendar" alias="Calendar"/>
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
