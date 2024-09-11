@@ -4,6 +4,20 @@ const payBtn = document.getElementById("pay-btn");
 const popUpHeader = document.getElementsByClassName("popup_header");
 const popUpContent = document.getElementsByClassName("popup_content");
 
+
+
+/* cost : 전체 총합 */
+/* price : 음식 각각 가격 */
+/* qty : 수량 */
+let cost = 0;
+let price = 0;
+let qty = 1;
+
+/* 요소 구분을 위한 인덱스번호 */
+var i = 1;
+let itemPrices = {};  // 각 아이템의 가격을 저장할 객체
+
+
 /* 음료 구매 모달 */
 payBtn.addEventListener("click", ()=> {
 	/* 비동기 형식 */
@@ -12,7 +26,7 @@ payBtn.addEventListener("click", ()=> {
 	.then(result => {
 		let html = ``;
 		result.forEach(coffee => {
-			html += `<div class="mcafe-menu" onclick='addCartMenu()'>
+			html += `<div class="mcafe-menu" onclick='addCartMenu("${coffee.foodName}"," ${coffee.foodPrice}", "${coffee.foodNo}")'>
 						<img src="${coffee.foodImg}">
 						<div class="mcafe-menu-detail">
 							<h4>${coffee.foodName}</h4>
@@ -78,7 +92,7 @@ payBtn.addEventListener("click", ()=> {
 				pay_method : "card",
 				merchant_uid : "merchant_" + new Date().getTime(),	// 가맹점 주문번호(아임포트를 사용하는 가맹점에서 중복되지 않은 임의의 문자열을 입력)
 				name:"카페", //결제창에 노출될 상품명
-				amount : price	// 금액
+				amount : cost	// 금액
 				/* 나중에 DB와 연결할 때 쓸 듯 */
 				/*
 				buyer_email : 'iamport@siot.do'//구매자 이메일,
@@ -102,7 +116,7 @@ payBtn.addEventListener("click", ()=> {
 												`
 					result='0';
 					popUpLayer.style.display = 'block';
-
+					itemPrices={};
 					
 
 				}else{
@@ -116,6 +130,7 @@ payBtn.addEventListener("click", ()=> {
 												`
 					result='1';
 					popUpLayer.style.display = 'block';
+					itemPrices={};
 				}
 
 				if(result == '0'){
@@ -129,86 +144,116 @@ payBtn.addEventListener("click", ()=> {
 	cancelBtn.addEventListener("click", ()=> {
 		qty = 0;
 		price = 0;
+		cost = 0;
+		itemPrices = {};
 		popUpLayer.style.display = 'none';
 	})
 
-
 });
 
+
+
 /* function - cancel() */
-function cancelCartMenu(){
-	const mCartMenu = document.getElementsByClassName("mcafe-cart-menu")[0];
+function cancelCartMenu(i){
+	const mCartMenu = document.getElementById("mcart-menu" +i);
 	mCartMenu.remove();
-	qty=0;
-	price =0;
-	return;
+	delete itemPrices[i];  // 아이템 목록에서 제거
+	updateTotalCost();  // 총합 다시 계산
+
 }
 
 
-/* function - add() */
-function addCartMenu(){
+/* function - addCartMenu() */
+function addCartMenu(name, price, foodNo){
 	const mCartTable = document.getElementsByClassName("mcafe-cart-table")[0];
+
+	// foodNo를 기반으로 해당 메뉴가 이미 카트에 있는지 확인
+	for(let i in itemPrices){
+		if(itemPrices[i].no== foodNo){
+			// 이미 있으면 qty만 증가시키기
+			itemPrices[i].qty += 1;
+			const qtyResult = document.getElementById("qty-result" + i);
+			qtyResult.innerText = itemPrices[i].qty;
+
+			// 총합 업데이트
+			updateTotalCost();
+			return;
+		}
+	}
+
+	/* 해당 메뉴가 처음 추가될 때만 초기 수량 설정 */
+	if (!itemPrices[i]) {
+		itemPrices[i] = {price: Number(price), qty: 1 , no:foodNo};
+	}
+
+	/* 조건문 추가해야됨 -> 만약 cart에 물건이 담겨 있다면 +가 자동적으로 되게 */
 	mCartTable.innerHTML += `
-								<tr class="mcafe-cart-menu">
+								<tr class="mcafe-cart-menu" id="mcart-menu${i}">
 									<td>
-										<span>아메리카노(Iced)</span>
-										<input type="button" value='x' onclick='cancelCartMenu()' id="cancelBtn"/>
+										<span>${name}</span>
+										<input type="button" value='x' onclick='cancelCartMenu(${i})' id="cancelBtn"/>
 									</td>
 									<td class="meal-ticket-btnArea">
-										<input type="button" onclick='count("minus")' value='-' id="minusBtn" disabled='true'/>
-										<div id="qty-result">1</div>
-										<input type ="button" onclick='count("plus")' value='+' id="plusBtn"/>
+										<input type="button" onclick='count("minus", ${i})' value='-' class="minusBtn" id="minusBtn${i}"/>
+										<div class="qty-result" id="qty-result${i}">1</div>
+										<input type ="button" onclick='count("plus", ${i++})' value='+' id="plusBtn"/>
 									</td>
 								</tr>
-							`
+							`;
+
+		updateTotalCost();
+	/* cost += Number(price);
 	const priceResult = document.getElementById("price-result");
-	priceResult.innerText = 3500 + "원";
+	priceResult.innerText = cost + "원"; */
 }
 
 /* count 함수  */
+function count(type, i){
+	const qtyResult = document.getElementById("qty-result"+i);
+	let qty =  parseInt(qtyResult.innerText, 10);
 
-let qty = 0;
-let price = 0;
+	if(type === "plus"){
+		qty += 1;
 
-function count(type){
-	const qtyResult = document.getElementById("qty-result");
-	const priceResult = document.getElementById("price-result");
-
-	if(qty >= 1){
-		// 더하기/ 빼기
-		if(type === "plus"){
-			qty += 1;
-			price = 6000 * qty;
-		}else if(type === "minus"){
-			qty -= 1;
-			price = 6000 * qty;
-		}
-
-	}else{
-		// 더하기/ 빼기
-		if(type === "plus"){
-			qty += 1;
-			price = 6000 * qty;
-		}
+	}else if(type === "minus" && qty > 0){
+		qty-=1;
 	}
- 	
-	if(qty>0){
-		document.getElementById("minusBtn").disabled=false;
-	}else{
-		document.getElementById("minusBtn").disabled=true;
-	}
-	
-	// 결과 출력
+
+	// 수량 변경 적용
+	itemPrices[i].qty = qty;
 	qtyResult.innerText = qty;
-	priceResult.innerText = price + "원";
+
+	// 마이너스 버튼 block하기
+	if (qty == 0) {
+		document.getElementById("minusBtn"+i).style.backgroundColor='#ddd';
+	} else {
+		document.getElementById("minusBtn"+i).style.backgroundColor='#8FB788';
+	}
+
+	// 총합 업데이트
+	updateTotalCost();
+ 	
+}
+
+
+
+/* 총합 업데이트 함수 */
+function updateTotalCost() {
+	cost = 0;  // 총합 초기화
+	for (let key in itemPrices) {
+		let item = itemPrices[key];
+		cost += item.price * item.qty;
+	}
+	const priceResult = document.getElementById("price-result");
+	cost = cost.toLocaleString('ko-KR');
+	priceResult.innerText = cost + "원";
 }
 
 
 /* agree 함수 */
 function agree(){
-	qty= 0;
-	price=0;
 	popUpLayer.style.display = 'none';
 }
 
-/* 나중에 DB 연결 작업할 때 바뀔 예정 */
+
+
