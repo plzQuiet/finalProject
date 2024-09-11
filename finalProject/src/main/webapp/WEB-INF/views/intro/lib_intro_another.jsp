@@ -219,6 +219,14 @@
         <span id="modal-close">&times;</span>
         <img src="" id="modal-image">
     </div>
+
+	<c:if test="${!empty message}">
+
+		<script>
+			alert('${message}');
+		</script>
+
+	</c:if>
 	
 	<script>
 		const boardNo = "${board.boardNo}";

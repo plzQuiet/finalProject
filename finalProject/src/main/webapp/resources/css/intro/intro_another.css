@@ -272,10 +272,11 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	width: 100%;
 	height: 125px;
 
+	padding: 10px;
+
 	resize: none;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
-	white-space: pre;
 }
 
 .pop-image-suround{
