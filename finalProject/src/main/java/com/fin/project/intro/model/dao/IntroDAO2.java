@@ -47,7 +47,7 @@ public class IntroDAO2 {
 		return sqlSession.selectList("introMapper.getDateCalendar", cal);
 	}
 
-	/** 캘랜더에서 휴관일, 행사 일정 가져오기
+	/** 캘랜더에서 휴관일, 행사 일정 가져오기 DAO
 	 * @return eventList
 	 */
 	public List<Calendar> getHECal() {
