@@ -24,7 +24,7 @@ const options = document.getElementById("searchKey > option");
     const query = params.get("query"); // 검색어
 
     // 검색어 입력 시
-    if(key != null){
+    if(keyword != null){
         searchQuery.value = query; 
 
         for(let option of options){

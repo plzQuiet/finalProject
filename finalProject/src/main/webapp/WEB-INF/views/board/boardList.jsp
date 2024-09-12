@@ -99,7 +99,9 @@
                                             <td>${board.boardNo}</td>
                                             <td>
                                                 <a href="/board/${cateCode}/${board.boardNo}?cp=${pagination.currentPage}${qs}">${board.boardTitle}</a>
-                                                [${board.commentCount}]
+                                                <c:if test="${cateCode == 16 || cateCode == 18}">
+                                                    [${board.commentCount}]
+                                                </c:if>
                                                 <c:if test="${board.boardSecretFlag == 'Y'}">
                                                     <i class="fa-solid fa-lock"></i> 
                                                 </c:if>
@@ -107,7 +109,7 @@
                                             <td>
                                                 <c:choose>
                                                     <c:when test="${cateCode == 16}">
-                                                        ${fn:substring(board.memberName, 0,1)}**
+                                                        ${fn:substring(board.memberName, 0,1)}*<c:if test="${fn:length(board.memberName) > 2}">${fn:substring(board.memberName, 2, fn:length(board.memberName))}</c:if>
                                                     </c:when>
                                                     <c:otherwise>
                                                         ${board.memberName}

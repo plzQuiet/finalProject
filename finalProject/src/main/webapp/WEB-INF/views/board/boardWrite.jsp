@@ -2,12 +2,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
+
+<c:forEach items="${category}" var="catelist">
+    <c:if test="${catelist.CAT_CODE == cateCode}">
+        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글쓰기</title>
+    <title>이용자 마당</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/board/boardWrite-style.css">
@@ -24,17 +33,17 @@
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
-                <li class="side1"><a href="#">문의사항</a></li>
-                <li class="side2"><a href="#">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+                <li><a href="/board/15">공지사항</a></li>
+                <li class="side1"><a href="/board/16">문의사항</a></li>
+                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
         </article>
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">공지사항/책 후기 나눠요</div>
+            <div class="content-title">${cateName}</div>
             <div class="title-line"></div>
 
             <!-- 게시글 작성 화면 -->
@@ -87,6 +96,22 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script src="/resources/js/board/boardWrite.js"></script>
+
+     <script>
+        const cateCode = "${cateCode}";
+
+        console.log(cateCode);
+
+        const li = document.querySelectorAll(".side-menu > li");
+
+        switch(cateCode){
+            case "15" : li[0].classList.add("side-current"); break;
+            case "16" : li[1].classList.add("side-current"); break;
+            case "17" : li[2].classList.add("side-current"); break;
+            case "18" : li[3].classList.add("side-current"); break;
+        } 
+
+    </script>
 
 </body>
 </html>
