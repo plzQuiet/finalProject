@@ -200,13 +200,13 @@ public class IntroController {
 		int rowCount = service.libAnUpdate(board,webPath, filePath, lib, deleteList, images);
 		
 		String message = null;
-		String path = "redirect:";
+		String path = "redirect:/intro/";
 		if(rowCount > 0 ) {
 			message = "주변 도서관 수정을 성공했습니다.";
-			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
+			path += catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
 		}else {
 			message = "주변 도서관 수정을 실패했습니다.";
-			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3;
+			path += catLevel1+"/"+catLevel2 + "/" + catLevel3;
 		}
 		
 		System.out.println(message);
@@ -226,13 +226,13 @@ public class IntroController {
 		int result = service.deleteLibAn(boardNo);
 		
 		String message = null;
-		String path = "redirect:";
+		String path = "redirect:/intro/";
 		if(result > 0) {
 			message = "주변 도서관 삭제를 성공했습니다.";
-			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3;
+			path += catLevel1+"/"+catLevel2 + "/" + catLevel3;
 		}else {
 			message = "주변 도서관 삭제를 실패했습니다.";
-			path += "/intro/" + catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
+			path += catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
 		}
 		
 		System.out.println(message);
