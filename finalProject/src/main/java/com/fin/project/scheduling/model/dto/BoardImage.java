@@ -10,11 +10,11 @@ import lombok.ToString;
 public class BoardImage {
 	
 	private int imageNo;
+	private int boardNo;
+	private String imagePath;
 	private String imageOriginal;
 	private String imageReName;
 	private int imageOrder;
-	private int boardNo;
-	private String imagePath;
 
 
 }
