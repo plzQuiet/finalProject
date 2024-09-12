@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li>예약 후 24시간 내 본인 직접 수령이 원칙입니다.</li>
                     <li>예약 후 수령하지 않는 경우, 예약이 해제됩니다.</li>
                     <li>반복적으로 수령하지 않는 경우 불이익이 있을 수 있습니다.</li>
+                    <br/>
                     <li>예약 장소: JAVA LIBRARY</li>
                 </ul>
             `;
@@ -72,15 +73,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Kakao API 호출
-$.ajax({
-    method: "GET",
-    url: "https://dapi.kakao.com/v3/search/book?target=title",
-    data: { query: "잘린 머리처럼" },
-    headers: { Authorization: "KakaoAK ae9b73b7e0b950cf9da13887e83fa9e1" }
-})
-    .done(function (msg) {
-        console.log(msg);
-        $("p").append("<strong>" + msg.documents[0].title + "</strong>");
-        $("p").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+
+
+
+// 검색 
+
+function searchBooks() {
+    const query = document.getElementById('query').value;
+    const key = document.getElementById('key').value;
+    
+    $.ajax({
+        url: '/searchBook', 
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            query: query,
+            key: key
+        }),
+        success: function(data) {
+            console.log("성공");
+            console.log(query);
+            console.log(key);
+            
+        },
+        error: function() {
+            console.log("에러");
+        }
     });
+}
+
+
