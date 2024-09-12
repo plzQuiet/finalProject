@@ -39,6 +39,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
             html: number.outerHTML
         };
     },
+    hiddenDays : [5],
     selectable: true, /* 캘랜더 날짜 선택 */
 
      /* 캘런더 날짜 선택 시 함수 수행*/
