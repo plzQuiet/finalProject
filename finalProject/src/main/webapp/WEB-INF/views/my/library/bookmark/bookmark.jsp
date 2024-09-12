@@ -69,7 +69,6 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-	
-	<script src="/resources/js/myPage/book.js"></script>
+	<script src="/resources/js/my/library.js"></script>
 </body>
 </html>

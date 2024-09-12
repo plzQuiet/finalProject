@@ -18,6 +18,26 @@
 		SELECT COUNT(*) FROM BOOK_REQUEST
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
+	
+	<select id="getReadingRoomReserv" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_REQUEST
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="getSeminarReserv" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_REQUEST
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="getClassRegist" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_REQUEST
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="getPayment">
+		SELECT COUNT(*) FROM PAY
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
 
 	<select id="booksLoan" resultType="map">
 		SELECT BOOK_NO, BOOK_TITLE, TO_CHAR(BORROW_DT, 'YYYY-MM-DD') BORROW_DT,
@@ -53,6 +73,26 @@
 	<select id="bookRequestHistory" resultType="map">
 		SELECT REQ_BOOK_NO, BOOK_TITLE, BOOK_AUTHOR, BOOK_PUB, REQ_APPROVE
 		FROM BOOK_REQUEST
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="readingRoomReserv" resultType="map">
+	
+		SELECT 1 FROM DUAL
+	</select>
+	
+	<select id="seminarReserv" resultType="map">
+		SELECT 1 FROM DUAL
+	</select>
+	
+	<select id="classRegist" resultType="map">
+		SELECT 1 FROM DUAL
+	</select>
+	
+	<select id="payment" resultType="map">
+		SELECT FOOD_NAME, FOOD_QTY, PAY_DATE , FOOD_PRICE * FOOD_QTY FOOD_PRICE
+		FROM PAY
+		JOIN FOOD USING(FOOD_NO)
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
 

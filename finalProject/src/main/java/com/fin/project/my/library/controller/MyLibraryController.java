@@ -28,30 +28,56 @@ public class MyLibraryController {
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
 		
 		if(m == 1) {
-			List<Map<String, Object>> bList = service.booksLoan(loginMember.getMemberNo());
-			model.addAttribute("bList", bList);
+			List<Map<String, Object>> list = service.booksLoan(loginMember.getMemberNo());
+			model.addAttribute("list", list);
 			
-			return "my/library/booksLoan";
+			return "my/library/book/booksLoan";
 		}
 		
 		if(m == 2) {
 			Map<String, Object> map = service.loanHistory(loginMember.getMemberNo(), cp);
 			model.addAttribute("map", map);
 			
-			return "my/library/loanHistory";
+			return "my/library/book/loanHistory";
 		}
 		
 		if(m == 3) {
 			Map<String, Object> map = service.reservationBook(loginMember.getMemberNo(), cp);
 			model.addAttribute("map", map);
 			
-			return "my/library/reservationBook";
+			return "my/library/book/reservationBook";
 		}
 		
 		Map<String, Object> map = service.bookRequestHistory(loginMember.getMemberNo(), cp);
 		model.addAttribute("map", map);
 		
-		return "my/library/bookRequestHistory";
+		return "my/library/book/bookRequestHistory";
+	}
+	
+	@GetMapping("/reserv")
+	public String reserv(@SessionAttribute("loginMember") Member loginMember,
+			Model model,
+			@RequestParam(value = "m", required = false, defaultValue = "1") int m,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+		
+		if(m == 1) {
+			Map<String, Object> map = service.readingRoomReserv(loginMember.getMemberNo(), cp);
+			model.addAttribute("map", map);
+			
+			return "my/library/reserv/readingRoom";
+		}
+		
+		if(m == 2) {
+			Map<String, Object> map = service.seminarReserv(loginMember.getMemberNo(), cp);
+			model.addAttribute("map", map);
+			
+			return "my/library/reserv/seminar";
+		}
+		
+		Map<String, Object> map = service.classRegist(loginMember.getMemberNo(), cp);
+		model.addAttribute("map", map);
+		
+		return "my/library/reserv/class";
 	}
 	
 }

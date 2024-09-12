@@ -12,5 +12,11 @@ public interface MyLibraryService {
 	Map<String, Object> reservationBook(int memberNo, int cp);
 
 	Map<String, Object> bookRequestHistory(int memberNo, int cp);
+
+	Map<String, Object> readingRoomReserv(int memberNo, int cp);
+
+	Map<String, Object> seminarReserv(int memberNo, int cp);
+
+	Map<String, Object> classRegist(int memberNo, int cp);
 	
 }

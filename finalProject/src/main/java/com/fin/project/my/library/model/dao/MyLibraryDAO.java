@@ -55,5 +55,41 @@ public class MyLibraryDAO {
 		
 		return sqlSession.selectList("myLibraryMapper.bookRequestHistory", memberNo, rowBounds);
 	}
+
+	public int getReadingRoomReserv(int memberNo) {
+		return sqlSession.selectOne("myLibraryMapper.getReadingRoomReserv", memberNo);
+	}
+
+	public List<Map<String, Object>> readingRoomReserv(int memberNo, Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("myLibraryMapper.readingRoomReserv", memberNo, rowBounds);
+	}
+
+	public int getSeminarReserv(int memberNo) {
+		return sqlSession.selectOne("myLibraryMapper.getSeminarReserv", memberNo);
+	}
+
+	public List<Map<String, Object>> seminarReserv(int memberNo, Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("myLibraryMapper.seminarReserv", memberNo, rowBounds);
+	}
+
+	public int getClassRegist(int memberNo) {
+		return sqlSession.selectOne("myLibraryMapper.getClassRegist", memberNo);
+	}
+
+	public List<Map<String, Object>> classRegist(int memberNo, Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("myLibraryMapper.classRegist", memberNo, rowBounds);
+	}
 	
 }

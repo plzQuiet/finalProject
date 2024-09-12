@@ -13,7 +13,7 @@
 		<li>
 			<div class="side-wrap">
 				<a href="/myLibrary/book">도서현황</a>
-				<a href="/myLibrary/reservation">예약 및 신청</a>
+				<a href="/myLibrary/reserv">예약 및 신청</a>
 				<a href="/myLibrary/bookmark">즐겨찾기</a>
 			</div>
 		</li>

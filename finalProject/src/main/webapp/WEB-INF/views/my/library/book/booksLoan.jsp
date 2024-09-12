@@ -20,12 +20,12 @@
 		<section class="list-area">
 			<h1>도서현황</h1>
 			<div class="nav-area">
-				<a href="book?m=1" class="selected">대출중인 도서</a>
+				<a href="book?m=1">대출중인 도서</a>
 				<a href="book?m=2">이전 대출내역</a>
 				<a href="book?m=3">예약내역</a>
 				<a href="book?m=4">신청내역</a>
 			</div>
-			<p>대출중인 도서 : ${fn:length(bList)}권</p>
+			<p>대출중인 도서 : ${fn:length(list)}권</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -36,14 +36,14 @@
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${fn:length(bList) == 0}">
+						<c:when test="${fn:length(list) == 0}">
 							<tr>
 								<th style="height: 100px;" colspan="4">대출중인 도서가 없습니다</th>
 							</tr>
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${bList}">
+							<c:forEach var="b" items="${list}">
 								<tr>
 									<td>${b.BOOK_TITLE}</td>
 									<td>${b.BORROW_DT}<br>${b.RETURN_DUE_DT}</td>
@@ -65,5 +65,6 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	<script src="/resources/js/my/library.js"></script>
 </body>
 </html>
