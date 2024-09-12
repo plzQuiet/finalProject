@@ -20,7 +20,7 @@
 <body>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
+       ${classBoard}
     <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
@@ -32,6 +32,7 @@
             </ul>
 
         </article>
+     
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
@@ -41,12 +42,12 @@
             <!-- 게시글 상세 화면 -->
             <section class="board-detail">
                 <!-- 제목 -->
-                <h1 class="board-title">React 클래스</h1>
+                <h1 class="board-title">${classBoard.boardTitle}</h1>
 
                 <!-- 작성자 / 작성일 / 조회수 -->
                 <div class="board-nav">
-                    <span>교육기간 : 2024-09-25 ~ 2024-09-27</span>&nbsp;|&nbsp;
-                    <span>신청기간 : 2024-0819 ~ 2024-09-08 </span>
+                    <span>교육기간 : ${classBoard.startDt} ~ ${classBoard.endDt}</span>&nbsp;|&nbsp;
+                    <span>신청기간 : ${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</span>
                 </div>
 
                 <!-- 이미지 보여지는 영역 -->
@@ -54,30 +55,34 @@
                 <div class="img-box">
                     <!-- 등록한 이미지가 있으면 보여줘야하는 영역 -->
                     <div class="boardImg">
-                        <img src="../../images/bookThumbnail.jpg">
+                        <img src="${classBoard.imageList[0].imagePath}${classBoard.imageList[0].imageReName}">
                     </div>
                 </div>
 
                 <!-- 게시글 내용 -->
                 <div class="board-content">
-                    클래스 내용을 소개합니다.
+                    ${classBoard.boardContent}
                 </div>
 
                 <!-- 버튼 영역(회원) -->
+                <c:if test="${loginMember.authority == 1}">
                 <div class="btn-area">
                     <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
                     <button id="applyBtn" onclick="applyModal(this)">신청</button>
 
                     <button id="listBtn">목록으로</button>
                 </div>
+                </c:if>
 
                 <!-- 버튼 영역(관리자) -->
+                <c:if test="${loginMember.authority == 2}">
                 <div class="btn-area">
                     <button id="updateBtn" onclick="updateModal()">수정</button>
                     <button id="updateBtn" onclick="deleteModal()">삭제</button>
 
                     <button id="listBtn">목록으로</button>
                 </div>
+                </c:if>
 
             </section>
 

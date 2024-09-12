@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="classMapper">
 
 	<resultMap type="Class" id="class_rm">
@@ -18,12 +18,36 @@
 
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="memberName" column="MEMBER_NAME" />
-		
+
+		<result property="startDt" column="START_DT" />
+		<result property="endDt" column="END_DT" />
 		<result property="recruitmentStartDt" column="RECRUITMENT_START_DT" />
 		<result property="recruitmentEndDt" column="RECRUITMENT_END_DT" />
 		<result property="maxParticipant" column="MAX_PARTICIPANTS" />
 
+		<result property="applicantCount" column="APPLICANT_COUNT" />
+		
+		
+		<collection property="imageList"
+       				 select="selectImageList"
+       				 column="BOARD_NO"
+       				 javaType="java.util.ArrayList"
+       				 ofType="BoardImage">
+       </collection>
+		
 	</resultMap>
+	
+	<resultMap type="BoardImage" id="boardImage_rm">
+   
+      <id property="imageNo" column="IMG_NO"/>
+      
+      <result property="boardNo" column="BOARD_NO"/>
+      <result property="imagePath" column="IMG_PATH"/>
+      <result property="imageOriginal" column="IMG_ORIGINAL"/>
+      <result property="imageReName" column="IMG_RENAME"/>
+      <result property="imageOrder" column="IMG_ORDER"/>
+
+   </resultMap>
 
 
 
@@ -36,15 +60,98 @@
 
 	<!-- 특정 게시판에서 현재 페이지에 해당하는 부분에 대한 게시글 목록 조회 -->
 	<select id="selectClassBoard" resultMap="class_rm">
-		SELECT
-		BOARD_TITLE, TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') RECRUITMENT_START_DT, TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') RECRUITMENT_END_DT
-		FROM BOARD
-		JOIN CLASS_SCHEDULE USING(BOARD_NO)
+		SELECT BOARD_TITLE,B.BOARD_NO,
+			TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') RECRUITMENT_START_DT,
+			TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') RECRUITMENT_END_DT,
+			MAX_PARTICIPANTS,
+			(SELECT COUNT(*) FROM CLASS_PEOPLE C WHERE C.BOARD_NO = B.BOARD_NO ) APPLICANT_COUNT
+		FROM BOARD B
+		JOIN CLASS_SCHEDULE CS ON(CS.BOARD_NO = B.BOARD_NO)
 		WHERE CAT_CODE = #{cateCode}
 		AND BOARD_DEL_FL = 'N'
 		ORDER BY BOARD_NO DESC
 	</select>
 
+	<!-- 특정 게시판의 삭제되지 않고 검색 조건이 일치라는 게시글 수 조회 -->
+	<select id="getListCountForSearch" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+
+		<if test='key == "w"'>
+			JOIN MEMBER USING (MEMBER_NO)
+		</if>
+
+		WHERE CAT_CODE = ${cateCode}
+		AND BOARD_DEL_FL='N'
+
+		<choose>
+			<when test='key == "t"'>
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+			<when test='key == "c"'>
+				AND BOARD_CONTENT LIKE '%${query}%'
+			</when>
+			<when test='key == "tc"'>
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_CONTENT
+				LIKE '%${query}%')
+			</when>
+			<when test='key == "w"'>
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		</choose>
+	</select>
+
+	<!-- 게시글 목록 조회(검색) -->
+	<select id="selectBoardListForSearch" resultMap="class_rm">
+		SELECT B.BOARD_NO, BOARD_TITLE,
+		TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') RECRUITMENT_START_DT,
+		TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') RECRUITMENT_END_DT,
+		MAX_PARTICIPANTS,
+		(SELECT COUNT(*) FROM CLASS_PEOPLE C WHERE C.BOARD_NO = B.BOARD_NO ) APPLICANT_COUNT
+		FROM BOARD B
+		JOIN CLASS_SCHEDULE CS ON(CS.BOARD_NO = B.BOARD_NO)
+		WHERE CAT_CODE = #{cateCode}
+		AND BOARD_DEL_FL = 'N'
+		<choose>
+			<when test='key == "t"'>
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+
+			<when test='key == "c"'>
+				AND BOARD_CONTENT LIKE '%${query}%'
+			</when>
+
+			<when test='key == "tc"'>
+				AND (BOARD_TITLE LIKE '%${query}%' OR BOARD_CONTENT LIKE '%${query}%')
+			</when>
+
+		</choose>
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="selectClass" resultMap="class_rm">
+		SELECT BOARD_NO, 
+		       BOARD_TITLE, 
+		       BOARD_CONTENT, 
+		       CAT_CODE,
+		       TO_CHAR(START_DT, 'YYYY-MM-DD') AS START_DT,
+		       TO_CHAR(END_DT, 'YYYY-MM-DD') AS END_DT,
+		       TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') AS RECRUITMENT_START_DT,
+		       TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') AS RECRUITMENT_END_DT,
+		       MEMBER_NO
+		FROM BOARD       
+		JOIN CLASS_SCHEDULE USING(BOARD_NO)
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE BOARD_DEL_FL = 'N'
+		  AND CAT_CODE = #{cateCode}
+		  AND BOARD_NO = #{boardNo}
+	</select>
+	
+	<select id="selectImageList" resultMap="boardImage_rm">
+		SELECT * FROM BOARD_IMG
+		WHERE BOARD_NO=#{boardNo}
+		ORDER BY IMG_ORDER
+	</select>
 
 
 </mapper>

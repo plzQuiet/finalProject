@@ -2,6 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<%@ page import="java.text.SimpleDateFormat, java.util.Date" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="today" value="<%=new java.util.Date()%>"/>
+<%-- 현재날짜 --%>
+<c:set var="sysdate"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set> 
+
+
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="classBoardList" value="${map.classBoardList}" />
 
@@ -25,7 +33,6 @@
 
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-    ${map}
     <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
@@ -44,7 +51,7 @@
             <div class="title-line"></div>
 
             <!-- 검색창 -->
-            <form action="#">
+            <form action="${cateCode}" method="get" id="boardSearch">
                 <div class="search-area">
                     <select name="key" id="searchKey">
                         <option value="t">제목</option>
@@ -57,6 +64,10 @@
                     <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </form>
+
+            <c:if test="${!empty param.key}">
+                <c:set var="qs" value="&key=${param.key}&query=${param.query}" />
+            </c:if>
 
             <!-- 게시글 목록 -->
             <section class="board-list">
@@ -81,8 +92,27 @@
 
                                 <c:otherwise>
                                     <c:forEach var="classBoard" items="${classBoardList}">
-                                        <td>기간마감, 신청가능, 인원마감</td>
-                                        <td>${classBoard.boardTitle}</td>
+                                        <c:choose>
+                                            <c:when test="${classBoard.applicantCount >= classBoard.maxParticipant}">
+                                                <td>인원마감</td>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <c:if test="${sysdate < classBoard.recruitmentEndDt}">
+                                                <td>신청가능</td>
+                                                </c:if>
+
+                                                <c:if test="${sysdate >= classBoard.recruitmentEndDt}">
+                                                <td>기간마감</td>
+                                                </c:if>
+
+                                            </c:otherwise>
+
+                                        </c:choose>
+                                        
+                                        <td>
+                                            <a href="/scheduling/${cateCode}/${classBoard.boardNo}?cp=${pagination.currentPage}${qs}">${classBoard.boardTitle}</a>
+                                        </td>
                                         <td>${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</td>
                                     </c:forEach>
                                 </c:otherwise>
