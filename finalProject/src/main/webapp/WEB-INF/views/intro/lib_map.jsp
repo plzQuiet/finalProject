@@ -25,14 +25,15 @@
                 <div>
                     <h3>층별 안내</h3>
                     <div class="suround-map">
-                        <nav>
+                        <div>
                             <div class="map-btn ">B1</div>
                             <div class="map-btn current">1층</div>
                             <div class="map-btn">2층</div>
                             <div class="map-btn">3층</div>
                             <div class="map-btn">4층</div>
-                        </nav>
-                        <div class="real-map ">
+                        </div>
+
+                        <div class="real-map">
                             <img src="/resources/images/intro/library_map_1B.png" >
                         </div>
 
@@ -51,6 +52,7 @@
                         <div class="real-map">
                             <img src="/resources/images/intro/library_map_4F.png" >
                         </div>
+
                     </div>
                 </div>
             </section>

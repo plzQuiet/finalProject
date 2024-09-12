@@ -8,7 +8,7 @@
 	
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
-<link rel="stylesheet" href="/resources/css/intro/lib_.css">
+<link rel="stylesheet" href="/resources/css/intro/lib_intro.css">
 
 </head>
 <body>
@@ -18,7 +18,11 @@
 		<jsp:include page="/WEB-INF/views/intro/sideMenu.jsp"></jsp:include>
 		
 		<section class="content-suround-section">
-			<div>
+			<div class="content-title">도서관 오시는 길</div>
+            <div class="title-line"></div>
+
+            <section class="content-detail-section">
+                <div>
                    <table class="library-introduce-table">
                         <tr>
                             <td>주소</td>
@@ -46,12 +50,13 @@
                 
             </section>
       </section>
+    </section>
 	
 	
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services,drawing"></script>
-	<script src="/recources/js/intro/lib_intro.js"></script>
+	<script src="/resources/js/intro/lib_intro.js"></script>
 
 </body>
 </html>

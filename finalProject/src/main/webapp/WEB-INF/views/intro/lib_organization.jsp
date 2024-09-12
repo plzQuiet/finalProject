@@ -24,7 +24,7 @@
             <section class="content-detail-section">
                 
                 <section class="organWrap">
-                    <h4>조직도테스트</h4>
+                    <h4>조용히해조</h4>
                     <div class="organList cols2">
                       <ul>
                         <li><div class="box">
