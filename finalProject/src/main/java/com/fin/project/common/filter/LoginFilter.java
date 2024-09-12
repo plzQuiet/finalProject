@@ -17,7 +17,7 @@ import com.fin.project.member.model.dto.Member;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "LoginFilter", urlPatterns = {"/myLibrary/*","/myPage/*"})
+@WebFilter(filterName = "LoginFilter", urlPatterns = {"/myLibrary/*","/myPage/*", "/board2/*"})
 public class LoginFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
@@ -37,7 +37,7 @@ public class LoginFilter implements Filter {
 		
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		
-		if(loginMember == null) {
+		if(session.getAttribute("loginMember") == null) {
 			resp.sendRedirect("/");
 		}
 		

@@ -152,8 +152,7 @@ header{
 .content-suround-section{
     min-height: 500px;
     margin: 70px 0px 0 0;
-    /* width: 75%; */
-    width: 100%;
+    width: 75%;
 }
 
 /* 카테 제목 */
@@ -291,6 +290,38 @@ h5{color: #555;}
     top: 0;
     right: 10px;
     cursor: pointer;
+}
+
+
+/* 댓글 보이는 영역 */
+#commentList{
+    list-style: none;
+    padding: 0;
+}
+
+.comment-writer{
+    font-weight: bold;
+}
+
+.comment-date{
+    font-size: 13px;
+    color: #555;
+
+}
+
+
+/* 댓글 작성된 영역 */
+#commentArea{
+    width:100%;
+    margin-bottom: 30px;
+}
+
+.comment-detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 

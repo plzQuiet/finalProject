@@ -2,13 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
+
+<c:forEach items="${category}" var="catelist">
+    <c:if test="${catelist.CAT_CODE == cateCode}">
+        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
+    </c:if>
+</c:forEach>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수정</title>
+    <title>이용자 마당</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/board/boardUpdate-style.css">
@@ -25,31 +34,30 @@
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">공지사항</a></li>
-                <li class="side1"><a href="#">문의사항</a></li>
-                <li class="side2"><a href="#">자주 묻는 질문</a></li>
-                <li class="last-menu"><a href="#">책 후기 나눠요</a></li>
+                <li><a href="/board/15">공지사항</a></li>
+                <li class="side1"><a href="/board/16">문의사항</a></li>
+                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
         </article>
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">공지사항/책 후기 나눠요</div>
+            <div class="content-title">${cateName}</div>
             <div class="title-line"></div>
 
             <!-- 게시글 작성 화면 -->
             <!-- notice / bookreview 공통 -->
-            <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+            <form action="update" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
 
-                <!-- 입력된 값 불러오기 -->
-                <!-- 제목 -->
+                <%-- 제목 --%>
                 <h1 class="board-title">
-                    <input type="text" name="boardTitle" placeholder="제목 입력" value="board-title">
+                    <input type="text" name="boardTitle" placeholder="제목 입력" value="${board.boardTitle}">
                 </h1>
 
                 <!-- board.imageList / imageOrder -->
-                <!-- <c:forEach items="${board.imageList}" var="img">
+                <c:forEach items="${board.imageList}" var="img">
             
                     <c:choose>
                         <c:when test="${img.imageOrder == 0}">
@@ -59,36 +67,25 @@
                         <c:when test="${img.imageOrder == 1}">
                             <c:set var="img1" value="${img.imagePath}${img.imageReName}"/>
                         </c:when>
-
-                        <c:when test="${img.imageOrder == 2}">
-                            <c:set var="img2" value="${img.imagePath}${img.imageReName}"/>
-                        </c:when>
-
-                        <c:when test="${img.imageOrder == 3}">
-                            <c:set var="img3" value="${img.imagePath}${img.imageReName}"/>
-                        </c:when>
-
-                        <c:when test="${img.imageOrder == 4}">
-                            <c:set var="img4" value="${img.imagePath}${img.imageReName}"/>
-                        </c:when>
                     </c:choose>
-        
-                </c:forEach> -->
+                        
+                </c:forEach>
 
                 <!-- 이미지 등록 영역 -->
                 <h5>이미지 등록</h5>
                 <div class="img-box">
                     <div class="boardImg">
                         <label for="img0">
-                            <img src="#" class="preview">
+                            <img src="${img0}" class="preview">
                         </label>
                         <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
                         <span class="delete-image">&times;</span>
                     </div>
+
     
                     <div class="boardImg">
                         <label for="img1">
-                            <img src="#" class="preview">
+                            <img src="${img1}" class="preview">
                         </label>
                         <input type="file" name="images" class="inputImage" id="img1" accept="image/*">
                         <span class="delete-image">&times;</span>
@@ -98,7 +95,7 @@
                 
                 <!-- 내용 -->
                 <div class="board-content">
-                    <textarea name="boardContent">작성한 글 내용 불러오기</textarea>
+                    <textarea name="boardContent">${board.boardContent}</textarea>
                 </div>
 
                 <!-- 버튼 영역 -->
@@ -110,7 +107,7 @@
                 <!-- 기존 이미지 존재하다가 삭제된 이미지 순서 기록 -->
                 <input type="hidden" name="deleteList" value="">
                 <!-- 수정 성공 시 주소 유지 용도 -->
-                <input type="hidden" name="cp" value="#">
+                <input type="hidden" name="cp" value="${param.cp}">
 
             </form>
         </section>
@@ -120,6 +117,25 @@
 
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script>
+        const cateCode = "${cateCode}";
+
+        console.log(cateCode);
+
+        const li = document.querySelectorAll(".side-menu > li");
+
+        switch(cateCode){
+            case "15" : li[0].classList.add("side-current"); break;
+            case "16" : li[1].classList.add("side-current"); break;
+            case "17" : li[2].classList.add("side-current"); break;
+            case "18" : li[3].classList.add("side-current"); break;
+        } 
+
+    </script>
+
+    <%-- boardUpdate.js 연결 --%>
+    <script src="/resources/js/board/boardUpdate.js"></script>
 
     
 </body>
