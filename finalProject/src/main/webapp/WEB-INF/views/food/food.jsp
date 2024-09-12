@@ -42,6 +42,7 @@
 								</c:otherwise>						
 							</c:choose>
 						</c:if>
+
 					</div>
 					<table>
 						<thead>
@@ -99,6 +100,7 @@
 		</section>
 
 	</section>
+		<script> let addMenu = "${AddMenu}"; </script>
 	<script src="/resources/js/food/food.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>

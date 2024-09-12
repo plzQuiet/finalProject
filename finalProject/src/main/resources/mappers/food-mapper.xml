@@ -16,4 +16,8 @@
 		WHERE FOOD_DEL_ST = 'N'
 	</select>
 	
+	
+	<insert id="insertFoodMenu">
+		INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, #{foodName}, DEFAULT, DEFAULT, #{foodImg}, null)
+	</insert>
 </mapper>

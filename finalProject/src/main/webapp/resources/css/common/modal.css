@@ -70,7 +70,6 @@
 
 /*버튼영역*/
 .popup_box .popup_btn {
-	display:table;
 	table-layout: fixed;
 	width:100%;
 	word-break: break-word;
@@ -83,7 +82,6 @@
 .popup_box .popup_btn button{
 	width: 100px;
 	height: 50px;
-	
 }
 
 .popup_box .popup_btn #confirm_btn{
