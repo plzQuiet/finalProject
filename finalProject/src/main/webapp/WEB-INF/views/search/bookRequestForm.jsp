@@ -6,13 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
+
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+<link rel="stylesheet" href="/resources/css/common/modal.css">
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
+		<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
 		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
 
 		<section class="main-content">
@@ -65,6 +68,8 @@
 		</section>
 
 	</section>
+	
+	<script src="/resources/js/search/bookRequest.js"></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 </body>
