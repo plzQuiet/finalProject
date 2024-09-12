@@ -4,9 +4,10 @@ var options = {
     level: 3
 };
 
+var map = new kakao.maps.Map(container, options);
 
 // 마커가 표시될 위치입니다 
-var markerPosition  = new kakao.maps.LatLng(lat, lng); 
+var markerPosition  = new kakao.maps.LatLng(37.499034, 127.032880); 
 
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({

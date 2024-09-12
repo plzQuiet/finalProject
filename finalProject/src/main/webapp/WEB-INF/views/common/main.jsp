@@ -9,11 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
+    <link rel="stylesheet" href="/resources/css/intro/main_cal_hour.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
-	<section>
+	<section class="main-page-suround-area-section">
+        <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
 	</section>
 		
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

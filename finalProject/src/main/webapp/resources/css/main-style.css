@@ -137,19 +137,26 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
     color: white;
 }
 
-
+/* 기본 적인 내용 영역 */
 .main{
     width: 1024px;
     min-height: 600px;
     margin: auto;
 }
 
-/* 내용 영역 */
+/* intro 내용 영역 */
 .main-content-suround-section{
     margin:auto;
     width: 1024px;
     display: flex;
     justify-content: space-between;
+}
+
+/* main-page 내용 영역 */
+.main-page-suround-area-section{
+    margin: auto;
+    min-height: 600px;
+    width: 1024px;
 }
 
 /* footer 영역 */

@@ -1,0 +1,333 @@
+/* 전체 영역 */
+.main-cal-hours-section{
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+}
+
+/* 캘랜더 영역 */
+.main-cal-article{
+    width: 497px;
+    height: 300px;
+
+    border-radius: 5px;
+    border: 1px solid #d4d4d4;
+
+    margin-right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* 캘랜더 오늘(선택)날짜,버튼 영역 */
+.main-cal-suround{
+    flex-basis: 30%;
+    height: 100%;
+
+    border-right: 1px solid #d4d4d4;
+}
+
+/* 오늘 날짜,선택날짜 표시 div */
+#date-div{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: center;
+    color: #525050dd;
+}
+
+/* 캘랜더 카테고리 버튼 영역 */
+.cate-button-surround{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 달력 버튼 영역 */
+.calendar-btn-area{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* 달력 버튼 */
+.calendar-btn-area div{
+    width: 45px;
+
+    font-size: 15px;
+
+    padding: 2px 5px;
+    text-align: center;
+
+    border-radius: 5px;
+
+    background-color: white;
+    color: #8FB788;
+
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.calendar-btn-area div:hover{
+    background-color: #8FB788;
+    color: white;
+}
+
+/* 캘랜더 카테고리 영역 */
+.calendar-category-suround{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 40px;
+
+}
+
+/* 캘랜더 카테고리 버튼 */
+.calendar-category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    padding: 5px;
+    margin: 5px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    box-shadow: 2px 2px 3px #d4d4d4;
+
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+}
+
+.calendar-category:hover{
+    background-color: #80afe1;
+    color: white;
+}
+
+/* 캘랜더 카테고리 색 */
+.category-color{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
+.gong{background-color: red;}
+.hue{background-color: #d4d4d4;}
+.classDay{background-color: yellow;}
+.eventDay{background-color: #5547ff;}
+
+#calendar-edit-btn{
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #5547ff;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.3s ;
+}
+
+#calendar-edit-btn:hover{
+    color: black;
+    background-color: #5647ff77;
+}
+
+
+/* 캘랜더 아이디 */
+/* 캘랜더 위에 버튼 및 년월 포맷 */
+
+.surround-calendar-area{
+    flex-basis: 70%;
+    position: relative;
+}
+
+/* 캘런더 id */
+#calendar{
+    width: 100%;
+    height: 100%;
+    font-size: 8px;
+}
+
+/* 도서관 달력 이동 id */
+#goToLibraryCal{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    box-sizing: border-box;
+    box-shadow: 3px 3px 3px #d4d4d4;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+
+}
+
+#goToLibraryCal > a{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#goToLibraryCal:hover{
+    background-color: #d4d4d4;
+}
+
+#goToLibraryCal > a:hover{
+    color: white;
+}
+
+/* 요일별 css */
+.fc-day-fri a{
+    color: #d4d4d4;
+}
+
+
+.fc-day-sun a{
+    color: #ef4e4e69;
+}
+
+
+.fc-day-sat a{
+    color: rgba(0, 4, 255, 0.3);
+}
+
+/* 달력 이벤트 제목 */
+.fc-event-title{
+    text-overflow: ellipsis;
+    font-size: 8px;
+}
+
+.fc-h-event .fc-event-title{
+    display: flex;
+}
+
+/* 캘랜더 제목 */
+.fc-header-toolbar.fc-toolbar {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* 이용시간 영역 */
+.main-hour-article{
+    width: 497px;
+    height: 300px;
+
+    border-radius: 5px;
+    border: 1px solid #d4d4d4;
+
+}
+
+/* 이용시간 제목 */
+.hour-title{
+    width: 100%;
+
+    padding: 10px 20px;
+
+    border-top-left-radius: 5px ;
+    border-top-right-radius: 5px ;
+
+    background-color: #0054b4;
+    color: white;
+
+    font-weight: bold;
+
+    position: relative;
+}
+
+/* 이용시간 제목 안에 span */
+.hour-title > span{
+    margin-left: 10px;
+}
+
+/* 이용시간 테이블 영역 */
+.hour-table-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 이용시간 테이블 */
+.hour-table-area > table{
+    margin: 25px;
+    width: 450px;
+    height: 150px;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #d4d4d4;
+
+    text-align: center;
+}
+
+.hour-table-area td{
+    padding: 5px;
+    border: 1px solid #d4d4d4;
+}
+
+/* 이용시간 휴관일 */
+.hour-holiday{
+    width: 100%;
+    padding: 5px 25px;
+    color: #555;
+}
+
+/* 이용사간 페이지로 이동하는 id */
+#goToLibraryHour{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    background-color: white;
+
+    box-sizing: border-box;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    margin: 0;
+    padding: 0;
+
+    transition-duration: 0.3s;
+}
+
+#goToLibraryHour > a{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #0054b4;
+}
+
+#goToLibraryHour:hover{
+    background-color: #8FB788;
+}
