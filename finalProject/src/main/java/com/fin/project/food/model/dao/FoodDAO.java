@@ -23,6 +23,16 @@ public class FoodDAO {
 		return sqlSession.selectList("foodMapper.selectFoodList");
 	}
 
+
+	/** 음식 메뉴 추가하기
+	 * @param newFood
+	 * @return int
+	 */
+	public int insertFoodMenu(Food newFood) {
+		return sqlSession.insert("foodMapper.insertFoodMenu", newFood);
+		
+	}
+
 		
 	
 }

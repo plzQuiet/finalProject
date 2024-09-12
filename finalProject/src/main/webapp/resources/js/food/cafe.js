@@ -22,7 +22,6 @@ if(payBtn!= null){
 	/* 음료 구매 모달 */
 	payBtn.addEventListener("click", ()=> {
 	
-	
 		/* 비동기 형식 */
 		fetch("/api/cafe")
 		.then(resp => resp.json())
@@ -157,7 +156,6 @@ if(payBtn!= null){
 
 
 
-
 /* function - cancel() */
 function cancelCartMenu(i){
 	const mCartMenu = document.getElementById("mcart-menu" +i);
@@ -239,8 +237,6 @@ function count(type, i){
 	updateTotalCost();
  	
 }
-
-
 
 /* 총합 업데이트 함수 */
 function updateTotalCost() {

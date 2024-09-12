@@ -204,7 +204,7 @@ table * {border : 1px solid #ddd;}
 }
 
 .menu-add-area .menu-name-area{
-	width: 30%;
+	width: 27%;
 	display: flex;
 }
 
@@ -214,6 +214,9 @@ table * {border : 1px solid #ddd;}
 	border: none;
 	border-radius: 5px;
 	padding-left: 10px;
+	margin-left: 10px;
+	width: 150px;
+	font-size: 18px;
 }
 
 .menu-add-area .menu-name-area input:focus{
@@ -221,8 +224,10 @@ table * {border : 1px solid #ddd;}
 }
 
 .menu-add-area .image-area{
-	width: 68%;
+	width: 70%;
 	display: flex;
+	flex-direction: row;
+	gap: 10px;
 }
 
 .menu-add-area .menu-name-area p,
@@ -231,21 +236,7 @@ table * {border : 1px solid #ddd;}
 	font-size: 15px;
 	font-weight: 800;
 	word-break: break-word;
-}
-
-.menu-add-area .image-area .right-image-area pre{
-	font-size: 10px;
-	width: 100%;
-	overflow: auto;
-	white-space: pre-wrap; /* pre tag내에 word wrap */
-}
-
-.menu-add-area .image-area .left-image-area{
-	width: 45%;
-}
-
-.menu-add-area .image-area .right-image-area{
-	width: 50%;
+	width: 80px;
 }
 
 /* 미리보기 영역 */
@@ -257,6 +248,17 @@ table * {border : 1px solid #ddd;}
 	align-items: center;
 	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
 	border-radius: 10px;
+	position: relative;
+}
+
+.menu-add-area .image-area .left-image-area i{
+	position: absolute;
+	top: 95px;
+	right: 310px;
+	font-size: 20px;
+	cursor: pointer;
+	color: #8FB788;
+	display: none;
 }
 
 /* file 타입 input */
@@ -268,4 +270,45 @@ table * {border : 1px solid #ddd;}
 	max-width: 100%;
 	max-height: 100%;
 }
-  
+
+
+/* 오른쪽 이미지 */
+.menu-add-area .image-area .right-image-area{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 10px;
+}
+
+.menu-add-area .image-area .right-image-area pre{
+	font-size: 13px;
+	width: 100%;
+	overflow: auto;
+	white-space: pre-wrap; /* pre tag내에 word wrap */
+	color: #727272;
+}
+
+.menu-add-area .image-area .right-image-area .image-btn button{
+	padding: 10px;
+	background-color: white;
+	border: 2px solid #8FB788;
+	border-radius: 10px;
+	color: #8FB788;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.menu-add-area .image-area .right-image-area .image-btn button:hover{
+	background-color: #8FB788;
+	color: white;
+}
+
+#menuAddFrm .popup_btn{
+	margin-top: 50px;
+}
+
+
+.popup_btn #agree_btn{
+	margin: 10px;
+}
