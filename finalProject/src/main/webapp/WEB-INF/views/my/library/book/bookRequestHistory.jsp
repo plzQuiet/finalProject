@@ -3,7 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="bList" value="${map.bList}"/>
+<c:set var="list" value="${map.list}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,41 +24,40 @@
 			<h1>도서현황</h1>
 			<div class="nav-area">
 				<a href="book?m=1">대출중인 도서</a>
-				<a href="book?m=2" class="selected">이전 대출내역</a>
+				<a href="book?m=2">이전 대출내역</a>
 				<a href="book?m=3">예약내역</a>
 				<a href="book?m=4">신청내역</a>
 			</div>
-			<p>이전 대출내역</p>
+			<p>신청내역</p>
 			<table id="list-table">
 				<thead>
 					<tr>
-						<th>도서명</th>
-						<th style="width: 150px;">대출일/반납예정일</th>
-						<th style="width: 150px;">반납일/반납상태</th>
+						<th style="width: 100px;">신청번호</th>
+						<th>신청 도서명</th>
+						<th>저자</th>
+						<th>출판사</th>
+						<th style="width: 100px;">신청상태</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${fn:length(bList) == 0}">
+						<c:when test="${fn:length(list) == 0}">
 							<tr>
-								<th style="height: 100px;" colspan="4">이전 대출내역이 없습니다</th>
+								<th style="height: 100px;" colspan="4">신청 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${bList}">
+							<c:forEach var="b" items="${list}">
 								<tr>
+									<td>${b.REQ_BOOK_NO}</td>
 									<td>${b.BOOK_TITLE}</td>
-									<td>${b.BORROW_DT}<br>${b.RETURN_DUE_DT}</td>
+									<td>${b.BOOK_AUTHOR}</td>
+									<td>${b.BOOK_PUB}</td>
 									<td>
-										${b.RETURN_DT}<br>
-										<c:if test="${b.STATUS == 'N'}">
-											정상반납
-										</c:if>
-										
-										<c:if test="${b.STATUS == 'O'}">
-											<span style="color:red;">연체</span>
-										</c:if>
+										<c:if test="${b.REQ_APPROVE == 'W'}">대기</c:if>
+										<c:if test="${b.REQ_APPROVE == 'Y'}">승인</c:if>
+										<c:if test="${b.REQ_APPROVE == 'N'}">거절</c:if>
 									</td>
 								</tr>
 							</c:forEach>
@@ -67,7 +66,7 @@
 				</tbody>
 			</table>
 			
-			<c:if test="${fn:length(bList) > 0}">
+			<c:if test="${fn:length(list) > 0}">
 				<div class="pagination-area">
 		            <ul class="pagination">
 		                <li><a href="/myLibrary/book?m=2&cp=1">&lt;&lt;</a></li>
@@ -91,5 +90,6 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	<script src="/resources/js/my/library.js"></script>
 </body>
 </html>

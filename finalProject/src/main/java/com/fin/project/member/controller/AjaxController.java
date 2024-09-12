@@ -11,16 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fin.project.member.model.service.AjaxService;
-import com.fin.project.my.library.model.service.MyLibraryService;
 
 @RestController
 public class AjaxController {
 
 	@Autowired
 	private AjaxService service;
-	
-	@Autowired
-	private MyLibraryService libService;
 	
 	@GetMapping("/dupCheck/email")
 	public int dupCheckEmail(String email) {

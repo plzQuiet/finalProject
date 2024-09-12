@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+readingReserv<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="bList" value="${map.bList}"/>
+<c:set var="list" value="${map.list}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -21,40 +21,42 @@
 		<jsp:include page="/WEB-INF/views/my/library/sideMenu.jsp"/>
 		
 		<section class="list-area">
-			<h1>도서현황</h1>
+			<h1>예약 및 신청</h1>
 			<div class="nav-area">
-				<a href="book?m=1">대출중인 도서</a>
-				<a href="book?m=2">이전 대출내역</a>
-				<a href="book?m=3" class="selected">예약내역</a>
-				<a href="book?m=4">신청내역</a>
+				<a href="cafe?m=1">구내식당</a>
+                <a href="cafe?m=2">카페</a>
 			</div>
-			<p>예약내역</p>
+			<p>카페</p>
 			<table id="list-table">
 				<thead>
 					<tr>
-						<th style="width: 100px;">예약번호</th>
-						<th>도서명</th>
-						<th>신청일자</th>
-						<th>예약만료일</th>
-						<th>예약취소</th>
+						<th>번호</th>
+						<th>구분</th>
+						<th>예약일</th>
+						<th>예약시간</th>
+						<th>취소</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${fn:length(bList) == 0}">
+						<c:when test="${fn:length(list) == 0}">
 							<tr>
-								<th style="height: 100px;" colspan="4">예약 내역이 없습니다</th>
+								<th style="height: 100px;" colspan="4">신청 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${bList}">
+							<c:forEach var="b" items="${list}">
 								<tr>
-									<td>${b.RESERVATION_NO}</td>
+									<td>${b.REQ_BOOK_NO}</td>
 									<td>${b.BOOK_TITLE}</td>
-									<td>${b.RESERVATION_DT}</td>
-									<td>${b.RESERVATION_DT_E}</td>
-									<td><button onclick="cancle(${b.RESERVATION_NO})">취소</button></td>
+									<td>${b.BOOK_AUTHOR}</td>
+									<td>${b.BOOK_PUB}</td>
+									<td>
+										<c:if test="${b.REQ_APPROVE == 'W'}">대기</c:if>
+										<c:if test="${b.REQ_APPROVE == 'Y'}">승인</c:if>
+										<c:if test="${b.REQ_APPROVE == 'N'}">거절</c:if>
+									</td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>
@@ -62,11 +64,11 @@
 				</tbody>
 			</table>
 			
-			<c:if test="${fn:length(bList) > 0}">
+			<c:if test="${fn:length(list) > 0}">
 				<div class="pagination-area">
 		            <ul class="pagination">
-		                <li><a href="/myLibrary/book?m=2&cp=1">&lt;&lt;</a></li>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.prevPage}">&lt;</a></li>
+		                <li><a href="/myLibrary/reserv?m=3&cp=1">&lt;&lt;</a></li>
+		                <li><a href="/myLibrary/reserv?m=3&cp=${pagination.prevPage}">&lt;</a></li>
 		                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
 		                    <c:choose>
 		                        <c:when test="${i == pagination.currentPage}">
@@ -74,21 +76,18 @@
 		                        </c:when>
 		
 		                        <c:otherwise>
-		                            <li><a href="/myLibrary/book?m=2&cp=${i}">${i}</a></li>
+		                            <li><a href="/myLibrary/reserv?m=3&cp=${i}">${i}</a></li>
 		                        </c:otherwise>
 		                    </c:choose>
 		                </c:forEach>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.nextPage}">&gt;</a></li>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.maxPage}">&gt;&gt;</a></li>
+		                <li><a href="/myLibrary/reserv?m=3&cp=${pagination.nextPage}">&gt;</a></li>
+		                <li><a href="/myLibrary/reserv?m=3&cp=${pagination.maxPage}">&gt;&gt;</a></li>
 		            </ul>
 		        </div>
 	        </c:if>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-	<script>
-		const loginMemberNo = "${loginMember.memberNo}";
-	</script>
-	<script src="/resources/js/myPage/book.js"></script>
+	<script src="/resources/js/my/library.js"></script>
 </body>
 </html>

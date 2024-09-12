@@ -19,11 +19,6 @@
 		
 		<section class="list-area">
 			<h1>결제내역</h1>
-			<div class="btn-area">
-				<button class="selected">구내식당</button>
-				<button>카페</button>
-			</div>
-			<p>대출중인 도서 : 4권</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -35,13 +30,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>식권</td>
-						<td>1</td>
-						<td>2024-08-26</td>
-						<td>8000원</td>
-					</tr>
+					<c:choose>
+						<c:when test="${fn:length(list) == 0}">
+							<tr>
+								<th style="height: 100px;" colspan="4">결제 내역이 없습니다</th>
+							</tr>
+						</c:when>
+						
+						<c:otherwise>
+							<c:forEach var="l" items="${list}">
+								<tr>
+									<td>${b.TYPE_NAME}</td>
+									<td>${b.FOOD_QTY}</td>
+									<td>${b.PAY_DATE}</td>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</section>
