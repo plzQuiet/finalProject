@@ -113,7 +113,7 @@
 }
 
 .calendar-category:hover{
-    background-color: #80afe1;
+    background-color: #8FB788;
     color: white;
 }
 
@@ -141,12 +141,6 @@
     transition-duration: 0.3s ;
 }
 
-#calendar-edit-btn:hover{
-    color: black;
-    background-color: #5647ff77;
-}
-
-
 /* 캘랜더 아이디 */
 /* 캘랜더 위에 버튼 및 년월 포맷 */
 
@@ -165,7 +159,7 @@
 /* 도서관 달력 이동 id */
 #goToLibraryCal{
     position: absolute;
-    top: 3px;
+    top: 5px;
     right: 10px;
 
     display: flex;
@@ -192,7 +186,7 @@
 }
 
 #goToLibraryCal:hover{
-    background-color: #d4d4d4;
+    background-color: #8FB788;
 }
 
 #goToLibraryCal > a:hover{
@@ -215,13 +209,13 @@
 }
 
 /* 달력 이벤트 제목 */
+.fc-h-event .fc-event-title{
+    display: flex;
+}
+
 .fc-event-title{
     text-overflow: ellipsis;
     font-size: 8px;
-}
-
-.fc-h-event .fc-event-title{
-    display: flex;
 }
 
 /* 캘랜더 제목 */
@@ -331,3 +325,4 @@
 #goToLibraryHour:hover{
     background-color: #8FB788;
 }
+
