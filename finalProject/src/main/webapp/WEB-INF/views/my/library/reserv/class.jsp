@@ -31,10 +31,9 @@
 			<table id="list-table">
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>구분</th>
-						<th>예약일</th>
-						<th>예약시간</th>
+						<th>클래스명</th>
+						<th>클래스 시작/종료일</th>
+						<th>신청기간</th>
 						<th>취소</th>
 					</tr>
 				</thead>
@@ -47,17 +46,12 @@
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${list}">
+							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${b.REQ_BOOK_NO}</td>
-									<td>${b.BOOK_TITLE}</td>
-									<td>${b.BOOK_AUTHOR}</td>
-									<td>${b.BOOK_PUB}</td>
-									<td>
-										<c:if test="${b.REQ_APPROVE == 'W'}">대기</c:if>
-										<c:if test="${b.REQ_APPROVE == 'Y'}">승인</c:if>
-										<c:if test="${b.REQ_APPROVE == 'N'}">거절</c:if>
-									</td>
+									<td><a href="/12/${l.BOARD_NO}">${l.BOARD_TITLE}</a></td>
+									<td>${l.START_DT} ~ ${l.END_DT}</td>
+									<td>${l.RECRUITMENT_START_DT} ~ ${l.RECRUITMENT_END_DT}</td>
+									<td><button onclick="classCancle(${l.BOARD_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

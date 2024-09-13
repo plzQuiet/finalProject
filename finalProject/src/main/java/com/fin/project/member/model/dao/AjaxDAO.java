@@ -17,5 +17,17 @@ public class AjaxDAO {
 	public int bookCancle(int rNo) {
 		return sqlSession.delete("ajaxMapper.bookCancle", rNo);
 	}
+
+	public int reservCancle(int rNo) {
+		return sqlSession.delete("ajaxMapper.reservCancle", rNo);
+	}
+
+	public int classCancle(int boardNo) {
+		return sqlSession.delete("ajaxMapper.classCancle", boardNo);
+	}
+
+	public int bookmarkCancle(int bookNo) {
+		return sqlSession.delete("ajaxMapper.bookmarkCancle", bookNo);
+	}
 	
 }

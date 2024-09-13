@@ -18,5 +18,7 @@ public interface MyLibraryService {
 	Map<String, Object> seminarReserv(int memberNo, int cp);
 
 	Map<String, Object> classRegist(int memberNo, int cp);
+
+	Map<String, Object> bookmark(int memberNo, int cp);
 	
 }

@@ -28,4 +28,19 @@ public class AjaxController {
 		return service.bookCancle(rNo);
 	}
 	
+	@DeleteMapping("/reservCancle")
+	public int reservCancle(@RequestBody int rNo) {
+		return service.reservCancle(rNo);
+	}
+	
+	@DeleteMapping("/classCancle")
+	public int classCancle(@RequestBody int boardNo) {
+		return service.classCancle(boardNo);
+	}
+	
+	@DeleteMapping("/bookmarkCancle")
+	public int bookmarkCancle(@RequestBody int bookNo) {
+		return service.bookmarkCancle(bookNo);
+	}
+	
 }

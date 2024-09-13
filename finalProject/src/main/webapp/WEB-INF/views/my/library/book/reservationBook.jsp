@@ -48,13 +48,13 @@
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${list}">
+							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${b.RESERVATION_NO}</td>
-									<td>${b.BOOK_TITLE}</td>
-									<td>${b.RESERVATION_DT}</td>
-									<td>${b.RESERVATION_DT_E}</td>
-									<td><button onclick="cancle(${b.RESERVATION_NO})">취소</button></td>
+									<td>${l.RESERVATION_NO}</td>
+									<td>${l.BOOK_TITLE}</td>
+									<td>${l.RESERVATION_DT}</td>
+									<td>${l.RESERVATION_DT_E}</td>
+									<td><button onclick="bookCancle(${l.RESERVATION_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>
@@ -65,8 +65,8 @@
 			<c:if test="${fn:length(list) > 0}">
 				<div class="pagination-area">
 		            <ul class="pagination">
-		                <li><a href="/myLibrary/book?m=2&cp=1">&lt;&lt;</a></li>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.prevPage}">&lt;</a></li>
+		                <li><a href="/myLibrary/book?m=3&cp=1">&lt;&lt;</a></li>
+		                <li><a href="/myLibrary/book?m=3&cp=${pagination.prevPage}">&lt;</a></li>
 		                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
 		                    <c:choose>
 		                        <c:when test="${i == pagination.currentPage}">
@@ -74,12 +74,12 @@
 		                        </c:when>
 		
 		                        <c:otherwise>
-		                            <li><a href="/myLibrary/book?m=2&cp=${i}">${i}</a></li>
+		                            <li><a href="/myLibrary/book?m=4&cp=${i}">${i}</a></li>
 		                        </c:otherwise>
 		                    </c:choose>
 		                </c:forEach>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.nextPage}">&gt;</a></li>
-		                <li><a href="/myLibrary/book?m=2&cp=${pagination.maxPage}">&gt;&gt;</a></li>
+		                <li><a href="/myLibrary/book?m=3&cp=${pagination.nextPage}">&gt;</a></li>
+		                <li><a href="/myLibrary/book?m=3&cp=${pagination.maxPage}">&gt;&gt;</a></li>
 		            </ul>
 		        </div>
 	        </c:if>

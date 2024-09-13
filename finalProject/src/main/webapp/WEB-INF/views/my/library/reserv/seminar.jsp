@@ -27,7 +27,6 @@
                 <a href="reserv?m=2">공간 예약현황</a>
                 <a href="reserv?m=3">클래스 신청현황</a>
 			</div>
-			<p>신청내역</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -46,17 +45,12 @@
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${list}">
+							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${b.REQ_BOOK_NO}</td>
-									<td>${b.BOOK_TITLE}</td>
-									<td>${b.BOOK_AUTHOR}</td>
-									<td>${b.BOOK_PUB}</td>
-									<td>
-										<c:if test="${b.REQ_APPROVE == 'W'}">대기</c:if>
-										<c:if test="${b.REQ_APPROVE == 'Y'}">승인</c:if>
-										<c:if test="${b.REQ_APPROVE == 'N'}">거절</c:if>
-									</td>
+									<td>세미나실</td>
+									<td>${l.RESERVATION_DT}</td>
+									<td>${l.START_TIME} ~ ${l.END_TIME}</td>
+									<td><button onclick="reservCancle(${l.RESERVATION_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

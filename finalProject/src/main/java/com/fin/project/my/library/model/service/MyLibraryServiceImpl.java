@@ -111,4 +111,19 @@ public class MyLibraryServiceImpl implements MyLibraryService {
 		return map;
 	}
 
+	@Override
+	public Map<String, Object> bookmark(int memberNo, int cp) {
+		
+		int listCount = dao.getBookmark(memberNo);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		List<Map<String, Object>> list = dao.bookmark(memberNo, pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		
+		return map;
+	}
+
 }

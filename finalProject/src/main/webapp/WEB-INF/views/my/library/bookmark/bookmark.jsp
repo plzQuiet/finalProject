@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="list" value="${map.list}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/library/sideMenu.jsp"/>
 		
 		<section class="list-area">
 			<h1>즐겨찾기</h1>
@@ -32,38 +35,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1Q84</td>
-						<td>무라카미 하루키</td>
-						<td>신초샤 문학동네</td>
-						<td>2010년 4월 16일</td>
-						<td>9788954608640</td>
-						<td>★</td>
-					</tr>
-					<tr>
-						<td>1Q84</td>
-						<td>무라카미 하루키</td>
-						<td>신초샤 문학동네</td>
-						<td>2010년 4월 16일</td>
-						<td>9788954608640</td>
-						<td>☆</td>
-					</tr>
-					<tr>
-						<td>1Q84</td>
-						<td>무라카미 하루키</td>
-						<td>신초샤 문학동네</td>
-						<td>2010년 4월 16일</td>
-						<td>9788954608640</td>
-						<td>☆</td>
-					</tr>
-					<tr>
-						<td>1Q84</td>
-						<td>무라카미 하루키</td>
-						<td>신초샤 문학동네</td>
-						<td>2010년 4월 16일</td>
-						<td>9788954608640</td>
-						<td>☆</td>
-					</tr>
+					<c:forEach var="b" items="${list}">
+						<tr>
+							<td><a href="">${b.BOOK_TITLE}</a></td>
+							<td>${b.BOOK_AUTHOR}</td>
+							<td>${b.BOOK_PUB}</td>
+							<td>${b.BOOK_PUB_DT}</td>
+							<td>${b.BOOK_ISBN}</td>
+							<td><span onclick="bookmarkCancle(${b.BOOK_NO})">★</span></td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</section>

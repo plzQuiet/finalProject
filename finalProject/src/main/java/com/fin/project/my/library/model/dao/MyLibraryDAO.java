@@ -91,5 +91,17 @@ public class MyLibraryDAO {
 		
 		return sqlSession.selectList("myLibraryMapper.classRegist", memberNo, rowBounds);
 	}
+
+	public int getBookmark(int memberNo) {
+		return sqlSession.selectOne("myLibraryMapper.getBookmark", memberNo);
+	}
+
+	public List<Map<String, Object>> bookmark(int memberNo, Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("myLibraryMapper.bookmark", memberNo, rowBounds);
+	}
 	
 }

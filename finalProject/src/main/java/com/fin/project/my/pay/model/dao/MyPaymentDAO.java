@@ -17,7 +17,8 @@ public class MyPaymentDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public int getPayment(int memberNo) {
-		return sqlSession.selectOne("MyLibraryMapper.getPayment");
+		System.out.println(memberNo);
+		return sqlSession.selectOne("myLibraryMapper.getPayment", memberNo);
 	}
 
 	public List<Map<String, Object>> payment(int memberNo, Pagination pagination) {
@@ -25,8 +26,7 @@ public class MyPaymentDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("MyLibraryMapper.payment", memberNo, rowBounds);
+		return sqlSession.selectList("myLibraryMapper.payment", memberNo, rowBounds);
 	}
-
 	
 }

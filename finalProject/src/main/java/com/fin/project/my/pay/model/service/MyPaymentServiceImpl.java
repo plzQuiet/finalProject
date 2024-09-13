@@ -30,5 +30,4 @@ public class MyPaymentServiceImpl implements MyPaymentService {
 		return map;
 	}
 	
-	
 }
