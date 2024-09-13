@@ -16,24 +16,25 @@
 
     <!-- 전체 검색 -->
     <select id="selectBookList" resultMap="book_rm">
-        SELECT BOOK_THUMBNAIL, BOOK_TITLE, BOOK_AUTHOR, BOOK_NO, BOOK_STATE,
-        BOOK_ISBN, BOOK_SUPPLE
-        FROM BOOK
-        WHERE
-        <choose>
-            <when test='key == "t"'>
-                BOOK_TITLE LIKE CONCAT('%', #{query}, '%')
-            </when>
+    SELECT BOOK_THUMBNAIL, BOOK_TITLE, BOOK_AUTHOR, BOOK_NO, BOOK_STATE,
+           BOOK_ISBN, BOOK_SUPPLE
+    FROM BOOK
+    WHERE
+    <choose>
+        <when test='key == "t"'>
+            BOOK_TITLE LIKE ('%'|| #{query} || '%')
+        </when>
 
-            <when test='key == "a"'>
-                BOOK_AUTHOR LIKE CONCAT('%', #{query}, '%')
-            </when>
+        <when test='key == "a"'>
+            BOOK_AUTHOR LIKE ('%'|| #{query} || '%')
+        </when>
 
-            <when test='key == "ta"'>
-                (BOOK_TITLE LIKE CONCAT('%', #{query}, '%') OR BOOK_AUTHOR LIKE CONCAT('%', #{query}, '%'))
-            </when>
-        </choose>
-        ORDER BY BOOK_NO DESC
-    </select>
+        <when test='key == "ta"'>
+            (BOOK_TITLE LIKE ('%' || #{query} || '%') OR BOOK_AUTHOR LIKE ('%' || #{query} || '%'))
+        </when>
+    </choose>
+    ORDER BY BOOK_NO DESC
+</select>
+
 
 </mapper>

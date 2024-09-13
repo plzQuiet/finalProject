@@ -90,7 +90,9 @@
                     <div>검색어 '전체 : 잘린 머리처럼 불길한 것'에 대한 자료 검색 결과이며, 총 n건이 검색되었습니다.</div>
                     <hr>
 
-                    <div class="body-content-mid">원하시는 도서를 검색해 보세요</div>
+                    <div class="body-content-mid">원하시는 도서를 검색해 보세요
+                        <div id="result"></div>
+                    </div>
 
                     <div class="body-content-bot">스와이프 들어갈 곳</div>
 
@@ -104,7 +106,7 @@
                         <button type="button" onclick="searchBooks()">검색</button>
                     </form> -->
                     
-                    <div id="result"></div>
+                    
                     
                 </section>
             </section>
