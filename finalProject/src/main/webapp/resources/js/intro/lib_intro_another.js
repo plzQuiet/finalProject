@@ -176,6 +176,9 @@ function openUpdateModal(e, boardNo){
     libraryIntroText.value = curLibraryIntro.innerText;
     addressInput.value = curLibraryAdd.innerText;
 
+    curLat.value = libraryLat.value;
+    curLng.value = libraryLng.value;
+
     fetch("/intro/getImageList?boardNo="+boardNo)
     .then(resp => resp.json())
     .then(imageList => {
@@ -322,6 +325,15 @@ for(let i = 0; i < inputImage.length; i++){
     });
 }
 
+
+/* 알림창 변수 선언 */
+/* 알림창 전체 */
+const popupNoticeLayer = document.getElementById("popup_layer");
+
+/* 알림창 내용 */
+const popupNoticeContent = document.querySelector(".popup_content > p");
+
+
 // input type="hidden" 테그에 
 // deleteSet에 저장된 값을 "1,2,3" 형태로 변경해서 저장
 
@@ -336,22 +348,25 @@ introFrm.addEventListener("submit", function(e) {
 
 if(libraryName.value.trim().length == 0){
     e.preventDefault();
-    alert("도서관 명을 입력해주세요.");
-    libraryName.focus();
+    openNoticeWindow("도서관 명을 입력해주세요.");
     return;
 }
 
 if(addressInput.value.trim().length == 0){
     e.preventDefault();
-    alert("도서관 주소를 입력해주세요.");
-    addressInput.focus();
+    openNoticeWindow("도서관 주소를 입력해주세요.");
     return;
 }
 
 if(libraryIntroText.value.trim().length == 0){
     e.preventDefault();
-    alert("도서관 소개글을 입력해주세요.");
-    libraryIntroText.focus();
+    openNoticeWindow("도서관 소개글을 입력해주세요.");
+    return;
+}
+
+if(curLat.value.trim().length == 0 ){
+    e.preventDefault();
+    openNoticeWindow("지도 검색해 주세요.");
     return;
 }
 
@@ -361,3 +376,21 @@ curLng.value = lng;
 document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
 
 })
+
+if(message != ""){
+    openNoticeWindow(message);
+}
+
+function openNoticeWindow(message){
+    popupNoticeLayer.style.display = "block";
+    openNoticeMessage(message);
+}
+
+function openNoticeMessage(message){
+    popupNoticeContent.innerHTML = message;
+    document.getElementById("confirm_btn").setAttribute("onClick", "closeNoticeMessage()");
+}
+
+function closeNoticeMessage(){
+    popupNoticeLayer.style.display = "none";
+}

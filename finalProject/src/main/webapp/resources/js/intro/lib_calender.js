@@ -87,6 +87,7 @@ function typeCalendar(type){
 /* 캘런더 오늘 버튼 */
 todayBtn.addEventListener("click",function() {
     calendar.today();
+    createSchedule(dateFormat2);
     dateDiv.innerText = dateFormat;
 })
 
