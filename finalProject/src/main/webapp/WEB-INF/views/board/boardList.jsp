@@ -31,6 +31,9 @@
 
     <!-- header -->
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <c:if test="${!empty param.query}" >
+        <c:set var="qs" value="&keyword=${param.keyword}&query=${param.query}" />
+    </c:if>
 
 	<section class="main-content-suround-section">
         <article class="side-menu-article">
@@ -45,13 +48,14 @@
 
         </article>
 
+
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
             <div class="content-title">${cateName}</div>
             <div class="title-line"></div>
             
             <!-- 검색창 --> 
-            <form action="${cateCode}" method="get" id="boardSearch">
+            <form action="${cateCode}" method="GET" id="boardSearch">
                 <div class="search-area">
                     <select name="keyword" id="searchKey">
                         <option value="t">제목</option>
@@ -98,12 +102,12 @@
                                             <!-- 게시글] 조회 시 글 목록 존재 O -->
                                             <td>${board.boardNo}</td>
                                             <td>
+                                                <c:if test="${board.boardSecretFlag == 'Y'}">
+                                                    <i class="fa-solid fa-lock"></i> 
+                                                </c:if>
                                                 <a href="/board/${cateCode}/${board.boardNo}?cp=${pagination.currentPage}${qs}">${board.boardTitle}</a>
                                                 <c:if test="${cateCode == 16 || cateCode == 18}">
                                                     [${board.commentCount}]
-                                                </c:if>
-                                                <c:if test="${board.boardSecretFlag == 'Y'}">
-                                                    <i class="fa-solid fa-lock"></i> 
                                                 </c:if>
                                             </td>
                                             <td>
@@ -117,10 +121,14 @@
                                                 </c:choose>
                                             </td>
                                             <td>
-                                                <c:if test="${board.boardUpdateDate != null }">
-                                                    ${board.boardUpdateDate}
-                                                </c:if>
-                                                ${board.boardCreateDate}
+                                                <c:choose>
+                                                    <c:when test="${board.boardUpdateDate != null}">
+                                                        ${board.boardUpdateDate}
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${board.boardCreateDate}
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </td>
                                             <td>${board.readCount}</td>
                                         </tr>
@@ -148,7 +156,7 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-
+                
                 <!-- pagination -->
                 <div class="pagination-area">
 
@@ -197,13 +205,10 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-    <!-- boardList.js 연결 -->
-    <script src="/resources/js/board/boardList.js"></script>
 
     <script>
+        
         const cateCode = "${cateCode}";
-
-        console.log(cateCode);
 
         const li = document.querySelectorAll(".side-menu > li");
 
@@ -215,6 +220,9 @@
         } 
 
     </script>
+
+    <!-- boardList.js 연결 -->
+    <script src="/resources/js/board/boardList.js"></script>
 
 </body>
 </html>

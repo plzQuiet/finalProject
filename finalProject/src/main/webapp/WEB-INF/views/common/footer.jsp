@@ -17,3 +17,12 @@
             <img src="/resources/images/wa_logo.png" >
         </div>
 </footer>
+
+<c:if test="${!empty message}">
+
+    <script>
+        alert('${message}');
+    </script>
+
+
+</c:if>

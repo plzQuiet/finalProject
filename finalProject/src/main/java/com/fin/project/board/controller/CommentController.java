@@ -45,7 +45,7 @@ public class CommentController {
 	@DeleteMapping("/comment")
 	public int delete(@RequestBody int commentNo) {
 		
-		return service.update(commentNo);
+		return service.delete(commentNo);
 	}
 
 }

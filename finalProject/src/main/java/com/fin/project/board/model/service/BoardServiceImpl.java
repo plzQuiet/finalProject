@@ -21,13 +21,19 @@ public class BoardServiceImpl implements BoardService{
 
 	// 게시글 목록 조회
 	@Override
-	public Map<String, Object> selectBoardList(int cateCode, int cp) {
+	public Map<String, Object> selectBoardList(int cateCode, int cp, String query, String keyword) {
 		
-		int listCount = dao.getListCount(cateCode);
+		Map<String, Object> search = new HashMap<>();
+		search.put("query", query);
+		search.put("keyword", keyword);
+		search.put("cateCode", cateCode);
+		
+		
+		int listCount = dao. searchListCount(search);
 		
 		Pagination pagination = new Pagination(cp, listCount); 
 		
-		List<Board> boardList = dao.selectBoardList(cateCode, pagination);
+		List<Board> boardList = dao.searchBoardList(search, pagination);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);

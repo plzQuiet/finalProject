@@ -13,17 +13,21 @@ import com.fin.project.board.model.dto.Pagination;
 
 @Repository
 public class BoardDAO {
-	
+
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	
+
 	/** 특정 게시판의 삭제되지 않은 게시글 수 조회 dao
 	 * @param cateCode
 	 * @return 
 	 */
 	public int getListCount(int cateCode) {
 		return sqlSession.selectOne("boardMapper.getListCount", cateCode);
+	}
+
+	public int searchListCount(Map<String, Object> search) {
+		return sqlSession.selectOne("boardMapper.searchListCount", search);
 	}
 
 
@@ -33,12 +37,21 @@ public class BoardDAO {
 	 * @return boardList
 	 */
 	public List<Board> selectBoardList(int cateCode, Pagination pagination) {
-		
+
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
-		
+
 		RowBounds rowbounds = new RowBounds(offset, pagination.getLimit());
-		
+
 		return sqlSession.selectList("boardMapper.selectBoardList", cateCode, rowbounds);
+	}
+
+	public List<Board> searchBoardList(Map<String, Object> search, Pagination pagination) {
+
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowbounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("boardMapper.searchBoardList", search, rowbounds);
 	}
 
 
@@ -47,7 +60,7 @@ public class BoardDAO {
 	 * @return result
 	 */
 	public Board selectBoard(Map<String, Object> map) {
-		
+
 		return sqlSession.selectOne("boardMapper.selectBoard", map);
 	}
 
@@ -57,7 +70,7 @@ public class BoardDAO {
 	 * @return result
 	 */
 	public int increaseReadCount(int boardNo) {
-		
+
 		return sqlSession.update("boardMapper.increaseReadCount", boardNo);
 	}
 
@@ -67,7 +80,7 @@ public class BoardDAO {
 	 * @return
 	 */
 	public int getListCount(Map<String, Object> paramMap) {
-		
+
 		return sqlSession.selectOne("boardMapper.getListSearchCount", paramMap);
 	}
 
@@ -78,15 +91,15 @@ public class BoardDAO {
 	 * @return
 	 */
 	public List<Board> selectBoardList(Map<String, Object> paramMap, Pagination pagination) {
-		
+
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
-		
+
 		RowBounds rowbounds = new RowBounds(offset, pagination.getLimit());
-		
+
 		return sqlSession.selectList("boardMapper.selectBoardSearchList", paramMap, rowbounds);
 	}
 
-	
+
 
 
 }

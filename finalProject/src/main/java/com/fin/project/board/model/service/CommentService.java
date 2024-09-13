@@ -28,7 +28,7 @@ public interface CommentService {
 	 * @param commentNo
 	 * @return
 	 */
-	int update(int commentNo);
+	int delete(int commentNo);
 	
 
 }

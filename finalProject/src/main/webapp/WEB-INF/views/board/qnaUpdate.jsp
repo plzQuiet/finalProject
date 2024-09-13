@@ -48,7 +48,7 @@
             <form action="update" method="POST" class="board-write" id="boardWriteFrm">
                 <!-- 제목 -->
                 <h1 class="board-title">
-                    <input type="text" name="boardTitle" placeholder="제목 입력" value="board-title">
+                    <input type="text" name="boardTitle" placeholder="제목 입력" value="${board.boardTitle}">
                 </h1>
 
                 <!-- 작성자 이름 영역 -->
@@ -57,11 +57,12 @@
 
                 <!-- 공개/비공개 -->
                 <div class="board-type">
-                    <span>공개 여부</span> 
-                    <input type="radio" name="option" id="public">
+                    <span>공개 여부</span>
+
+                    <input type="radio" name="boardSecretFlag" id="public" value="N">
                     <label for="public">공개</label>
 
-                    <input type="radio" name="option" id="private">
+                    <input type="radio" name="boardSecretFlag" id="private" value="Y">
                     <label for="private">비공개</label>
                 </div>
 
@@ -73,9 +74,12 @@
 
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
-                    <button>취소</button>
+                    <button type="button" onclick="location.href='/board/${cateCode}'">취소</button>
                     <button type="submit" id="writeBtn">등록</button>
                 </div>
+
+                <!-- 수정 성공 시 주소 유지 용도 -->
+                <input type="hidden" name="cp" value="${param.cp}">
 
             </form>
         </section>
@@ -87,23 +91,15 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
+
+        const secret = "${board.boardSecretFlag}";
+
         const cateCode = "${cateCode}";
-
-        console.log(cateCode);
-
-        const li = document.querySelectorAll(".side-menu > li");
-
-        switch(cateCode){
-            case "15" : li[0].classList.add("side-current"); break;
-            case "16" : li[1].classList.add("side-current"); break;
-            case "17" : li[2].classList.add("side-current"); break;
-            case "18" : li[3].classList.add("side-current"); break;
-        } 
 
     </script>
 
-     <script src="/resources/js/board/boardUpdate.js"></script>
+    <%-- boardUpdate.js 연결 --%>
+    <script src="/resources/js/board/boardUpdate.js"></script>
 
-    
 </body>
 </html>
