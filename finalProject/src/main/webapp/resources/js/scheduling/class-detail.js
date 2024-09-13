@@ -1,11 +1,11 @@
-/* // 신청 버튼 클릭 시
+// 신청 버튼 클릭 시
 const confirmBtn = document.getElementById("confirm_btn")
 if(confirmBtn != null){ 
     confirmBtn.addEventListener("click",()=>{
         location.href = 
     })
 }
- */
+
 
 // 게시글 수정 버튼 클릭 시
 const updateBtn = document.getElementById("updateBtn");

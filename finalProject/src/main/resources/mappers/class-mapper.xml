@@ -180,12 +180,21 @@
 	              #{imageOriginal}, #{imageReName}, #{imageOrder} ) 	
 	</insert>
 	
+	<!-- 클래스 삭제 -->
 	<update id="classDelete" parameterType="Class">
 		UPDATE BOARD SET
 		BOARD_DEL_FL = 'Y'
 		WHERE CAT_CODE = #{cateCode}
 		AND BOARD_NO = #{boardNo}
 	</update>
+	
+	<!-- 클래스 신청 -->
+	<insert id="applyClass" parameterType="Class">
+		INSERT INTO CLASS_PEOPLE
+			VALUES(#{memberNo}, #{boardCode})
+	</insert>
+	
+	
 	
 	
 

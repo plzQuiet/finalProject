@@ -44,5 +44,11 @@ public interface ClassService {
 	 */
 	int classDelete(Map<String, Object> map);
 
+	/** 클래스 신청
+	 * @param map
+	 * @return
+	 */
+	int applyClass(Map<String, Object> map);
+
 	
 }
