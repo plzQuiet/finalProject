@@ -246,7 +246,6 @@
 	</script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services"></script>
     <script src="/resources/js/intro/lib_intro_another.js"></script>
-    <script src="/resources/js/intro/message-popup.js"></script>
 	
 </body>
 </html>
