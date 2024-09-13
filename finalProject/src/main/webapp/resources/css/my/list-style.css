@@ -72,6 +72,10 @@
 	cursor: pointer;
 }
 
+#list-table td > span{
+	cursor: pointer;
+}
+
 .pagination{
     list-style: none;
     display: flex;

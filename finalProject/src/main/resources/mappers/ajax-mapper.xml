@@ -10,5 +10,17 @@
 	<delete id="bookCancle">
 		DELETE FROM B_RESERVATION WHERE RESERVATION_NO = #{rNo}
 	</delete>
+	
+	<delete id="reservCancle">
+		DELETE FROM RESERVATION_PLACE WHERE RESERVATION_NO = #{rNo}
+	</delete>
+	
+	<delete id="classCancle">
+		DELETE FROM CLASS_SCHEDULE WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<delete id="bookmarkCancle">
+		DELETE FROM BOOK_LIKE WHERE BOOK_NO = #{bookNo}
+	</delete>
 
 </mapper>

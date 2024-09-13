@@ -80,4 +80,16 @@ public class MyLibraryController {
 		return "my/library/reserv/class";
 	}
 	
+	@GetMapping("/bookmark")
+	public String bookmark(@SessionAttribute("loginMember") Member loginMember,
+			Model model,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+		
+		Map<String, Object> map = service.bookmark(loginMember.getMemberNo(), cp);
+		model.addAttribute("map", map);
+		
+		return "my/library/bookmark/bookmark";
+		
+	}
+	
 }

@@ -1,6 +1,9 @@
 form[name='loginFrm']{
-	margin: 50px auto;
+	margin: 50px auto 20px;
 	width: 500px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 20px;
 }
 
 .login-logo{
@@ -13,46 +16,14 @@ form[name='loginFrm']{
 
 .login-logo > img{
 	height: 100px;
-	vertical-align: top;
 }
 
-.login-input-area{
-	display: flex;
-	justify-content: space-between;
-	position: relative;
-	height: 60px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	font-size: 30px;
-	font-weight: 500;
-	line-height: 60px;
-}
-
-.login-input-area > input{
-	width: 70%;
-	height: 100%;
+.login-input-area input{
+	width: 100%;
+	height: 50px;
+	border: none;
+	outline: none;
 	padding: 0 20px;
-	font-size: 20px;
-	border: 1px solid black;
-	border-radius: 10px;
-}
-
-.login-input-area > button{
-	position: absolute;
-	height: 30px;
-	top: 15px;
-	right: 15px;
-	padding: 0 10px;
-	font-size: 12px;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	cursor: pointer;
-}
-
-.login-message{
-	font-size: 14px;
-    letter-spacing: -1px;
-    padding-left: 5px;
 }
 
 .btn-area{
@@ -61,13 +32,27 @@ form[name='loginFrm']{
 }
 
 .btn-area > button{
-	width: 200px;
+	width: 100%;
 	height: 70px;
 	margin-top: 50px;
 	border: 1px solid black;
-	border-radius: 30px;
+	border-radius: 10px;
 	background-color: #0054B4;
 	font-size: 25px;
 	color: white;
 	cursor: pointer;
+}
+
+.login-nav{
+	display: flex;
+	justify-content: center;
+	list-style: none;
+}
+
+.login-nav > li{
+	padding: 5px;
+}
+
+.login-nav a:hover{
+	text-decoration: underline;
 }

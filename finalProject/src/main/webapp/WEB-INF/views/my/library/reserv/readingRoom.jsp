@@ -42,22 +42,18 @@
 					<c:choose>
 						<c:when test="${fn:length(list) == 0}">
 							<tr>
-								<th style="height: 100px;" colspan="4">신청 내역이 없습니다</th>
+								<th style="height: 100px;" colspan="5">신청 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="b" items="${list}">
+							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${b.REQ_BOOK_NO}</td>
-									<td>${b.BOOK_TITLE}</td>
-									<td>${b.BOOK_AUTHOR}</td>
-									<td>${b.BOOK_PUB}</td>
-									<td>
-										<c:if test="${b.REQ_APPROVE == 'W'}">대기</c:if>
-										<c:if test="${b.REQ_APPROVE == 'Y'}">승인</c:if>
-										<c:if test="${b.REQ_APPROVE == 'N'}">거절</c:if>
-									</td>
+									<td>${l.SEAT_NO}</td>
+									<td>디지털열람실</td>
+									<td>${l.RESERVATION_DT}</td>
+									<td>${l.START_TIME} ~ ${l.END_TIME}</td>
+									<td><button onclick="reservCancle(${l.RESERVATION_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

@@ -22,5 +22,22 @@ public class AjaxServiceImpl implements AjaxService {
 	public int bookCancle(int rNo) {
 		return dao.bookCancle(rNo);
 	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int reservCancle(int rNo) {
+		return dao.reservCancle(rNo);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int classCancle(int boardNo) {
+		return dao.classCancle(boardNo);
+	}
+
+	@Override
+	public int bookmarkCancle(int bookNo) {
+		return dao.bookmarkCancle(bookNo);
+	}
 	
 }

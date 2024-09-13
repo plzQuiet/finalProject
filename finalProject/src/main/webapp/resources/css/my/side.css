@@ -1,5 +1,10 @@
 .side-menu{width: 200px;}
 
+.side-category {
+	background-color: #8FB788;
+	color: white;
+}
+
 .side-menu a{display: block;}
 
 .side-menu > div{
@@ -22,11 +27,6 @@
 .side-menu li > a{
 	font-weight: bold;
 	padding: 20px;
-}
-
-.side-menu li:nth-of-type(1) > a {
-	background-color: #8FB788;
-	color: white;
 }
 
 .side-menu li:last-of-type{

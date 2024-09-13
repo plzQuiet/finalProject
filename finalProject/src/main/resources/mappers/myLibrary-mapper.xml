@@ -34,7 +34,7 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
 	
-	<select id="getPayment">
+	<select id="getPayment" resultType="_int">
 		SELECT COUNT(*) FROM PAY
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
@@ -47,6 +47,10 @@
 		JOIN BOOK USING(BOOK_NO)
 		WHERE RETURN_DT IS NULL
 		AND MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="getBookmark" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_LIKE WHERE MEMBER_NO = #{memberNo}
 	</select>
 	
 	<select id="loanHistory" resultType="map">
@@ -77,22 +81,48 @@
 	</select>
 	
 	<select id="readingRoomReserv" resultType="map">
-	
-		SELECT 1 FROM DUAL
+		SELECT RESERVATION_NO, SEAT_NO,
+		TO_CHAR(RESERVATION_DT, 'YYYY-MM-DD') RESERVATION_DT,
+		TO_CHAR(START_TIME, 'HH24:MI') START_TIME,
+		TO_CHAR(END_TIME, 'HH24:MI') END_TIME
+		FROM RESERVATION_PLACE
+		WHERE MEMBER_NO = #{memberNo}
+		AND SEAT_NO IS NOT NULL
 	</select>
 	
 	<select id="seminarReserv" resultType="map">
-		SELECT 1 FROM DUAL
+		SELECT RESERVATION_NO,
+			TO_CHAR(RESERVATION_DT, 'YYYY-MM-DD') RESERVATION_DT,
+			TO_CHAR(START_TIME, 'HH24:MI') START_TIME,
+			TO_CHAR(END_TIME, 'HH24:MI') END_TIME
+		FROM RESERVATION_PLACE
+		WHERE MEMBER_NO = #{memberNo}
+		AND SEAT_NO IS NULL
 	</select>
 	
 	<select id="classRegist" resultType="map">
-		SELECT 1 FROM DUAL
+		SELECT BOARD_NO, BOARD_TITLE,
+			TO_CHAR(START_DT, 'YYYY-MM-DD') START_DT,
+			TO_CHAR(END_DT, 'YYYY-MM-DD') END_DT,
+			TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') RECRUITMENT_START_DT,
+			TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') RECRUITMENT_END_DT
+		FROM CLASS_SCHEDULE
+		JOIN BOARD USING(BOARD_NO)
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
 	
 	<select id="payment" resultType="map">
 		SELECT FOOD_NAME, FOOD_QTY, PAY_DATE , FOOD_PRICE * FOOD_QTY FOOD_PRICE
 		FROM PAY
 		JOIN FOOD USING(FOOD_NO)
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<select id="bookmark" resultType="map">
+		SELECT BOOK_NO, BOOK_TITLE, BOOK_AUTHOR,
+			BOOK_PUB, BOOK_PUB_DT, BOOK_ISBN
+		FROM BOOK_LIKE
+		JOIN BOOK USING(BOOK_NO)
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
 

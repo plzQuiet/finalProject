@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="list" value="${map.list}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,14 +18,13 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/payment/sideMenu.jsp"/>
 		
 		<section class="list-area">
 			<h1>결제내역</h1>
 			<table id="list-table">
 				<thead>
 					<tr>
-						<th>주문번호</th>
 						<th>주문내역</th>
 						<th>수량</th>
 						<th>결제일</th>
@@ -40,9 +42,10 @@
 						<c:otherwise>
 							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${b.TYPE_NAME}</td>
-									<td>${b.FOOD_QTY}</td>
-									<td>${b.PAY_DATE}</td>
+									<td>${l.FOOD_NAME}</td>
+									<td>${l.FOOD_QTY}</td>
+									<td>${l.PAY_DATE}</td>
+									<td>${l.FOOD_PRICE}</td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>
