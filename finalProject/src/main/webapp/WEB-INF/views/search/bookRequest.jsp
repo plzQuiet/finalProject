@@ -63,8 +63,8 @@
 						<hr class="last-line">
 						<div class="apply-area">
 							<div class="apply-text">희망 자료 신청 또는 조회를 하려면 버튼을 누르세요 </div>
-							<button id="apply-btn">조회</button>
-							<button id="request-btn">신청</button>
+							<button id="apply-btn" onclick="location.href=''">조회</button>
+							<button id="request-btn" onclick="location.href='bookRequestForm'">신청</button>
 						</div>
 						
 					</div>

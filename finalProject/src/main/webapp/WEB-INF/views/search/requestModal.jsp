@@ -23,12 +23,13 @@
 				</div>	
 	      	<!--팝업 버튼 영역-->
 			<div class="popup_btn">
-		    	<button id="confirm_btn">확인</button>
+		    	<button id="confirm_btn" onclick="location.href='bookRequest'">확인</button>
 		    </div>
 
 	      </div>
 	     
 	  </div>
 	</div>
+	<script src="/resources/js/search/bookRequest.js"></script>
 </body>
 </html>
