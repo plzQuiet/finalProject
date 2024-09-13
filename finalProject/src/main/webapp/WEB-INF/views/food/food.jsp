@@ -86,7 +86,7 @@
 								<c:if test="${food.typeNo == 1}">
 									<div class="snack-menu-detail">
 										<c:if test="${loginMember.authority == 2 }">
-											<button id="menu-del-btn"><i class="fa-solid fa-xmark"></i></button>
+											<button id="menu-del-btn" foodNo="${food.foodNo}"><i class="fa-solid fa-xmark"></i></button>
 										</c:if>
 										<img src="${food.foodImg}">
 										<p>${food.foodName}</p>
@@ -100,7 +100,9 @@
 		</section>
 
 	</section>
-		<script> let addMenu = "${AddMenu}"; </script>
+		<script> 
+			let addMenu = "${AddMenu}";
+		</script>
 	<script src="/resources/js/food/food.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>

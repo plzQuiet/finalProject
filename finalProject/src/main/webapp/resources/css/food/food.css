@@ -200,7 +200,7 @@ table * {border : 1px solid #ddd;}
 }
 
 .menu-add-popupBox{
-	width: 850px !important;
+	width: 1000px !important;
 }
 
 .menu-add-area .menu-name-area{
@@ -311,4 +311,91 @@ table * {border : 1px solid #ddd;}
 
 .popup_btn #agree_btn{
 	margin: 10px;
+}
+
+
+/* 메뉴 수정 */
+#menuUpdateFrm{
+	width: 100%;
+}
+
+#menuUpdateFrm .menu-type-area{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+}
+
+#menuUpdateFrm .menu-type-area p{
+	color: #8FB788;
+}
+
+#menuUpdateFrm .menu-type-area .menu-type-btn-area{
+	width: 80%;
+	display: flex;
+	margin-left: 10px;
+}
+
+#menuUpdateFrm .menu-type-area .menu-type-btn-area input[type="radio"]{
+	visibility: hidden;
+	height: 0;
+	width: 0;
+}
+
+#menuUpdateFrm .menu-type-area .menu-type-btn-area label{
+	height: 50px;
+	width: 15%;
+	font-size: 15px;
+	align-content: center;
+	text-align: center;
+	background-color: white;
+	border-radius: 5px;
+	color: #555;
+	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+	cursor: pointer;
+	border: none;
+}
+
+#menuUpdateFrm .menu-type-area .menu-type-btn-area input[type="radio"]:checked + label{
+	background-color: #8FB788;
+	color: white;
+}
+
+
+#menuUpdateFrm .menu-type-area .menu-type-btn-area label:hover{
+	background-color: #8FB788;
+	color: white;
+}
+
+
+#menuUpdateFrm hr{
+	border: 1px solid #d4d4d4;
+	margin-bottom: 15px;
+}
+
+#menuUpdateFrm .popup_btn{
+	margin-top: 50px;
+}
+
+.transition{
+	transition: all .3s ease-out;
+}
+
+#menuUpdateFrm tbody .calMenu{
+	cursor: pointer;
+}
+
+#newMenuName{
+	height: 30px;
+	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+	border: none;
+	border-radius: 5px;
+	padding-left: 10px;
+	margin-left: 10px;
+	width: 150px;
+	font-size: 18px;
+}
+
+#newMenuName:focus{
+	outline: none;
 }

@@ -392,6 +392,7 @@ INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '돈까스', DEFAULT, DEFAULT, '
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블랙티', 5700, DEFAULT, '/resources/images/food/jamongHoneyBlackTea.png', '자몽 허니 블랙티이다. 경진언니의 픽이다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '라면 국물', 500, DEFAULT, '/resources/images/food/ramenSoup.png', '라면 국물입니다. 슬러시컵에 드려요. 면은 없습니다.');
 commit;
 
 BEGIN

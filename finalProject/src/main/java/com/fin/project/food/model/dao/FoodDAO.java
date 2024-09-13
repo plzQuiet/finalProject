@@ -33,6 +33,29 @@ public class FoodDAO {
 		
 	}
 
+
+	/** 음식 메뉴 삭제하기
+	 * @param foodNo
+	 * @return int
+	 */
+	public int delFoodMenu(int foodNo) {
+		return sqlSession.update("foodMapper.delFoodMenu", foodNo);
+	}
+
+
+	/** 백반 메뉴 보여주기
+	 * @param typeNo
+	 * @return Food
+	 */
+	public List<Food> showMealMenu(int typeNo) {
+		return sqlSession.selectList("foodMapper.selectMealList", typeNo);
+	}
+
+
+	public int updateMealMenu(Food food) {
+		return sqlSession.update("foodMapper.updateMealMenu", food);
+	}
+
 		
 	
 }
