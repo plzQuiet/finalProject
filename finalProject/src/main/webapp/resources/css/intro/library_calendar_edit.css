@@ -169,8 +169,8 @@ font-size:15px;
 }
 
 .todo-surround th:nth-child(1){ width: 10%;}
-.todo-surround th:nth-child(2){ width: 10%;}
-.todo-surround th:nth-child(3){ width: 10%;}
+.todo-surround th:nth-child(2){ width: 12%;}
+.todo-surround th:nth-child(3){ width: 12%;}
 .todo-surround th:nth-child(4){ width: 10%;}
 .todo-surround th:nth-child(5){ width: 10%;}
 
@@ -206,6 +206,7 @@ font-size:15px;
 .scheduleUpdate{
     border: 0;
     background-color: #8FB788;
+    margin-top: 3px;
     margin-bottom: 3px;
     color: white;
    
@@ -215,6 +216,8 @@ font-size:15px;
     border: 1px solid #d4d4d4;
     background-color: white;
     color: red;
+
+    margin-bottom: 3px;
 }
 
 /* 편집 팝업 영역 */

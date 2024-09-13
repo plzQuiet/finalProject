@@ -66,6 +66,8 @@
 .introduce-another-content td{
 	padding-left: 10px;
 	overflow: auto;
+
+	white-space: pre-wrap;
 }
 
 /* 소개 지도 */
@@ -277,6 +279,8 @@ CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  
 	resize: none;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
+
+	white-space: pre-wrap;
 }
 
 .pop-image-suround{

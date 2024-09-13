@@ -29,6 +29,7 @@ let selectDate;
 var calendarEl = document.getElementById('calendar');
 var calendar;
 
+
 /* 캘랜더 타입별로 이벤트 가져오는 함수 */
 function typeCalendar(type){
 
@@ -115,15 +116,13 @@ function createCalender(event, type) {
     let selectArray = selectDate.split("-");
     console.log(selectArray);
     dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
-
     /* e.dateStr - 클릭한 날짜 가져옴 */
-    }/* ,
 
-    datesSet: function (info) {
-        currentMonth = info.view.title;               
-        calendar.refetchEvents(); // FullCalendar에 이벤트 업데이트
-        
-    } */
+    showShedule(selectDate, type);
+
+
+    }
+
     
 });
 
@@ -146,3 +145,103 @@ prevBtn.addEventListener("click",function(){ calendar.prev();})
 /* 캘런더 next 버튼 */
 nextBtn.addEventListener("click",function() {calendar.next();})
 
+/* 메인 모달 전체 영역 */
+const mainCalPopUp = document.getElementById("main_popup_layer");
+
+/* 메인 모달 박스 영역 */
+const mainCalPopBox = document.getElementsByClassName("main_popup_box")[0];
+
+/* 메인 모달 헤더 영역 */
+const mainCalHeader = document.querySelector(".main_popup_header > p");
+
+/* 메인 모달 내용 영역 */
+const mainCalPopContent = document.querySelector(".main_popup_content > div > table > tbody");
+
+/* 메인 모달 확인 버튼 */
+const mainCalConfirmBtn = document.getElementById("main_confirm_btn");
+
+/* 일정이 있을시 모달에 내용 추가 및 모달 열어줌 */
+function showShedule(date, type){
+
+    const cal = {
+        "startDt" : date,
+        "calendarType" : type
+    };
+
+    fetch("/intro2/getDateCal",{
+        method : "POST",   
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(cal) 
+    })
+    .then(resp => resp.json())
+    .then(result => {
+        
+        if(result != ""){
+            mainCalPopContent.innerHTML = "";
+            mainCalHeader.innerHTML = date;
+
+            for(let r of result){
+
+                /* 일정 tr */
+                const calTr = document.createElement("tr");
+
+                /* 일정 종류 td */
+                const calTd = document.createElement("td");
+
+                /* 일정 종류 색 넣기 div */
+                const catColor = document.createElement("div");
+                catColor.classList.add("cat_color");
+
+                /* 타입에 따라 색 변환 */
+                if(type == 1){catColor.classList.add("gong");}
+                if(type == 2){catColor.classList.add("hue");}
+                if(type == 3){catColor.classList.add("eventDay");}
+                if(type == 4){catColor.classList.add("classDay");}
+
+                /* 일정 종류명 span */
+                const catName = document.createElement("span");
+
+                /* 타입 따라 일정 종류명 변환 */
+                if(type == 1){catName.innerHTML=" 공휴일";}
+                if(type == 2){catName.innerHTML=" 휴관일";}
+                if(type == 3){catName.innerHTML=" 행사";}
+                if(type == 4){catName.innerHTML=" 클래스";}
+
+                /* 일정 종류 td에 값 넣기 */
+                calTd.append(catColor, catName);
+
+                /* 일정 td */
+                const sheduleTd = document.createElement("td");
+                sheduleTd.innerHTML = r.calendarName;
+
+                /* 일정 tr에 td들 넣기 */
+                calTr.append(calTd, sheduleTd);
+
+                /* 내용 영역에 tr 넣기 */
+                mainCalPopContent.append(calTr);
+
+            }
+
+            mainCalConfirmBtn.setAttribute("onClick", "closeMainCalPop()");
+
+            mainCalPopUp.style.display = "block";
+
+        }else{
+            mainCalPopUp.style.display = "none";
+        }
+    } )
+    .catch(e => {console.log(e)})
+}
+
+
+
+function closeMainCalPop(){
+    mainCalPopUp.style.display = "none";
+}
+
+/* 메인 모달 외 영역 클릭시 사라짐 */
+document.addEventListener("click",e => {
+    if(e.target.contains(mainCalPopBox)){
+        closeMainCalPop();
+    }
+})

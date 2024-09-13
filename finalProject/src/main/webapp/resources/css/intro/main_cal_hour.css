@@ -224,6 +224,8 @@
     margin-left: 10px;
 }
 
+/* ----------------------------------------------------------------------- */
+
 /* 이용시간 영역 */
 .main-hour-article{
     width: 497px;
@@ -264,22 +266,41 @@
     align-items: center;
 }
 
-/* 이용시간 테이블 */
-.hour-table-area > table{
-    margin: 25px;
+/* 이용시간 테이블 감싸는 div */
+.hour-table-area > div{
     width: 450px;
+    margin: 25px;
+
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+}
+
+/* 이용시간 테이블 */
+.hour-table-area > div > table{
+    width: 100%;
     height: 150px;
 
     border-collapse: collapse;
     border-spacing: 0;
-    border: 1px solid #d4d4d4;
 
     text-align: center;
 }
 
-.hour-table-area td{
+.hour-table-area > div > table td{
     padding: 5px;
-    border: 1px solid #d4d4d4;
+}
+
+.hour-table-area > div > table > thead{
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.hour-table-area > div > table td:nth-child(2){
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+}
+
+.hour-table-area > div > table > tbody td{
+    border-top: 1px solid #d4d4d4;
 }
 
 /* 이용시간 휴관일 */
@@ -324,5 +345,152 @@
 
 #goToLibraryHour:hover{
     background-color: #8FB788;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+/* 메인 모달 전체 영역 */
+#main_popup_layer{
+    position:fixed;
+	top:0;
+	left:0;
+	z-index: 10000; 
+	width: 100%; 
+	height: 100%; 
+	display: none;
+}
+
+/* 메인 모달 박스 */
+.main_popup_box{
+    position: relative;
+	top:50%;
+	left:50%; 
+	width:500px;
+	transform:translate(-50%, -50%);
+	z-index:1002;
+	box-sizing:border-box;
+	background:#fff;
+	box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+	border-radius:10px;
+}
+
+/* 메인 모달 헤더 영역*/
+.main_popup_header{
+    height: 70px;
+	background-color : #8FB788;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	display:flex;
+	align-items:center;
+}
+
+.main_popup_header > p{
+    color:white;
+	font-size: 20px;
+	padding: 20px 10px 20px 20px;
+	font-weight: 700;
+}
+
+.main_popup_header > span{
+    color:white;
+	font-size: 20px;
+	padding: 10px;
+}
+
+/* 메인 모달 내용 영역 */
+.main_popup_box .main_popup_content{
+    padding:50px;
+	line-height:1.4rem;
+	font-size:14px;
+	word-break: break-word; 
+	display: flex;
+	justify-content: center;
+	align-items:center; 
+}
+
+/* 테이블을 감싸는 div */
+.main_popup_box .main_popup_content > div{
+    width: 90%;
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+}
+
+
+/* 메인 모달 내용 테이블 */
+.main_popup_box .main_popup_content > div > table{
+    width: 100%;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+}
+
+.main_popup_box .main_popup_content > div > table td:nth-child(1){ width: 35%;}
+.main_popup_box .main_popup_content > div > table td:nth-child(2){ width: 65%;}
+
+.main_popup_box .main_popup_content > div > table > thead{
+    background-color: #8FB788;
+    color: white;
+    text-align: center;
+}
+
+.main_popup_box .main_popup_content > div > table > thead td:nth-child(1){
+    border-top-left-radius: 10px;
+}
+
+.main_popup_box .main_popup_content > div > table > thead td:nth-child(2){
+    border-top-right-radius: 10px;
+}
+
+.main_popup_box .main_popup_content > div > table td{
+    padding: 10px;
+    text-align: center;
+}
+
+.main_popup_box .main_popup_content > div > table td:nth-child(1){
+    border-right: 1px solid #d4d4d4;
+}
+
+.cat_color{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+
+
+/* 메인 모달 버튼 영역 */
+.main_popup_box .main_popup_btn{
+    display:table;
+	table-layout: fixed;
+	width:100%;
+	word-break: break-word;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding-bottom: 10px;
+}
+
+.main_popup_box .main_popup_btn button{
+    width: 100px;
+	height: 50px;
+}
+
+.main_popup_box .main_popup_btn #main_confirm_btn{
+    background-color : #8FB788;
+	color : white;
+	border-radius: 10px;
+	border : none;
+	font-weight : 800;
+}
+
+.main_popup_box .main_popup_btn #main_confirm_btn:hover{
+    cursor : pointer;
+	box-shadow: 1px 1px 1px 1px gray;
+	background-color: #008c1d;
 }
 
