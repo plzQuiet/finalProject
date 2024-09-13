@@ -11,11 +11,12 @@ if(writeBtn != null){
     })
 }
 
+
 // 검색창 검색 기록 유지
-const boardSearch = document.getElementById("boardSearch");
-const searchKey = document.getElementById("searchKey");
-const searchQuery = document.getElementById("searchQuery");
-const options = document.getElementById("searchKey > option");
+const boardSearch = document.querySelector("#boardSearch");
+const searchKey = document.querySelector("#searchKey");
+const searchQuery = document.querySelector("#searchQuery");
+const options = document.querySelectorAll("#searchKey > option");
 
 (()=>{
     const params = new URL(location.href).searchParams;
@@ -27,9 +28,9 @@ const options = document.getElementById("searchKey > option");
     if(keyword != null){
         searchQuery.value = query; 
 
-        for(let option of options){
-            if(option.value == key){
-                option.selected = true;
+        for(let op of options){
+            if(op.value == keyword){
+                op.selected = true;
             }
         }
     }

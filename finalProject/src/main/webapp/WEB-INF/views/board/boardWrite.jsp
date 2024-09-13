@@ -82,7 +82,7 @@
 
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
-                    <button>취소</button>
+                    <button type="button" onclick="location.href='/board/${cateCode}'">취소</button>
                     <button type="submit" id="writeBtn">등록</button>
                 </div>
 
@@ -95,9 +95,10 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <%-- boardWrite.js 연결 --%>
     <script src="/resources/js/board/boardWrite.js"></script>
 
-     <script>
+    <script>
         const cateCode = "${cateCode}";
 
         console.log(cateCode);

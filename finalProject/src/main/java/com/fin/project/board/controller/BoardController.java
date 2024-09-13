@@ -49,14 +49,16 @@ public class BoardController {
 	// 공지사항, 문의사항, 책 후기 나눠요
 	@GetMapping("/{cateCode:15|16|18}")
 	public String selectBoardList(@PathVariable("cateCode") int cateCode,
+			 					@RequestParam(value="query", required=false) String query,
+			 						@RequestParam(value="keyword", required=false) String keyword,
 								  @RequestParam(value="cp", required=false, defaultValue = "1") int cp,
 								  Model model,
 								  @RequestParam Map<String, Object> paramMap
 								  ) {
 		
-		if(paramMap.get("keyword") == null) { 
-			
-			Map<String, Object> map = service.selectBoardList(cateCode, cp);
+		
+		if(query != null && keyword != null) { 
+			Map<String, Object> map = service.selectBoardList(cateCode, cp, query, keyword);
 			model.addAttribute("map", map);
 			
 		}else {
@@ -80,6 +82,7 @@ public class BoardController {
 	@GetMapping("/{cateCode:15|16|18}/{boardNo}")
 	public String boardDetail(@PathVariable("cateCode") int cateCode,
 							  @PathVariable("boardNo") int boardNo,
+							 
 							  Model model, RedirectAttributes ra,
 							  @SessionAttribute(value="loginMember", required=false) Member loginMember,
 							  HttpServletRequest req, 
@@ -88,12 +91,24 @@ public class BoardController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("cateCode", cateCode);
 		map.put("boardNo", boardNo);
-		
+	
 		Board board = service.selectBoard(map);
 		
 		String path = null;
+		
 		if(board != null) {
 
+			if(board.getBoardSecretFlag().equals("Y")) {
+				
+				if(loginMember == null || board.getMemberNo() != loginMember.getMemberNo()) {
+					path =  "redirect:/board/" + cateCode;
+					
+					ra.addFlashAttribute("message", "작성자만 확인할 수 있습니다.");
+					
+					return path;
+				}
+			}
+			
 			if(loginMember != null) {
 				map.put("memberNo", loginMember.getMemberNo());
 			}
@@ -115,6 +130,7 @@ public class BoardController {
 				}
 		
 				int result = 0;
+				
 				if(c == null) {
 					
 					c = new Cookie("readBoardNo", "|" + boardNo + "|");
@@ -163,7 +179,7 @@ public class BoardController {
 		}else { 
 			path =  "redirect:/board/" + cateCode;
 			
-			ra.addFlashAttribute("message", "해당 게시글이 존재하지 않습니다.");
+			ra.addFlashAttribute("message", "해당 게시글 번호가 없습니다.");
 		
 		}
 		

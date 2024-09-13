@@ -100,7 +100,7 @@
 
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
-                    <button>취소</button>
+                    <button type="button" onclick="location.href='/board/${cateCode}'">취소</button>
                     <button type="submit" id="writeBtn">등록</button>
                 </div>
 
@@ -119,18 +119,10 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
+
+        const secret = "${board.boardSecretFlag}";
+
         const cateCode = "${cateCode}";
-
-        console.log(cateCode);
-
-        const li = document.querySelectorAll(".side-menu > li");
-
-        switch(cateCode){
-            case "15" : li[0].classList.add("side-current"); break;
-            case "16" : li[1].classList.add("side-current"); break;
-            case "17" : li[2].classList.add("side-current"); break;
-            case "18" : li[3].classList.add("side-current"); break;
-        } 
 
     </script>
 

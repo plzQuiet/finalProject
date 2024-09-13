@@ -123,7 +123,7 @@
 
             <!-- </form> -->
           
-
+            
             <jsp:include page="/WEB-INF/views/board/comment.jsp"/>
         </section>
 

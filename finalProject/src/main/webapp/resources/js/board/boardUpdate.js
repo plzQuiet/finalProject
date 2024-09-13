@@ -64,3 +64,20 @@ boardWriteFrm.addEventListener("submit", e=>{
     document.querySelector("name=['deleteList']").value = Array.from(deleteSet);
 })
 
+const li = document.querySelectorAll(".side-menu > li");
+
+switch(cateCode){
+    case "15" : li[0].classList.add("side-current"); break;
+    case "16" : li[1].classList.add("side-current"); break;
+    case "17" : li[2].classList.add("side-current"); break;
+    case "18" : li[3].classList.add("side-current"); break;
+}
+
+// 게시글 공개/비공개
+if(secret == 'N'){
+    document.getElementById("public").setAttribute("checked", "checked");
+}
+
+if(secret == 'Y'){
+    document.getElementById("private").setAttribute("checked", "checked");
+}

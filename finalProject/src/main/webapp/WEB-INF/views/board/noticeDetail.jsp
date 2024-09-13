@@ -28,6 +28,7 @@
    <!-- header -->
    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+
     <section class="main-content-suround-section">
         <article class="side-menu-article">
              <!-- 사이드 메뉴 -->
@@ -62,9 +63,8 @@
                         <p><span>작성일</span>&nbsp;${board.boardCreateDate}</p>
                         <!-- 게시글 수정 시 마지작 수정일로 변경되어 반영됨 -->
                         <c:if test="${!empty board.boardUpdateDate}">
-                            <p><xspan>마지막 수정일</xspan>&nbsp;2024-09-26</p>
+                            <p><span>수정일</span>&nbsp;${board.boardUpdateDate}</p>
                         </c:if>
-    
                         <p><span>조회수</span>&nbsp;${board.readCount}</p>
                     </div>
 
@@ -90,13 +90,13 @@
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
                     <c:if test="${loginMember.memberNo == board.memberNo}">
-                        <button id="updateBtn"><a href="/board2/${cateCode}/${boardNo}/update?cp=${cp}">수정</a></button>
-                        <button id="deleteBtn"><a href="/board2/${cateCode}/${boardNo}/delete?cp=${cp}">삭제</a></button>
+                        <button id="updateBtn" onclick="location.href='/board2/${cateCode}/${boardNo}/update?cp=${cp}'">수정</button>
+                        <button id="deleteBtn" onclick="location.href='/board2/${cateCode}/${boardNo}/delete?cp=${cp}'">삭제</button>
                     </c:if>
                     <!-- 목록으로 -->
                     <button id="listBtn">목록으로</button>
                 </div>
-
+<%-- "/board2/${cateCode}/${boardNo}/update?cp=${cp} --%>
             </section>
 
             <!-- 게시글 작성 화면 -->
@@ -147,7 +147,6 @@
             </c:if>
 
         </section>
-        
     </section>
     
 
@@ -155,9 +154,11 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     <script>
-        const cateCode = "${cateCode}";
 
-        console.log(cateCode);
+        const boardNo = "${board.boardNo}";
+
+        const loginMemberNo = "${loginMember.memberNo}";
+        const cateCode = "${cateCode}";
 
         const li = document.querySelectorAll(".side-menu > li");
 
@@ -168,17 +169,6 @@
             case "18" : li[3].classList.add("side-current"); break;
         } 
 
-    </script>
-    
-    <script>
-        const boardNo = "${board.boardNo}";
-        console.log(boardNo);
-            
-        // 로그인한 회원 번호 변수로 선언
-        const loginMemberNo = "${loginMember.memberNo}";
-        console.log(loginMemberNo);
-            
-        const cateCode = "${cateCode}";
     </script>
             
 

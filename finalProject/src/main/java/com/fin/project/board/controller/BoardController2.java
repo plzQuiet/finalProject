@@ -44,19 +44,23 @@ public class BoardController2 {
 
 	// 게시글 작성 화면 전환 
 	// cateCode: 15,18
-	@GetMapping("/{cateCode:15|18}/insert")
+	@GetMapping("/{cateCode:15|16|18}/insert")
 	public String boardInsert(@PathVariable("cateCode") int cateCode) {
+		
+		if(cateCode == 16) {
+			return "board/qnaWrite";
+		}
 		
 		return "board/boardWrite";
 	}
 
 	// 게시글 작성 화면 전환 
 	// cateCode: 16 
-	@GetMapping("{cateCode:16}/insert")
-	public String boardInsert() {
-		
-		return "board/qnaWrite";
-	}
+//	@GetMapping("{cateCode:16}/insert")
+//	public String boardInsert(@PathVariable("cateCode") int cateCode) {
+//		
+//		return "board/qnaWrite";
+//	}
 
 	// 게시글 작성
 	@PostMapping("/{cateCode:15|16|18}/insert")
@@ -66,7 +70,7 @@ public class BoardController2 {
 							  Board board, HttpSession session, RedirectAttributes ra
 							  ) throws IOException, IllegalStateException {
 
-		System.out.println(board);
+//		System.out.println(board);
 		board.setMemberNo(loginMember.getMemberNo());
 
 		board.setCateCode(cateCode);
@@ -95,8 +99,7 @@ public class BoardController2 {
 	
 	
 	// 게시글 수정 화면 전환
-	// cateCode: 15,18
-	@GetMapping("/{cateCode:15|18}/{boardNo}/update")
+	@GetMapping("/{cateCode:15|16|18}/{boardNo}/update")
 	public String boardUpdate(@PathVariable("cateCode") int cateCode,
 							  @PathVariable("boardNo") int boardNo,
 							  Model model) {
@@ -109,54 +112,40 @@ public class BoardController2 {
 		
 		model.addAttribute("board", board);
 		
+		if(cateCode == 16) {
+			
+			return "board/qnaUpdate";
+		}
+		
 		return "board/boardUpdate";
 		
 	}
-	
-	// 게시글 수정 화면 전환
-	// cateCode: 16
-		@GetMapping("/{cateCode:16}/{boardNo}/update")
-		public String boardUpdate(@PathVariable("boardNo") int boardNo, 
-									@SessionAttribute( "loginMember") Member loginMember, Model model) {
-			
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("boardNo", boardNo);
-			
-			Board board = boardService.selectBoard(map);
-			
-			model.addAttribute("board", board);
-			
-			return "board/qnaUpdate";
-			
-		}
-		
-	
 
 	// 게시글 수정
 	@PostMapping("{cateCode:15|16|18}/{boardNo}/update")
 	public String boardUpdate(@PathVariable("cateCode") int cateCode,
 							  @PathVariable("boardNo") int boardNo,
-						      @RequestParam(value="deleteList", required=false) String deleteList,
 							  @RequestParam(value="cp", required=false, defaultValue="1") int cp,
+						      @RequestParam(value="deleteList", required=false, defaultValue="") String deleteList,
 							  @RequestParam(value="images", required=false) List<MultipartFile> images,
 							  Board board, HttpSession session, RedirectAttributes ra,
 							  @SessionAttribute("loginMember") Member loginMember) 
 							  throws IllegalStateException, IOException {
 
-		System.out.println(board);
+//		System.out.println(board);
 		board.setBoardNo(boardNo);
 		board.setCateCode(cateCode);
 
 		String webPath = "/resources/images/board/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 
-		int rowCount = service.boardUpdate(board, images, webPath, filePath, deleteList);
+		boardNo = service.boardUpdate(board, images, webPath, filePath, deleteList);
 
 		String path = "redirect:";
 		String message = null;
 
 		if(boardNo > 0) {
-			path += "/board/" + cateCode + "/" + boardNo + "?cp=" + cp;
+			path += "/board/" + cateCode + "/" + board.getBoardNo() + "?cp=" + cp;
 			message = "게시글이 수정되었습니다.";
 
 		}else {

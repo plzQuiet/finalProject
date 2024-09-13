@@ -36,5 +36,6 @@
 		<mapper resource="/mappers/class-mapper.xml"/>
 		<mapper resource="/mappers/myLibrary-mapper.xml"/>
 		<mapper resource="/mappers/search-mapper.xml"/>
+		<mapper resource="/mappers/comment-mapper.xml"/>
 	</mappers>
 </configuration>
