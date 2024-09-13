@@ -138,9 +138,24 @@ public class ClassController {
 	}
 	
 
-	
-	
-	
+	// 클래스 신청
+	@GetMapping("/12/{boardNo}/application")
+	public String applyClass(@PathVariable("boardNo") int boardNo,
+							 @SessionAttribute("loginMember") Member loginMember,
+							 @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("memberNo", loginMember.getMemberNo());
+
+		int result = service.applyClass(map);
+		
+		  if (result > 0) {
+		        return "redirect:/"+ "scheduling/" +  "/12" + "/" + boardNo + "?cp=" + cp; // 성공 메세지 띄우기 ///
+		    } else {
+		    	 return "redirect:/"+ "scheduling/" +  "/12" + "/" + boardNo + "?cp=" + cp; // 실패 메시지 띄우기 ///
+		    }
+	}
 	
 	
 	

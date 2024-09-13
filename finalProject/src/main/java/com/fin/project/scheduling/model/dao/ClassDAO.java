@@ -114,6 +114,15 @@ public class ClassDAO {
 		return sqlSession.update("classMapper.classDelete", map);
 	}
 
+	/** 클래스 신청
+	 * @param map
+	 * @return
+	 */
+	public int applyClass(Map<String, Object> map) {
+		
+		return sqlSession.insert("classMapper.applyClass", map);
+	}
+
 
 	
 

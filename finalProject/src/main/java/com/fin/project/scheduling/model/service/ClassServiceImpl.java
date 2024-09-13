@@ -123,5 +123,12 @@ public class ClassServiceImpl implements ClassService{
 	public int classDelete(Map<String, Object> map) {
 		return dao.classDelete(map);
 	}
+	
+	// 클래스 신청
+	@Override
+	public int applyClass(Map<String, Object> map) {
+		
+		return dao.applyClass(map);
+	}
 
 }
