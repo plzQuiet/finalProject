@@ -17,7 +17,6 @@ public class MyPaymentDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public int getPayment(int memberNo) {
-		System.out.println(memberNo);
 		return sqlSession.selectOne("myLibraryMapper.getPayment", memberNo);
 	}
 
