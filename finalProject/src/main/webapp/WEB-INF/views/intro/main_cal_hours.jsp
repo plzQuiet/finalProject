@@ -37,28 +37,30 @@
         </div>
 
         <div class="hour-table-area">
-            <table>
-                <thead>
-                    <tr>
-                        <td>실별</td>
-                        <td>평일</td>
-                        <td>주말</td>
-                    </tr>
-                </thead>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>실별</td>
+                            <td>평일</td>
+                            <td>주말</td>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr>
-                        <td>문헌정보실</td>
-                        <td>09:00 ~ 20:00</td>
-                        <td>09:00 ~ 18:00</td>
-                    </tr>
-                    <tr>
-                        <td>열람실</td>
-                        <td>09:00 ~ 23:00</td>
-                        <td>09:00 ~ 23:00</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr>
+                            <td>문헌정보실</td>
+                            <td>09:00 ~ 20:00</td>
+                            <td>09:00 ~ 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>열람실</td>
+                            <td>09:00 ~ 23:00</td>
+                            <td>09:00 ~ 23:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="hour-holiday">※ 휴관일: 매주 금요일,설날 및 추석연휴, 공휴일 ※</div>
@@ -66,5 +68,5 @@
 
 </section>
 
-<script src="/resources/js/intro/main_cal_hour.js"></script>
+
 

@@ -1,10 +1,10 @@
 /* 삭제 알림창 모달 */
-const popupLayer = document.getElementById("popup_layer");
-const cancelPopup = document.getElementById("cancel_btn");
+const delPopupLayer = document.getElementById("del-popup_layer");
+const delCancelPopup = document.getElementById("del-cancel_btn");
 
 /* 삭제 알림창 모달 열기 */
 function openModal(e){
-    popupLayer.style.display = "block";
+    delPopupLayer.style.display = "block";
 }
 
 /* 삭제 함수 */
@@ -13,8 +13,8 @@ function deleteLibAn(boardNo){
 }
 
 /* 삭제 알림창 모달 닫기 */
-cancelPopup.addEventListener("click",() => {
-    popupLayer.style.display = "none";
+delCancelPopup.addEventListener("click",() => {
+    delPopupLayer.style.display = "none";
 });
 
 /* 편집 모달 */

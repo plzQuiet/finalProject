@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 <link rel="stylesheet" href="/resources/css/intro/popup.css">
+<link rel="stylesheet" href="/resources/css/intro/del-popup.css">
 <link rel="stylesheet" href="/resources/css/intro/intro_another.css">
 <link rel="stylesheet" href="/resources/css/intro/edit_popup.css">
 
@@ -194,22 +195,40 @@
 	  </div>
 	</div>
 	
-	<!-- 알림창 모달-->
-	<div id="popup_layer">
-		<div class="popup_box">
-			  <div class="popup_header">
+	<!-- 삭제 알림창 모달-->
+	<div id="del-popup_layer">
+		<div class="del-popup_box">
+			  <div class="del-popup_header">
 				  <p>주변 도서관 삭제</p>
 			  </div>
 			  
 			<!--팝업 컨텐츠 영역-->
-			<div class="popup_content">
+			<div class="del-popup_content">
 				<p> 정말 삭제 하시겠습니까?
 				</p>
 			</div>
 			<!--팝업 버튼 영역-->
+			<div class="del-popup_btn">
+				<button id="del-confirm_btn" onclick="deleteLibAn(${board.boardNo})">확인</button>
+				<button id="del-cancel_btn">취소</button>
+			</div>
+		</div>
+	  </div>
+
+	  <!--알림창 모달-->
+	<div id="popup_layer">
+		<div class="popup_box">
+			  <div class="popup_header">
+				  <p>주변 도서관 편집</p>
+			  </div>
+			  
+			<!--팝업 컨텐츠 영역-->
+			<div class="popup_content">
+				<p></p>
+			</div>
+			<!--팝업 버튼 영역-->
 			<div class="popup_btn">
-				<button id="confirm_btn" onclick="deleteLibAn(${board.boardNo})">확인</button>
-				<button id="cancel_btn">취소</button>
+				<button id="confirm_btn">확인</button>
 			</div>
 		</div>
 	  </div>
@@ -220,19 +239,14 @@
         <img src="" id="modal-image">
     </div>
 
-	<c:if test="${!empty message}">
-
-		<script>
-			alert('${message}');
-		</script>
-
-	</c:if>
 	
 	<script>
 		const boardNo = "${board.boardNo}";
+		let message = "${message}";
 	</script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=607938550ca3e7059ff2ce14439ad035&libraries=services"></script>
     <script src="/resources/js/intro/lib_intro_another.js"></script>
+    <script src="/resources/js/intro/message-popup.js"></script>
 	
 </body>
 </html>

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 <link rel="stylesheet" href="/resources/css/intro/edit_popup.css">
 <link rel="stylesheet" href="/resources/css/intro/popup.css">
+<link rel="stylesheet" href="/resources/css/intro/del-popup.css">
 <link rel="stylesheet" href="/resources/css/intro/library_calendar_edit.css">
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
@@ -124,26 +125,46 @@
         </div>
 
         <!-- 알림창 모달-->
-	<div id="popup_layer">
-		<div class="popup_box">
-			  <div class="popup_header">
+	<div id="del-popup_layer">
+		<div class="del-popup_box">
+			  <div class="del-popup_header">
 				  <p>일정 삭제</p>
 			  </div>
 			  
 			<!--팝업 컨텐츠 영역-->
-			<div class="popup_content">
+			<div class="del-popup_content">
 				<p> 정말 삭제 하시겠습니까?
 				</p>
 			</div>
 			<!--팝업 버튼 영역-->
-			<div class="popup_btn">
-				<button id="confirm_btn">확인</button>
-				<button id="cancel_btn">취소</button>
+			<div class="del-popup_btn">
+				<button id="del-confirm_btn">확인</button>
+				<button id="del-cancel_btn">취소</button>
 			</div>
 		</div>
 	  </div>
+
+    <!--알림창 모달-->
+	<div id="popup_layer">
+		<div class="popup_box">
+            <div class="popup_header">
+                <p>도서관 일정 편집</p>
+            </div>
+			  
+			<!--팝업 컨텐츠 영역-->
+			<div class="popup_content">
+				<p></p>
+			</div>
+
+			<!--팝업 버튼 영역-->
+			<div class="popup_btn">
+				<button id="confirm_btn">확인</button>
+			</div>
+
+        </div>
+	</div>
         
-     <script src="/resources/js/intro/lib_cal_edit.js"></script>
+    <script src="/resources/js/intro/lib_cal_edit.js"></script>
 	
 </body>
 </html>

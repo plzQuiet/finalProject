@@ -15,9 +15,13 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="main-page-suround-area-section">
+
+        <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
 	</section>
-		
+
+    <%-- 달력 일정 모달 --%>
+    <jsp:include page="/WEB-INF/views/intro/main_cal_modal.jsp"/>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
