@@ -97,6 +97,7 @@ header>nav>ul>li>a{
 
 }
 .content-suround-section button:hover{
+    cursor: pointer;
     background-color: #80afe1;
 }
 
