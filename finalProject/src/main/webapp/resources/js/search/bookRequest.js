@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     confirmBtn.addEventListener("click", function () {
         popUpLayer.style.display = 'none'; // 모달 닫기
+
     });
 
     // 모달 외부 클릭 시 닫기
@@ -29,5 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
    
  
 });
+
 
 

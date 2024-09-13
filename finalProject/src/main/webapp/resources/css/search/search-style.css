@@ -9,12 +9,17 @@
 	height:40px;
 	font-size:16px;
 	border:none;
+	width: 60px;
 	
 }
+.fa-solid{
+	margin-right:5px;
+}
+
 #searchDetailBtn {
 	cursor: pointer;
 	background-color: #8FB788;
-	height:40px;
+	height:41px;
 	font-size:16px;
 	border: #8FB788;
 	border-radius: 5px;
@@ -48,8 +53,10 @@
 .searchForm {
 	position: relative;
 	width: 100%;
-	margin-bottom: 40px;
-	margin-left: 90px;
+	margin-bottom: 20px;
+	display:flex;
+	
+	
 }
 
 .searchBar {
@@ -61,13 +68,9 @@
 	justify-content: center;
 }
 
-#searchKey {
-	height: 38px;
-	border: 0;
-}
 
 input {
-	width: 500px;
+	width: 480px;
 	padding: 10px 12px;
 	font-size: 14px;
 	height: 40px;
@@ -79,35 +82,57 @@ input {
 
 .searchInput {
 	display: flex;
+	align-content: space-around;
+	margin-right:20px;
 }
-
+.searchArea{
+	display:flex;
+	margin-right:10px;
+}
 
 
 .searchDetailBtn {
 	background-color: #8FB788;
 	border-radius: 5px;
+	margin-left:10px;
 }
 
 #searchDetailBtn {
 	border: 0;
 }
 
+.titleLine{
+	border:2px solid #d4d4d4;
+	margin-bottom:30px;
+}
+
+
 .body-content-mid {
-	height: 300px;
+	height: 30px;
 	text-align: center;
-	border: 1px solid green;
+	
 }
 
 .body-content-bot {
 	height: 300px;
 	text-align: center;
-	border: 1px solid black;
+	border: 0.5px solid #8FB788;
+	border-radius:5px;
+	
+}
+
+.body-content-bot p{
+	color:gray;
+	text-align:left;
+	margin-left:10px;
+	margin-top:10px;
+	font-size:larger;
 }
 
 /*기본 페이지 */
 .body-content {
 	weight:800px;
-	height: 1000px;
+	height: auto;
 }
 
 .searchFormDetail {
@@ -468,5 +493,33 @@ table tbody td:nth-child(n+5){
 	background-color: #d4d4d4;
 	border: none;
 }
+/* 스와이퍼 */
+.swiper{
+ margin-top:20px;
+}
 
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.swiper-slide img {
+    width: 60%;
+    height: 60%;
+  }
+.swiper-button-next {
+	color: #8FB788 !important;
+}
+.swiper-button-prev{
+	color:#8FB788 !important;
+}
 

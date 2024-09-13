@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>신청양식</title>
 <link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
 
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
-
+	<script>
+		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+	  </script>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
 		<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
@@ -27,42 +29,42 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td>책 신청합니다 !! !! ! !</td>
+								<td><input type="text"  maxlength="10"/></td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td>aaaa</td>
+								<td><input type="date" id="currentDate"/></td>
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>aaaa</td>
+								<td>로그인 유저 이름 가져와야 함</td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
-								<td>aaaa</td>
+								<td><input type="text"/></td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td>aaaa</td>
+								<td><input type="text"/></td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td>aaaa</td>
+								<td><input type="text"/></td>
 							</tr>
 							<tr>
 								<th>출판일자</th>
-								<td>aaaa</td>
+								<td><input type="text"/></td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
-								<td>이 책을 보고 한 눈에 반했어 그래서 이 책을 사야만 했는데 수중에 돈이 없었어 돈을 모으려고 해봤지만 돈이 모이지 않았어 그래서 결국 이렇게 도서관에 와서 도서를 신청하고 있는 내가 존재하게 된거야 나는 이 책을 봐야만 해 찾아야만 해 그렇지 않으면 죽고 말거야</td>
+								<td><textarea id="opinion" cols="20"></textarea></td>
 							</tr>
 
 						</tbody>
 					</table>
 				</div>
 				<div class="btn-area">
-					<button id="request-btn">신청하기</button>
+					<button id="request-btn" onclik="">신청하기</button>
 				</div>
 			</section>
 		</section>

@@ -8,7 +8,11 @@
 <link rel="stylesheet" href="/resources/css/search/search-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 <link rel="stylesheet" href="/resources/css/main-style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
+
 <body>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- <script>
@@ -53,10 +57,11 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
         <section class="main">
-            <jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+            <jsp:include page="/WEB-INF/views/search/sideMenu.jsp"></jsp:include>
 
             <section class="main-content">
                 <div class="main-title">간략 검색</div>
+                <hr class="titleLine"/>
                 <section class="body-content">
                     <div class="searchForm">
                         <div class="searchInput">
@@ -73,41 +78,43 @@
                                     <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요">
                                 </div>
 
-                                <div>
-                                    <button type="button" onclick="searchBooks()">검색</button>
+                                <div class="searchArea">
+                                    <button type="button" id="searchBtn" onclick="searchBooks()" onclick="location.href='searchBook'">  <i class="fa-solid fa-magnifying-glass" style="width: fit-content;"></i>검색</button>
                                 </div>
 
                             </div>
 
-                            <label class="searchDetailBtn">
-                                <div>
-                                    <button id="searchDetailBtn">상세 검색</button>
-                                </div>
-                            </label>
+                        </div>
+                        <div>
+                            <button id="searchDetailBtn">상세 검색</button>
                         </div>
                     </div>
-                    <p></p>
-                    <div>검색어 '전체 : 잘린 머리처럼 불길한 것'에 대한 자료 검색 결과이며, 총 n건이 검색되었습니다.</div>
-                    <hr>
+                
 
                     <div class="body-content-mid">원하시는 도서를 검색해 보세요
-                        <div id="result"></div>
+                    </div>
+                    <div id="result"></div>
+
+                    <div class="body-content-bot">
+                        <p>인기도서</p>
+                        <div class="swiper sample">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image1"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image2"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image3"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image4"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image5"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image6"></div>
+                                <div class="swiper-slide"><img src="../../../resources/images/bookThumbnail.jpg" alt="Image7"></div>
+
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
+
                     </div>
 
-                    <div class="body-content-bot">스와이프 들어갈 곳</div>
-
-                    <!-- <form id="searchForm">
-                        <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요">
-                        <select id="key" name="key">
-                            <option value="t">제목</option>
-                            <option value="a">저자</option>
-                            <option value="ta">제목 + 저자</option>
-                        </select>
-                        <button type="button" onclick="searchBooks()">검색</button>
-                    </form> -->
-                    
-                    
-                    
                 </section>
             </section>
     </main>
