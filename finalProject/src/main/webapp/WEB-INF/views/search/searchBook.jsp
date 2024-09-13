@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/resources/css/main-style.css">
 </head>
 <body>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
 	<jsp:include page="/WEB-INF/views/search/searchModal.jsp"></jsp:include>
@@ -54,16 +55,14 @@
 				<div>검색어 : '전체 : 잘린 머리처럼 불길한 것' 에 대한 검색 결과이며, 총 n 건이 검색되었습니다.</div>
 				<hr>
 				<!-- 밑줄 아래 부터 검색 결과 -->
-				<div id="searchResult"></div>
-				<div class="searchBody">
-					<!-- 순번 -->
-					<div class="index">1</div>
-					<!-- 책 이미지 -->
-					<div class="bookThumbnail" id="bookThumbnail">
-						<img src="/resources/images/bookThumbnail" />
-					</div>
+				<!-- <div id="searchResult"></div>
+				<div class="searchBody"> -->					
+					<!-- <div class="index">1</div> -->
+					<!-- <div class="bookThumbnail" id="bookThumbnail"> -->
+						<!-- <img src="/resources/images/bookThumbnail" /> -->
+					<!-- </div> -->
 					<!-- 책 상세 -->
-					<div class="bookDetail">
+					<!-- <div class="bookDetail">
 						<div class="bookDetailTitle">잘린 머리처럼 불길한 것</div>
 						<div class="bookDetailAuthor">저자 : 미쓰다 신조 지음, 권영조 옮김</div>
 						<div class="bookDetailEnroll">등록 번호 : BOOK20240904</div>
@@ -76,9 +75,9 @@
 								</button>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- 즐겨찾기 -->
-					<div class="favorite">
+					<!-- <div class="favorite">
 						<div>
 							<button class="favoriteStar"></button>
 						</div>
@@ -86,15 +85,15 @@
 				</div>
 				<hr>
 
-				<div class="searchBody">
+				<div class="searchBody"> -->
 					<!-- 순번 -->
-					<div class="index">2</div>
+					<!-- <div class="index">2</div> -->
 					<!-- 책 이미지 -->
-					<div class="bookThumbnail">
+					<!-- <div class="bookThumbnail">
 						<img src="/resources/images/bookThumbnail">
-					</div>
+					</div> -->
 					<!-- 책 상세 -->
-					<div class="bookDetail">
+					<!-- <div class="bookDetail">
 						<div class="bookDetailTitle">잘린 머리처럼 불길한 것</div>
 						<div class="bookDetailAuthor">저자 : 미쓰다 신조 지음, 권영조 옮김</div>
 						<div class="bookDetailEnroll">등록 번호 : BOOK20240904</div>
@@ -105,17 +104,17 @@
 								<button id="informBtn">예약 / 소장 정보</button>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- 즐겨찾기 -->
-					<div class="favorite">
+					<!-- <div class="favorite">
 						<div>
 							<button class="favoriteStar"></button>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- 예약 / 소장 정보 버튼 클릭 시 -->
-				<div class="searchBodyDetail" style="display: none;">
+				<!-- <div class="searchBodyDetail" style="display: none;">
 					<table class="detailTable">
 						<thead>
 							<tr>
@@ -142,8 +141,8 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
-				<hr>
+				</div> -->
+				<!-- <hr> -->
 
 
 			</section>
