@@ -34,6 +34,27 @@ public interface FoodService {
 	int insertFoodMenu(Food newFood, MultipartFile menuImage, String webPath, String filePath) throws IllegalStateException, IOException;
 
 
+	/** 분식 메뉴 없애기
+	 * @param foodNo
+	 * @return
+	 */
+	int delFoodMenu(int foodNo);
+
+
+	/** 백반 메뉴 보여주기
+	 * @param typeNo
+	 * @return map
+	 */
+	List<Food> showMealMenu(int typeNo);
+
+
+	/** 백반 업데이트
+	 * @param food
+	 * @return result
+	 */
+	int updateMealMenu(Food food);
+
+
 
 	
 	

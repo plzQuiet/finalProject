@@ -20,4 +20,18 @@
 	<insert id="insertFoodMenu">
 		INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, #{foodName}, DEFAULT, DEFAULT, #{foodImg}, null)
 	</insert>
+	
+	<update id="delFoodMenu">
+		UPDATE FOOD SET FOOD_DEL_ST='Y' WHERE FOOD_NO=${foodNo}
+	</update>
+	
+	<select id="selectMealList" resultMap="food_rm">
+		SELECT * FROM FOOD 
+		WHERE FOOD_DEL_ST = 'N'
+		AND TYPE_NO = ${typeNo}
+	</select>
+	
+	<update id="updateMealMenu">
+		UPDATE FOOD SET FOOD_NAME=#{foodName} WHERE FOOD_NO=${foodNo}
+	</update>
 </mapper>

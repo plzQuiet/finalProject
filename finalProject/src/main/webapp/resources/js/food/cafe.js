@@ -3,7 +3,7 @@ const popUpLayer = document.getElementById("popup_layer");
 const payBtn = document.getElementById("pay-btn");
 const popUpHeader = document.getElementsByClassName("popup_header");
 const popUpContent = document.getElementsByClassName("popup_content");
-
+const popupBox = document.getElementsByClassName("popup_box")[0];
 
 
 /* cost : 전체 총합 */
@@ -254,7 +254,64 @@ function updateTotalCost() {
 /* agree 함수 */
 function agree(){
 	popUpLayer.style.display = 'none';
+	window.location.reload();
 }
 
+/* ***************** 관리자 ************************************** */
 
+/* 메뉴 삭제 */
+document.querySelectorAll('#menu-del-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const foodNo = this.getAttribute('foodNo');
 
+		fetch("/food/del", {
+			method: "PUT",
+			headers : {"Content-Type" : "application/json"},
+       	 	body: JSON.stringify(foodNo)
+		})
+		.then(resp=> resp.text())
+		.then(result => {
+
+			if(result>0){
+				popupBox.classList.remove("menu-add-popupBox");
+				popUpLayer.style.display = 'block';
+				popUpHeader[0].innerHTML= "<p>메뉴 삭제</p>"
+				popUpContent[0].innerHTML= `
+												<p style="margin:20px">정말 해당 메뉴를 삭제하시겠습니까?</p>
+												<div class="popup_btn">
+													<button id="agree_btn" onclick="agreeDel()">확인</button>
+													<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+												</div>
+											`
+
+				
+			}else{
+				popupBox.classList.remove("menu-add-popupBox");
+				popUpLayer.style.display = 'block';
+				popUpHeader[0].innerHTML= "<p>메뉴 삭제</p>"
+				popUpContent[0].innerHTML= `
+												<p>메뉴 삭제에 실패하였습니다.</p>
+												<div class="popup_btn">
+													<button id="agree_btn" onclick="agree()">확인</button>
+												</div>
+											`
+			}
+		})
+		.catch( e=> console.log(e))
+    });
+});
+
+function cancel(){
+	popUpLayer.style.display = 'none';
+}
+
+function agreeDel(){
+	popupBox.classList.remove("menu-add-popupBox");
+	popUpLayer.style.display = 'block';
+	popUpContent[0].innerHTML=	 `
+									<p>삭제되었습니다!</p>
+									<div class="popup_btn">
+										<button id="agree_btn" onclick="agree()">확인</button>
+									</div>
+								`
+}

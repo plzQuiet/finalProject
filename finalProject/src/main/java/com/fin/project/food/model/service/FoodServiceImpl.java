@@ -79,6 +79,23 @@ public class FoodServiceImpl implements FoodService{
 		
 		return result;
 
+	}
+
+	// 분식 메뉴 삭제
+	@Override
+	public int delFoodMenu(int foodNo) {
+		return dao.delFoodMenu(foodNo);
+	}
+
+	// 백반 메뉴 보여주기
+	@Override
+	public List<Food> showMealMenu(int typeNo) {
+		return dao.showMealMenu(typeNo);
+	}
+
+	@Override
+	public int updateMealMenu(Food food) {
+		return dao.updateMealMenu(food);
 	}	
 
 }
