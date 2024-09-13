@@ -20,7 +20,7 @@
 <body>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-       ${classBoard}
+    
     <section class="main-content-suround-section">
         <article class="side-menu-article">
             <!-- 사이드 메뉴 -->
@@ -46,8 +46,10 @@
 
                 <!-- 작성자 / 작성일 / 조회수 -->
                 <div class="board-nav">
-                    <span>교육기간 : ${classBoard.startDt} ~ ${classBoard.endDt}</span>&nbsp;|&nbsp;
-                    <span>신청기간 : ${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</span>
+                    <span>교육기간 : ${classBoard.startDt} ~ ${classBoard.endDt}</span>|
+                    <span>신청기간 : ${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</span>|
+                    <span>최대인원 : ${classBoard.maxParticipant}</span>
+                    
                 </div>
 
                 <!-- 이미지 보여지는 영역 -->
@@ -68,19 +70,19 @@
                 <c:if test="${loginMember.authority == 1}">
                 <div class="btn-area">
                     <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
-                    <button id="applyBtn" onclick="applyModal(this)">신청</button>
+                    <button id="applyBtn" onclick="applyModal()">신청</button>
 
-                    <button id="listBtn">목록으로</button>
+                    <button id="goToListBtn">목록으로</button>
                 </div>
                 </c:if>
 
                 <!-- 버튼 영역(관리자) -->
                 <c:if test="${loginMember.authority == 2}">
                 <div class="btn-area">
-                    <button id="updateBtn" onclick="updateModal()">수정</button>
-                    <button id="updateBtn" onclick="deleteModal()">삭제</button>
+                    <button id="updateBtn">수정</button>
+                    <button id="deleteBtn" onclick="deleteModal()">삭제</button>
 
-                    <button id="listBtn">목록으로</button>
+                    <button id="goToListBtn">목록으로</button>
                 </div>
                 </c:if>
 
@@ -100,20 +102,35 @@
             </div>
 
             <!--팝업 컨텐츠 영역-->
-            <div class="popup_content"> <!-- 조건 설정해서 1개만 띄우기 -->
+            <div class="popup_content"> 
+                <c:if test="${loginMember.authority == 1}">
                 <p> 해당 클래스를 신청하시겠습니까?</p>
-                <p> 해당 게시글을 수정하시겠습니까?</p>
+                </c:if>
+                <c:if test="${loginMember.authority == 2}">
                 <p> 해당 게시글을 삭제하시겠습니까?</p>
+                </c:if>
             </div>
             <!--팝업 버튼 영역-->
             <div class="popup_btn">
-                <button id="confirm_btn">확인</button><!-- 경우에 따라 다른 화면으로 보냄 -->
+                <c:if test="${loginMember.authority == 1}">
+                <button id="confirm_btn">확인</button>
+                </c:if>
+                <c:if test="${loginMember.authority == 2}">
+                <button id="delete_confirm_btn">확인</button>
+                </c:if>
                 <button id="cancel_btn">취소</button>
             </div>
         </div>
     </div>
 
-    <script src="/resources/js/scheduling/class-board.js"></script>
+    <script>
+        const boardNo = "${board.boardNo}";
+        const loginMemberNo ="${loginMember.memberNo}";
+        const cateCode = "${cateCode}";
+    </script>
+
+
+    <script src="/resources/js/scheduling/class-detail.js"></script>
 </body>
 
 </html>

@@ -79,6 +79,14 @@ header{
     display: flex;
 }
 
+.board-nav  span{
+    margin: 0 20px;
+}
+
+.board-nav span:nth-child(1){
+    margin-left: 10px;
+}
+
 
 /* 이미지 영역 감싸는 div */
 .boardImg{
@@ -148,6 +156,7 @@ h5{color: #555;}
     background-color: white;
     color: black;
     border: 1px solid #8FB788;
+    cursor: pointer;
 }
 
 /* 삭제버튼 */

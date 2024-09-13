@@ -39,27 +39,27 @@
 
             <!-- 게시글 작성 화면 -->
             <section class="board-detail">
-                <form action="/scheduling/12/insert" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
-                        <input type="text" name="boardTitle" id="boardTitle" placeholder="제목">
+                        <input type="text" name="boardTitle" placeholder="제목">
                     </h1>
 
                     <!-- 교육기간 / 신청기간 / 최대인원 -->
                     <div class="board-nav">
-                        <span>신청기간 : <input type="date" id="recStartDt" name="recruitmentStartDt"> ~ <input type="date" id="recEndDt" name="recruitmentEndDt"></span>&nbsp;|&nbsp; 
-                        <span>교육기간 : <input type="date" id="startDt" name="startDt"> ~ <input type="date" id="endDt" name="endDt"></span>&nbsp;|&nbsp; 
-                        <span>최대인원 : <input type="number" id="maxP" name="maxParticipant" style="width: 50px;" min="0" ></span>
+                        <span>신청기간 : <input type="date"> ~ <input type="date"></span>&nbsp;|&nbsp;
+                        <span>교육기간 : <input type="date"> ~ <input type="date"></span>&nbsp;|&nbsp;
+                        <span>최대인원 : <input type="number" style="width: 50px;" min="0"></span>
                     </div>
 
                     <!-- 이미지 등록 영역 -->
                     <div class="img-box">
                         <div class="boardImg">
                             <label for="img0">
-                                <img src="" class="preview" id="preview">
-                                <p id="img-ment">이미지 파일을 선택해 주세요.</p>
+                                <img src="" class="preview">
+                                이미지 파일을 선택해 주세요.
                             </label>
-                            <input type="file" name="image" class="inputImage" id="img0" accept="image/*">
-                            <span class="delete-image" id="delete-image">&times;</span>
+                            <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
+                            <span class="delete-image">&times;</span>
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
         </div>
     </div>
 
-    <script src="/resources/js/scheduling/class-write.js"></script>
+    <script src="/resources/js/scheduling/class-board.js"></script>
 
 </body>
 

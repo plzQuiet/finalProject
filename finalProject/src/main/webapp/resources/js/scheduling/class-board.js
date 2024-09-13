@@ -1,45 +1,43 @@
-/* 알림창 모달 */
-const popupLayer = document.getElementById("popup_layer");
-const cancelPopup = document.getElementById("cancel_btn");
+// 글쓰기
+const writeBtn = document.getElementById("writeBtn");
 
-const reservPopup = document.getElementById("reserv_confirm_btn");
+if(writeBtn != null){
 
-/* 클래스 신청 모달 열기 */
-function applyModal(e){
-    popupLayer.style.display = "block";
-}
-/* 게시글 수정 모달 열기 */
-function updateModal(e){
-    popupLayer.style.display = "block";
-}
-/* 게시글 삭제 모달 열기 */
-function deleteModal(e){
-    popupLayer.style.display = "block";
-}
-/* 게시글 등록 취소 모달 열기 */
-function cancelModal(e){
-    popupLayer.style.display = "block";
+    writeBtn.addEventListener("click", () => {
+
+        location.href=`/scheduling/${location.pathname.split("/")[2]}/insert`;
+
+    })
 }
 
-/* 게시글 등록 모달 열기 */
-function registModal(e){
-    popupLayer.style.display = "block";
-}
+// 검색
+const boardSearch = document.getElementById("boardSearch");
+const searchKey = document.getElementById("searchKey");
+const searchQuery = document.getElementById("searchQuery");
+const options = document.querySelectorAll("#searchKey > option");
 
-/* 게시글 등록 모달 열기 */
-function reservSeatModal(e){
-    popupLayer.style.display = "block";
-}
+(()=>{
+    const params = new URL(location.href).searchParams;
 
-/* 알림창 모달 닫기 */
-cancelPopup.addEventListener("click",() => {
-    popupLayer.style.display = "none";
-});
+    const keyword = params.get("keyword"); // t, c, tc 
+    const query = params.get("query"); 
 
+    if(keyword != null){
+        searchQuery.value = query; 
 
+        for(let option of options){
+            if(option.value == key){
+                option.selected = true;
+            }
+        }
+    }
+})();
 
-/* 예약 이력 모달 열기 */
-reservPopup.addEventListener("click",() => {
-    
-    popupLayer.style.display = "block";
-});
+// 검색어 미입력 시 검색된 경우
+boardSearch.addEventListener("submit", e=>{
+    if(searchQuery.value.trim().length == 0){ // 검색어 입력 X
+        e.preventDefault(); // 기본 이벤트 제거
+
+        location.href = location.pathname; // 게시판 첫번째 페이지로 이동
+    }
+})

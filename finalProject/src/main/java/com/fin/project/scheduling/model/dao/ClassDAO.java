@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.fin.project.scheduling.model.dto.BoardImage;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 import com.fin.project.scheduling.model.dto.Pagination;
 
@@ -72,6 +73,49 @@ public class ClassDAO {
 		
 		return sqlSession.selectOne("classMapper.selectClass", map);
 	}
+
+	/** 클래스 작성(일정, 이미지 제외)
+	 * @param classSchedule
+	 * @return 
+	 */
+	public int classInsert(ClassSchedule classSchedule) {
+		
+		int result = sqlSession.insert("classMapper.classInsert", classSchedule);
+		
+		if(result>0) {
+			result = classSchedule.getBoardNo();
+		}
+		
+		return result;
+	}
+
+	/** 클래스 '일정' 작성
+	 * @param classSchedule
+	 * @return
+	 */
+	public int insertClassSchedule(ClassSchedule classSchedule) {
+		
+		return sqlSession.insert("classMapper.insertClassSchedule", classSchedule);
+		
+	}
+	
+	
+	/** 클래스 '이미지' 작성 (이미지 1개)
+	 * @param boardImage
+	 * @return
+	 */
+	public int insertClassImage(BoardImage classImage) {
+		
+		return sqlSession.insert("classMapper.insertClassImage", classImage);
+	}
+
+	public int classDelete(Map<String, Object> map) {
+		
+		return sqlSession.update("classMapper.classDelete", map);
+	}
+
+
+	
 
 
 }

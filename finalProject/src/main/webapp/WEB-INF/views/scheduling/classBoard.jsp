@@ -124,7 +124,7 @@
 
                 <!-- 관리자에게만 보이는 글쓰기 버튼 -->
                 <div class="btn-area">
-                    <c:if test="#">
+                    <c:if test="${loginMember.authority == 2}">
                         <button id="writeBtn">글쓰기</button>
                     </c:if>
                 </div>
@@ -171,6 +171,8 @@
     </section>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <script src="/resources/js/scheduling/class-board.js"></script>
 
 </body>
 
