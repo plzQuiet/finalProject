@@ -34,4 +34,5 @@ public class Board {
 	
 	// 댓글
 	private List<Comment> commentList;
+	private String cateName;
 }

@@ -41,6 +41,7 @@ public class CommentServiceImpl implements CommentService{
 	// 댓글 삭제
 	@Override
 	public int delete(int commentNo) {
+		
 		return dao.delete(commentNo);
 	}
 	

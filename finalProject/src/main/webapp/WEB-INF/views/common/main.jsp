@@ -18,6 +18,8 @@
 
         <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
+
+        ㄹㄹㄹ
 	</section>
 
     <%-- 달력 일정 모달 --%>
