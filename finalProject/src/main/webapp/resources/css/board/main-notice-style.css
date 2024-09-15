@@ -1,0 +1,37 @@
+.main-notice-area{
+    border: 2px solid #d4d4d4;
+    border-radius: 5px;
+}
+
+.notice-title{
+    display: flex;
+    justify-content: space-between;
+    /* justify-content: space-between; */
+
+    /* width: 100%; */
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* color: white; */
+    /* font-weight: bold; */
+    position: relative;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.notice-title span{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+#gotoNotice a{
+    color: black;
+    text-decoration: none;
+}
+
+#gotoNotice a:hover{
+    text-decoration: underline;
+}
+
+
+

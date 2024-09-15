@@ -7,16 +7,16 @@ function selectCommentList(){
     // Delete : 삭제 (DELETE)
 
     // get 방식
-    fetch("/comment?boardNo" + boardNo)
+    fetch("/comment?boardNo=" + boardNo)
     .then(resp => resp.json())
     .then(list =>{
-        console.log(list);
+        // console.log(list);
 
         const commentList = document.getElementById("commentList");
         commentList.innerHTML = "";
         
         for(let comment of list){
-            
+
             // 행
             const commentRow = document.createElement("li");
             commentRow.classList.add("comment-row");
@@ -51,7 +51,7 @@ function selectCommentList(){
                 
                 // 댓글 수정/삭제 버튼 영역 
                 const commentBtnArea = document.createElement("div");
-                commentBtnArea.classList.add("comment-btn-are");
+                commentBtnArea.classList.add("comment-btn-area");
 
                 // 로그인한 회원 번호 == 댓글 작성한 회원 번호
                 if(loginMemberNo == comment.memberNo){
@@ -79,7 +79,8 @@ function selectCommentList(){
         }
 
     })
-    .catch(e=>console.log(e));
+    // .catch(e => console.log(e));
+    .catch(e => console.log(e));
 }
 
 
@@ -120,10 +121,10 @@ commentAdd.addEventListener("click", e=>{
             selectCommentList();
 
         }else{
-            alert("댓글 등록에 실패했습니다. 다시 등록해주세요.");
+            alert("댓글 등록에 실패했습니다. 다시 작성해주세요.");
         }
     })
-    .catch(e => console.log(e));
+    .catch(e => console.log("댓글 등록 중 오류 발생", e));
 
 });
 
@@ -218,7 +219,7 @@ function updateComment(commentNo, btn){
             alert("댓글 수정 실패");
         }
     })
-    .catch(err => console.log(err));
+    .catch(e => console.log(e));
 
 }
 
@@ -243,7 +244,7 @@ function deleteComment(commentNo){
                 alert("댓글 삭제에 실패했습니다.");
             }
         })
-        .catch(e => console.log(e));
+        .catch(e => console.log("댓글 삭제 중 오류 발생", e));
     }
 }
 
