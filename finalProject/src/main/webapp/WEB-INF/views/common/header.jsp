@@ -68,7 +68,7 @@
             <c:choose>
                 <c:when test="${empty loginMember}">
                     <!-- 로그인 X -->
-                    <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
+                    <a href="/member/login">로그인</a> | <a href="/member/signUp">회원가입</a>
                 </c:when>
         
                 <c:otherwise>
