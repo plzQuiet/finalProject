@@ -15,16 +15,25 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<form action="/member/login" method="post" name="loginFrm" id="loginFrm">
-		<div class="login-logo">
-			<img src="/resources/images/logo.png">
+		<div class="login-msg">Login</div>
+		
+		<div class="login-input-area id">
+			<input type="text" name="memberEmail" id="memberEmail" placeholder="아이디(이메일)" value="${cookie.saveId.value}">
 		</div>
 		
-			<div class="login-input-area">
-				<input type="text" name="memberEmail" id="memberEmail" placeholder="">
-				<input type="password" name="memberPw" id="memberPw" placeholder="">
-			</div>
+		<div class="login-input-area pw">
+			<input type="password" name="memberPw" id="memberPw" placeholder="비밀번호">
+		</div>
 		
-		<div class="btn-area">
+		<div>
+			<c:if test="${!empty cookie.saveId.value}">
+                <c:set var="save" value="checked"/>
+            </c:if>
+			<input type="checkbox" id="saveId" name="saveId" ${save}/>
+			<label for="saveId">아이디 저장</label>
+		</div>
+		
+		<div>
 			<button>로그인</button>
 		</div>
 	</form>

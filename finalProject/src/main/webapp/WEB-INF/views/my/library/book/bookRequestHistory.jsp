@@ -43,7 +43,7 @@
 					<c:choose>
 						<c:when test="${fn:length(list) == 0}">
 							<tr>
-								<th style="height: 100px;" colspan="4">신청 내역이 없습니다</th>
+								<th style="height: 100px;" colspan="5">신청 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
