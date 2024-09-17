@@ -86,10 +86,11 @@
 								<c:if test="${food.typeNo == 1}">
 									<div class="snack-menu-detail">
 										<c:if test="${loginMember.authority == 2 }">
+											<button id="snack-update-btn" foodNo="${food.foodNo}"  foodName="${food.foodName}" foodImg="${food.foodImg}"><i class="fa-regular fa-pen-to-square"></i></button>
 											<button id="menu-del-btn" foodNo="${food.foodNo}"><i class="fa-solid fa-xmark"></i></button>
 										</c:if>
 										<img src="${food.foodImg}">
-										<p>${food.foodName}</p>
+										<p><strong>${food.foodName}</strong></p>
 									</div>
 								</c:if>
 							</c:forEach>
@@ -102,6 +103,7 @@
 	</section>
 		<script> 
 			let addMenu = "${AddMenu}";
+			let updateSnackMenu = "${UpdateSnackMenu}";
 		</script>
 	<script src="/resources/js/food/food.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

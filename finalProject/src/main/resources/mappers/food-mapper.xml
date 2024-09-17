@@ -34,4 +34,8 @@
 	<update id="updateMealMenu">
 		UPDATE FOOD SET FOOD_NAME=#{foodName} WHERE FOOD_NO=${foodNo}
 	</update>
+	
+	<update id="updateSnackMenu">
+		UPDATE FOOD SET FOOD_NAME=#{foodName}, FOOD_IMG=#{foodImg} WHERE FOOD_NO=${foodNo}
+	</update>
 </mapper>

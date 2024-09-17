@@ -96,6 +96,42 @@ public class FoodServiceImpl implements FoodService{
 	@Override
 	public int updateMealMenu(Food food) {
 		return dao.updateMealMenu(food);
+	}
+
+	/**
+	 * 스낵 메뉴 업데이트하기
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateSnackMenu(Food food, MultipartFile foodImage, String webPath, String filePath) throws IllegalStateException, IOException {
+		String originName = webPath + "/foodIsNotReady.png";
+
+		String rename = null;
+
+		if(foodImage.getSize() > 0 ) {	//파일 안 가져옴
+
+			rename = Util.fileRename(foodImage.getOriginalFilename());
+
+			food.setFoodImg(webPath+rename);
+
+		}else {
+			food.setFoodImg(originName);
+		}
+
+		food.setFoodName(Util.XSSHandling(food.getFoodName()));
+
+		int result = dao.updateSnackMenu(food);
+
+		if(result > 0) {
+			// 새 이미지가 업로드된 경우
+			if(rename != null) {
+				foodImage.transferTo(new File(filePath + rename));
+			}
+
+
+		}
+		
+		return result;
 	}	
 
 }

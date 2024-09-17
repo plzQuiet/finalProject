@@ -172,7 +172,7 @@ table * {border : 1px solid #ddd;}
 	background-color:  #8FB788;
 }
 
-
+#snack-update-btn,
 #menu-del-btn{
 	background-color: #8FB788;
 	color: white;
@@ -186,6 +186,16 @@ table * {border : 1px solid #ddd;}
 	cursor: pointer;
 }
 
+#snack-update-btn{
+	top: 5px;
+	left: 5px;
+	padding: 5px 7px;
+	font-size: 15px;
+	width: 30px;
+}
+
+
+#snack-update-btn:hover,
 #menu-del-btn:hover{
 	background-color: #008c1d;
 }
@@ -254,7 +264,7 @@ table * {border : 1px solid #ddd;}
 .menu-add-area .image-area .left-image-area i{
 	position: absolute;
 	top: 95px;
-	right: 310px;
+	right: 410px;
 	font-size: 20px;
 	cursor: pointer;
 	color: #8FB788;

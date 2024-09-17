@@ -55,6 +55,18 @@ public interface FoodService {
 	int updateMealMenu(Food food);
 
 
+	/** 스넥 업데이트
+	 * @param food
+	 * @param filePath 
+	 * @param webPath 
+	 * @param foodImage 
+	 * @return result
+	 * @throws IOException 
+	 * @throws IllegalStateException 
+	 */
+	int updateSnackMenu(Food food, MultipartFile foodImage, String webPath, String filePath) throws IllegalStateException, IOException;
+
+
 
 	
 	

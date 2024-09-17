@@ -84,4 +84,30 @@ public class FoodController {
 	public int updateMealMenu(@RequestBody Food food) {
 		return service.updateMealMenu(food);
 	}
+	
+
+	@PostMapping("/food/updateSnack")
+	public String updateSnackMenu(@RequestParam("menuImage") MultipartFile menuImage
+								, @RequestParam("menuName") String menuName
+								, @RequestParam("menuNo") int menuNo
+								, HttpSession session
+								, RedirectAttributes ra
+								)throws IllegalStateException, IOException {
+		// 웹 접근 경로
+		String webPath = "/resources/images/food/";
+		
+		// 실제로 이미지 파일이 저장돼야 하는 서버 컴퓨터 경로
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		Food food = new Food();
+		
+		food.setFoodNo(menuNo);
+		food.setFoodName(menuName);
+		
+		int result =service.updateSnackMenu(food, menuImage, webPath, filePath);
+		
+		ra.addFlashAttribute("UpdateSnackMenu", result);
+		
+		return "redirect:/food";
+	}
 }

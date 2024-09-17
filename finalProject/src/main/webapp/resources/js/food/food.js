@@ -152,10 +152,6 @@ function agree(){
 const menuAddBtn = document.getElementById("menu-add-btn");
 const menuUpdateBtn = document.getElementById("menu-update-btn");
 
-function menuAddFrmModal(){
-	
-}
-
 /* 메뉴 추가 */
 if(menuAddBtn != null){
 	menuAddBtn.addEventListener("click", () => {
@@ -407,7 +403,6 @@ $('#menu-update-btn').on("click", ()=>{
 	$('input[name="foodType"]').change(function() {
 		// 모든 radio를 순회한다.
 		$('input[name="foodType"]').each(function() {
-			var value = $(this).val();              // value
 			var checked = $(this).prop('checked');  // jQuery 1.6 이상 (jQuery 1.6 미만에는 prop()가 없음, checked, selected, disabled는 꼭 prop()를 써야함)
 
 			if(checked){
@@ -518,7 +513,7 @@ function snackFoodFrm(){
 								`;
 }
 
-
+/* 백반... */
 function updateMenu(no){
 	const newMenuName = $('#newMenuName').val();
 	fetch("/food/updateMeal", {
@@ -564,7 +559,7 @@ function menuChangeModal(no, name){
 	popUpHeader[0].innerHTML = '<p>메뉴 수정</p>'
 	popUpContent[0].innerHTML=	 `
 									<p>
-										${name} => <input type="text" id="newMenuName"/>
+										${name} <i class="fa-solid fa-caret-right"></i> <input type="text" id="newMenuName"/>
 									</p>
 									<div class="popup_btn">
 										<button id="agree_btn" onclick=" updateMenu(${no})">확인</button>
@@ -572,4 +567,153 @@ function menuChangeModal(no, name){
 								`
 }
 
+/* *************** 메뉴 수정 **************** */
 /* 분식 */
+document.querySelectorAll('#snack-update-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const foodNo = this.getAttribute('foodNo');
+		const foodName = this.getAttribute('foodName');
+		const foodImage = this.getAttribute('foodImg');
+
+		popupBox.classList.remove("menu-add-popupBox");
+				popUpLayer.style.display = 'block';
+				popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+				popUpContent[0].innerHTML= `
+									<form action="/food/updateSnack" method="POST" enctype="multipart/form-data" name="menuUpdateFrm" id="menuAddFrm">
+										<input type="hidden" name="menuNo" value="${foodNo}"/>
+										<div class="menu-add-area">
+											<div class="menu-name-area">
+												<p>이름 :</p>
+												<input type="text" name="menuName"  id="menuName" value="${foodName}"/>
+											</div>
+											<div class="image-area">
+												<p>이미지 :</p>
+												<div class="left-image-area">
+													<label for="menuImage"> 
+														<img class="preview"  src="${foodImage}">
+													</label> 
+													<i class="fa-solid fa-xmark" id="delete-image-btn"></i>
+													<input type="file" class="inputImage" id="menuImage" accept="image/*" name="menuImage"> 
+												</div>
+
+												<div class="right-image-area">
+<pre>
+- 이미지 등록 
+(권장사이즈 : 가로 200px X 세로 150px 혹은 4 : 3 비율)
+- 파일양식 : jpg, jpeg, png(8MB 제한)
+</pre>
+													<div class="image-btn">
+														<button type="button" id="image-add-btn">사진등록</button>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="popup_btn">
+											<button type="submit" id="confirm_btn" class="menu_update">수정</button>
+											<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+										</div>
+									</form>
+								`
+		popupBox.classList.add("menu-add-popupBox");
+		
+		const preview = document.getElementsByClassName("preview")[0];
+		const inputImage = document.getElementsByClassName("inputImage")[0];
+
+
+		// 미리보기 삭제(x버튼)
+		document.getElementById("delete-image-btn").addEventListener("click", e=>{
+
+			// 미리보기 이미지가 있을 경우
+			if(preview.getAttribute("src") != ""){
+
+				preview.removeAttribute("src");
+
+				inputImage.value="";
+				$('#delete-image-btn').css('display', 'none');
+			}
+		})
+
+		// 파일이 선택되거나, 선택 후 취소되었을 때
+		$('.inputImage').on("change", e=>{
+			const file = e.target.files[0]; // 선택된 파일의 데이터
+
+			if(file != undefined){  // 파일이 선택되었을 때
+				const reader = new FileReader();    // 파일을 읽는 객체
+
+				reader.readAsDataURL(file);
+				// 지정된 파일을 읽은 후 result에 URL 형식으로 저장
+
+				reader.onload= e=>{ // 파일을 다 읽은 후 수행
+					preview.setAttribute("src", e.target.result);
+				}
+
+				$('#delete-image-btn').css('display', 'block');
+
+			}else{  // 선택 후 취소되었을 때
+				// -> 선택된 파일 없음 -> 미리보기 삭제
+				preview.removeAttribute("src");
+				$('#delete-image-btn').css('display', 'none');
+			}
+		})
+
+
+		/* 사진 등록 버튼 */
+		$('#image-add-btn').on("click", ()=>{
+			inputImage.click();
+		})
+
+		$('#confirm_btn').on("click", (e)=>{
+			if(document.getElementById("menuName").value == 0 ){
+				e.preventDefault();
+				popupBox.classList.remove("menu-add-popupBox");
+				popUpContent[0].innerHTML = `
+					<p>메뉴 이름을 기입해주세요!</p>
+					<div class="popup_btn">
+						<button id="menu-add-btn" onclick="agree()">확인</button>
+					</div>
+				`
+			}
+		})
+    });
+});
+
+
+if(updateSnackMenu != ""){
+	popupBox.classList.remove("menu-add-popupBox");
+	popUpLayer.style.display = 'block';
+
+	if(updateSnackMenu != 0){
+		console.log("hi");
+		menuUpdateSuccess();
+	}else{
+		menuUpdateFail();
+	}
+}
+
+
+function menuUpdateSuccess(){
+	popupBox.classList.remove("menu-add-popupBox");
+
+	popUpLayer.style.display = 'block';
+	popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+	popUpContent[0].innerHTML= `
+								<p>분식 메뉴가 수정되었습니다!</p>
+								<div class="popup_btn">
+									<button id="agree_btn" onclick="agree()">확인</button>
+								</div>
+				`
+}
+
+function menuUpdateFail(){
+	popupBox.classList.remove("menu-add-popupBox");
+			popUpLayer.style.display = 'block';
+			popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+			popUpContent[0].innerHTML= `
+											<p>메뉴 수정에 실패하였습니다.</p>
+											<div class="popup_btn">
+												<button id="agree_btn" onclick="agree()">확인</button>
+											</div>
+										`
+}
+
