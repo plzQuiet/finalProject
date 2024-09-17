@@ -299,7 +299,7 @@ main{
 	background-color:  #8FB788;
 }
 
-
+#snack-update-btn,
 #menu-del-btn{
 	background-color: #8FB788;
 	color: white;
@@ -315,4 +315,9 @@ main{
 
 #menu-del-btn:hover{
 	background-color: #008c1d;
+}
+
+#snack-update-btn{
+	top: 5px;
+	right: 40px;
 }

@@ -56,6 +56,11 @@ public class FoodDAO {
 		return sqlSession.update("foodMapper.updateMealMenu", food);
 	}
 
+
+	public int updateSnackMenu(Food food) {
+		return sqlSession.update("foodMapper.updateSnackMenu", food);
+	}
+
 		
 	
 }

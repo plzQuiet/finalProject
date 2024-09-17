@@ -49,6 +49,7 @@
 						<c:if test="${food.typeNo == 2}">
 							<div class="cafe-menu-area">
 								<c:if test="${loginMember.authority == 2 }">
+									<button id="cafe-update-btn" foodNo="${food.foodNo}"><i class="fa-regular fa-pen-to-square"></i></button>
 									<button id="menu-del-btn" foodNo="${food.foodNo}"><i class="fa-solid fa-xmark"></i></button>
 								</c:if>
 								<img src="${food.foodImg}">
