@@ -65,7 +65,7 @@ const pwMessage = document.getElementById("pwMessage");
 memberPw.addEventListener("input", () => {
 
     if(memberPw.value.trim().length == 0) {
-        pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.";
+        pwMessage.innerText = "8~20자의 영문, 숫자, 특수문자를 조합하여 입력해주세요.";
         memberPw.value = "";
         pwMessage.classList.remove("confirm", "error");
 
@@ -73,7 +73,7 @@ memberPw.addEventListener("input", () => {
         return;
     }
 
-    const regExp = /^[\w\!\@\#\-\_]{6,20}$/;
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_=+,./?;:'"<>[\]{}\\|-])(?=.*[0-9]).{8,20}$/;
 
     if(regExp.test(memberPw.value)) {
         checkObj.memberPw = true;

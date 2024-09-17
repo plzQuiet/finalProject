@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:set var="pagination" value="${map.pagination}"/>
-<c:set var="list" value="${map.list}"/>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,21 +31,21 @@
 					<tr>
 						<th style="width: 100px;">예약번호</th>
 						<th>도서명</th>
-						<th>신청일자</th>
-						<th>예약만료일</th>
-						<th>예약취소</th>
+						<th style="width: 120px;">신청일자</th>
+						<th style="width: 120px;">예약만료일</th>
+						<th style="width: 100px;">예약취소</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${fn:length(list) == 0}">
+						<c:when test="${fn:length(bList) == 0}">
 							<tr>
 								<th style="height: 100px;" colspan="5">예약 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
 						<c:otherwise>
-							<c:forEach var="l" items="${list}">
+							<c:forEach var="l" items="${bList}">
 								<tr>
 									<td>${l.RESERVATION_NO}</td>
 									<td>${l.BOOK_TITLE}</td>
@@ -61,28 +58,6 @@
 					</c:choose>
 				</tbody>
 			</table>
-			
-			<c:if test="${fn:length(list) > 0}">
-				<div class="pagination-area">
-		            <ul class="pagination">
-		                <li><a href="/myLibrary/book?m=3&cp=1">&lt;&lt;</a></li>
-		                <li><a href="/myLibrary/book?m=3&cp=${pagination.prevPage}">&lt;</a></li>
-		                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
-		                    <c:choose>
-		                        <c:when test="${i == pagination.currentPage}">
-		                            <li><a class="current">${i}</a></li>
-		                        </c:when>
-		
-		                        <c:otherwise>
-		                            <li><a href="/myLibrary/book?m=4&cp=${i}">${i}</a></li>
-		                        </c:otherwise>
-		                    </c:choose>
-		                </c:forEach>
-		                <li><a href="/myLibrary/book?m=3&cp=${pagination.nextPage}">&gt;</a></li>
-		                <li><a href="/myLibrary/book?m=3&cp=${pagination.maxPage}">&gt;&gt;</a></li>
-		            </ul>
-		        </div>
-	        </c:if>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

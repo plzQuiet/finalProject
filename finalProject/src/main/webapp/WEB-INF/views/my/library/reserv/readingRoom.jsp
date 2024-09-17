@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:set var="pagination" value="${map.pagination}"/>
-<c:set var="list" value="${map.list}"/>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,7 +24,6 @@
                 <a href="reserv?m=2">공간 예약현황</a>
                 <a href="reserv?m=3">클래스 신청현황</a>
 			</div>
-			<p>신청내역</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -42,7 +38,7 @@
 					<c:choose>
 						<c:when test="${fn:length(list) == 0}">
 							<tr>
-								<th style="height: 100px;" colspan="5">신청 내역이 없습니다</th>
+								<th style="height: 100px;" colspan="5">예약 내역이 없습니다</th>
 							</tr>
 						</c:when>
 						
@@ -60,28 +56,6 @@
 					</c:choose>
 				</tbody>
 			</table>
-			
-			<c:if test="${fn:length(list) > 0}">
-				<div class="pagination-area">
-		            <ul class="pagination">
-		                <li><a href="/myLibrary/reserv?m=1&cp=1">&lt;&lt;</a></li>
-		                <li><a href="/myLibrary/reserv?m=1&cp=${pagination.prevPage}">&lt;</a></li>
-		                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
-		                    <c:choose>
-		                        <c:when test="${i == pagination.currentPage}">
-		                            <li><a class="current">${i}</a></li>
-		                        </c:when>
-		
-		                        <c:otherwise>
-		                            <li><a href="/myLibrary/reserv?m=1&cp=${i}">${i}</a></li>
-		                        </c:otherwise>
-		                    </c:choose>
-		                </c:forEach>
-		                <li><a href="/myLibrary/reserv?m=1&cp=${pagination.nextPage}">&gt;</a></li>
-		                <li><a href="/myLibrary/reserv?m=1&cp=${pagination.maxPage}">&gt;&gt;</a></li>
-		            </ul>
-		        </div>
-	        </c:if>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

@@ -22,7 +22,6 @@
 		
 		<section class="list-area">
 			<h1>즐겨찾기</h1>
-			<p>도서 상세</p>
 			<table id="list-table">
 				<thead>
 					<tr>
@@ -35,16 +34,26 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="b" items="${list}">
-						<tr>
-							<td><a href="">${b.BOOK_TITLE}</a></td>
-							<td>${b.BOOK_AUTHOR}</td>
-							<td>${b.BOOK_PUB}</td>
-							<td>${b.BOOK_PUB_DT}</td>
-							<td>${b.BOOK_ISBN}</td>
-							<td><span onclick="bookmarkCancle(${b.BOOK_NO})">★</span></td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${fn:length(list) == 0}">
+							<tr>
+								<th style="height: 100px;" colspan="6">즐겨찾기 내역이 없습니다</th>
+							</tr>
+						</c:when>
+					
+						<c:otherwise>
+							<c:forEach var="b" items="${list}">
+								<tr>
+									<td><a href="">${b.BOOK_TITLE}</a></td>
+									<td>${b.BOOK_AUTHOR}</td>
+									<td>${b.BOOK_PUB}</td>
+									<td>${b.BOOK_PUB_DT}</td>
+									<td>${b.BOOK_ISBN}</td>
+									<td><span onclick="bookmarkCancle(${b.BOOK_NO})">★</span></td>
+								</tr>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</section>

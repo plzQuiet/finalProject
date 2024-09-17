@@ -72,6 +72,10 @@
 	cursor: pointer;
 }
 
+#list-table td > a:hover{
+	text-decoration: underline;
+}
+
 #list-table td > span{
 	cursor: pointer;
 }

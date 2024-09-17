@@ -1,15 +1,21 @@
 package com.fin.project.my.page.controller;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.member.model.dto.Member;
@@ -17,6 +23,7 @@ import com.fin.project.my.page.service.MyPageService;
 
 @Controller
 @RequestMapping("/myPage")
+@SessionAttributes("loginMember")
 public class MyPageController {
 	
 	@Autowired
@@ -27,14 +34,28 @@ public class MyPageController {
 		return "my/page/info";
 	}
 	
-	@GetMapping("/update")
-	public String update() {
-		return "my/page/update";
-	}
-	
 	@GetMapping("/writing")
-	public String writing() {
-		return "my/page/writing";
+	public String writing(@SessionAttribute("loginMember") Member loginMember,
+			@RequestParam(value = "m", required = false, defaultValue = "1") int m,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			Model model) {
+		
+		int memberNo = loginMember.getMemberNo();
+		String path = "my/page/";
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(m == 1) {
+			map = service.boardMap(memberNo, cp);
+			path += "board";
+		}
+		
+		if(m == 2){
+			map = service.commentMap(memberNo, cp);
+			path += "comment";
+		}
+		
+		model.addAttribute("map", map);
+		return path;
 	}
 	
 	@GetMapping("/changePw")
@@ -47,37 +68,37 @@ public class MyPageController {
 		return "my/page/secession";
 	}
 	
-	@PostMapping("/update")
-	public String update(Member inputMember,
+	@PostMapping("/info")
+	public String update(Member updateMember,
 			@SessionAttribute("loginMember") Member loginMember,
 			String[] memberAddress,
 			RedirectAttributes ra) {
 		
-		inputMember.setMemberNo(loginMember.getMemberNo());
+		updateMember.setMemberNo(loginMember.getMemberNo());
 		
-		if(inputMember.getMemberAddress().equals(",,")) {
-			inputMember.setMemberAddress(null);
+		if(updateMember.getMemberAddress().equals(",,")) {
+			updateMember.setMemberAddress(null);
 		}else {
 			String addr = String.join("^^^", memberAddress);
-			inputMember.setMemberAddress(addr);
+			updateMember.setMemberAddress(addr);
 		}
 		
-		int result = service.update(inputMember);
+		int result = service.update(updateMember);
 		
 		String message = null;
-		String path = "redirect:";
 		
 		if(result > 0) {
 			message = "정보 수정 성공";
-			path += "/";
+			loginMember.setMemberName(updateMember.getMemberName());
+			loginMember.setMemberPhoneNo(updateMember.getMemberPhoneNo());
+			loginMember.setMemberAddress(updateMember.getMemberAddress());
 		}else {
 			message = "정보 수정 실패 ㅠㅠ";
-			path += "update";
 		}
 		
 		ra.addFlashAttribute("message", message);
 		
-		return path;
+		return "redirect:info";
 	}
 	
 	@PostMapping("/changePw")
@@ -94,11 +115,42 @@ public class MyPageController {
 		
 		if(result > 0) {
 			message = "비밀번호 변경 성공";
-			path += "/";
+			path += "info";
 			
 		}else {
 			message = "비밀번호 변경 실패 ㅠㅠ";
 			path += "changePw";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	@PostMapping("/secession")
+	public String secession(String memberPw,
+			@SessionAttribute("loginMember") Member loginMember,
+			SessionStatus status, HttpServletResponse resp,
+			RedirectAttributes ra) {
+		int memberNo = loginMember.getMemberNo();
+		int result = service.secession(memberPw, memberNo);
+		
+		String path = "redirect:";
+		String message = null;
+		if(result > 0) {
+			message = "탈퇴 되었습니다.";
+			status.setComplete();
+			path += "/";
+			
+			Cookie cookie = new Cookie("saveId", null);
+			
+			cookie.setMaxAge(0);
+			cookie.setPath("/");
+			resp.addCookie(cookie);
+			
+		}else {
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			path += "secession";
 		}
 		
 		ra.addFlashAttribute("message", message);
