@@ -9,27 +9,7 @@
 		AND MEMBER_NO = #{memberNo}
 	</select>
 	
-	<select id="getReservationBook" resultType="_int">
-		SELECT COUNT(*) FROM B_RESERVATION
-		WHERE MEMBER_NO = #{memberNo}
-	</select>
-	
 	<select id="getBookRequestHistory" resultType="_int">
-		SELECT COUNT(*) FROM BOOK_REQUEST
-		WHERE MEMBER_NO = #{memberNo}
-	</select>
-	
-	<select id="getReadingRoomReserv" resultType="_int">
-		SELECT COUNT(*) FROM BOOK_REQUEST
-		WHERE MEMBER_NO = #{memberNo}
-	</select>
-	
-	<select id="getSeminarReserv" resultType="_int">
-		SELECT COUNT(*) FROM BOOK_REQUEST
-		WHERE MEMBER_NO = #{memberNo}
-	</select>
-	
-	<select id="getClassRegist" resultType="_int">
 		SELECT COUNT(*) FROM BOOK_REQUEST
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
@@ -39,6 +19,10 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
 
+	<select id="getBookmark" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_LIKE WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
 	<select id="booksLoan" resultType="map">
 		SELECT BOOK_NO, BOOK_TITLE, TO_CHAR(BORROW_DT, 'YYYY-MM-DD') BORROW_DT,
 			TO_CHAR(RETURN_DUE_DT, 'YYYY-MM-DD') RETURN_DUE_DT,
@@ -49,15 +33,11 @@
 		AND MEMBER_NO = #{memberNo}
 	</select>
 	
-	<select id="getBookmark" resultType="_int">
-		SELECT COUNT(*) FROM BOOK_LIKE WHERE MEMBER_NO = #{memberNo}
-	</select>
-	
 	<select id="loanHistory" resultType="map">
 		SELECT BOOK_NO, BOOK_TITLE, TO_CHAR(BORROW_DT, 'YYYY-MM-DD') BORROW_DT,
 			TO_CHAR(RETURN_DUE_DT, 'YYYY-MM-DD') RETURN_DUE_DT,
 			TO_CHAR(RETURN_DT, 'YYYY-MM-DD') RETURN_DT,
-		<![CDATA[CASE WHEN TRUNC(RETURN_DT) > TRUNC(RETURN_DUE_DT) THEN 'O' ELSE 'N' END STATUS]]>
+			<![CDATA[CASE WHEN TRUNC(RETURN_DT) > TRUNC(RETURN_DUE_DT) THEN 'O' ELSE 'N' END STATUS]]>
 		FROM BORROW
 		JOIN BOOK USING(BOOK_NO)
 		WHERE RETURN_DT IS NOT NULL
@@ -67,10 +47,11 @@
 	<select id="reservationBook" resultType="map">
 		SELECT RESERVATION_NO, BOOK_NO, BOOK_TITLE, MEMBER_NO,
 			TO_CHAR(RESERVATION_DT, 'YYYY-MM-DD') RESERVATION_DT,
-			TO_CHAR(RESERVATION_DT + 2, 'YYYY-MM-DD') "RESERVATION_DT_E"
+			TO_CHAR(RESERVATION_DT + 2, 'YYYY-MM-DD') RESERVATION_DT_E
 		FROM B_RESERVATION
 		JOIN BOOK USING(BOOK_NO)
 		WHERE MEMBER_NO = #{memberNo}
+		AND <![CDATA[SYSDATE < RESERVATION_DT + 2]]>
 		ORDER BY RESERVATION_NO
 	</select>
 	
@@ -82,12 +63,13 @@
 	
 	<select id="readingRoomReserv" resultType="map">
 		SELECT RESERVATION_NO, SEAT_NO,
-		TO_CHAR(RESERVATION_DT, 'YYYY-MM-DD') RESERVATION_DT,
-		TO_CHAR(START_TIME, 'HH24:MI') START_TIME,
-		TO_CHAR(END_TIME, 'HH24:MI') END_TIME
+			TO_CHAR(RESERVATION_DT, 'YYYY-MM-DD') RESERVATION_DT,
+			TO_CHAR(START_TIME, 'HH24:MI') START_TIME,
+			TO_CHAR(END_TIME, 'HH24:MI') END_TIME
 		FROM RESERVATION_PLACE
 		WHERE MEMBER_NO = #{memberNo}
 		AND SEAT_NO IS NOT NULL
+		AND <![CDATA[SYSDATE < END_TIME]]>
 	</select>
 	
 	<select id="seminarReserv" resultType="map">
@@ -98,6 +80,7 @@
 		FROM RESERVATION_PLACE
 		WHERE MEMBER_NO = #{memberNo}
 		AND SEAT_NO IS NULL
+		AND <![CDATA[SYSDATE < END_TIME]]>
 	</select>
 	
 	<select id="classRegist" resultType="map">
@@ -106,13 +89,17 @@
 			TO_CHAR(END_DT, 'YYYY-MM-DD') END_DT,
 			TO_CHAR(RECRUITMENT_START_DT, 'YYYY-MM-DD') RECRUITMENT_START_DT,
 			TO_CHAR(RECRUITMENT_END_DT, 'YYYY-MM-DD') RECRUITMENT_END_DT
-		FROM CLASS_SCHEDULE
+		FROM CLASS_PEOPLE C
+		JOIN CLASS_SCHEDULE USING(BOARD_NO)
 		JOIN BOARD USING(BOARD_NO)
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE C.MEMBER_NO = #{memberNo}
+		AND <![CDATA[SYSDATE < RECRUITMENT_END_DT]]>
 	</select>
 	
 	<select id="payment" resultType="map">
-		SELECT FOOD_NAME, FOOD_QTY, PAY_DATE , FOOD_PRICE * FOOD_QTY FOOD_PRICE
+		SELECT FOOD_NAME, FOOD_QTY,
+			TO_CHAR(PAY_DATE, 'YYYY-MM-DD HH24:MI') PAY_DATE,
+			FOOD_PRICE * FOOD_QTY FOOD_PRICE
 		FROM PAY
 		JOIN FOOD USING(FOOD_NO)
 		WHERE MEMBER_NO = #{memberNo}

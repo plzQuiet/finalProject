@@ -18,5 +18,41 @@
 		UPDATE MEMBER SET MEMBER_PW = #{encode}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	<select id="getBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM BOARD
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOARD_DEL_FL = 'N'
+	</select>
+	
+	<select id="selectBoardList" resultType="map">
+		SELECT BOARD_NO, BOARD_TITLE, CAT_CODE,
+			TO_CHAR(B_CREATE_DT, 'YYYY-MM-DD') B_CREATE_DT
+		FROM BOARD B
+		WHERE MEMBER_NO = #{memberNo}
+        AND BOARD_DEL_FL = 'N'
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="getCommentCount" resultType="_int">
+		SELECT COUNT(*) FROM "COMMENT"
+		WHERE MEMBER_NO = #{memberNo}
+		AND COMMENT_DEL_FL = 'N'
+	</select>
+	
+	<select id="selectCommentList" resultType="map">
+		SELECT COMMENT_NO, COMMENT_CONTENT,
+			TO_CHAR(C_CREATE_DT, 'YYYY-MM-DD') C_CREATE_DT
+		FROM "COMMENT"
+		WHERE MEMBER_NO = #{memberNo}
+        AND COMMENT_DEL_FL = 'N'
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<update id="secession">
+		UPDATE MEMBER SET
+		MEMBER_DEL_FL = 'Y'
+		WHERE MEMBER_NO = ${memberNo}
+	</update>
 
 </mapper>

@@ -66,27 +66,35 @@
 				</tbody>
 			</table>
 			
+			<c:if test="${empty param.m}">
+				<c:set var="m" value="1"/>
+			</c:if>
+			
+			<c:if test="${!empty param.m}">
+				<c:set var="m" value="${param.m}"/>
+			</c:if>
+			
 			<c:if test="${fn:length(list) > 0}">
 				<div class="pagination-area">
-		            <ul class="pagination">
-		                <li><a href="/myLibrary/book?m=4&cp=1">&lt;&lt;</a></li>
-		                <li><a href="/myLibrary/book?m=4&cp=${pagination.prevPage}">&lt;</a></li>
-		                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
-		                    <c:choose>
-		                        <c:when test="${i == pagination.currentPage}">
-		                            <li><a class="current">${i}</a></li>
-		                        </c:when>
-		
-		                        <c:otherwise>
-		                            <li><a href="/myLibrary/book?m=2&cp=${i}">${i}</a></li>
-		                        </c:otherwise>
-		                    </c:choose>
-		                </c:forEach>
-		                <li><a href="/myLibrary/book?m=4&cp=${pagination.nextPage}">&gt;</a></li>
-		                <li><a href="/myLibrary/book?m=4&cp=${pagination.maxPage}">&gt;&gt;</a></li>
-		            </ul>
-		        </div>
-	        </c:if>
+					<ul class="pagination">
+						<li><a href="book?m=${m}&cp=1">&lt;&lt;</a></li>
+						<li><a href="book?m=${m}&cp=${pagination.prevPage}">&lt;</a></li>
+						<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+							<c:choose>
+								<c:when test="${i == pagination.currentPage}">
+								<li><a class="current">${i}</a></li>
+								</c:when>
+								
+								<c:otherwise>
+								<li><a href="book?m=${m}&cp=${i}">${i}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<li><a href="book?m=${m}&cp=${pagination.nextPage}">&gt;</a></li>
+						<li><a href="book?m=${m}&cp=${pagination.maxPage}">&gt;&gt;</a></li>
+					</ul>
+				</div>
+			</c:if>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

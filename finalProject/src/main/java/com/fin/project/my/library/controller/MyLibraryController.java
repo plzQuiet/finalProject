@@ -1,5 +1,7 @@
 package com.fin.project.my.library.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,57 +29,63 @@ public class MyLibraryController {
 			@RequestParam(value = "m", required = false, defaultValue = "1") int m,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
 		
+		List<Map<String, Object>> bList = new ArrayList<Map<String,Object>>();
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		String path = "my/library/book/";
+		
 		if(m == 1) {
-			List<Map<String, Object>> list = service.booksLoan(loginMember.getMemberNo());
-			model.addAttribute("list", list);
-			
-			return "my/library/book/booksLoan";
+			bList = service.booksLoan(loginMember.getMemberNo());
+			path += "booksLoan";
 		}
 		
 		if(m == 2) {
-			Map<String, Object> map = service.loanHistory(loginMember.getMemberNo(), cp);
-			model.addAttribute("map", map);
-			
-			return "my/library/book/loanHistory";
+			map = service.loanHistory(loginMember.getMemberNo(), cp);
+			path += "loanHistory";
 		}
 		
 		if(m == 3) {
-			Map<String, Object> map = service.reservationBook(loginMember.getMemberNo(), cp);
-			model.addAttribute("map", map);
-			
-			return "my/library/book/reservationBook";
+			bList = service.reservationBook(loginMember.getMemberNo());
+			path += "reservationBook";
 		}
 		
-		Map<String, Object> map = service.bookRequestHistory(loginMember.getMemberNo(), cp);
+		if(m == 4) {
+			map = service.bookRequestHistory(loginMember.getMemberNo(), cp);
+			path += "bookRequestHistory";
+		}
+		
+		model.addAttribute("bList", bList);
 		model.addAttribute("map", map);
 		
-		return "my/library/book/bookRequestHistory";
+		return path;
 	}
 	
 	@GetMapping("/reserv")
 	public String reserv(@SessionAttribute("loginMember") Member loginMember,
 			Model model,
-			@RequestParam(value = "m", required = false, defaultValue = "1") int m,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+			@RequestParam(value = "m", required = false, defaultValue = "1") int m) {
 		
-		if(m == 1) {
-			Map<String, Object> map = service.readingRoomReserv(loginMember.getMemberNo(), cp);
-			model.addAttribute("map", map);
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		
+		String path = "my/library/reserv/";
+		
+		switch(m) {
+		case 1: list = service.readingRoomReserv(loginMember.getMemberNo());
+				path += "readingRoom";
+			break;
 			
-			return "my/library/reserv/readingRoom";
+		case 2: list = service.seminarReserv(loginMember.getMemberNo());
+				path += "seminar";
+			break;
+			
+		case 3: list = service.classRegist(loginMember.getMemberNo());
+				path += "class";
+			break;
 		}
 		
-		if(m == 2) {
-			Map<String, Object> map = service.seminarReserv(loginMember.getMemberNo(), cp);
-			model.addAttribute("map", map);
-			
-			return "my/library/reserv/seminar";
-		}
+		model.addAttribute("list", list);
 		
-		Map<String, Object> map = service.classRegist(loginMember.getMemberNo(), cp);
-		model.addAttribute("map", map);
-		
-		return "my/library/reserv/class";
+		return path;
 	}
 	
 	@GetMapping("/bookmark")

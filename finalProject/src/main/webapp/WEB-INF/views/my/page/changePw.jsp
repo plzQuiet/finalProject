@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp" />
+		<jsp:include page="/WEB-INF/views/my/page/sideMenu.jsp"/>
 
 		<section class="myPage">
 
@@ -29,7 +29,7 @@
 				</div>
 
 				<div class="myPage-row">
-					<label>새 비밀번호</label> <input type="password" name="newPw" id="newPw" maxlength="30">
+					<label>새 비밀번호</label> <input type="password" name="newPw" id="newPw" maxlength="30" placeholder="8~20자의 영문, 숫자, 특수문자를 조합하여 입력해주세요.">
 				</div>
 
 				<div class="myPage-row">
@@ -43,5 +43,6 @@
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<script src="/resources/js/my/page.js"></script>
 </body>
 </html>
