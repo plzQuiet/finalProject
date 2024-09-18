@@ -131,6 +131,8 @@ function count(type){
 		document.getElementById("minusBtn").disabled=true;
 	}
 	
+
+	price = price.toLocaleString('ko-KR');
 	// 결과 출력
 	qtyResult.innerText = qty;
 	priceResult.innerText = price;
@@ -272,6 +274,7 @@ if(addMenu != ""){
 
 /* 메뉴 추가 성공 */
 function menuAddSuccess(){
+	popUpHeader[0].innerHTML= "<p>메뉴 추가</p>"
 	popUpContent[0].innerHTML = `
 				<p>메뉴 추가가 완료되었습니다.</p>
 				<div class="popup_btn">
@@ -282,6 +285,7 @@ function menuAddSuccess(){
 
 /* 메뉴 추가 실패 */
 function menuAddFail(){
+	popUpHeader[0].innerHTML= "<p>메뉴 추가</p>"
 	popUpContent[0].innerHTML = `
 				<p>메뉴 추가를 실패하였습니다.</p>
 				<div class="popup_btn">
@@ -342,6 +346,7 @@ function cancel(){
 function agreeDel(){
 	popupBox.classList.remove("menu-add-popupBox");
 	popUpLayer.style.display = 'block';
+	popUpHeader[0].innerHTML= "<p>메뉴 삭제</p>"
 	popUpContent[0].innerHTML=	 `
 									<p>삭제되었습니다!</p>
 									<div class="popup_btn">
@@ -684,7 +689,6 @@ if(updateSnackMenu != ""){
 	popUpLayer.style.display = 'block';
 
 	if(updateSnackMenu != 0){
-		console.log("hi");
 		menuUpdateSuccess();
 	}else{
 		menuUpdateFail();
@@ -698,7 +702,7 @@ function menuUpdateSuccess(){
 	popUpLayer.style.display = 'block';
 	popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
 	popUpContent[0].innerHTML= `
-								<p>분식 메뉴가 수정되었습니다!</p>
+								<p>메뉴가 수정되었습니다!</p>
 								<div class="popup_btn">
 									<button id="agree_btn" onclick="agree()">확인</button>
 								</div>
