@@ -308,6 +308,7 @@ function cancel(){
 function agreeDel(){
 	popupBox.classList.remove("menu-add-popupBox");
 	popUpLayer.style.display = 'block';
+	popUpHeader[0].innerHTML= "<p>메뉴 삭제</p>"
 	popUpContent[0].innerHTML=	 `
 									<p>삭제되었습니다!</p>
 									<div class="popup_btn">
@@ -315,3 +316,334 @@ function agreeDel(){
 									</div>
 								`
 }
+
+/* 메뉴 추가 */
+$('#menu-add-btn').on("click", ()=>{
+	popupBox.classList.add("menu-add-popupBox");
+	popUpLayer.style.display = 'block';
+	popUpHeader[0].innerHTML= "<p>메뉴 추가</p>"
+	popUpContent[0].innerHTML = `
+								<form action="/cafe/insert" method="POST" enctype="multipart/form-data" name="menuAddFrm" id="menuAddFrm">
+									<div class="menu-add-area">
+										<div class="menu-name-price-area">
+											<div class="menu-name-area">
+												<p>이름 :</p>
+												<input type="text" name="menuName"  id="menuName"/>
+											</div>
+											<div class="menu-price-area">
+												<p>가격 :</p>
+												<input type="text" name="menuPrice" id="menuPrice"/>
+											</div>
+										</div>
+										<div class="image-area">
+											<p>이미지 :</p>
+											<div class="left-image-area">
+												<label for="menuImage"> 
+													<img class="preview">
+												</label> 
+												<i class="fa-solid fa-xmark" id="delete-image-btn"></i>
+												<input type="file" class="inputImage" id="menuImage" accept="image/*" name="menuImage"> 
+											</div>
+
+											<div class="right-image-area">
+<pre>
+- 이미지 등록 
+(권장사이즈 : 가로 200px X 세로 150px 혹은 4 : 3 비율)
+- 파일양식 : jpg, jpeg, png(8MB 제한)
+</pre>
+												<div class="image-btn">
+													<button type="button" id="image-add-btn">사진등록</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="menu-desc-area">
+										<p>설명 :</p>
+										<textarea cols="30" rows="5" name="menuDes" id="menuDes"></textarea>
+									</div>
+									
+									<div class="popup_btn">
+										<button type="submit" id="confirm_btn" class="menu_add">추가</button>
+										<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+									</div>
+								</form>
+									
+									`
+	
+									
+	const preview = document.getElementsByClassName("preview")[0];
+	const inputImage = document.getElementsByClassName("inputImage")[0];
+
+
+	// 미리보기 삭제(x버튼)
+	document.getElementById("delete-image-btn").addEventListener("click", e=>{
+
+		// 미리보기 이미지가 있을 경우
+		if(preview.getAttribute("src") != ""){
+
+			preview.removeAttribute("src");
+
+			inputImage.value="";
+			$('#delete-image-btn').css('display', 'none');
+		}
+	})
+
+	// 파일이 선택되거나, 선택 후 취소되었을 때
+	$('.inputImage').on("change", e=>{
+		const file = e.target.files[0]; // 선택된 파일의 데이터
+
+		if(file != undefined){  // 파일이 선택되었을 때
+			const reader = new FileReader();    // 파일을 읽는 객체
+
+			reader.readAsDataURL(file);
+			// 지정된 파일을 읽은 후 result에 URL 형식으로 저장
+
+			reader.onload= e=>{ // 파일을 다 읽은 후 수행
+				preview.setAttribute("src", e.target.result);
+			}
+
+			$('#delete-image-btn').css('display', 'block');
+
+		}else{  // 선택 후 취소되었을 때
+			// -> 선택된 파일 없음 -> 미리보기 삭제
+			preview.removeAttribute("src");
+			$('#delete-image-btn').css('display', 'none');
+		}
+	})
+
+
+	/* 사진 등록 버튼 */
+	$('#image-add-btn').on("click", ()=>{
+		inputImage.click();
+	})
+
+	$('#confirm_btn').on("click", (e)=>{
+		if(document.getElementById("menuName").value == 0 ){
+			e.preventDefault();
+			popupBox.classList.remove("menu-add-popupBox");
+			popUpContent[0].innerHTML = `
+				<p>메뉴 이름을 기입해주세요!</p>
+				<div class="popup_btn">
+					<button id="menu-add-btn" onclick="agree()">확인</button>
+				</div>
+			`
+		}
+
+		if(document.getElementById("menuPrice").value==0){
+			e.preventDefault();
+			popupBox.classList.remove("menu-add-popupBox");
+			popUpContent[0].innerHTML = `
+				<p>메뉴 가격을 기입해주세요!</p>
+				<div class="popup_btn">
+					<button id="menu-add-btn" onclick="agree()">확인</button>
+				</div>
+			`
+		}
+	})
+})
+
+if(addMenu != ""){
+	popupBox.classList.remove("menu-add-popupBox");
+	popUpLayer.style.display = 'block';
+	if(addMenu != 0){
+		menuAddSuccess();
+	}else{
+		menuAddFail();
+	}
+}
+
+/* 메뉴 추가 성공 */
+function menuAddSuccess(){
+	popUpHeader[0].innerHTML= "<p>메뉴 추가</p>"
+	popUpContent[0].innerHTML = `
+				<p>메뉴 추가가 완료되었습니다.</p>
+				<div class="popup_btn">
+				<button id="agree_btn" onclick="agree()">확인</button>
+				</div>
+				`
+}
+
+/* 메뉴 추가 실패 */
+function menuAddFail(){
+	popUpHeader[0].innerHTML= "<p>메뉴 추가</p>"
+	popUpContent[0].innerHTML = `
+				<p>메뉴 추가를 실패하였습니다.</p>
+				<div class="popup_btn">
+				<button id="agree_btn" onclick="agree()">확인</button>
+				</div>
+				`
+}
+
+/* ***********************메뉴 수정*******************  */
+document.querySelectorAll('#cafe-update-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const foodNo = this.getAttribute('foodNo');
+		const foodName = this.getAttribute('foodName');
+		const foodPrice = this.getAttribute('foodPrice');
+		const foodImage = this.getAttribute('foodImg');
+		const foodDes = this.getAttribute('foodDes');
+
+		popupBox.classList.remove("menu-add-popupBox");
+				popUpLayer.style.display = 'block';
+				popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+				popUpContent[0].innerHTML= `
+									<form action="/cafe/update" method="POST" enctype="multipart/form-data" name="menuAddFrm" id="menuAddFrm">
+									<input type="hidden" name="menuNo" value="${foodNo}"/>
+									<div class="menu-add-area">
+										<div class="menu-name-price-area">
+											<div class="menu-name-area">
+												<p>이름 :</p>
+												<input type="text" name="menuName"  id="menuName" value="${foodName}"/>
+											</div>
+											<div class="menu-price-area">
+												<p>가격 :</p>
+												<input type="text" name="menuPrice" id="menuPrice"  value="${foodPrice}"/>
+											</div>
+										</div>
+										<div class="image-area">
+											<p>이미지 :</p>
+											<div class="left-image-area">
+												<label for="menuImage"> 
+													<img class="preview" src="${foodImage}">
+												</label> 
+												<i class="fa-solid fa-xmark" id="delete-image-btn"></i>
+												<input type="file" class="inputImage" id="menuImage" accept="image/*" name="menuImage"> 
+											</div>
+
+											<div class="right-image-area">
+<pre>
+- 이미지 등록 
+(권장사이즈 : 가로 200px X 세로 150px 혹은 4 : 3 비율)
+- 파일양식 : jpg, jpeg, png(8MB 제한)
+</pre>
+												<div class="image-btn">
+													<button type="button" id="image-add-btn">사진등록</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="menu-desc-area">
+										<p>설명 :</p>
+										<textarea cols="30" rows="5" name="menuDes" id="menuDes">${foodDes}</textarea>
+									</div>
+									
+									<div class="popup_btn">
+										<button type="submit" id="confirm_btn" class="menu_update">수정</button>
+										<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+									</div>
+								</form>
+								`
+		popupBox.classList.add("menu-add-popupBox");
+		
+		const preview = document.getElementsByClassName("preview")[0];
+		const inputImage = document.getElementsByClassName("inputImage")[0];
+
+
+		// 미리보기 삭제(x버튼)
+		document.getElementById("delete-image-btn").addEventListener("click", e=>{
+
+			// 미리보기 이미지가 있을 경우
+			if(preview.getAttribute("src") != ""){
+
+				preview.removeAttribute("src");
+
+				inputImage.value="";
+				$('#delete-image-btn').css('display', 'none');
+			}
+		})
+
+		// 파일이 선택되거나, 선택 후 취소되었을 때
+		$('.inputImage').on("change", e=>{
+			const file = e.target.files[0]; // 선택된 파일의 데이터
+
+			if(file != undefined){  // 파일이 선택되었을 때
+				const reader = new FileReader();    // 파일을 읽는 객체
+
+				reader.readAsDataURL(file);
+				// 지정된 파일을 읽은 후 result에 URL 형식으로 저장
+
+				reader.onload= e=>{ // 파일을 다 읽은 후 수행
+					preview.setAttribute("src", e.target.result);
+				}
+
+				$('#delete-image-btn').css('display', 'block');
+
+			}else{  // 선택 후 취소되었을 때
+				// -> 선택된 파일 없음 -> 미리보기 삭제
+				preview.removeAttribute("src");
+				$('#delete-image-btn').css('display', 'none');
+			}
+		})
+
+
+		/* 사진 등록 버튼 */
+		$('#image-add-btn').on("click", ()=>{
+			inputImage.click();
+		})
+
+		$('#confirm_btn').on("click", (e)=>{
+			if(document.getElementById("menuName").value == 0 ){
+				e.preventDefault();
+				popupBox.classList.remove("menu-add-popupBox");
+				popUpContent[0].innerHTML = `
+					<p>메뉴 이름을 기입해주세요!</p>
+					<div class="popup_btn">
+						<button id="menu-add-btn" onclick="agree()">확인</button>
+					</div>
+				`
+			}
+
+			if(document.getElementById("menuPrice").value==0){
+				e.preventDefault();
+				popupBox.classList.remove("menu-add-popupBox");
+				popUpContent[0].innerHTML = `
+					<p>메뉴 가격을 기입해주세요!</p>
+					<div class="popup_btn">
+						<button id="menu-add-btn" onclick="agree()">확인</button>
+					</div>
+				`
+			}
+		})
+    });
+});
+
+
+if(updateMenu != ""){
+	console.log("hi");
+	popupBox.classList.remove("menu-add-popupBox");
+	popUpLayer.style.display = 'block';
+
+	if(updateMenu != 0){
+		console.log("hi success");
+		menuUpdateSuccess();
+	}else{
+		menuUpdateFail();
+	}
+}
+
+
+function menuUpdateSuccess(){
+	popupBox.classList.remove("menu-add-popupBox");
+
+	popUpLayer.style.display = 'block';
+	popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+	popUpContent[0].innerHTML= `
+								<p>메뉴가 수정되었습니다!</p>
+								<div class="popup_btn">
+									<button id="agree_btn" onclick="agree()">확인</button>
+								</div>
+				`
+}
+
+function menuUpdateFail(){
+	popupBox.classList.remove("menu-add-popupBox");
+			popUpLayer.style.display = 'block';
+			popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+			popUpContent[0].innerHTML= `
+											<p>메뉴 수정에 실패하였습니다.</p>
+											<div class="popup_btn">
+												<button id="agree_btn" onclick="agree()">확인</button>
+											</div>
+										`
+}
+

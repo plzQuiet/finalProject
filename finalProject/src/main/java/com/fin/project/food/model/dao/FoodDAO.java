@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.fin.project.food.model.dto.Food;
 
+/**
+ * @author 82107
+ *
+ */
 @Repository
 public class FoodDAO {
 	
@@ -59,6 +63,17 @@ public class FoodDAO {
 
 	public int updateSnackMenu(Food food) {
 		return sqlSession.update("foodMapper.updateSnackMenu", food);
+	}
+
+
+	public int insertCafeMenu(Food newFood) {
+		return sqlSession.insert("foodMapper.insertCafeMenu", newFood);
+	}
+
+
+	
+	public int updateMenu(Food food) {
+		return sqlSession.update("foodMapper.updateMenu", food);
 	}
 
 		

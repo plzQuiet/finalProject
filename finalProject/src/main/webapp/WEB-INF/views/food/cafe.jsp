@@ -35,7 +35,6 @@
 							<c:otherwise>
 								<div>
 									<button id="menu-add-btn">메뉴 추가</button>
-									<button id="menu-update-btn">메뉴 수정</button>
 								</div>
 							</c:otherwise>						
 						</c:choose>
@@ -49,7 +48,7 @@
 						<c:if test="${food.typeNo == 2}">
 							<div class="cafe-menu-area">
 								<c:if test="${loginMember.authority == 2 }">
-									<button id="cafe-update-btn" foodNo="${food.foodNo}"><i class="fa-regular fa-pen-to-square"></i></button>
+									<button id="cafe-update-btn" foodNo="${food.foodNo}" foodName="${food.foodName}" foodPrice="${food.foodPrice}" foodImg="${food.foodImg}" foodDes="${food.foodDes}"><i class="fa-regular fa-pen-to-square"></i></button>
 									<button id="menu-del-btn" foodNo="${food.foodNo}"><i class="fa-solid fa-xmark"></i></button>
 								</c:if>
 								<img src="${food.foodImg}">
@@ -62,7 +61,10 @@
 			</section>
 		</section>
 	</section>
-	
+	<script> 
+		let addMenu = "${AddMenu}";
+		let updateMenu = "${UpdateMenu}"
+	</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<script src="/resources/js/food/cafe.js"></script>
 </body>

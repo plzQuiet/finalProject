@@ -409,3 +409,7 @@ table * {border : 1px solid #ddd;}
 #newMenuName:focus{
 	outline: none;
 }
+
+.popup_content > p{
+	margin-top: 30px;
+}

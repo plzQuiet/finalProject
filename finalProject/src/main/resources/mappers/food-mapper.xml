@@ -38,4 +38,14 @@
 	<update id="updateSnackMenu">
 		UPDATE FOOD SET FOOD_NAME=#{foodName}, FOOD_IMG=#{foodImg} WHERE FOOD_NO=${foodNo}
 	</update>
+	
+	<insert id="insertCafeMenu">
+		INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, #{foodName}, ${foodPrice}, DEFAULT, #{foodImg}, #{foodDes})
+	</insert>
+	
+	<update id="updateMenu">
+		UPDATE FOOD 
+		SET FOOD_NAME=#{foodName}, FOOD_IMG=#{foodImg}, FOOD_DES=#{foodDes}, FOOD_PRICE=${foodPrice}
+		WHERE FOOD_NO=${foodNo}
+	</update>
 </mapper>

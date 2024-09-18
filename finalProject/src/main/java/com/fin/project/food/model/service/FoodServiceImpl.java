@@ -132,6 +132,76 @@ public class FoodServiceImpl implements FoodService{
 		}
 		
 		return result;
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int insertCafeMenu(Food newFood, MultipartFile menuImage, String webPath, String filePath) throws IllegalStateException, IOException {
+
+		String originName = webPath + "/foodIsNotReady.png";
+
+		String rename = null;
+
+		if(menuImage.getSize() > 0 ) {	//파일 안 가져옴
+
+			rename = Util.fileRename(menuImage.getOriginalFilename());
+
+			newFood.setFoodImg(webPath+rename);
+
+		}else {
+			newFood.setFoodImg(originName);
+		}
+
+		newFood.setFoodName(Util.XSSHandling(newFood.getFoodName()));
+
+		int result = dao.insertCafeMenu(newFood);
+
+		if(result > 0) {
+			// 새 이미지가 업로드된 경우
+			if(rename != null) {
+				menuImage.transferTo(new File(filePath + rename));
+			}
+
+
+		}
+		
+		return result;
+
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateMenu(Food food, MultipartFile menuImage, String webPath, String filePath)
+			throws IllegalStateException, IOException {
+		
+		String originName = webPath + "/foodIsNotReady.png";
+
+		String rename = null;
+
+		if(menuImage.getSize() > 0 ) {	//파일 안 가져옴
+
+			rename = Util.fileRename(menuImage.getOriginalFilename());
+
+			food.setFoodImg(webPath+rename);
+
+		}else {
+			food.setFoodImg(originName);
+		}
+
+		food.setFoodName(Util.XSSHandling(food.getFoodName()));
+
+		int result = dao.updateMenu(food);
+
+		if(result > 0) {
+			// 새 이미지가 업로드된 경우
+			if(rename != null) {
+				menuImage.transferTo(new File(filePath + rename));
+			}
+
+
+		}
+		
+		return result;
 	}	
 
 }
