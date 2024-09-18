@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/intro/main_cal_hour.css">
     <link rel="stylesheet" href="/resources/css/board/main-notice.css">
+    <link rel="stylesheet" href="/resources/css/food/mainFood.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -20,7 +21,9 @@
         <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
         
-       
+        <%-- 오늘의 메뉴 --%>
+        <jsp:include page="/WEB-INF/views/food/mainFood.jsp"/>
+        
 	</section>
 
     <!-- <section class="main-notice-area">
