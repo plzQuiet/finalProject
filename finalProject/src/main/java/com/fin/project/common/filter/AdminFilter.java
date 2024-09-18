@@ -17,7 +17,7 @@ import com.fin.project.member.model.dto.Member;
 /**
  * Servlet Filter implementation class AdminFilter
  */
-@WebFilter(filterName = "/AdminFilter", urlPatterns = {"/intro/1/8/30/calEdit"})
+@WebFilter(filterName = "/AdminFilter", urlPatterns = {"/intro/1/8/30/calEdit", "/admin/*"})
 public class AdminFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {

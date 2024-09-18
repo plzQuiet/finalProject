@@ -80,7 +80,14 @@
                     <input type="checkbox" id="headerMenuToggle">
         
                     <div class="header-menu">
-                        <a href="/myPage/info">내 서재</a>
+						<c:if test="${loginMember.authority == 1}">
+							<a href="/myPage/info">내 서재</a>
+						</c:if>
+
+						<c:if test="${loginMember.authority == 2}">
+							<a href="/admin/1">관리자</a>
+						</c:if>
+
                         <a href="/member/logout">로그아웃</a>
                     </div>
                 </c:otherwise>

@@ -1,6 +1,6 @@
 .side-menu{width: 200px;}
 
-.side-category{background-color: #8FB788;}
+.side-category{background-color: #c5c5c5;}
 
 .side-category > a{color: white;}
 
@@ -10,7 +10,7 @@
 	height: 140px;
 	font-size: 20px;
 	font-weight: bold;
-	background-color: #008C1D;
+	background-color: #555555;
 	color: white;
 	text-align: center;
 	line-height: 140px;
@@ -31,7 +31,7 @@
 	transition-duration: 0.3s;
 }
 
-.side-menu li:hover{background-color: #8FB788;}
+.side-menu li:hover{background-color: #c5c5c5;}
 
 .side-menu li > a:hover{
 	transform: scale(1.1);

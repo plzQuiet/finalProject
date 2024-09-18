@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="adminMapper">
+
+	<update id="updateMember">
+		UPDATE MEMBER SET MEMBER_DEL_FL =
+			DECODE(MEMBER_DEL_FL, 'N', 'Y', 'N')
+		WHERE MEMBER_NO IN(${updateList})
+	</update>
+	
+	<update id="updateBoard">
+		UPDATE BOARD SET BOARD_DEL_FL =
+			DECODE(BOARD_DEL_FL, 'N', 'Y', 'N')
+		WHERE BOARD_NO IN(${updateList})
+	</update>
+	
+	<update id="updateComment">
+		UPDATE "COMMENT" SET COMMENT_DEL_FL =
+			DECODE(COMMENT_DEL_FL, 'N', 'Y', 'N')
+		WHERE COMMENT_NO IN(${updateList})
+	</update>
+
+</mapper>
