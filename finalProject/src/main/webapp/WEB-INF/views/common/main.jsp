@@ -21,14 +21,18 @@
         <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
         
-        <%-- 오늘의 메뉴 --%>
-        <jsp:include page="/WEB-INF/views/food/mainFood.jsp"/>
+        <div class="main-food-notice-area">
+	        <%-- 오늘의 메뉴 --%>
+	        <jsp:include page="/WEB-INF/views/food/mainFood.jsp"/>
+	        
+	        <!-- 공지사항 -->
+	        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />
+	        
+        
+        </div>
         
 	</section>
 
-    <!-- <section class="main-notice-area">
-        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />
-    </section> -->
 
     <%-- 달력 일정 모달 --%>
     <jsp:include page="/WEB-INF/views/intro/main_cal_modal.jsp"/>

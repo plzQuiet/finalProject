@@ -159,6 +159,11 @@ label[for='headerMenuToggle']:hover{ text-decoration: underline;}
     width: 1024px;
 }
 
+.main-food-notice-area{
+	display: flex;
+	justify-content: space-between;
+}
+
 /* footer 영역 */
 footer {
 	margin-top: 50px;
