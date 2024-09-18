@@ -37,5 +37,6 @@
 		<mapper resource="/mappers/myLibrary-mapper.xml"/>
 		<mapper resource="/mappers/search-mapper.xml"/>
 		<mapper resource="/mappers/comment-mapper.xml"/>
+		<mapper resource="/mappers/admin-mapper.xml"/>
 	</mappers>
 </configuration>

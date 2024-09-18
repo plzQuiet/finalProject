@@ -2,19 +2,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<link rel="stylesheet" href="/resources/css/my/side.css">
+<link rel="stylesheet" href="/resources/css/admin/side.css">
 
 <article class="side-menu">
-	<div>내 서재</div>
+	<div>관리자</div>
 	<ul>
-		<li>
-			<a href="/myLibrary/book">나의 도서관</a>
-		</li>
 		<li class="side-category">
-			<a href="/myPayment">결제내역</a>
+			<a href="/admin/1">관리</a>
 		</li>
 		<li>
-			<a href="/myPage/info">회원정보</a>
+			<div class="side-wrap">
+				<a href="/admin/1">회원 관리</a>
+				<a href="/admin/2">게시글 관리</a>
+				<a href="/admin/3">댓글 관리</a>
+			</div>
 		</li>
 	</ul>
 </article>

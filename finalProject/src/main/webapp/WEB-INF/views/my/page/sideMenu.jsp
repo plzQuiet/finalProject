@@ -12,8 +12,9 @@
 		</li>
 		<li>
 			<a href="/myPayment">결제내역</a>
-		<li>
-			<a href="/myPage/info" class="side-category">회원정보</a>
+		</li>
+		<li class="side-category">
+			<a href="/myPage/info">회원정보</a>
 		</li>
 		<li>
 			<div class="side-wrap">

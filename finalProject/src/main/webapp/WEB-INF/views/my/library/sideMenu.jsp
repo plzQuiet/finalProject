@@ -7,8 +7,8 @@
 <article class="side-menu">
 	<div>내 서재</div>
 	<ul>
-		<li>
-			<a href="/myLibrary/book" class="side-category">나의 도서관</a>
+		<li class="side-category">
+			<a href="/myLibrary/book">나의 도서관</a>
 		</li>
 		<li>
 			<div class="side-wrap">
@@ -19,6 +19,7 @@
 		</li>
 		<li>
 			<a href="/myPayment">결제내역</a>
+		</li>
 		<li>
 			<a href="/myPage/info">회원정보</a>
 		</li>

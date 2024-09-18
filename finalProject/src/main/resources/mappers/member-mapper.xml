@@ -37,9 +37,9 @@
 			MEMBER_PNO, MEMBER_ADDR, MEMBER_GENDER, MEMBER_DOB,
 			MEMBER_ADDR, AUTHORITY,
 			TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT
-			FROM MEMBER
-			WHERE MEMBER_DEL_FL = 'N'
-			AND MEMBER_EMAIL = #{memberEmail}
+		FROM MEMBER
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
 	
 	<select id="findId" resultType="_int">
@@ -54,5 +54,21 @@
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
 	</update>
+	
+	<select id="getMemberCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE AUTHORITY = 1
+	</select>
+	
+	<select id="selectMemberList" resultMap="member_rm">
+		SELECT MEMBER_NO, MEMBER_NAME, MEMBER_DEL_FL,
+			SUBSTR(MEMBER_DOB, 1, 4) || '-' ||
+			SUBSTR(MEMBER_DOB, 5, 2) || '-' ||
+			SUBSTR(MEMBER_DOB, 7, 2) MEMBER_DOB,
+			TO_CHAR(ENROLL_DT, 'YYYY-MM-DD') ENROLL_DT
+		FROM MEMBER
+		WHERE AUTHORITY = 1
+		ORDER BY MEMBER_NO
+	</select>
 
 </mapper>

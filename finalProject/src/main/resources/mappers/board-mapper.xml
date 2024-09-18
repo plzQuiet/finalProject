@@ -373,5 +373,27 @@
    	SELECT IMG_RENAME FROM BOARD_IMG
    </select>
 	
+	<select id="getBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	
+	<select id="selectBoardListAdmin" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NAME, CAT_CODE, BOARD_DEL_FL,
+			TO_CHAR(B_CREATE_DT, 'YYYY-MM-DD') B_CREATE_DT
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<select id="getCommentCount" resultType="_int">
+		SELECT COUNT(*) FROM "COMMENT"
+	</select>
+	
+	<select id="selectCommentListAdmin" resultMap="comment_rm">
+		SELECT COMMENT_NO, COMMENT_CONTENT, MEMBER_NAME, C_CREATE_DT, COMMENT_DEL_FL
+		FROM "COMMENT"
+		JOIN MEMBER USING(MEMBER_NO)
+		ORDER BY COMMENT_NO DESC
+	</select>
 
 </mapper>

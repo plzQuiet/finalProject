@@ -74,7 +74,7 @@
 				<c:set var="m" value="${param.m}"/>
 			</c:if>
 			
-			<c:if test="${fn:length(list) > 0}">
+			<c:if test="${pagination.listCount > 0}">
 				<div class="pagination-area">
 					<ul class="pagination">
 						<li><a href="book?m=${m}&cp=1">&lt;&lt;</a></li>

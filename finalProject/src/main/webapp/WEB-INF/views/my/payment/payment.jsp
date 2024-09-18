@@ -52,6 +52,26 @@
 					</c:choose>
 				</tbody>
 			</table>
+			
+			<div class="pagination-area">
+				<ul class="pagination">
+					<li><a href="myPayment?cp=1">&lt;&lt;</a></li>
+					<li><a href="myPayment?cp=${pagination.prevPage}">&lt;</a></li>
+					<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+						<c:choose>
+							<c:when test="${i == pagination.currentPage}">
+							<li><a class="current">${i}</a></li>
+							</c:when>
+							
+							<c:otherwise>
+							<li><a href="myPayment?cp=${i}">${i}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<li><a href="myPayment?cp=${pagination.nextPage}">&gt;</a></li>
+					<li><a href="myPayment?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+				</ul>
+			</div>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

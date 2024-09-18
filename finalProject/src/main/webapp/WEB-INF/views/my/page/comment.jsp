@@ -55,6 +55,34 @@
 					</c:choose>
 				</tbody>
 			</table>
+			
+			<c:if test="${empty param.m}">
+				<c:set var="m" value="1"/>
+			</c:if>
+			
+			<c:if test="${!empty param.m}">
+				<c:set var="m" value="${param.m}"/>
+			</c:if>
+			
+			<div class="pagination-area">
+				<ul class="pagination">
+					<li><a href="writing?m=${m}&cp=1">&lt;&lt;</a></li>
+					<li><a href="writing?m=${m}&cp=${pagination.prevPage}">&lt;</a></li>
+					<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+						<c:choose>
+							<c:when test="${i == pagination.currentPage}">
+							<li><a class="current">${i}</a></li>
+							</c:when>
+							
+							<c:otherwise>
+							<li><a href="writing?m=${m}&cp=${i}">${i}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<li><a href="writing?m=${m}&cp=${pagination.nextPage}">&gt;</a></li>
+					<li><a href="writing?m=${m}&cp=${pagination.maxPage}">&gt;&gt;</a></li>
+				</ul>
+			</div>
 		</section>
 	</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
