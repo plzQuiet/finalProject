@@ -10,6 +10,7 @@
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/intro/main_cal_hour.css">
+    <link rel="stylesheet" href="/resources/css/board/main-notice.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -18,9 +19,13 @@
 
         <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
-
-        ㄹㄹㄹ
+        
+       
 	</section>
+
+    <!-- <section class="main-notice-area">
+        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />
+    </section> -->
 
     <%-- 달력 일정 모달 --%>
     <jsp:include page="/WEB-INF/views/intro/main_cal_modal.jsp"/>

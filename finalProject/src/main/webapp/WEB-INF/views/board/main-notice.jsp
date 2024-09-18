@@ -1,10 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main-notice</title>
-    <link rel="stylesheet" href="../../css/board/main-notice-style.css">
+    <link rel="stylesheet" href="/resources/css/board/main-notice.css">
 </head>
 <body>
 
@@ -18,7 +22,7 @@
             </div>
 
             <div class="notice-content">
-                <!-- <jsp:include page="/WEB-INF/views/board/main-notice.jsp" /> -->
+                <li><a href="/board/15/${boardNo}?${cp}">게시글</a></li>
             </div>
 
         </div>

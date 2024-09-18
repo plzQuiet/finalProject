@@ -1,7 +1,17 @@
-.main-notice-area{
-    border: 2px solid #d4d4d4;
+.main-notice-section{
+    border: 1px solid #d4d4d4;
     border-radius: 5px;
+    float: right;
+    width: 497px;
+    height: 300px;
 }
+
+
+/* .main-notice-area{
+    border-radius: 5px;
+    float: right;
+    width: 500px;
+} */
 
 .notice-title{
     display: flex;
@@ -9,11 +19,10 @@
     /* justify-content: space-between; */
 
     /* width: 100%; */
-    padding: 10px 20px;
+    padding: 16px 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    /* color: white; */
-    /* font-weight: bold; */
+
     position: relative;
     border-bottom: 1px solid #d4d4d4;
 }
@@ -31,6 +40,10 @@
 
 #gotoNotice a:hover{
     text-decoration: underline;
+}
+
+.notice-content{
+    padding: 10px;
 }
 
 
