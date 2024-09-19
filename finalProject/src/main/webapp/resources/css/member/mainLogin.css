@@ -1,0 +1,75 @@
+.main-login-area{
+    width: 30%;
+    color: white;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+    padding: 10px;
+    background-color: #80AFE1;
+}
+
+.main-login-area .main-login-title{
+    font-size: 18px;
+    padding: 20px;
+}
+
+.main-login-area .main-login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-login-area .main-login-form > input{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+}
+
+.main-login-area .main-login-form input:focus{
+    outline: none;
+}
+
+.main-login-form .main-saveId{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 13px;
+    padding-left: 15px;
+}
+
+.main-login-form .main-saveId input{
+    margin-right: 5px;
+}
+
+.main-login-area .main-login-btn-area{
+    width: 90%;
+}
+
+.main-login-area .main-login-btn-area #main-login-btn{
+    width: 100%;
+    color: white;
+    padding: 15px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+}
+
+.main-login-area .main-login-btn-area #main-login-btn:hover{
+    background-color:  #008c16;
+    color: white;
+}
+
+.main-login-form .main-my-area span{
+    color: white;
+    font-size: 13px;
+}
+
+.main-login-form .main-my-area a span:hover{
+    color: #0054b4;
+    font-weight: 800;
+}
