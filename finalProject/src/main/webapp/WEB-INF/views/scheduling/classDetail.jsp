@@ -71,7 +71,7 @@
                 <div class="btn-area">
                     <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
                     <button id="applyBtn" onclick="applyModal()">신청</button>
-
+                    
                     <button id="goToListBtn">목록으로</button>
                 </div>
                 </c:if>

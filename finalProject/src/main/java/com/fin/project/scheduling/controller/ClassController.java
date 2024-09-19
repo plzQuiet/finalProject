@@ -91,7 +91,8 @@ public class ClassController {
 	// 클래스 작성
 	@PostMapping("/{cateCode:12}/insert")
 	public String boardInsert(@PathVariable("cateCode") int cateCode, @ModelAttribute ClassSchedule classSchedule,
-			@RequestParam(value = "image", required = false) MultipartFile image, HttpSession session,
+			@RequestParam(value = "image", required = false) MultipartFile image,
+			@RequestParam(value = "existingImage", required = false) String existingImage,HttpSession session,
 			@SessionAttribute("loginMember") Member loginMember) throws IllegalStateException, IOException {
 
 		classSchedule.setMemberNo(loginMember.getMemberNo());
@@ -101,7 +102,8 @@ public class ClassController {
 		// 업로드된 이미지 서버에 실제로 저장되는 경로 + 웹에서 요청 시 이미지를 볼 수 있는 경로(웹 접근 경로)
 		String webPath = "/resources/images/scheduling/";
 		String filePath = session.getServletContext().getRealPath(webPath);
-
+		
+		
 		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호(boardNo) 반환 받기
 		int boardNo = service.classInsert(classSchedule, image, webPath, filePath);
 
@@ -164,7 +166,7 @@ public class ClassController {
 		if(rowCount > 0) {
 			path += "/scheduling/"+cateCode+"/"+boardNo+"?cp="+cp;
 		} else {
-			path += "update";
+			path += "/scheduling/"+cateCode+"/"+boardNo+ "/update";
 		}
 		
 		return path;
