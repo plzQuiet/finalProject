@@ -75,11 +75,12 @@ public class CafeController {
 	
 	// 카페 메뉴 업데이트
 	@PostMapping("/cafe/update")
-	public String updateSnackMenu(@RequestParam("menuImage") MultipartFile menuImage
+	public String updateSnackMenu(@RequestParam(value = "menuImage", required = false) MultipartFile menuImage
 								, @RequestParam("menuName") String menuName
 								, @RequestParam("menuNo") int menuNo
 								, @RequestParam("menuPrice") int menuPrice
 								, @RequestParam("menuDes") String menuDes
+								, @RequestParam(value = "existingImage", required = false) String existingImage // 기존 이미지 받기
 								, HttpSession session
 								, RedirectAttributes ra
 								)throws IllegalStateException, IOException {
@@ -95,6 +96,7 @@ public class CafeController {
 		food.setFoodName(menuName);
 		food.setFoodDes(menuDes);
 		food.setFoodPrice(menuPrice);
+		food.setFoodImg(existingImage);
 		
 		int result =service.updateMenu(food, menuImage, webPath, filePath);
 		

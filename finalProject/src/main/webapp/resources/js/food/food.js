@@ -586,6 +586,7 @@ document.querySelectorAll('#snack-update-btn').forEach(button => {
 				popUpContent[0].innerHTML= `
 									<form action="/food/updateSnack" method="POST" enctype="multipart/form-data" name="menuUpdateFrm" id="menuAddFrm">
 										<input type="hidden" name="menuNo" value="${foodNo}"/>
+										<input type="hidden" name="existingImage" value="${foodImage}"/>
 										<div class="menu-add-area">
 											<div class="menu-name-area">
 												<p>이름 :</p>

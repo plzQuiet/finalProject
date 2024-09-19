@@ -489,6 +489,7 @@ document.querySelectorAll('#cafe-update-btn').forEach(button => {
 				popUpContent[0].innerHTML= `
 									<form action="/cafe/update" method="POST" enctype="multipart/form-data" name="menuAddFrm" id="menuAddFrm">
 									<input type="hidden" name="menuNo" value="${foodNo}"/>
+									<input type="hidden" name="existingImage" value="${foodImage}"/>
 									<div class="menu-add-area">
 										<div class="menu-name-price-area">
 											<div class="menu-name-area">

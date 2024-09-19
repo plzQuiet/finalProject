@@ -50,7 +50,7 @@ public class FoodServiceImpl implements FoodService{
 	@Override
 	public int insertFoodMenu(Food newFood, MultipartFile menuImage, String webPath, String filePath) throws IllegalStateException, IOException {
 
-		String originName = webPath + "/foodIsNotReady.png";
+		String originName = webPath + "foodIsNotReady.png";
 
 		String rename = null;
 
@@ -104,7 +104,6 @@ public class FoodServiceImpl implements FoodService{
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int updateSnackMenu(Food food, MultipartFile foodImage, String webPath, String filePath) throws IllegalStateException, IOException {
-		String originName = webPath + "/foodIsNotReady.png";
 
 		String rename = null;
 
@@ -115,7 +114,7 @@ public class FoodServiceImpl implements FoodService{
 			food.setFoodImg(webPath+rename);
 
 		}else {
-			food.setFoodImg(originName);
+			food.setFoodImg(food.getFoodImg());
 		}
 
 		food.setFoodName(Util.XSSHandling(food.getFoodName()));
@@ -134,11 +133,12 @@ public class FoodServiceImpl implements FoodService{
 		return result;
 	}
 
+	// 카페 메뉴 추가
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int insertCafeMenu(Food newFood, MultipartFile menuImage, String webPath, String filePath) throws IllegalStateException, IOException {
 
-		String originName = webPath + "/foodIsNotReady.png";
+		String originName = webPath + "foodIsNotReady.png";
 
 		String rename = null;
 
@@ -169,13 +169,12 @@ public class FoodServiceImpl implements FoodService{
 
 	}
 
+	// 카페 메뉴 수정
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int updateMenu(Food food, MultipartFile menuImage, String webPath, String filePath)
 			throws IllegalStateException, IOException {
 		
-		String originName = webPath + "/foodIsNotReady.png";
-
 		String rename = null;
 
 		if(menuImage.getSize() > 0 ) {	//파일 안 가져옴
@@ -185,7 +184,7 @@ public class FoodServiceImpl implements FoodService{
 			food.setFoodImg(webPath+rename);
 
 		}else {
-			food.setFoodImg(originName);
+			food.setFoodImg(food.getFoodImg());
 		}
 
 		food.setFoodName(Util.XSSHandling(food.getFoodName()));
