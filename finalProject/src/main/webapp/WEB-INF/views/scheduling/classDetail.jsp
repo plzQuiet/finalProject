@@ -46,8 +46,8 @@
 
                 <!-- 작성자 / 작성일 / 조회수 -->
                 <div class="board-nav">
-                    <span>교육기간 : ${classBoard.startDt} ~ ${classBoard.endDt}</span>|
                     <span>신청기간 : ${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</span>|
+                    <span>교육기간 : ${classBoard.startDt} ~ ${classBoard.endDt}</span>|
                     <span>최대인원 : ${classBoard.maxParticipant}</span>
                     
                 </div>

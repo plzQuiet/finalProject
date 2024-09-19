@@ -91,28 +91,30 @@
 
                                 <c:otherwise>
                                     <c:forEach var="classBoard" items="${classBoardList}">
-                                        <c:choose>
-                                            <c:when test="${classBoard.applicantCount >= classBoard.maxParticipant}">
-                                                <td>인원마감</td>
-                                            </c:when>
+                                        <tr>
+                                            <c:choose>
+                                                <c:when test="${classBoard.applicantCount >= classBoard.maxParticipant}">
+                                                    <td>인원마감</td>
+                                                </c:when>
 
-                                            <c:otherwise>
-                                                <c:if test="${sysdate < classBoard.recruitmentEndDt}">
-                                                <td>신청가능</td>
-                                                </c:if>
+                                                <c:otherwise>
+                                                    <c:if test="${sysdate < classBoard.recruitmentEndDt}">
+                                                    <td>신청가능</td>
+                                                    </c:if>
 
-                                                <c:if test="${sysdate >= classBoard.recruitmentEndDt}">
-                                                <td>기간마감</td>
-                                                </c:if>
+                                                    <c:if test="${sysdate >= classBoard.recruitmentEndDt}">
+                                                    <td>기간마감</td>
+                                                    </c:if>
 
-                                            </c:otherwise>
+                                                </c:otherwise>
 
-                                        </c:choose>
-                                        
-                                        <td>
-                                            <a href="/scheduling/${cateCode}/${classBoard.boardNo}?cp=${pagination.currentPage}${qs}">${classBoard.boardTitle}</a>
-                                        </td>
-                                        <td>${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</td>
+                                            </c:choose>
+                                            
+                                            <td>
+                                                <a href="/scheduling/${cateCode}/${classBoard.boardNo}?cp=${pagination.currentPage}${qs}">${classBoard.boardTitle}</a>
+                                            </td>
+                                            <td>${classBoard.recruitmentStartDt} ~ ${classBoard.recruitmentEndDt}</td>
+                                        </tr>
                                     </c:forEach>
                                 </c:otherwise>
                             </c:choose>

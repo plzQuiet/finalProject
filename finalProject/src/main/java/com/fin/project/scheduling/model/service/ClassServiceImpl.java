@@ -12,11 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fin.project.board.model.exception.FileUploadException;
+import com.fin.project.common.ImageDeleteException;
 import com.fin.project.common.utility.Util;
 import com.fin.project.scheduling.model.dao.ClassDAO;
 import com.fin.project.scheduling.model.dto.BoardImage;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 import com.fin.project.scheduling.model.dto.Pagination;
+
 
 
 
@@ -34,7 +36,7 @@ public class ClassServiceImpl implements ClassService{
 		
 		// Pagination 객체 생성
 		// 위에서 얻은 listCount와 cp이용
-		Pagination pagination = new Pagination(listCount, cp);
+		Pagination pagination = new Pagination(cp, listCount);
 		
 		// cateCode==12, pagination.currentPage 의 게시물 목록 조회
 		List<ClassSchedule> classBoardList = dao.selectClassBoard(cateCode, pagination);
@@ -117,9 +119,55 @@ public class ClassServiceImpl implements ClassService{
 	    return boardNo;
 	}
 	
-	
-	
-	
+	// 클래스 수정
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int classUpdate(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath,
+			String deleteList) throws IllegalStateException, IOException {
+		
+		classSchedule.setBoardTitle(Util.XSSHandling(classSchedule.getBoardTitle()));
+		classSchedule.setBoardContent(Util.XSSHandling(classSchedule.getBoardContent()));
+		
+		int boardNo = dao.classUpdate(classSchedule);
+		
+		classSchedule.setBoardNo(boardNo);
+		
+		int result = dao.updateClassSchedule(classSchedule);
+		
+		if(result > 0) {
+			if(!deleteList.equals("")) {
+				
+				Map<String, Object> deleteMap = new HashMap<String, Object>();
+				deleteMap.put("deleteList", deleteList);
+				deleteMap.put("boardNo", classSchedule.getBoardNo());
+				
+				result = dao.imageDelete(deleteMap);
+				
+				if(result == 0) { // 이미지 삭제 실패 시 전체 롤백
+									// -> 예외 강제로 발생
+					throw new ImageDeleteException();
+				}
+			}
+			
+			BoardImage uploadImage = new BoardImage();
+			uploadImage.setImagePath(webPath);
+			uploadImage.setBoardNo(classSchedule.getBoardNo());
+			uploadImage.setImageOrder(0);
+			
+			String fileName = uploadImage.getImageOriginal();
+			uploadImage.setImageOriginal(fileName);
+			uploadImage.setImageReName(Util.fileRename(fileName));
+			
+			result = dao.imageUpdate(uploadImage);
+			
+			if(uploadImage != null) {
+				String rename = uploadImage.getImageReName();
+				image.transferTo(new File(filePath + rename));
+			}
+		}
+		
+		return result;
+	}
 	
 	
 	// 클래스 삭제
@@ -142,5 +190,9 @@ public class ClassServiceImpl implements ClassService{
 		
 		return dao.applyClass(map);
 	}
+	
+	
+	
+	
 
 }

@@ -2,6 +2,7 @@ package com.fin.project.scheduling.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.member.model.dto.Member;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 import com.fin.project.scheduling.model.service.ClassService;
+
 
 
 @SessionAttributes("loginMember")
@@ -119,13 +122,13 @@ public class ClassController {
 	
 	// 클래스 수정 화면 전환
 	@GetMapping("/{cateCode:12}/{boardNo}/update")
-	public String classUpdate(@PathVariable("boardCode") int boardCode
+	public String classUpdate(@PathVariable("cateCode") int cateCode
 							  , @PathVariable("boardNo") int boardNo
 							  , Model model // 데이터 전달용 객체(기본적으로 request scope)
 							  ) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("boardCode", boardCode);
+		map.put("cateCode", cateCode);
 		map.put("boardNo", boardNo);
 		
 		ClassSchedule classSchedule = service.selectClass(map);
@@ -136,9 +139,36 @@ public class ClassController {
 	}
 	
 	// 클래스 수정
-	
-	
-	
+	@PostMapping("/{cateCode:12}/{boardNo}/update")
+	public String classUpdate(ClassSchedule classSchedule //커맨드 객체
+			, @RequestParam(value="deleteList", required=false) String deleteList // 삭제할 이미지
+			, @RequestParam(value="cp", required=false, defaultValue="1") int cp // 쿼리 스트링 유지
+			, @RequestParam(value="image", required=false) MultipartFile image // 업로드된 이미지
+			, @PathVariable("cateCode") int cateCode
+			, @PathVariable("boardNo") int boardNo
+			, HttpSession session // 서버 파일 저장 경로 얻어올 용도 
+				)throws IllegalStateException, IOException {
+		
+		classSchedule.setCateCode(cateCode);
+		classSchedule.setBoardNo(boardNo);
+		
+		
+		String webPath = "/resources/images/board/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		// 클래스 수정 서비스 호출
+		int rowCount = service.classUpdate(classSchedule, image, webPath, filePath, deleteList);
+		
+		String path = "redirect:";
+		
+		if(rowCount > 0) {
+			path += "/scheduling/"+cateCode+"/"+boardNo+"?cp="+cp;
+		} else {
+			path += "update";
+		}
+		
+		return path;
+	}
 
 	// 클래스 삭제  
 	@GetMapping("/{cateCode}/{boardNo}/delete")

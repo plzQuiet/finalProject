@@ -87,26 +87,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
-    <!-- 알림창 모달-->
-    <div id="popup_layer">
-        <div class="popup_box">
-            <div class="popup_header">
-                <p>교육문화 프로그램</p>
-            </div>
-
-            <!--팝업 컨텐츠 영역-->
-            <div class="popup_content">
-                <p> 게시글 등록을 취소 하시겠습니까?</p>
-                <p> 해당 게시글을 등록 하시겠습니까?</p>
-            </div>
-            <!--팝업 버튼 영역-->
-            <div class="popup_btn">
-                <button id="confirm_btn">확인</button>
-                <button id="cancel_btn">취소</button>
-            </div>
-        </div>
-    </div>
-
     <script src="/resources/js/scheduling/class-write.js"></script>
 
 </body>

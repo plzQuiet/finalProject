@@ -39,27 +39,27 @@
 
             <!-- 게시글 작성 화면 -->
             <section class="board-detail">
-                <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                <form action="/12/${classBoard.boardNo}/update" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
-                        <input type="text" name="boardTitle" placeholder="제목">
+                        <input type="text" name="boardTitle" placeholder="제목" value="${classBoard.boardTitle}">
                     </h1>
 
                     <!-- 교육기간 / 신청기간 / 최대인원 -->
                     <div class="board-nav">
-                        <span>신청기간 : <input type="date"> ~ <input type="date"></span>&nbsp;|&nbsp;
-                        <span>교육기간 : <input type="date"> ~ <input type="date"></span>&nbsp;|&nbsp;
-                        <span>최대인원 : <input type="number" style="width: 50px;" min="0"></span>
+                        <span>교육기간 : <input type="date" value="${classBoard.startDt}"> ~ <input type="date" value="${classBoard.endDt}"></span>&nbsp;|&nbsp;
+                        <span>신청기간 : <input type="date" value="${classBoard.recruitmentStartDt}"> ~ <input type="date" value="${classBoard.recruitmentEndDt}"></span>&nbsp;|&nbsp;
+                        <span>최대인원 : <input type="number" style="width: 50px;" min="0" value="${classBoard.maxParticipant}"></span>
                     </div>
 
                     <!-- 이미지 등록 영역 -->
                     <div class="img-box">
                         <div class="boardImg">
                             <label for="img0">
-                                <img src="" class="preview">
-                                이미지 파일을 선택해 주세요.
+                                <img src="" class="preview" id="preview">
+                                <p id="img-ment">이미지 파일을 선택해 주세요.</p>
                             </label>
-                            <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
-                            <span class="delete-image">&times;</span>
+                            <input type="file" name="image" class="inputImage" id="img0" accept="image/*">
+                            <span class="delete-image" id="delete-image">&times;</span>
                         </div>
                     </div>
 
@@ -75,6 +75,12 @@
                         <button type="submit" id="writeBtn" onclick="registModal()">등록</button>
                     </div>
 
+                    <!-- 기존 이미지가 있다가 삭제된 이미지의 순서를 기록 -->
+                    <input type="hidden" name="deleteList" value="">
+
+                     <!-- 수정 성공 시 주소(쿼리스트링) 유지 용도 -->
+                    <input type="hidden" name="cp" value="${param.cp}">
+
                 </form>
 
             </section>
@@ -87,28 +93,8 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
-    <!-- 알림창 모달-->
-    <div id="popup_layer">
-        <div class="popup_box">
-            <div class="popup_header">
-                <p>교육문화 프로그램</p>
-            </div>
 
-            <!--팝업 컨텐츠 영역-->
-            <div class="popup_content">
-                <p> 게시글 등록을 취소 하시겠습니까?</p>
-                <p> 해당 게시글을 등록 하시겠습니까?</p>
-            </div>
-            <!--팝업 버튼 영역-->
-            <div class="popup_btn">
-                <button id="confirm_btn">확인</button>
-                <button id="cancel_btn">취소</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="/resources/js/scheduling/class-board.js"></script>
-
+    <script src="/resources/js/scheduling/class-write.js"></script>
 </body>
 
 </html>
