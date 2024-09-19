@@ -1,18 +1,4 @@
 @font-face {
-    font-family: 'HancomMalangMalang-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Binggrae';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'ELAND_Choice_M';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
     font-weight: normal;
@@ -23,7 +9,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0; 
-    /* font-family: 'HancomMalangMalang-Regular'; */
     font-family: 'ELAND_Choice_M';
 }
 
@@ -56,7 +41,7 @@ nav > ul > li > a{
     display: block;
     text-align: center;
     line-height: 150px;
-    color: #555;
+    color: black;
     font-size: 20px;
     font-weight: 800;
 }
@@ -75,6 +60,7 @@ nav li > ul{
     overflow: hidden;
     transition:height ease-out 0.5s 0s;
     z-index: 999;
+    list-style: none;
 }
 
 nav a+ul > li{

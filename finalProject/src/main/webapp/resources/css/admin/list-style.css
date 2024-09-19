@@ -18,7 +18,7 @@
 .list-area > h1{
 	padding-bottom: 20px;
     font-size: 40px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 5px solid #ddd;
 }
 
 .list-area > div{
@@ -98,12 +98,10 @@ input[type='checkbox']{
 .admin-submit{
 	float: right;
 	font-size: 15px;
-	font-weight: bold;
 	color: white;
-	padding: 5px 15px;
+	padding: 10px 25px;
 	background-color: #555;
 	border: 1px solid #ddd;
-	border-radius: 5px;
 }
 
 .pagination{
