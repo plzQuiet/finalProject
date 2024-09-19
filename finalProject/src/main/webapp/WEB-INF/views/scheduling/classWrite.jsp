@@ -71,8 +71,8 @@
 
                     <!-- 버튼 영역 -->
                     <div class="btn-area">
-                        <button onclick="cancelModal()">취소</button>
-                        <button type="submit" id="writeBtn" onclick="registModal()">등록</button>
+                        <button onclick="history.back()">취소</button>
+                        <button type="submit" id="writeBtn">등록</button>
                     </div>
 
                 </form>

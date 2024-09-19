@@ -135,7 +135,7 @@ public class ClassServiceImpl implements ClassService{
 		int result = dao.updateClassSchedule(classSchedule);
 		
 		if(result > 0) {
-			if(!deleteList.equals("")) {
+			if(deleteList != null && !deleteList.equals("")) {
 				
 				Map<String, Object> deleteMap = new HashMap<String, Object>();
 				deleteMap.put("deleteList", deleteList);
@@ -154,15 +154,17 @@ public class ClassServiceImpl implements ClassService{
 			uploadImage.setBoardNo(classSchedule.getBoardNo());
 			uploadImage.setImageOrder(0);
 			
-			String fileName = uploadImage.getImageOriginal();
-			uploadImage.setImageOriginal(fileName);
-			uploadImage.setImageReName(Util.fileRename(fileName));
-			
-			result = dao.imageUpdate(uploadImage);
-			
-			if(uploadImage != null) {
-				String rename = uploadImage.getImageReName();
-				image.transferTo(new File(filePath + rename));
+			if (image != null && !image.isEmpty()) {
+			    String fileName = image.getOriginalFilename();
+			    uploadImage.setImageOriginal(fileName);
+			    uploadImage.setImageReName(Util.fileRename(fileName));
+			    
+			    result = dao.imageUpdate(uploadImage);
+			    
+			    if (result > 0) {
+			        String rename = uploadImage.getImageReName();
+			        image.transferTo(new File(filePath + rename));
+			    }
 			}
 		}
 		
