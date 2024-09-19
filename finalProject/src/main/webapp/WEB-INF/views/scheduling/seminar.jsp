@@ -33,12 +33,9 @@
 
         <!-- 공지사항 목록 -->
         <section class="content-suround-section">
-            <div class="content-title">세미나실</div>
+            <div class="content-title">세미나실 이용안내</div>
             <div class="title-line"></div>
 
-
-            <div class="sub-title">이용안내</div>
-            <div class="sub-title-line"></div>
 
             <div class="c1">로그인</div>
             <ul class="u1">
