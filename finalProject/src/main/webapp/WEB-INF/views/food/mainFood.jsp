@@ -29,5 +29,4 @@
         </div>
     </article>
 
-<script src="/resources/js/food/food.js" defer></script>
 </section>
