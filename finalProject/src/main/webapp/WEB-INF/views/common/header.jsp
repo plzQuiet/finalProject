@@ -104,3 +104,5 @@
     	<img src="/resources/images/library_book.png">
     </div>
 </c:if>
+
+<script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>

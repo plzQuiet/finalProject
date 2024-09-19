@@ -47,7 +47,13 @@
 							<c:forEach var="l" items="${list}">
 								<tr>
 									<td>${l.BOARD_NO}</td>
-									<td><a href="/board/${l.CAT_CODE}/${l.BOARD_NO}">${l.BOARD_TITLE}</a></td>
+									<c:if test="${l.CAT_CODE == 12}">
+										<c:set var="board" value="scheduling"/>
+									</c:if>
+									<c:if test="${l.CAT_CODE != 12}">
+										<c:set var="board" value="board"/>
+									</c:if>
+									<td><a href="/${board}/${l.CAT_CODE}/${l.BOARD_NO}">${l.BOARD_TITLE}</a></td>
 									<td>${l.B_CREATE_DT}</td>
 								</tr>
 							</c:forEach>
