@@ -24,24 +24,28 @@
                                 </c:when>
 
                                 <c:otherwise>
-                                    <c:forEach var="board" items="${boardList}">
-                                        <tr>
-                                            <!-- 게시글] 조회 시 글 목록 존재 O -->
-                                            <td>${board.boardNo}</td>
-                                            <td>
-                                                <a href="/board/15/${board.boardNo}">${board.boardTitle}</a>
-                                            </td>
-                                            <td>
-                                                <c:choose>
-                                                    <c:when test="${board.boardUpdateDate != null}">
-                                                        ${board.boardUpdateDate}
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        ${board.boardCreateDate}
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                        </tr>
+                                    <c:forEach var="i" begin="0" end="6">
+                                        <c:if test="${i<6}">
+                                            <tr class="br-bt">
+                                        </c:if>
+                                        <c:if test="${i==6}">
+                                            <tr>
+                                        </c:if>
+                                                <!-- 게시글] 조회 시 글 목록 존재 O -->
+                                                <td>
+                                                    <a href="/board/15/${boardList[i].boardNo}">${boardList[i].boardTitle}</a>
+                                                </td>
+                                                <td>
+                                                    <c:choose>
+                                                        <c:when test="${boardList[i].boardUpdateDate != null}">
+                                                            ${boardList[i].boardUpdateDate}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${boardList[i].boardCreateDate}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </td>
+                                            </tr>
                                     </c:forEach>
                                 </c:otherwise>
                             </c:choose>
