@@ -42,8 +42,7 @@ header{
 .content-suround-section{
     min-height: 500px;
     margin: 70px 0px 0 0;
-    /* width: 75%; */
-    width: 100%;
+    width: 75%;
 }
 
 /* 제목 */
@@ -83,7 +82,9 @@ header{
 /* 예약 페이지 */
 .reservation-container{
     background-color: #80afe1;
-    padding:5px 10px 5px 20px
+    padding:5px 10px 5px 20px;
+    display: flex;
+    align-items: center;
 }
 
 .seat{
@@ -92,11 +93,14 @@ header{
     border: 0;
     height: 40px;
     width: 170px;
-    margin-left: 247px;
     padding:5px 10px 5px 10px;
     color :white;
-
+    margin-left: auto;
     cursor: pointer;
+}
+
+.seat:hover{
+    text-decoration: underline;
 }
 
 .seminar{
@@ -105,15 +109,16 @@ header{
     border: 0;
     height: 40px;
     width: 170px;
-    margin-left: 231px;
+    margin-left: auto;
     padding:5px 10px 5px 10px;
     color :white;
     
     cursor: pointer;
 }
 
-
-
+.seminar:hover{
+    text-decoration: underline;
+}
 
 
 /* footer 영역 */

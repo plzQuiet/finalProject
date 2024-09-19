@@ -4,7 +4,7 @@
 }
 
 form[name="signUp-form"]{
-    border: 1px solid black;
+    border: 2px solid #8FB788;
     margin-top: 40px;
     padding: 20px;
     border-radius: 10px;
@@ -15,36 +15,33 @@ form[name="signUp-form"] > label{
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .signUp-input-area{
     width: 500px;
     height: 50px;
     margin-bottom: 10px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    border-bottom: 2px solid #8FB788;
+    /* border-radius: 10px; */
 
     display: flex;
     align-items: center;
 }
-
-.signUp-input-area:focus-within{
-    border: 2px solid #888;
-}
-
 
 form[name="signUp-form"] input{
     width: 80%;
     height: 100%;
 
     font-size: 16px;
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 10px 15px ;
 
     border-radius: 10px 0 0 10px;
 
     border: 0;
-    outline: 0;
+    /* outline: 0; */
+    outline: none;
 }
 
 form[name="signUp-form"] input[type="radio"]{
@@ -68,11 +65,18 @@ form[name="signUp-form"] input[type="radio"]{
 .signUp-input-area>button{
     width: 20%;
     height: 70%;
-    background-color: white;
-    border: 1px solid gray;
+    background-color: #8FB788;
+    color: white;
+    border: none;
     cursor: pointer;
     margin-right: 10px;
-    border-radius: 10px;
+    font-size: 14px;
+}
+
+.signUp-input-area>button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid #8FB788;
 }
 
 .signUp-message{
@@ -82,23 +86,39 @@ form[name="signUp-form"] input[type="radio"]{
 }
 
 #sendAuthKeyBtn, #checkAuthKeyBtn{
-    background-color: #D9D9D9;
-    font-weight: bold;
+    background-color: #8FB788;
+    /* font-weight: bold; */
+    color: white;
+    border: none;
+}
+
+#sendAuthKeyBtn:hover, #checkAuthKeyBtn:hover{
+    /* color: black; */
+    color: #555;
+    background-color: white;
+    border: 1px solid #8FB788;
 }
 
 #signUp-btn{
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 30px 0;
 
-    border: 0;
-    border-radius: 30px;
+    border: 1px solid #8FB788;
+    border-radius: 5px;
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #0054B4;
+    /* background-color: #008C1D; */
+    background-color: #8FB788;
     color: white;
     cursor: pointer;
+}
+
+#signUp-btn:hover{
+    background-color: white;
+    color:#555;
+    border: 1px solid #8FB788;
 }
 
 .required{

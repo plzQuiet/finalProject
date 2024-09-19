@@ -5,11 +5,26 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Binggrae';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0; 
-    font-family: 'HancomMalangMalang-Regular';
+    /* font-family: 'HancomMalangMalang-Regular'; */
+    font-family: 'ELAND_Choice_M';
 }
 
 a{ 
