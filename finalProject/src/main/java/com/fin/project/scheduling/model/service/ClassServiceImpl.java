@@ -117,6 +117,11 @@ public class ClassServiceImpl implements ClassService{
 	    return boardNo;
 	}
 	
+	
+	
+	
+	
+	
 	// 클래스 삭제
 	@Override
 	@Transactional(rollbackFor=Exception.class)

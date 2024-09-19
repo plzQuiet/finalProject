@@ -74,7 +74,7 @@ function applyModal() {
     // 확인 버튼 클릭 시 서버에 POST 요청
     document.getElementById('confirm_btn')?.addEventListener('click', () => {
         fetch(applyUrl, {
-            method: 'POST', // POST 메서드 사용
+            method: "POST", // POST 메서드 사용
             headers: {
                 "Content-Type": "application/json" // JSON 데이터로 설정
             },
