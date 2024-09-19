@@ -1,14 +1,31 @@
 package com.fin.project.main.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fin.project.board.model.service.BoardService;
+
 @Controller
 public class MainController {
+	
+	@Autowired
+	private BoardService service;
 
 	@RequestMapping("/")
-	public String mainForward() {
+	public String mainForward(Model model) {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("cateCode", 15);
+		
+		Map<String, Object> map = service.selectBoardList(paramMap, 1);
+		model.addAttribute("map", map);
+		
 		return "common/main";
 	}
 		
@@ -39,27 +56,6 @@ public class MainController {
 		return "search/searchBook";
 	}
 
-	
-	@GetMapping("/notice")
-	public String noticeListForword() {
-		return "board/noticeList";
-	}
-	
-	@GetMapping("/qna")
-	public String qnaListForword() {
-		return "board/qnaList";
-	}
-	
-	@GetMapping("/faq")
-	public String faqForword() {
-		return "board/faq";
-	}
-
-	@GetMapping("/review")
-	public String reviewListForword() {
-		return "board/reviewList";
-	}
-	
 
 	@GetMapping("/bookRequest")
 	public String bookRequestForward() {

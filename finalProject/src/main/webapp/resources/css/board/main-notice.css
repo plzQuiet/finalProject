@@ -6,20 +6,11 @@
     height: 300px;
 }
 
-
-/* .main-notice-area{
-    border-radius: 5px;
-    float: right;
-    width: 500px;
-} */
-
 .notice-title{
     display: flex;
     justify-content: space-between;
-    /* justify-content: space-between; */
 
-    /* width: 100%; */
-    padding: 16px 20px;
+    padding: 10px 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -29,7 +20,7 @@
 
 .notice-title span{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 
@@ -42,8 +33,20 @@
     text-decoration: underline;
 }
 
-.notice-content{
+#gotoNotice i:hover{
+    text-decoration: underline;
+}
+
+.list-table{
     padding: 10px;
+    width: 100%;
+}
+
+
+
+.list-table td:last-child{
+    width: 80px;
+    font-size: 15px;
 }
 
 

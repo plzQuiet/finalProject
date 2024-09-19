@@ -114,11 +114,11 @@ commentAdd.addEventListener("click", e=>{
     }) 
     .then(resp => resp.text())
     .then(result => {
-
+        console.log(result)
         if(result > 0){
             alert("댓글이 등록되었습니다.");
             commentContent.value = "";
-            selectCommentList();
+            window.location.reload();
 
         }else{
             alert("댓글 등록에 실패했습니다. 다시 작성해주세요.");
@@ -143,10 +143,7 @@ function showUpdateComment(commentNo, btn){
             temp[0].parentElement.innerHTML = beforeCommentRow;
         }
 
-    }else{
-        return;
     }
-
     const commentRow = btn.parentElement.parentElement; 
 
     beforeCommentRow = commentRow.innerHTML;
@@ -186,14 +183,6 @@ function showUpdateComment(commentNo, btn){
     commentRow.append(commentBtnArea);
 }
 
-// 댓글 수정 취소
-function updateCancel(btn){
-
-    if(confirm("댓글 수정을 취소하시겠습니까?")){
-
-        btn.parentElement.parentElement.innerHTML = beforeCommentRow;
-    }
-}
 
 // 댓글 수정(AJAX)
 function updateComment(commentNo, btn){
@@ -211,6 +200,7 @@ function updateComment(commentNo, btn){
     .then(resp => resp.text())
     .then(result => {
 
+        console.log(result)
         if(result > 0){
             alert("댓글이 수정되었습니다.");
             selectCommentList();
@@ -222,6 +212,18 @@ function updateComment(commentNo, btn){
     .catch(e => console.log(e));
 
 }
+
+
+// 댓글 수정 취소
+function updateCancel(btn){
+
+    if(confirm("댓글 수정을 취소하시겠습니까?")){
+
+        btn.parentElement.parentElement.innerHTML = beforeCommentRow;
+    }
+}
+
+
 
 // 댓글 삭제
 function deleteComment(commentNo){
@@ -238,7 +240,7 @@ function deleteComment(commentNo){
 
             if(result  > 0){
                 alert("댓글이 삭제되었습니다.");
-                selectCommentList();
+                window.location.reload();
             
             }else {
                 alert("댓글 삭제에 실패했습니다.");

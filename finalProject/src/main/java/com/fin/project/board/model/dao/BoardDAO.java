@@ -45,6 +45,11 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.selectBoardList", cateCode, rowbounds);
 	}
 
+	/** 
+	 * @param search
+	 * @param pagination
+	 * @return
+	 */
 	public List<Board> searchBoardList(Map<String, Object> search, Pagination pagination) {
 
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();

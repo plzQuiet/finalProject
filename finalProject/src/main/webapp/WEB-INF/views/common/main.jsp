@@ -26,8 +26,7 @@
 	        <jsp:include page="/WEB-INF/views/food/mainFood.jsp"/>
 	        
 	        <!-- 공지사항 -->
-	        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />
-	        
+	        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />  
         
         </div>
         
