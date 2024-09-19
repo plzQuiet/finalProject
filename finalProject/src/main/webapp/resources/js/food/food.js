@@ -374,21 +374,23 @@ $('#menu-update-btn').on("click", ()=>{
 									</div>
 									<hr>
 									<div class="menu-update-area">
-										<table>
-											<thead>
-												<tr>
-													<td>월</td>
-													<td>화</td>
-													<td>수</td>
-													<td>목</td>
-													<td>금</td>
-													<td>토</td>
-													<td>일</td>
-												</tr>
-											</thead>
-											<tbody>
-											</tbody>	
-										</table>
+										<div class="food-table-area">
+											<table>
+												<thead>
+													<tr>
+														<td>월</td>
+														<td>화</td>
+														<td>수</td>
+														<td>목</td>
+														<td>금</td>
+														<td>토</td>
+														<td>일</td>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>	
+											</table>
+										</div>
 									</div>
 									<div class="popup_btn">
 										<button type="submit" id="confirm_btn" class="menu_update">수정</button>
@@ -425,22 +427,23 @@ const menuUpdateArea= document.getElementsByClassName('menu-update-area');
 
 function mealFoodFrm(){
 	menuUpdateArea[0].innerHTML = `
-									<table>
-										<thead>
-											<tr>
-												<td>월</td>
-												<td>화</td>
-												<td>수</td>
-												<td>목</td>
-												<td>금</td>
-												<td>토</td>
-												<td>일</td>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>	
-									</table>
-									
+									<div class="food-table-area">
+										<table>
+											<thead>
+												<tr>
+													<td>월</td>
+													<td>화</td>
+													<td>수</td>
+													<td>목</td>
+													<td>금</td>
+													<td>토</td>
+													<td>일</td>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>	
+										</table>
+									</div>
 								`;
 
 	tbody = document.querySelector("tbody");
