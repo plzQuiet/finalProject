@@ -16,6 +16,8 @@
 
     position: relative;
     border-bottom: 1px solid #d4d4d4;
+    background-color: #0054b4;
+    color: white;
 }
 
 .notice-title span{
@@ -35,11 +37,23 @@
 
 #gotoNotice i:hover{
     text-decoration: underline;
+    color: white;
+}
+
+#gotoNotice i{
+    color: white;
+}
+
+
+.list-wrapper{
+    height: 261px;
 }
 
 .list-table{
     padding: 10px;
     width: 100%;
+    height: 100%;
+    border-collapse: collapse;
 }
 
 
@@ -47,7 +61,21 @@
 .list-table td:last-child{
     width: 80px;
     font-size: 15px;
+    padding-right: 10px;
 }
 
 
 
+.list-table .br-bt{
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.list-table tr>td:first-child{
+    padding-left: 15px;
+    width: 80%;
+}
+
+.list-table tr>td:first-child a:hover{
+    color: #0054b4; 
+    text-decoration: underline;  
+}
