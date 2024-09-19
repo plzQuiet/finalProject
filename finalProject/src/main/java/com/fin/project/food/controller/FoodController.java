@@ -2,7 +2,6 @@ package com.fin.project.food.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -87,9 +86,10 @@ public class FoodController {
 	
 
 	@PostMapping("/food/updateSnack")
-	public String updateSnackMenu(@RequestParam("menuImage") MultipartFile menuImage
+	public String updateSnackMenu(@RequestParam(value = "menuImage", required = false) MultipartFile menuImage
 								, @RequestParam("menuName") String menuName
 								, @RequestParam("menuNo") int menuNo
+	                            , @RequestParam(value = "existingImage", required = false) String existingImage // 기존 이미지 받기
 								, HttpSession session
 								, RedirectAttributes ra
 								)throws IllegalStateException, IOException {
@@ -103,6 +103,7 @@ public class FoodController {
 		
 		food.setFoodNo(menuNo);
 		food.setFoodName(menuName);
+		food.setFoodImg(existingImage);
 		
 		int result =service.updateSnackMenu(food, menuImage, webPath, filePath);
 		
