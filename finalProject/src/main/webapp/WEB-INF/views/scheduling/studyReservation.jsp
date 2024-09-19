@@ -12,6 +12,16 @@
 
     <link rel="stylesheet" href="/resources/css/scheduling/study-reservation.css">
     <link rel="stylesheet" href="/resources/css/scheduling/reservModal.css">
+    <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
+
+    <script>
+        (() => {
+            var link = document.createElement('link');
+            link.rel = "shortcut icon";
+            link.href = "/resources/images/logo.png";
+            document.head.appendChild(link);
+        })();
+    </script>
 
 </head>
 
@@ -20,323 +30,74 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="/">
                         <img src="/resources/images/logo.png" alt="로고" id="homeLogo">
                         <span>도서관 예약 시스템</span>
                     </a>
                 </li>
 
-                <li><a href="1"><span>열람실</span></a><a>&nbsp;|&nbsp;</a><a href="2"><span>세미나실</span></a></li>
+                <li><a href="/reservation/study"><span>열람실</span></a><a>&nbsp;|&nbsp;</a><a href="/reservation/seminar"><span>세미나실</span></a></li>
             </ul>
+
+            <div class="header-top-menu">
+                <c:choose>
+                    <c:when test="${empty loginMember}">
+                        <!-- 로그인 X -->
+                        <a href="/member/login">로그인</a> | <a href="/member/signUp">회원가입</a>
+                    </c:when>
+            
+                    <c:otherwise>
+                        <!-- 로그인 O -->
+                        <label for="headerMenuToggle"> ${loginMember.memberName}
+                            <i class="fa-solid fa-caret-down"></i>
+                        </label>
+            
+                        <input type="checkbox" id="headerMenuToggle">
+            
+                        <div class="header-menu">
+                            <a href="/myPage/info">내 서재</a>
+                            <a href="/member/logout">로그아웃</a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </div>
         </nav>
     </header>
 
     <section class="main-content-suround-section">
-        <form action="#">
-
-
+        <div id="reservationForm">
             <section class="content-suround-section">
                 <div><span>열람실</span></div>
+                ${paramMap}
+                ${seats}
                 <div>
                     <span>1. 예약 일자</span>
-                    <span><input type="date"></span>
+                    <input type="date" id="reservationDt" name="reservationDt" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>">
                 </div>
                 <div>
                     <span>2. 예약 시간</span>
-                    <span><input type="time"> ~ <input type="time"></span>
-                    <span><button>조회</button></span>
+                    <input type="time" id="startTime" name="startTime" step="3600" min="07:00" max="22:00">
+                    ~ 
+                    <input type="time" id="endTime" name="endTime" step="3600" min="07:00" max="23:00">
+                    <button onclick="updateSeats()">조회</button>
                 </div>
                 <div>
                     <span>3. 예약 좌석 </span>
                     <span id="ment">예약할 좌석을 선택해 주세요.</span>
                     <span>seat(--)</span>
-                    <span><button onclick="reservSeatModal()">예약</button></span>
+                    <span><button onclick="bookSeat()">예약</button></span>
                 </div>
             </section>
 
-            <section class="seat-status-section">
-
-                <table>
-                    <tr>
-                        <th>열람실</th>
-                        <th>전제좌석</th>
-                        <th>사용좌석</th>
-                        <th>잔여좌석</th>
-                    </tr>
-                    <tr>
-                        <td>4층</td>
-                        <td>32</td>
-                        <td>12</td>
-                        <td>20</td>
-                    </tr>
-                </table>
+            <section class="seat-select-section" id="seatSection">
+                <!-- 좌석 정보가 AJAX를 통해 동적으로 로드됩니다. -->
+              
 
 
-                <table>
-                    <tr>
-                        <th id="selected-no">좌석번호</th>
-                        <th>좌석번호</th>
-                    </tr>
-                    <tr>
-                        <td id="selected-seat">사용중</td>
-                        <td>사용가능</td>
-                    </tr>
-                </table>
-
-
-
+  
+                <div class="empty-space"></div> <!-- 오른쪽 하단 빈 공간 -->
             </section>
-
-            <section class="seat-select-section">
-
-                <div class="seat-group">
-                    <table class="private">
-                        <tr>
-                            <th>1</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>2</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>3</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>4</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <th>5</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>6</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>7</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>8</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="seat-group">
-                    <table>
-                        <tr>
-                            <th>9</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>10</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>11</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>12</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <th>13</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>14</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>15</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>16</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="seat-group">
-                    <table>
-                        <tr>
-                            <th>17</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>18</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>19</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>20</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <th>21</th>
-                        </tr>
-
-                        <tr>
-                            <td>사용중</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>22</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>23</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-
-                    <table>
-                        <tr>
-                            <th>24</th>
-                        </tr>
-
-                        <tr>
-                            <td>공 석</td>
-                        </tr>
-                    </table>
-                </div>
-
-
-                <div class="empty-space"></div> <!-- 오른쪽 상단 빈 공간 -->
-
-            </section>
-        </form>
+        </div>
 
     </section>
 
@@ -344,61 +105,55 @@
         <article>
             <a href="#">개인정보처리방침</a>
             <span>|</span>
-            <a href="#"> 영상정보처리기 운영·관리방침 </a>
+            <a href="#">영상정보처리기 운영·관리방침</a>
         </article>
         <div>
             <img src="/resources/images/logo.png">
             <div>
-                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩) </p>
-                <p> 전화번호 : 1544-9970 </p>
-                <p> 이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
+                <p>서울특별시 강남구 테헤란로 14길 6 (남도빌딩)</p>
+                <p>전화번호 : 1544-9970</p>
+                <p>이용시간 : 화~금 07:00 ~ 23:00 / 토,일 07:00~21:00 / 월요일, 공휴일 휴관</p>
             </div>
             <img src="/resources/images/wa_logo.png">
         </div>
     </footer>
 
-    <!-- 알림창 모달-->
-    <div id="popup_layer">
+     <!-- 알림창 모달 -->
+     <div id="alert_modal" style="display: none;">
         <div class="popup_box">
             <div class="popup_header">
                 <p>다음과 같이 좌석이 선택되었습니다.</p>
             </div>
-
-            <!--팝업 컨텐츠 영역-->
-            <div class="popup_content">
+            <div class="popup_content" id="alert_content">
                 <p>해당 00좌석을 예약 하시겠습니까?</p>
             </div>
-            <!--팝업 버튼 영역-->
             <div class="popup_btn">
-                <button id="reserv_confirm_btn" onclick="seatImporModal()">확인</button>
+                <button id="confirm_btn">확인</button>
                 <button id="cancel_btn">취소</button>
             </div>
         </div>
     </div>
 
-    <!-- 예약정보 확인 모달-->
-    <div id="popup_layer">
+       <!-- 예약정보 확인 모달 -->
+    <div id="reservation_modal" style="display: none;">
         <div class="popup_box">
             <div class="popup_header">
                 <p>다음과 같이 예약되었습니다.</p>
             </div>
-
-            <!--팝업 컨텐츠 영역-->
-            <div class="popup_content">
+            <div class="popup_content" id="reservation_content">
                 <p>예약 좌석 : 00번</p>
                 <p>예약 일자 : 2024-09-09</p>
-                <p>예약 요일 : 0요일</p>
                 <p>예약 시간 : 09:00 ~ 12:00</p>
             </div>
-            <!--팝업 버튼 영역-->
             <div class="popup_btn">
-                <button id="reserv-history">예약이력</button>
+                <button id="reserv_history"><a href="/myLibrary/reserv">예약이력</a></button>
             </div>
         </div>
     </div>
 
-    <script src="/resources/js/scheduling/class-board.js"></script>
 
+
+    <script src="/resources/js/scheduling/study-reservation.js"></script>
 
 </body>
 

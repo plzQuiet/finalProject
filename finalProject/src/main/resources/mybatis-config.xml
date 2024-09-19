@@ -22,6 +22,7 @@
 		<typeAlias type="com.fin.project.intro.model.dto.Calendar" alias="Calendar"/>
 		<typeAlias type="com.fin.project.scheduling.model.dto.ClassSchedule" alias="Class"/>
 		<typeAlias type="com.fin.project.search.model.dto.Search" alias="Search"/>
+		<typeAlias type="com.fin.project.scheduling.model.dto.ReservationPlace" alias="Place"/>
 
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -38,5 +39,6 @@
 		<mapper resource="/mappers/search-mapper.xml"/>
 		<mapper resource="/mappers/comment-mapper.xml"/>
 		<mapper resource="/mappers/admin-mapper.xml"/>
+		<mapper resource="/mappers/reservation-mapper.xml"/>
 	</mappers>
 </configuration>

@@ -123,6 +123,17 @@ public class ClassDAO {
 		return sqlSession.insert("classMapper.applyClass", map);
 	}
 
+	/** 클래스 신청 중복 체크
+	 * @param map
+	 * @return
+	 */
+	public boolean checkApplyClass(Map<String, Object> map) {
+		
+		int count = sqlSession.selectOne("classMapper.checkApplyClass", map);
+		
+		return count>0; // count>0 : true, 아니면 false
+	}
+
 
 	
 

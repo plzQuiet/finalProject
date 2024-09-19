@@ -1,6 +1,5 @@
 package com.fin.project.scheduling.model.dto;
 
-import java.util.Date;
 import java.util.List;
 
 import lombok.Getter;
