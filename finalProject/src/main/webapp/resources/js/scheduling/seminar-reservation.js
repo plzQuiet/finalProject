@@ -122,6 +122,7 @@ function renderTimeSlots(date) {
 
 // 예약 확인 버튼 클릭 시
 confirmBtn.addEventListener("click", function() {
+
     // 서버로 예약 요청 전송
     fetch('/reservation/seminar/book', {
         method: "POST",
@@ -131,17 +132,28 @@ confirmBtn.addEventListener("click", function() {
             startTime: selectedSlots[0], 
             endTime: selectedSlots[selectedSlots.length - 1],
             memberNo: loginMemberNo,
-            seatNo: 0 
+            seatNo: "null"
         })
     })
     .then(response => response.json())
     .then(data => {
         if (data.status === "success") {
+
+             // 30분 더한 종료 시간을 계산
+             let endTime = selectedSlots[selectedSlots.length - 1];
+             let endTimeDate = new Date(`${selectDate}T${endTime}`); // endTime을 Date 객체로 변환
+             endTimeDate.setMinutes(endTimeDate.getMinutes() + 30); // 30분 추가
+             
+             // 시간을 'HH:MM' 형식으로 변환
+             let hours = endTimeDate.getHours().toString().padStart(2, '0');
+             let minutes = endTimeDate.getMinutes().toString().padStart(2, '0');
+             let formattedEndTime = `${hours}:${minutes}`;
+
             // 예약 정보 모달 표시
             document.getElementById("reservation_content").innerHTML = `
                 <p>세미나실</p>
                 <p>예약 일자 : ${selectDate}</p>
-                <p>예약 시간 : ${selectedSlots.join(' ~ ')}</p>
+                <p>예약 시간 : ${selectedSlots[0]} ~ ${formattedEndTime} </p>
                 <p>* 세미나실의 위치는 시설안내를 통해 확인하세요</p>
             `;
             reservationModal.style.display = 'block';
@@ -163,7 +175,7 @@ cancelBtn.addEventListener("click", function() {
 
 reservHistoryBtn.addEventListener("click", function() {
     // 예약 이력 페이지로 이동
-    window.location.href = "/myLibrary/reserv";
+    window.location.href = "/myLibrary/reserv?m=2";
 });
 
 

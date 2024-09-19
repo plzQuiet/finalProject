@@ -27,8 +27,8 @@
             <!-- 사이드 메뉴 -->
             <div class="category">참여 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="/scheduling/12" class="current">교육문화 프로그램</a></li>
-                <li class="side1"><a href="/scheduling/13">열람실</a></li>
+                <li class="side1"> <a href="/scheduling/12" >교육문화 프로그램</a></li>
+                <li class="side-current"><a href="/scheduling/13" class="side-current-a">열람실</a></li>
                 <li class="side2"><a href="/scheduling/14">세미나실</a></li>
             </ul>
 
@@ -57,7 +57,7 @@
             </ul>
             <div class="reservation-container">
                 열람실 좌석현황을 확인하시려면 버튼을 누르세요.
-                <button class="seat"><a href="/reservation/study">좌석현황 확인</a></button>
+                <button class="seat" id="seat">좌석현황 확인</button>
             </div>
             <br>
 
@@ -79,6 +79,11 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script>
+        const loginMemberNo ="${loginMember.memberNo}";
+    </script>
+
+    <script src="/resources/js/scheduling/study.js"></script>
 
 </body>
 
