@@ -370,9 +370,6 @@ $('#menu-update-btn').on("click", ()=>{
 										<div class="menu-type-btn-area">
 											<input type="radio" id="foodType0" name="foodType" value="0" checked/>
 											<label for="foodType0" class="transition">백반</label>
-
-											<input type="radio" id="foodType1" name="foodType" value="1" />
-											<label for="foodType1" class="transition">분식</label>
 										</div>
 									</div>
 									<hr>
@@ -413,8 +410,6 @@ $('#menu-update-btn').on("click", ()=>{
 			if(checked){
 				mealFoodFrm();
 
-			}else{
-				snackFoodFrm();
 			}
 		});
 	});
@@ -422,8 +417,6 @@ $('#menu-update-btn').on("click", ()=>{
 	$("input:radio[name=foodType]").on("change", () => {
 		if($("input:radio[name=foodType]:checked").val()=='0'){
 			mealFoodFrm();
-		}else{
-			snackFoodFrm()
 		}
 	});
 })
@@ -486,37 +479,6 @@ function mealFoodFrm(){
 	.catch(err=> console.log(err))
 }
 
-function snackFoodFrm(){
-	menuUpdateArea[0].innerHTML = `<div class="menu-add-area">
-										<div class="menu-name-area">
-											<p>이름 :</p>
-											<input type="text" name="menuName"  id="menuName"/>
-										</div>
-										<div class="image-area">
-											<p>이미지 :</p>
-											<div class="left-image-area">
-												<label for="menuImage"> 
-													<img class="preview">
-												</label> 
-												<i class="fa-solid fa-xmark" id="delete-image-btn"></i>
-												<input type="file" class="inputImage" id="menuImage" accept="image/*" name="menuImage"> 
-											</div>
-
-											<div class="right-image-area">
-<pre>
-- 이미지 등록 
-(권장사이즈 : 가로 200px X 세로 150px 혹은 4 : 3 비율)
-- 파일양식 : jpg, jpeg, png(8MB 제한)
-</pre>
-												<div class="image-btn">
-													<button type="button" id="image-add-btn">사진등록</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-								`;
-}
 
 /* 백반... */
 function updateMenu(no){
@@ -587,6 +549,7 @@ document.querySelectorAll('#snack-update-btn').forEach(button => {
 									<form action="/food/updateSnack" method="POST" enctype="multipart/form-data" name="menuUpdateFrm" id="menuAddFrm">
 										<input type="hidden" name="menuNo" value="${foodNo}"/>
 										<input type="hidden" name="existingImage" value="${foodImage}"/>
+
 										<div class="menu-add-area">
 											<div class="menu-name-area">
 												<p>이름 :</p>
