@@ -27,8 +27,8 @@ public class FoodController {
 
 	@Autowired
 	private FoodService service;
-	
-	// 메뉴 삽입 컨트롤러
+
+	// 메뉴 select 
 	@GetMapping("/food")
 	public String selectFood(Model model) {		
 		

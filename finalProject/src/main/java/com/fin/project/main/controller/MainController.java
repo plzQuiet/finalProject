@@ -1,6 +1,7 @@
 package com.fin.project.main.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fin.project.board.model.service.BoardService;
+import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.service.FoodService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private FoodService service2;
 
 	@RequestMapping("/")
 	public String mainForward(Model model) {
@@ -25,6 +31,9 @@ public class MainController {
 		
 		Map<String, Object> map = service.selectBoardList(paramMap, 1);
 		model.addAttribute("map", map);
+
+		List<Food> foodList = service2.selectFoodList();
+		model.addAttribute("foodList", foodList);
 		
 		return "common/main";
 	}

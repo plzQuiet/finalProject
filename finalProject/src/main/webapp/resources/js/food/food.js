@@ -359,69 +359,71 @@ function agreeDel(){
 /* *************************************************************************** */
 /* 메뉴 수정 */
 /* 백반 */
-$('#menu-update-btn').on("click", ()=>{
-	popupBox.classList.add("menu-add-popupBox");
-	popUpLayer.style.display = 'block';
-	popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
-	popUpContent[0].innerHTML = `
-								<form action="/food/insert" method="POST" enctype="multipart/form-data" name="menuUpdateFrm" id="menuUpdateFrm">
-									<div class="menu-type-area">
-										<p>식사종류 : </p>
-										<div class="menu-type-btn-area">
-											<input type="radio" id="foodType0" name="foodType" value="0" checked/>
-											<label for="foodType0" class="transition">백반</label>
+if(menuUpdateBtn != null){
+	$('#menu-update-btn').on("click", ()=>{
+		popupBox.classList.add("menu-add-popupBox");
+		popUpLayer.style.display = 'block';
+		popUpHeader[0].innerHTML= "<p>메뉴 수정</p>"
+		popUpContent[0].innerHTML = `
+									<form action="/food/insert" method="POST" enctype="multipart/form-data" name="menuUpdateFrm" id="menuUpdateFrm">
+										<div class="menu-type-area">
+											<p>식사종류 : </p>
+											<div class="menu-type-btn-area">
+												<input type="radio" id="foodType0" name="foodType" value="0" checked/>
+												<label for="foodType0" class="transition">백반</label>
+											</div>
 										</div>
-									</div>
-									<hr>
-									<div class="menu-update-area">
-										<div class="food-table-area">
-											<table>
-												<thead>
-													<tr>
-														<td>월</td>
-														<td>화</td>
-														<td>수</td>
-														<td>목</td>
-														<td>금</td>
-														<td>토</td>
-														<td>일</td>
-													</tr>
-												</thead>
-												<tbody>
-												</tbody>	
-											</table>
+										<hr>
+										<div class="menu-update-area">
+											<div class="food-table-area">
+												<table>
+													<thead>
+														<tr>
+															<td>월</td>
+															<td>화</td>
+															<td>수</td>
+															<td>목</td>
+															<td>금</td>
+															<td>토</td>
+															<td>일</td>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>	
+												</table>
+											</div>
 										</div>
-									</div>
-									<div class="popup_btn">
-										<button type="submit" id="confirm_btn" class="menu_update">수정</button>
-										<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
-									</div>
-								</form>
-								`
+										<div class="popup_btn">
+											<button type="submit" id="confirm_btn" class="menu_update">수정</button>
+											<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+										</div>
+									</form>
+									`
 
-	mealFoodFrm();
-	popupBox.classList.add("menu-add-popupBox");
-	popUpLayer.style.display = 'block';
+		mealFoodFrm();
+		popupBox.classList.add("menu-add-popupBox");
+		popUpLayer.style.display = 'block';
 
-	/* Checkbox change event */
-	$('input[name="foodType"]').change(function() {
-		// 모든 radio를 순회한다.
-		$('input[name="foodType"]').each(function() {
-			var checked = $(this).prop('checked');  // jQuery 1.6 이상 (jQuery 1.6 미만에는 prop()가 없음, checked, selected, disabled는 꼭 prop()를 써야함)
+		/* Checkbox change event */
+		$('input[name="foodType"]').change(function() {
+			// 모든 radio를 순회한다.
+			$('input[name="foodType"]').each(function() {
+				var checked = $(this).prop('checked');  // jQuery 1.6 이상 (jQuery 1.6 미만에는 prop()가 없음, checked, selected, disabled는 꼭 prop()를 써야함)
 
-			if(checked){
+				if(checked){
+					mealFoodFrm();
+
+				}
+			});
+		});
+
+		$("input:radio[name=foodType]").on("change", () => {
+			if($("input:radio[name=foodType]:checked").val()=='0'){
 				mealFoodFrm();
-
 			}
 		});
-	});
-
-	$("input:radio[name=foodType]").on("change", () => {
-		if($("input:radio[name=foodType]:checked").val()=='0'){
-			mealFoodFrm();
-		}
-	});
-})
+	})
+}
 
 const menuUpdateArea= document.getElementsByClassName('menu-update-area');
 
