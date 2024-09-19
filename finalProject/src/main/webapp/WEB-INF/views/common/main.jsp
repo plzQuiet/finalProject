@@ -12,23 +12,28 @@
     <link rel="stylesheet" href="/resources/css/intro/main_cal_hour.css">
     <link rel="stylesheet" href="/resources/css/board/main-notice.css">
     <link rel="stylesheet" href="/resources/css/food/mainFood.css">
+    <link rel="stylesheet" href="/resources/css/member/mainLogin.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="main-page-suround-area-section">
 
+        <article class="main-class-login-area">
+            <div></div>
+            <jsp:include page="/WEB-INF/views/member/mainLogin.jsp"/>
+        </article>
         <%-- 이용시간 및 달력 --%>
         <jsp:include page="/WEB-INF/views/intro/main_cal_hours.jsp"/>
         
-        <div class="main-food-notice-area">
+        <article class="main-food-notice-area">
 	        <%-- 오늘의 메뉴 --%>
 	        <jsp:include page="/WEB-INF/views/food/mainFood.jsp"/>
 	        
 	        <!-- 공지사항 -->
 	        <jsp:include page="/WEB-INF/views/board/main-notice.jsp" />  
         
-        </div>
+        </article>
         
 	</section>
 
