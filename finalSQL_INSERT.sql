@@ -387,12 +387,20 @@ INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 0, '오이', DEFAULT, DEFAULT, NULL
 -- 스낵 --
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '돈까스', DEFAULT, DEFAULT, '/resources/images/food/porkCutlet.png', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '순두부찌개', DEFAULT, DEFAULT, '/resources/images/food/20240917224828_02212.jpg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '게살버거', DEFAULT, DEFAULT, '/resources/images/food/20240917225648_64631.jpg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '찜닭', DEFAULT, DEFAULT, '/resources/images/food/20240917230123_22463.jpg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라볶이', DEFAULT, DEFAULT, '/resources/images/food/rabokki.jpeg', null);
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 1, '라면', DEFAULT, DEFAULT, '/resources/images/food/ramen.png', null);
 
 -- COFFEE
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아이스 아메리카노', 3500, DEFAULT, '/resources/images/food/iceAmericano.png', '아이스 아메리카노이다. 생명수이다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '아메리카노', 3500, DEFAULT, '/resources/images/food/hotAmericano.png', '뜨아거! 뜨거운 아메리카노이다. 뜨겁다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '자몽 허니 블랙티', 5700, DEFAULT, '/resources/images/food/jamongHoneyBlackTea.png', '자몽 허니 블랙티이다. 경진언니의 픽이다.');
 INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '라면 국물', 500, DEFAULT, '/resources/images/food/ramenSoup.png', '라면 국물입니다. 슬러시컵에 드려요. 면은 없습니다.');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '라떼', 4000, DEFAULT, '/resources/images/food/20240918110806_17193.jpg', '라떼 is horse...');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '딸기라떼', 6000, DEFAULT, '/resources/images/food/20240918124706_49739.png', '딸기라떼입니다. 딸기게임 아세요?🍓🍓');
+INSERT INTO FOOD VALUES(SEQ_FOOD_NO.NEXTVAL, 2, '구름라떼', 7500, DEFAULT, '/resources/images/food/20240918150204_10192.jpeg', '구름맛이 나요~! 왕!!하고 베어무세요!!!☁');
 commit;
 
 BEGIN
