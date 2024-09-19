@@ -150,7 +150,7 @@
                         
                         <c:otherwise>
                             <%-- 회원만 글쓰기 가능 --%>
-                            <c:if test="${!empty loginMember}">
+                            <c:if test="${loginMember.authority == 1}">
                                 <button id="writeBtn">글쓰기</button>
                             </c:if>
                         </c:otherwise>
@@ -182,10 +182,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
-                        <%-- <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li> --%>
+                  
 
                         <!-- 다음 목록 시작 페이지로 이동 : > -->
                         <li><a href="/board/${cateCode}?cp=${pagination.nextPage}${qs}">&gt;</a></li>

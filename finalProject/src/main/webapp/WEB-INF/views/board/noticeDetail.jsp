@@ -55,9 +55,16 @@
                 <!-- 작성자 / 작성일 / 조회수 -->
                 <div class="board-nav">
                     <div class="member-name">
-                        <span>${board.memberName}</span>
-                    </div>
-    
+                        <c:choose>
+                            <c:when test="${cateCode == 16}">
+                                ${fn:substring(board.memberName, 0,1)}*<c:if test="${fn:length(board.memberName) > 2}">${fn:substring(board.memberName, 2, fn:length(board.memberName))}</c:if>
+                            </c:when>
+                            <c:otherwise>
+                                ${board.memberName}
+                            </c:otherwise>
+                        </c:choose>
+                    </div> 
+
                     <div class="board-info">
                         <!-- 최초 작성일 -->
                         <p><span>작성일</span>&nbsp;${board.boardCreateDate}</p>
@@ -83,6 +90,7 @@
                             </div>
                         </c:forEach>
                     </div>
+                    <hr>
                 </c:if>
                 <!-- 게시글 내용 -->
                 <div class="board-content">${board.boardContent}</div> 
@@ -96,51 +104,9 @@
                     <!-- 목록으로 -->
                     <button id="listBtn">목록으로</button>
                 </div>
-<%-- "/board2/${cateCode}/${boardNo}/update?cp=${cp} --%>
             </section>
 
-            <!-- 게시글 작성 화면 -->
-            <!-- notice / bookreview 공통 -->
-            <%-- <form action="#" method="" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
-                <!-- 제목 -->
-                 <h1 class="board-title">
-                    <input type="text" name="boardTitle" placeholder="제목">
-                </h1>  --%>
-
-                <!-- 이미지 등록 영역 -->
-                <%-- <h5>이미지 등록</h5>
-                <div class="img-box">
-                    <div class="boardImg">
-                        <label for="img0">
-                            <img src="${img0}" class="preview">
-                        </label>
-                        <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
-                        <span class="delete-image">&times;</span>
-                    </div>
-    
-                    <div class="boardImg">
-                        <label for="img1">
-                            <img src="${img1}" class="preview">
-                        </label>
-                        <input type="file" name="images" class="inputImage" id="img1" accept="image/*">
-                        <span class="delete-image">&times;</span>
-                    </div>
-                </div> --%>
-
-                
-                <!-- 내용 -->
-                <!-- <div class="board-content">
-                    <textarea name="boardContent"></textarea>
-                </div> -->
-
-                <!-- 버튼 영역 -->
-                <%-- <div class="btn-area">
-                    <button>취소</button>
-                    <button type="submit" id="writeBtn">등록</button>
-                </div>
-
-            </form>  --%>
-
+      
             <!-- comment.jsp 연결 -->
             <c:if test="${cateCode == 16 || cateCode == 18}">
                 <jsp:include page="/WEB-INF/views/board/comment2.jsp"/>
