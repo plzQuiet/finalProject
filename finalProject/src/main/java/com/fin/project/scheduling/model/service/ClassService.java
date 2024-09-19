@@ -1,6 +1,7 @@
 package com.fin.project.scheduling.model.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -49,6 +50,17 @@ public interface ClassService {
 	 * @return
 	 */
 	int applyClass(Map<String, Object> map);
+
+	/**클래스 수정
+	 * @param classSchedule
+	 * @param image
+	 * @param webPath
+	 * @param filePath
+	 * @param deleteList
+	 * @return
+	 */
+	int classUpdate(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath,
+			String deleteList) throws IllegalStateException, IOException;
 
 	
 }

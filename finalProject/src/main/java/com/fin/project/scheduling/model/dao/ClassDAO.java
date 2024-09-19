@@ -133,6 +133,43 @@ public class ClassDAO {
 		
 		return count>0; // count>0 : true, 아니면 false
 	}
+	
+	
+	/** 클래스 수정(일정, 이미지 제외)
+	 * @param classSchedule
+	 * @return
+	 */
+	public int classUpdate(ClassSchedule classSchedule) {
+		
+		return sqlSession.update("classMapper.classUpdate",classSchedule);
+	}
+
+	/** 클래스'일정' 수정
+	 * @param classSchedule
+	 * @return
+	 */
+	public int updateClassSchedule(ClassSchedule classSchedule) {
+		
+		return sqlSession.update("classMapper.updateClassSchedule",classSchedule);
+	}
+
+	/** 클래스 '이미지' 삭제
+	 * @param deleteMap
+	 * @return
+	 */
+	public int imageDelete(Map<String, Object> deleteMap) {
+		
+		return sqlSession.delete("classMapper.imageDelete", deleteMap);
+	}
+
+	/** 클래스 '이미지' 수정
+	 * @param uploadImage
+	 * @return
+	 */
+	public int imageUpdate(BoardImage uploadImage) {
+		
+		return sqlSession.update("classMapper.imageUpdate", uploadImage);
+	}
 
 
 	
