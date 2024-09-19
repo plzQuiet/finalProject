@@ -120,6 +120,7 @@ input{
     background-color: white;
     cursor: pointer;
     color: #8FB788;
+    width: 10%;
 }
 
 
@@ -149,7 +150,7 @@ input{
 .list-table > thead{
     background-color: #8FB788;
     color: white;
-    border-top: solid 3px #008C1D;
+    /* border-top: solid 3px #008C1D; */
 
 }
 
@@ -185,7 +186,7 @@ input{
     justify-content: flex-end;
     align-items: center;
 
-    border-top: solid 3px #008C1D;
+    /* border-top: solid 3px #008C1D; */
     padding: 12px;
 }
 
@@ -217,18 +218,24 @@ input{
     width: 24px;
     margin: 0 5px;
     text-align: center;
+    cursor: pointer;
+}
+
+.pagination > li:hover{
+    width: 24px;
+    margin: 0 5px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .pagination a{
     display: block;
-    /* width: 100%; */
-    /* height: 100%; */
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-.currentPage{
+.current{
     background-color: #8FB788;
     border-radius: 30%;
     color: white !important;
