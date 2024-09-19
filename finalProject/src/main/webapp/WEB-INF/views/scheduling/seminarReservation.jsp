@@ -10,7 +10,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>도서관 예약 시스템</title>
     <link rel="stylesheet" href="/resources/css/scheduling/seminar-reservation.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/reservModal.css">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+    <script src="https://kit.fontawesome.com/f4e088b372.js" crossorigin="anonymous"></script>
+
+    <script>
+        (() => {
+            var link = document.createElement('link');
+            link.rel = "shortcut icon";
+            link.href = "/resources/images/logo.png";
+            document.head.appendChild(link);
+        })();
+    </script>
 </head>
 
 <body>
@@ -18,13 +30,36 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="/">
                         <img src="/resources/images/logo.png" alt="로고" id="homeLogo">
                         <span>도서관 예약 시스템</span>
                     </a>
                 </li>
-                <li><a href="#"><span>열람실</span></a><a>&nbsp;|&nbsp;</a><a href="#"><span>세미나실</span></a></li>
+                <li><a href="/reservation/study"><span>열람실</span></a><a>&nbsp;|&nbsp;</a><a href="/reservation/seminar"><span>세미나실</span></a></li>
             </ul>
+
+            <div class="header-top-menu">
+                <c:choose>
+                    <c:when test="${empty loginMember}">
+                        <!-- 로그인 X -->
+                        <a href="/member/login">로그인</a> | <a href="/member/signUp">회원가입</a>
+                    </c:when>
+            
+                    <c:otherwise>
+                        <!-- 로그인 O -->
+                        <label for="headerMenuToggle"> ${loginMember.memberName}
+                            <i class="fa-solid fa-caret-down"></i>
+                        </label>
+            
+                        <input type="checkbox" id="headerMenuToggle">
+            
+                        <div class="header-menu">
+                            <a href="/myPage/info">내 서재</a>
+                            <a href="/member/logout">로그아웃</a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </div>
         </nav>
     </header>
 
@@ -77,6 +112,43 @@
         </div>
     </footer>
 
+         <!-- 알림창 모달 -->
+         <div id="alert_modal" style="display: none;">
+            <div class="popup_box">
+                <div class="popup_header">
+                    <p>다음과 같이 세미나실이 선택되었습니다.</p>
+                </div>
+                <div class="popup_content" id="alert_content">
+                    <p>해당 일에 세미나실을 예약 하시겠습니까?</p>
+                </div>
+                <div class="popup_btn">
+                    <button id="confirm_btn">확인</button>
+                    <button id="cancel_btn">취소</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 예약정보 확인 모달 -->
+        <div id="reservation_modal" style="display: none;">
+            <div class="popup_box">
+                <div class="popup_header">
+                    <p>다음과 같이 예약되었습니다.</p>
+                </div>
+                <div class="popup_content" id="reservation_content">
+                    <p>세미나실</p>
+                    <p>예약 일자 : 2024-09-09</p>
+                    <p>예약 시간 : 09:00 ~ 12:00</p>
+                    <p>* 세미나실의 위치는 시설안내를 통해 확인하세요</p>
+                </div>
+                <div class="popup_btn">
+                    <button id="reserv_history"><a href="/myLibrary/reserv">예약이력</a></button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const loginMemberNo ="${loginMember.memberNo}";
+        </script>
 
     <script src="/resources/js/scheduling/seminar-reservation.js"></script>
 </body>

@@ -49,8 +49,8 @@ public class BoardController {
 	// 공지사항, 문의사항, 책 후기 나눠요
 	@GetMapping("/{cateCode:15|16|18}")
 	public String selectBoardList(@PathVariable("cateCode") int cateCode,
-			 					@RequestParam(value="query", required=false) String query,
-			 						@RequestParam(value="keyword", required=false) String keyword,
+			 					  @RequestParam(value="query", required=false) String query,
+			 					  @RequestParam(value="keyword", required=false) String keyword,
 								  @RequestParam(value="cp", required=false, defaultValue = "1") int cp,
 								  Model model,
 								  @RequestParam Map<String, Object> paramMap

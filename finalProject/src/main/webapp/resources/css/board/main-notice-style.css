@@ -1,26 +1,26 @@
-.main-notice-section{
-    border: 1px solid #d4d4d4;
+.main-notice-area{
+    border: 2px solid #d4d4d4;
     border-radius: 5px;
-    float: right;
-    width: 497px;
-    height: 300px;
 }
 
 .notice-title{
     display: flex;
     justify-content: space-between;
+    /* justify-content: space-between; */
 
+    /* width: 100%; */
     padding: 10px 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
+    /* color: white; */
+    /* font-weight: bold; */
     position: relative;
     border-bottom: 1px solid #d4d4d4;
 }
 
 .notice-title span{
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 
@@ -31,22 +31,6 @@
 
 #gotoNotice a:hover{
     text-decoration: underline;
-}
-
-#gotoNotice i:hover{
-    text-decoration: underline;
-}
-
-.list-table{
-    padding: 10px;
-    width: 100%;
-}
-
-
-
-.list-table td:last-child{
-    width: 80px;
-    font-size: 15px;
 }
 
 

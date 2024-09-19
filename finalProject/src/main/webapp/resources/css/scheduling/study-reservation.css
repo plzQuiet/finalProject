@@ -34,10 +34,13 @@ header{
 }
 
 nav{
-    width: 1024px;
+    width: 1200px;
     height: 150px;
     display: flex;
     justify-content: center;
+    position: relative;
+    margin: auto;
+
 }
 
 header>nav>ul{
@@ -66,7 +69,66 @@ header>nav>ul>li>a{
     font-size: 20px;
     font-weight: 800;
 }
+
+/* 헤더 메뉴 */
+.header-top-menu{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.header-top-menu *{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 헤더 메뉴 체크박스 */
+#headerMenuToggle{ display: none;}
+
+/* 오른쪽 상단 닉네임 부분 */
+label[for='headerMenuToggle']{ cursor: pointer; color:white}
+label[for='headerMenuToggle']:hover{ text-decoration: underline;}
+
+/* 체크박스 다음 형제 요소 div */
+#headerMenuToggle + div{ display: none;}
+
+/* 체크된 #headerMenuToggle의 다음 형제 요소 div */
+#headerMenuToggle:checked + div{ display: block;}
+
+/* 닉네임 클릭 시 보이는 메뉴 */
+.header-menu{
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    right: 0;
+    margin-top: 5px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.header-menu > a {
+    display: flex;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    color : black;
+    text-decoration : none;
+
+}
+
+.header-menu > a:first-child{
+    border-bottom: 1px solid black;
+}
+
+.header-menu > a:hover{
+    background-color: #80afe1;
+    color: white;
+}
+
 /* 예약 시스템 header 끝*/
+
+
+
 
 /* 내용 영역 */
 .main-content-suround-section{

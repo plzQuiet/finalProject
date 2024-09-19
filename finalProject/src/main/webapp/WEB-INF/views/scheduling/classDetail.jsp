@@ -26,9 +26,9 @@
             <!-- 사이드 메뉴 -->
             <div class="category">참여 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">교육문화 프로그램</a></li>
-                <li class="side1"><a href="#">열람실</a></li>
-                <li class="side2"><a href="#">세미나실</a></li>
+                <li class="side-current"> <a href="/scheduling/12" class="current">교육문화 프로그램</a></li>
+                <li class="side1"><a href="/scheduling/13">열람실</a></li>
+                <li class="side2"><a href="/scheduling/14">세미나실</a></li>
             </ul>
 
         </article>
@@ -123,10 +123,29 @@
         </div>
     </div>
 
+    
+    <!-- 신청 실패 모달 -->
+    <div id="applyModal" class="modal" style="display: none;">
+        <div class="modal_box">
+            <div class="modal_header">
+                <p>교육문화 프로그램</p>
+            </div>
+
+            <div class="modal_content">
+                <p>이미 신청한 클래스입니다.</p>
+            </div>
+            <div class="modal_btn">
+                <button class="close_btn">확인</button>
+            </div>
+        </div>
+    </div>
+
+
     <script>
-        const boardNo = "${board.boardNo}";
+        const boardNo = "${classBoard.boardNo}";
         const loginMemberNo ="${loginMember.memberNo}";
         const cateCode = "${cateCode}";
+        const cp = "${cp}";
     </script>
 
 
