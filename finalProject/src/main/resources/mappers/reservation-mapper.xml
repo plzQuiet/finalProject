@@ -32,8 +32,8 @@
 	               FROM RESERVATION_PLACE RP
 	                WHERE RP.SEAT_NO = SEATS.SEAT_NO
 	                AND RP.RESERVATION_DT = TO_DATE(#{reservationDt}, 'YYYY-MM-DD')
-	                AND RP.START_TIME >= TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI')
-                	AND RP.START_TIME < TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+	               	AND RP.START_TIME < TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+             		AND RP.END_TIME > TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI')
 	            ) THEN '사용중'
 	            ELSE '공석'
 	        END AS SEAT_STATUS
@@ -61,18 +61,19 @@
    	<!-- 세미나실 예약 시간 슬롯 조회 -->
 	<select id="selectTimeSlots" resultType="map">
 	    SELECT TO_CHAR(START_TIME, 'HH24:MI') AS START_TIME,
-	           TO_CHAR(END_TIME, 'HH24:MI') AS END_TIME
+	           TO_CHAR(END_TIME - 1/24/2, 'HH24:MI') AS END_TIME 
 	    FROM RESERVATION_PLACE
 	    WHERE RESERVATION_DT = #{date}
+	    AND SEAT_NO IS NULL
 	</select>
 	
 	<!-- 세미나실 예약 -->
 	<insert id="insertSeminar" parameterType="Place">
         INSERT INTO RESERVATION_PLACE 
-        VALUES ( SEQ_RESERVATION_NO.NEXTVAL, #{memberNo}, 0, 
+        VALUES ( SEQ_RESERVATION_NO.NEXTVAL, #{memberNo}, NULL, 
         		TO_DATE(#{reservationDt}, 'YYYY-MM-DD'),
         		TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI'),
-        		TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+        		TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI') + 1/24/2
         		)
     </insert>
 

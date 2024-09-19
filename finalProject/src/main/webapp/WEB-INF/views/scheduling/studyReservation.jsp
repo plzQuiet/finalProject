@@ -68,25 +68,57 @@
         <div id="reservationForm">
             <section class="content-suround-section">
                 <div><span>열람실</span></div>
-                ${paramMap}
-                ${seats}
                 <div>
                     <span>1. 예약 일자</span>
                     <input type="date" id="reservationDt" name="reservationDt" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>">
                 </div>
                 <div>
                     <span>2. 예약 시간</span>
-                    <input type="time" id="startTime" name="startTime" step="3600" min="07:00" max="22:00">
+                    <input type="time" id="startTime" name="startTime" oninput="enforceTimeStep(this)">
                     ~ 
-                    <input type="time" id="endTime" name="endTime" step="3600" min="07:00" max="23:00">
+                    <input type="time" id="endTime" name="endTime" oninput="enforceTimeStep(this)" >
                     <button onclick="updateSeats()">조회</button>
                 </div>
                 <div>
                     <span>3. 예약 좌석 </span>
                     <span id="ment">예약할 좌석을 선택해 주세요.</span>
-                    <span>seat(--)</span>
+                    <span id="seatNo">seat(--)</span>
                     <span><button onclick="bookSeat()">예약</button></span>
                 </div>
+            </section>
+
+            
+            <section class="seat-status-section">
+
+                <table>
+                    <tr>
+                        <th>열람실</th>
+                        <th>전제좌석</th>
+                        <th>사용좌석</th>
+                        <th>잔여좌석</th>
+                    </tr>
+                    <tr>
+                        <td>4층</td>
+                        <td id="totalSeats">24</td>
+                        <td id="usedSeats">--</td>
+                        <td id="availableSeats">--</td>
+                    </tr>
+                </table>
+
+
+                <table>
+                    <tr>
+                        <th id="selected-no">좌석번호</th>
+                        <th>좌석번호</th>
+                    </tr>
+                    <tr>
+                        <td id="selected-seat">사용중</td>
+                        <td>공석</td>
+                    </tr>
+                </table>
+
+
+
             </section>
 
             <section class="seat-select-section" id="seatSection">
@@ -146,7 +178,7 @@
                 <p>예약 시간 : 09:00 ~ 12:00</p>
             </div>
             <div class="popup_btn">
-                <button id="reserv_history"><a href="/myLibrary/reserv">예약이력</a></button>
+                <button id="reserv_history">예약이력</a></button>
             </div>
         </div>
     </div>

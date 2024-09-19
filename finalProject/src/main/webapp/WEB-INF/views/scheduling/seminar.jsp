@@ -26,7 +26,7 @@
             <ul class="side-menu">
                 <li class="side"> <a href="/scheduling/12" >교육문화 프로그램</a></li>
                 <li class="side1"><a href="/scheduling/13">열람실</a></li>
-                <li class="side-current"><a href="/scheduling/14" class="current">세미나실</a></li>
+                <li class="side-current"><a href="/scheduling/14" class="side-current-a">세미나실</a></li>
             </ul>
 
         </article>
@@ -54,7 +54,7 @@
             </ul>
             <div class="reservation-container">
                 세미나실 좌석현황을 확인하시려면 버튼을 누르세요.
-                <button class="seminar"><a href="/reservation/seminar">세미나실 예약</a></button>
+                <button class="seminar" id="seminar">세미나실 예약</button>
             </div>
             <br>
 
@@ -76,6 +76,11 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+    <script>
+        const loginMemberNo ="${loginMember.memberNo}";
+    </script>
+
+    <script src="/resources/js/scheduling/seminar.js"></script>
 
 </body>
 
