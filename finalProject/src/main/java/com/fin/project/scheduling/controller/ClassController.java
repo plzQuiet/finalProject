@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,7 +58,8 @@ public class ClassController {
 	// 게시글 상세 조회
 	@GetMapping("/{cateCode}/{boardNo}")
 	public String classDetail(@PathVariable("cateCode") int cateCode, @PathVariable("boardNo") int boardNo, Model model,
-			@SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+			@SessionAttribute(value = "loginMember", required = false) Member loginMember,
+			 @RequestParam(value = "cp", defaultValue = "1") int cp) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("cateCode", cateCode);
@@ -66,7 +68,8 @@ public class ClassController {
 
 		// 게시글 상세 조회 서비스 호출
 		ClassSchedule classBoard = service.selectClass(map);
-
+		
+		model.addAttribute("cp", cp);
 		model.addAttribute("classBoard", classBoard);
 
 		return "scheduling/classDetail";
@@ -137,26 +140,35 @@ public class ClassController {
 		return path;
 	}
 	
-
 	// 클래스 신청
-	@GetMapping("/12/{boardNo}/application")
-	public String applyClass(@PathVariable("boardNo") int boardNo,
-							 @SessionAttribute("loginMember") Member loginMember,
-							 @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("boardNo", boardNo);
-		map.put("memberNo", loginMember.getMemberNo());
+	@PostMapping("/12/{boardNo}/apply")
+	@ResponseBody
+	public Map<String, Object> applyClass(
+	        @PathVariable("boardNo") int boardNo,
+	        @SessionAttribute("loginMember") Member loginMember,
+	        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+	    
+	    Map<String, Object> map = new HashMap<>();
+	    map.put("boardNo", boardNo);
+	    map.put("memberNo", loginMember.getMemberNo());
+	    map.put("cp", cp); // cp 값 추가
 
-		int result = service.applyClass(map);
-		
-		  if (result > 0) {
-		        return "redirect:/"+ "scheduling/" +  "/12" + "/" + boardNo + "?cp=" + cp; // 성공 메세지 띄우기 ///
-		    } else {
-		    	 return "redirect:/"+ "scheduling/" +  "/12" + "/" + boardNo + "?cp=" + cp; // 실패 메시지 띄우기 ///
-		    }
+	    // 클래스를 신청하고 결과를 받음
+	    int result = service.applyClass(map);
+
+	    // 응답 결과를 담을 Map 생성
+	    Map<String, Object> response = new HashMap<>();
+	    if (result > 0) {
+	        // 신청 성공
+	        response.put("status", "success");
+	    } else {
+	        // 신청 실패 (이미 신청한 경우)
+	        response.put("status", "error");
+	    }
+
+	    // JSON 형태로 응답 반환
+	    return response;
 	}
-	
 	
 	
 	

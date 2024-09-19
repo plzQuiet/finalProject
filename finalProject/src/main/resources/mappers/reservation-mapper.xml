@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservationMapper">
+
+	<resultMap type="Place" id="place_rm">
+
+		<id property="reservationNo" column="RESERVATION_NO" />
+
+		<result property="seatNo" column="SEAT_NO" />
+		<result property="reservationDt" column="RESERVATION_DT" />
+		<result property="startTime" column="START_TIME" />
+		<result property="endTime" column="END_TIME" />
+
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberName" column="MEMBER_NAME" />
+
+		<!-- 좌석 상태 -->
+		<result property="seatStatus" column="SEAT_STATUS" />
+
+
+	</resultMap>
+	
+
+	<!-- 좌석 조회(예약석, 공석) -->
+	<select id="selectSeats" resultMap="place_rm">
+	  <![CDATA[
+	    SELECT 
+	        SEAT_NO,
+	        CASE
+	            WHEN EXISTS (
+	                SELECT 1
+	               FROM RESERVATION_PLACE RP
+	                WHERE RP.SEAT_NO = SEATS.SEAT_NO
+	                AND RP.RESERVATION_DT = TO_DATE(#{reservationDt}, 'YYYY-MM-DD')
+	                AND RP.START_TIME >= TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI')
+                	AND RP.START_TIME < TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+	            ) THEN '사용중'
+	            ELSE '공석'
+	        END AS SEAT_STATUS
+	    FROM (
+	        SELECT ROWNUM AS SEAT_NO
+	        FROM (
+	            SELECT 1 FROM DUAL
+	            CONNECT BY LEVEL <= 24
+	        )
+	    ) SEATS
+	  ]]>
+	</select>
+
+	<insert id="insertSeat" parameterType="map">
+        INSERT INTO RESERVATION_PLACE 
+        VALUES ( SEQ_RESERVATION_NO.NEXTVAL, #{memberNo},
+       			 #{seatNo}, 
+       			TO_DATE(#{reservationDt}, 'YYYY-MM-DD'),
+        		TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI'),
+        		TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+        		)
+    </insert>
+    
+    
+   	<!-- 세미나실 예약 시간 슬롯 조회 -->
+	<select id="selectTimeSlots" resultType="map">
+	    SELECT TO_CHAR(START_TIME, 'HH24:MI') AS START_TIME,
+	           TO_CHAR(END_TIME, 'HH24:MI') AS END_TIME
+	    FROM RESERVATION_PLACE
+	    WHERE RESERVATION_DT = #{date}
+	</select>
+	
+	<!-- 세미나실 예약 -->
+	<insert id="insertSeminar" parameterType="Place">
+        INSERT INTO RESERVATION_PLACE 
+        VALUES ( SEQ_RESERVATION_NO.NEXTVAL, #{memberNo}, 0, 
+        		TO_DATE(#{reservationDt}, 'YYYY-MM-DD'),
+        		TO_DATE(#{startTime}, 'YYYY-MM-DD HH24:MI'),
+        		TO_DATE(#{endTime}, 'YYYY-MM-DD HH24:MI')
+        		)
+    </insert>
+
+</mapper>

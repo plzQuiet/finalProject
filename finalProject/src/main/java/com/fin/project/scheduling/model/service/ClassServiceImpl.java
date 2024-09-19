@@ -128,6 +128,13 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public int applyClass(Map<String, Object> map) {
 		
+		// 클래스 신청 중복 체크
+		boolean result = dao.checkApplyClass(map);
+		if(result) {
+			
+			return 0;
+		}
+		
 		return dao.applyClass(map);
 	}
 

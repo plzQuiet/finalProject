@@ -38,9 +38,9 @@
             <!-- 사이드 메뉴 -->
             <div class="category">참여 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="#" class="current">교육문화 프로그램</a></li>
-                <li class="side1"><a href="#">열람실</a></li>
-                <li class="side2"><a href="#">세미나실</a></li>
+                <li class="side-current"> <a href="/scheduling/12" class="current">교육문화 프로그램</a></li>
+                <li class="side1"><a href="/scheduling/13">열람실</a></li>
+                <li class="side2"><a href="/scheduling/14">세미나실</a></li>
             </ul>
 
         </article>

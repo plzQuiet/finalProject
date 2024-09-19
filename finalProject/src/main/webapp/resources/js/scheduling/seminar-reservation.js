@@ -4,11 +4,15 @@ const nextBtn = document.getElementById("next-btn");
 const dateDiv = document.getElementById("date-div");
 const timeSlotTable = document.getElementById("time-slot-table");///
 const reserveBtn = document.getElementById("reserve-btn");///
+const alertModal = document.getElementById("alert_modal");
+const reservationModal = document.getElementById("reservation_modal");
+const confirmBtn = document.getElementById("confirm_btn");
+const cancelBtn = document.getElementById("cancel_btn");
+const reservHistoryBtn = document.getElementById("reserv_history");
+
 let selectedSlots = [];///
 
-const bookedSlots = {
-    "2024-09-10": ["09:00", "09:30", "10:00", "14:30", "15:00", "15:30"],
-};/* 위의 값은 예시 , 과연 DB에서 어떤식으로 가져와야 할까 고민 */ ///
+
 
 const todayDate = new Date();
 const dateFormat = ((todayDate.getMonth() + 1) < 10 ? "0" + (todayDate.getMonth() + 1) : (todayDate.getMonth() + 1))
@@ -52,6 +56,8 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 });
 calendar.render();
 
+
+
 /* 캘런더 오늘 버튼 */
 todayBtn.addEventListener("click", function () {
     calendar.today();
@@ -63,37 +69,104 @@ prevBtn.addEventListener("click", function () { calendar.prev(); });
 /* 캘런더 next 버튼 */
 nextBtn.addEventListener("click", function () { calendar.next(); });
 
+
+// 예약 버튼 클릭 시
 reserveBtn.addEventListener("click", function () {
     if (selectedSlots.length > 0) {
-        alert("예약일 : " + selectDate + "\n" + "예약 시간 : " + selectedSlots.join(", ") + "\n" + "예약이 완료되었습니다.");
+
+        // 모달창
+        alertModal.style.display = 'block';
+
     } else {
         alert("예약할 시간을 선택해 주세요.");
     }
 });
 
+// 날짜 클릭 시 시간 슬롯 조회
 function renderTimeSlots(date) {
     timeSlotTable.innerHTML = '';
     selectedSlots = [];
-    const times = [
-        "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-        "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
-        "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"
-    ];
 
-    times.forEach(time => {
-        const div = document.createElement('div');
-        div.innerText = time;
-        if (bookedSlots[date] && bookedSlots[date].includes(time)) {
-            div.className = 'time-slot booked';
-        } else {
-            div.className = 'time-slot available';
-            div.addEventListener('click', function () {
-                selectOrDeselectTimeSlot(div, time);
+    // 서버에서 예약된 시간 슬롯 가져오기
+    fetch(`/reservation/seminar/select?date=${date}`)
+        .then(response => response.json())
+        .then(data => {
+            const bookedSlots = data.bookedSlots; // 서버에서 받은 예약된 시간 슬롯 배열
+
+            const times = [
+                "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
+                "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
+                "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"
+            ];
+
+            times.forEach(time => {
+                const div = document.createElement('div');
+                div.innerText = time;
+
+                if (bookedSlots.includes(time)) {
+                    div.className = 'time-slot booked';
+                } else {
+                    div.className = 'time-slot available';
+                    div.addEventListener('click', function () {
+                        selectOrDeselectTimeSlot(div, time);
+                    });
+                }
+
+                timeSlotTable.appendChild(div);
             });
-        }
-        timeSlotTable.appendChild(div);
-    });
+        })
+        .catch(e => {
+            console.log(e);
+        });
 }
+
+// 예약 확인 버튼 클릭 시
+confirmBtn.addEventListener("click", function() {
+    // 서버로 예약 요청 전송
+    fetch('/reservation/seminar/book', {
+        method: "POST",
+        headers: { "Content-Type" : "application/json" },
+        body: JSON.stringify({
+            reservationDt: selectDate,
+            startTime: selectedSlots[0], 
+            endTime: selectedSlots[selectedSlots.length - 1],
+            memberNo: loginMemberNo,
+            seatNo: 0 
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            // 예약 정보 모달 표시
+            document.getElementById("reservation_content").innerHTML = `
+                <p>세미나실</p>
+                <p>예약 일자 : ${selectDate}</p>
+                <p>예약 시간 : ${selectedSlots.join(' ~ ')}</p>
+                <p>* 세미나실의 위치는 시설안내를 통해 확인하세요</p>
+            `;
+            reservationModal.style.display = 'block';
+        } else {
+            alert("예약 실패: " + data.message);
+        }
+    })
+    .catch(e => console.log(e))
+    .finally(() => {
+        // 알림창 모달 숨기기
+        alertModal.style.display = 'none';
+    });
+});
+
+cancelBtn.addEventListener("click", function() {
+    // 알림창 모달 숨기기
+    alertModal.style.display = 'none';
+});
+
+reservHistoryBtn.addEventListener("click", function() {
+    // 예약 이력 페이지로 이동
+    window.location.href = "/myLibrary/reserv";
+});
+
+
 
 function selectOrDeselectTimeSlot(element, time) {
     if (selectedSlots.includes(time)) {
