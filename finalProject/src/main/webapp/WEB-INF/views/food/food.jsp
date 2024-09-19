@@ -44,39 +44,41 @@
 						</c:if>
 
 					</div>
-					<table>
-						<thead>
-							<tr>
-								<td>월</td>
-								<td>화</td>
-								<td>수</td>
-								<td>목</td>
-								<td>금</td>
-								<td>토</td>
-								<td>일</td>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- 고마워요 재능충~!~!~!~! -->
-							<c:forEach var="food" items="${foodList}" varStatus="status">
-								<c:if test="${food.typeNo == 0}">
-									<c:if test ="${status.index % 6 == 0}">
-										<tr>
-									</c:if>
-									
-									<c:if test ="${status.index == 4}">
-										<td rowspan="5" class="holiday">휴관일</td>
-									</c:if>
+					<div class="food-table-area">
+						<table>
+							<thead>
+								<tr>
+									<td>월</td>
+									<td>화</td>
+									<td>수</td>
+									<td>목</td>
+									<td>금</td>
+									<td>토</td>
+									<td>일</td>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- 고마워요 재능충~!~!~!~! -->
+								<c:forEach var="food" items="${foodList}" varStatus="status">
+									<c:if test="${food.typeNo == 0}">
+										<c:if test ="${status.index % 6 == 0}">
+											<tr>
+										</c:if>
 										
-									<td>${food.foodName}</td>
-									
-									<c:if test ="${status.index % 6 == 5}">
-										</tr>
-									</c:if>	
-								</c:if>
-							</c:forEach> 
-						</tbody>	
-					</table>
+										<c:if test ="${status.index == 4}">
+											<td rowspan="5" class="holiday">휴관일</td>
+										</c:if>
+											
+										<td>${food.foodName}</td>
+										
+										<c:if test ="${status.index % 6 == 5}">
+											</tr>
+										</c:if>	
+									</c:if>
+								</c:forEach> 
+							</tbody>	
+						</table>
+					</div>
 				</article>
 				<article class="snack">
 					<p class="meal-title">분식</p>
