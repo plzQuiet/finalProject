@@ -20,7 +20,6 @@
 		<section class="myPage">
 
 			<h1 class="myPage-title">회원탈퇴</h1>
-			<span class="myPage-subject">현재 비밀번호가 일치하는 경우 탈퇴할 수 있습니다.</span>
 
 			<form action="secession" method="POST" name="myPageFrm" id="secessionFrm">
 

@@ -20,7 +20,6 @@
 		<section class="myPage">
 
 			<h1 class="myPage-title">내 정보</h1>
-			<span class="myPage-subject">원하는 회원 정보를 수정할 수 있습니다.</span>
 
 			<form action="info" method="POST" name="myPageFrm" id="updateFrm">
 

@@ -15,10 +15,10 @@
 }
 
 .myPage-title{
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     margin-bottom: 10px;
     font-size: 40px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 5px solid #d4d4d4;
 }
 
 .myPage-subject{
@@ -36,7 +36,7 @@
 
     display: flex;
     align-items: center;
-    border-bottom : 2px solid #ddd;
+    border-bottom : 2px solid #d4d4d4;
 }
 
 .myPage-row > * {
@@ -46,12 +46,14 @@
 
 .myPage-row > label{
     width: 32%;
-    color: #0054B4;
+    /* color: #0054B4; */
+    color: #008C1D;
 }
 
 .myPage-row > span{
     width: 70%;
-    color: #0054B4;
+    /* color: #0054B4; */
+    color: #008C1D;
 }
 
 .myPage-row > input{
@@ -64,17 +66,19 @@
 
 .myPage-submit{
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     margin: 50px 0;
     
     border: none;
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #0054B4;
+    background-color: #008C1D;
     color: white;
     cursor: pointer;
 }
+
+
 
 form[name='myPageFrm']{
     display: flex;
@@ -84,7 +88,7 @@ form[name='myPageFrm']{
 }
 
 .myPage-row:focus-within{ 
-    border-bottom-color: #0054B4;
+    border-bottom-color: #008C1D;
 }
 
 .info-title{
@@ -103,8 +107,13 @@ form[name='myPageFrm']{
     font-weight: normal;
 
     background-color: white;
-    border : 1px solid gray;
+    border : 1px solid #008C1D;
     cursor: pointer;
+}
+
+.info-address > button:hover{
+    background-color: #008C1D;
+    color: white;
 }
 
 .myPage-wrapper{
