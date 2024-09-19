@@ -189,13 +189,13 @@
 	</update>
 	
 	<!-- 클래스 신청 -->
-	<insert id="applyClass" parameterType="Map">
+	<insert id="applyClass" parameterType="map">
 		INSERT INTO CLASS_PEOPLE
 			VALUES(#{memberNo}, #{boardNo})
 	</insert>
 	
 	 <!-- 신청 여부 확인 -->
-    <select id="checkApplyClass" parameterType="Map" resultType="_int">
+    <select id="checkApplyClass" parameterType="map" resultType="_int">
         SELECT COUNT(*)
         FROM CLASS_PEOPLE
         WHERE MEMBER_NO = #{memberNo}

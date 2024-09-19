@@ -24,6 +24,7 @@ import com.fin.project.member.model.dto.Member;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 import com.fin.project.scheduling.model.service.ClassService;
 
+
 @SessionAttributes("loginMember")
 @Controller
 @RequestMapping("/scheduling")
@@ -115,6 +116,29 @@ public class ClassController {
 
 		return path;
 	}
+	
+	// 클래스 수정 화면 전환
+	@GetMapping("/{cateCode:12}/{boardNo}/update")
+	public String classUpdate(@PathVariable("boardCode") int boardCode
+							  , @PathVariable("boardNo") int boardNo
+							  , Model model // 데이터 전달용 객체(기본적으로 request scope)
+							  ) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		ClassSchedule classSchedule = service.selectClass(map);
+		
+		model.addAttribute("classSchedule", classSchedule);
+		
+		return "scheduling/classUpdate";
+	}
+	
+	// 클래스 수정
+	
+	
+	
 
 	// 클래스 삭제  
 	@GetMapping("/{cateCode}/{boardNo}/delete")
