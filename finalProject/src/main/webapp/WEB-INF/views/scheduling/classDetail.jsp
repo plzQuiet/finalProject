@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<%@ page import="java.text.SimpleDateFormat, java.util.Date" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="today" value="<%=new java.util.Date()%>"/>
+<%-- 현재날짜 --%>
+<c:set var="sysdate"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set> 
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -69,9 +76,11 @@
                 <!-- 버튼 영역(회원) -->
                 <c:if test="${loginMember.authority == 1}">
                 <div class="btn-area">
+                    <c:if test="${classBoard.recruitmentStartDt <= sysdate && sysdate <= classBoard.recruitmentEndDt}">
                     <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
                     <button id="applyBtn" onclick="applyModal()">신청</button>
-                    
+                    </c:if>
+
                     <button id="goToListBtn">목록으로</button>
                 </div>
                 </c:if>

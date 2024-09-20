@@ -44,7 +44,6 @@
                     <h1 class="board-title">
                         <input type="text" name="boardTitle" placeholder="제목" value="${classSchedule.boardTitle}">
                     </h1>
-                    ${classSchedule}
 
                     <!-- 교육기간 / 신청기간 / 최대인원 -->
                     <div class="board-nav">
