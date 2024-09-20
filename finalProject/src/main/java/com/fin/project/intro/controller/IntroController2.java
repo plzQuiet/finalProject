@@ -60,7 +60,6 @@ public class IntroController2 {
 	// 특정일 일정 수정
 	@PutMapping("/updateShedule")
 	public int updateShedule(@RequestBody Calendar updateCal) {
-		System.out.println(updateCal);
 		return service.updateShedule(updateCal);
 	}
 }

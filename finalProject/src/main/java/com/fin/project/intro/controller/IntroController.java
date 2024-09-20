@@ -89,7 +89,6 @@ public class IntroController {
 			}
 			
 			if(!libTitle.isEmpty()) {
-				System.out.println(libTitle);
 				Map<String,Object> another2 = service.selectLibAn( catLevel3, Integer.parseInt( String.valueOf((libTitle.get(0).get("BOARD_NO")))) );
 				model.addAttribute("another", another2);
 				
@@ -132,10 +131,6 @@ public class IntroController {
 		
 		board.setMemberNo(loginMember.getMemberNo());
 		board.setMemberName(loginMember.getMemberName());
-		
-		System.out.println(board);
-		System.out.println(lib);
-		System.out.println(images);
 		
 		String webPath = "/resources/images/board/";
 		String filePath = session.getServletContext().getRealPath(webPath);
@@ -209,8 +204,6 @@ public class IntroController {
 			path += catLevel1+"/"+catLevel2 + "/" + catLevel3;
 		}
 		
-		System.out.println(message);
-		
 		ra.addFlashAttribute("introMsg", message);
 		
 		return path;
@@ -234,8 +227,6 @@ public class IntroController {
 			message = "주변 도서관 삭제를 실패했습니다.";
 			path += catLevel1+"/"+catLevel2 + "/" + catLevel3 + "/" + boardNo;
 		}
-		
-		System.out.println(message);
 		
 		ra.addFlashAttribute("introMsg", message);
 		
