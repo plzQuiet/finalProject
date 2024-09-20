@@ -159,7 +159,7 @@ if(payBtn!= null){
 					}
 	
 					if(result == '0'){
-						// location.href=
+						location.href="/myPayment";
 					}
 				}
 			)
@@ -275,8 +275,18 @@ function updateTotalCost() {
 
 /* agree 함수 */
 function agree(){
-	popUpLayer.style.display = 'none';
-	window.location.reload();
+	if( price != 0 || cost!=0){
+		qty = 0;
+		price = 0;
+		cost = 0;
+		itemPrices = {};
+		popUpLayer.style.display = 'none';
+		window.location.href="/myPayment";
+		
+	}else{
+		popUpLayer.style.display = 'none';
+		window.location.reload();
+	}
 }
 
 /* ***************** 관리자 ************************************** */
