@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/board/main-notice.css">
     <link rel="stylesheet" href="/resources/css/food/mainFood.css">
     <link rel="stylesheet" href="/resources/css/member/mainLogin.css">
+    <link rel="stylesheet" href="/resources/css/scheduling/slideClass.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -20,6 +21,7 @@
 	<section class="main-page-suround-area-section">
 
         <article class="main-class-login-area">
+            <jsp:include page="/WEB-INF/views/scheduling/slideClass.jsp"/>
             <div></div>
             <jsp:include page="/WEB-INF/views/member/mainLogin.jsp"/>
         </article>
