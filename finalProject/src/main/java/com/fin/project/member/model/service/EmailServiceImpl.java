@@ -50,8 +50,6 @@ public class EmailServiceImpl implements EmailService {
                 
                 key += ch;
             }
-            
-            key += num;
         }
 		
 		return key;
