@@ -108,17 +108,40 @@ if(payBtn!= null){
 					popupBox.classList.remove("mcafe-popupBox");
 					
 					if(resp.success){
-						popUpHeader[0].innerHTML= "<p>음료 구매</p>"
-						popUpContent[0].innerHTML = `<div class="pay-meal-ticket">
-														<p>구매가 완료되었습니다.</p>
-													</div>
-													<div class="popup_btn">
-														<button id="agree_btn" onclick="agree()">확인</button>
-													</div>
-													`
-						result='0';
-						popUpLayer.style.display = 'block';
-						itemPrices={};
+
+
+						const data = {
+							memberNo : loginMemberNo,
+							foodNoList: Object.values(itemPrices).map(item => item.no),  
+							foodQtyList: Object.values(itemPrices).map(item => item.qty) 
+						}
+
+						fetch("/cafe/pay",{
+							method: "POST",
+							headers: {"Content-Type" : "application/json"},
+							body: JSON.stringify(data)
+						})
+						.then(resp=>resp.json())
+						.then(res => {
+							console.log("result : " +res)
+							if(res>0){
+								popUpHeader[0].innerHTML= "<p>음료 구매</p>"
+								popUpContent[0].innerHTML = `<div class="pay-meal-ticket">
+																<p>구매가 완료되었습니다.</p>
+															</div>
+															<div class="popup_btn">
+																<button id="agree_btn" onclick="agree()">확인</button>
+															</div>
+															`
+								result='0';
+								popUpLayer.style.display = 'block';
+								itemPrices={};
+							}
+							
+						})
+						.catch(e=> console.log(e))
+
+						
 						
 	
 					}else{
@@ -189,7 +212,6 @@ function addCartMenu(name, price, foodNo){
 		itemPrices[i] = {price: Number(price), qty: 1 , no:foodNo};
 	}
 
-	/* 조건문 추가해야됨 -> 만약 cart에 물건이 담겨 있다면 +가 자동적으로 되게 */
 	mCartTable.innerHTML += `
 								<tr class="mcafe-cart-menu" id="mcart-menu${i}">
 									<td>

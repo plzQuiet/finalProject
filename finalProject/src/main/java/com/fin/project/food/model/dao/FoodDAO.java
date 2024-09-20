@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.dto.Pay;
 
 /**
  * @author 82107
@@ -74,6 +75,20 @@ public class FoodDAO {
 	
 	public int updateMenu(Food food) {
 		return sqlSession.update("foodMapper.updateMenu", food);
+	}
+
+
+	public int insertFoodPay(Pay pay) {
+		return sqlSession.insert("foodMapper.insertFoodPay", pay);
+	}
+
+
+	/** 카페 결제
+	 * @param pay
+	 * @return int
+	 */
+	public int insertCafePay(Pay pay) {
+		return sqlSession.insert("foodMapper.insertCafePay", pay);
 	}
 
 		

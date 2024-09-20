@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.dto.Pay;
 import com.fin.project.food.model.service.FoodService;
 
 @Controller
@@ -110,5 +111,12 @@ public class FoodController {
 		ra.addFlashAttribute("UpdateSnackMenu", result);
 		
 		return "redirect:/food";
+	}
+	
+	
+	@PostMapping("/food/pay")
+	@ResponseBody
+	public int insertFoodPay(@RequestBody Pay pay) {
+		return service.insertFoodPay(pay);
 	}
 }

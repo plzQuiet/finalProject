@@ -63,7 +63,8 @@
 	</section>
 	<script> 
 		let addMenu = "${AddMenu}";
-		let updateMenu = "${UpdateMenu}"
+		let updateMenu = "${UpdateMenu}";
+		let loginMemberNo = "${loginMember.memberNo}";
 	</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<script src="/resources/js/food/cafe.js"></script>

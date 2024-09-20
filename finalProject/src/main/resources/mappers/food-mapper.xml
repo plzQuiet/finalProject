@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="foodMapper">
-
 	<resultMap type="Food" id="food_rm">
 		<id property="foodNo" column="FOOD_NO"/>
 		<result property="typeNo" column="TYPE_NO"/>
@@ -10,7 +9,7 @@
 		<result property="foodImg" column="FOOD_IMG"/>
 		<result property="foodDes" column="FOOD_DES"/>
 	</resultMap>
-
+	
 	<select id="selectFoodList" resultMap="food_rm">
 		SELECT * FROM FOOD 
 		WHERE FOOD_DEL_ST = 'N'
@@ -48,4 +47,15 @@
 		SET FOOD_NAME=#{foodName}, FOOD_IMG=#{foodImg}, FOOD_DES=#{foodDes}, FOOD_PRICE=${foodPrice}
 		WHERE FOOD_NO=${foodNo}
 	</update>
+	
+	<insert id="insertFoodPay">
+		INSERT INTO PAY VALUES(${memberNo}, 1, DEFAULT, ${foodQty})
+	</insert>
+	
+	<insert id="insertCafePay">
+		INSERT INTO PAY (MEMBER_NO, FOOD_NO, PAY_DATE, FOOD_QTY)
+    	VALUES (#{memberNo}, #{foodNo}, DEFAULT, #{foodQty})
+	</insert>
+	
+	
 </mapper>

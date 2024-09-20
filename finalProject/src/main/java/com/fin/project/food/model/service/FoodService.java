@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.dto.Pay;
 
 public interface FoodService {
 
@@ -85,6 +86,20 @@ public interface FoodService {
 	 * @return
 	 */
 	int updateMenu(Food food, MultipartFile menuImage, String webPath, String filePath) throws IllegalStateException, IOException;
+
+
+	/** 결제 내역 추가
+	 * @param pay
+	 * @return
+	 */
+	int insertFoodPay(Pay pay);
+
+
+	/** 카페 결제 내역 추가
+	 * @param pay
+	 * @return
+	 */
+	int insertCafePay(Pay pay);
 
 
 
