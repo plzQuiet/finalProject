@@ -28,15 +28,14 @@
    <!-- header -->
    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-
     <section class="main-content-suround-section">
         <article class="side-menu-article">
              <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
                 <li><a href="/board/15">공지사항</a></li>
-                <li class="side1"><a href="/board/16">문의사항</a></li>
-                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li><a href="/board/16">문의사항</a></li>
+                <li><a href="/board/17">자주 묻는 질문</a></li>
                 <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
