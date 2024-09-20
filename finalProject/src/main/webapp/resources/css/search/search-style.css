@@ -3,6 +3,10 @@
 	padding: 0;
 }
 
+.side-menu-article{
+	float: left;
+}
+
 #searchBtn{
 	cursor: pointer;
 	background-color: white;
@@ -12,6 +16,7 @@
 	width: 60px;
 	
 }
+
 .fa-solid{
 	margin-right:5px;
 }
@@ -34,15 +39,17 @@
 .btnArea_b{
 	margin-left:20px;
 }
-.main {
+.container{
 	width: 1024px;
-	display: flex;
-	justify-content: space-between;
+    margin: auto;
 }
 
-.main-content {
-	margin-top: 70px;
-	width: 750px;
+.main-content{
+	float: right;
+    width: 774px;
+	min-height: 700px;
+    padding: 50px;
+	margin: 20px 0;
 }
 
 .main-title {
@@ -53,10 +60,10 @@
 .searchForm {
 	position: relative;
 	width: 100%;
-	margin-bottom: 20px;
-	display:flex;
-	
-	
+}
+
+.search-result{
+	margin: 15px 0;
 }
 
 .searchBar {
@@ -64,13 +71,11 @@
 	border: 1px solid black;
 	height: 42px;
 	border-radius: 5px;
-	display: flex;
-	justify-content: center;
+	overflow: hidden;
 }
 
-
 input {
-	width: 480px;
+	width: 530px;
 	padding: 10px 12px;
 	font-size: 14px;
 	height: 40px;
@@ -80,16 +85,54 @@ input {
 	
 }
 
-.searchInput {
-	display: flex;
-	align-content: space-around;
-	margin-right:20px;
-}
-.searchArea{
-	display:flex;
-	margin-right:10px;
+#key{
+	width: 80px;
+	text-align: center;
+	border: 0;
+	outline: 0;
 }
 
+#queryResult{
+	margin: 15px 0 30px;
+}
+
+#queryResult > p{
+	padding: 5px 0;
+	border-bottom: 1px solid black;
+}
+
+.book-row{
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+}
+
+.book-row > span{
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.book-info{
+	width: 65%;
+}
+
+.book-info > p{
+	height: 40px;
+	font-size: 16px;
+}
+
+.book-info > p:nth-of-type(1){
+	font-size: 20px;
+}
+.book-info > p:nth-of-type(2){}
+.book-info > p:nth-of-type(3){}
+.book-info > p:nth-of-type(4){}
+
+.resvBtn{
+	padding: 5px 10px;
+	margin-left: 30px;
+	font-size: 14px;
+}
 
 .searchDetailBtn {
 	background-color: #8FB788;
@@ -103,7 +146,7 @@ input {
 
 .titleLine{
 	border:2px solid #d4d4d4;
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 
@@ -218,16 +261,6 @@ input {
 
 .searchPrint {
 	margin-top: 22px;
-}
-
-select {
-	width: 100px;
-	height: 38px;
-	padding-left: 8px;
-	font-family: inherit;
-	border-radius: 5px;
-	border:none;
-	
 }
 
 .btn-area {

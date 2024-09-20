@@ -50,27 +50,6 @@ public class MainController {
 		return "food/cafe";
 	}
 	
-	@GetMapping("/search")
-	public String searchForward() {
-		return "search/search";
-	}
-	
-	@GetMapping("/searchDetail")
-	public String searchDetailForward() {
-		return "search/searchDetail";
-	}
-	
-	@GetMapping("/searchBook")
-	public String searchBookForward() {
-		return "search/searchBook";
-	}
-
-
-	@GetMapping("/bookRequest")
-	public String bookRequestForward() {
-		return "search/bookRequest";
-	}
-	
 	@GetMapping("/bookRequestForm")
 	public String bookRequestFormForward() {
 		return "search/bookRequestForm";

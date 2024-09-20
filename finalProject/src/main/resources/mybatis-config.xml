@@ -21,7 +21,7 @@
 		<typeAlias type="com.fin.project.intro.model.dto.LibAnother" alias="LibAnother"/>
 		<typeAlias type="com.fin.project.intro.model.dto.Calendar" alias="Calendar"/>
 		<typeAlias type="com.fin.project.scheduling.model.dto.ClassSchedule" alias="Class"/>
-		<typeAlias type="com.fin.project.search.model.dto.Search" alias="Search"/>
+		<typeAlias type="com.fin.project.book.model.dto.Book" alias="Book"/>
 		<typeAlias type="com.fin.project.scheduling.model.dto.ReservationPlace" alias="Place"/>
 		<typeAlias type="com.fin.project.food.model.dto.Pay" alias="Pay"/>
 
@@ -37,7 +37,7 @@
 		<mapper resource="/mappers/board-mapper.xml"/>
 		<mapper resource="/mappers/class-mapper.xml"/>
 		<mapper resource="/mappers/myLibrary-mapper.xml"/>
-		<mapper resource="/mappers/search-mapper.xml"/>
+		<mapper resource="/mappers/book-mapper.xml"/>
 		<mapper resource="/mappers/comment-mapper.xml"/>
 		<mapper resource="/mappers/admin-mapper.xml"/>
 		<mapper resource="/mappers/reservation-mapper.xml"/>

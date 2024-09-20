@@ -55,14 +55,14 @@
 				<div>검색어 : '전체 : 잘린 머리처럼 불길한 것' 에 대한 검색 결과이며, 총 n 건이 검색되었습니다.</div>
 				<hr>
 				<!-- 밑줄 아래 부터 검색 결과 -->
-				<!-- <div id="searchResult"></div>
-				<div class="searchBody"> -->					
-					<!-- <div class="index">1</div> -->
-					<!-- <div class="bookThumbnail" id="bookThumbnail"> -->
-						<!-- <img src="/resources/images/bookThumbnail" /> -->
-					<!-- </div> -->
+				<div id="searchResult"></div>
+				<div class="searchBody">					
+					<div class="index">1</div>
+					<div class="bookThumbnail" id="bookThumbnail">
+						<img src="/resources/images/bookThumbnail" />
+					</div>
 					<!-- 책 상세 -->
-					<!-- <div class="bookDetail">
+					<div class="bookDetail">
 						<div class="bookDetailTitle">잘린 머리처럼 불길한 것</div>
 						<div class="bookDetailAuthor">저자 : 미쓰다 신조 지음, 권영조 옮김</div>
 						<div class="bookDetailEnroll">등록 번호 : BOOK20240904</div>
@@ -70,14 +70,12 @@
 							<div>책 상태 :</div>
 							<div class="bookDetailStateTextY">대출 가능</div>
 							<div class="informBtn">
-								<button id="informBtn">
-									예약 / 소장 정보<img src="" />
-								</button>
+								<button class="informBtn">예약 / 소장 정보</button>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- 즐겨찾기 -->
-					<!-- <div class="favorite">
+					<div class="favorite">
 						<div>
 							<button class="favoriteStar"></button>
 						</div>
@@ -85,15 +83,15 @@
 				</div>
 				<hr>
 
-				<div class="searchBody"> -->
+				<div class="searchBody">
 					<!-- 순번 -->
-					<!-- <div class="index">2</div> -->
+					<div class="index">2</div>
 					<!-- 책 이미지 -->
-					<!-- <div class="bookThumbnail">
+					<div class="bookThumbnail">
 						<img src="/resources/images/bookThumbnail">
-					</div> -->
+					</div>
 					<!-- 책 상세 -->
-					<!-- <div class="bookDetail">
+					<div class="bookDetail">
 						<div class="bookDetailTitle">잘린 머리처럼 불길한 것</div>
 						<div class="bookDetailAuthor">저자 : 미쓰다 신조 지음, 권영조 옮김</div>
 						<div class="bookDetailEnroll">등록 번호 : BOOK20240904</div>
@@ -104,17 +102,17 @@
 								<button id="informBtn">예약 / 소장 정보</button>
 							</div>
 						</div>
-					</div> -->
+					</div>
 					<!-- 즐겨찾기 -->
-					<!-- <div class="favorite">
+					<div class="favorite">
 						<div>
 							<button class="favoriteStar"></button>
 						</div>
 					</div>
-				</div> -->
+				</div>
 
 				<!-- 예약 / 소장 정보 버튼 클릭 시 -->
-				<!-- <div class="searchBodyDetail" style="display: none;">
+				<div class="searchBodyDetail" style="display: none;">
 					<table class="detailTable">
 						<thead>
 							<tr>
@@ -141,7 +139,7 @@
 							</tr>
 						</tbody>
 					</table>
-				</div> -->
+				</div>
 				<!-- <hr> -->
 
 

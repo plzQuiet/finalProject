@@ -26,7 +26,7 @@
 	        <li>
 				<a href="#">자료 검색</a>
 				<ul>
-					<li><a href="#">통합 자료 검색</a></li>
+					<li><a href="/book/1/1">통합 자료 검색</a></li>
 					<li><a href="#">희망 도서 신청</a></li>
 				</ul>
 			</li>
