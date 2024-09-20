@@ -42,7 +42,17 @@
 						<c:otherwise>
 							<c:forEach var="l" items="${list}">
 								<tr>
-									<td>${l.FOOD_NAME}</td>
+									<td>
+										<c:choose>
+											<c:when test="${l.TYPE_NO == 0}">
+												식권
+											</c:when>
+
+											<c:otherwise>
+												${l.FOOD_NAME}
+											</c:otherwise>
+										</c:choose>
+									</td>
 									<td>${l.FOOD_QTY}</td>
 									<td>${l.PAY_DATE}</td>
 									<td>${l.FOOD_PRICE}</td>
