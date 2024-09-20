@@ -22,7 +22,6 @@
 
     border: none;
     background-color: #8FB788;
-    color: white;
     width: 10%;
     cursor: pointer;
 }
@@ -30,7 +29,6 @@
 .comment-write-area button:hover{
     background-color: white;
     border: 1px solid #8FB788;
-    color: black;
 }
 
 #commentList{
@@ -65,7 +63,6 @@
 .comment-btn-area button{
     background-color: #8FB788;
     border: none;
-    color: white;
     width: 50px;
     height: 30px;
     margin-left: 10px;
@@ -76,7 +73,6 @@
 .comment-btn-area button:hover{
     background-color: white;
     border: 1px solid #8FB788;
-    color: black;
 }
 
 .update-textarea{

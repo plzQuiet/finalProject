@@ -73,8 +73,8 @@ public class BoardController {
 	
 	
 	// 자주 묻는 질문
-	@GetMapping("/17")
-	public String faqList() {
+	@GetMapping("/{cateCode:17}")
+	public String faqList(@PathVariable("cateCode") int cateCode) {
 		return "board/faq";
 	}
 
@@ -173,7 +173,7 @@ public class BoardController {
 				}
 			} 
 			
-			path = "board/noticeDetail";
+			path = "board/boardDetail";
 			model.addAttribute("board", board);
 		
 		}else { 

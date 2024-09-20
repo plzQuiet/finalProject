@@ -44,9 +44,9 @@ header{
 .content-suround-section{
     min-height: 500px;
     margin: 70px 0px 0 0;
-    /* width: 75%; */
-    width: 100%;
-}
+    width: 75%;
+    /* width: 100%; */
+}   
 
 /* 카테 제목 */
 .content-title{
@@ -80,9 +80,9 @@ header{
 
 /* 게시판 nav */
 .board-nav{
-    padding: 20px 0;
+    padding: 10px 0px;
     border-bottom: 1px solid #d4d4d4;
-    display: flex;
+    /* display: flex; */
 }
 
 
@@ -128,6 +128,7 @@ header{
 h5{color: #555;}
 
 [name="boardContent"]{
+    padding: 10px;
     width: 100%;
     height: 500px;
     resize: none;
@@ -144,7 +145,6 @@ h5{color: #555;}
 .btn-area button{
     background-color: #8FB788;
     border: none;
-    color: white;
     width: 70px;
     height: 30px;
     margin-left: 10px;
@@ -152,7 +152,6 @@ h5{color: #555;}
 
 .btn-area button:hover{
     background-color: white;
-    color: black;
     border: 1px solid #8FB788;
     cursor: pointer;
 }

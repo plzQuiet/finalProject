@@ -20,8 +20,8 @@
     <title>이용자 마당</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/board/noticeDetail-style.css">
-    <link rel="stylesheet" href="/resources/css/board/comment2.css">
+    <link rel="stylesheet" href="/resources/css/board/boardDetail-style.css">
+    <link rel="stylesheet" href="/resources/css/board/comment.css">
 </head>
 <body>
 
@@ -109,7 +109,7 @@
       
             <!-- comment.jsp 연결 -->
             <c:if test="${cateCode == 16 || cateCode == 18}">
-                <jsp:include page="/WEB-INF/views/board/comment2.jsp"/>
+                <jsp:include page="/WEB-INF/views/board/comment.jsp"/>
             </c:if>
 
         </section>

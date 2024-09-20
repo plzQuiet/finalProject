@@ -26,9 +26,9 @@
             <!-- 사이드 메뉴 -->
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
-                <li class="side-current"> <a href="/board/15" class="current">공지사항</a></li>
-                <li class="side1"><a href="/board/16">문의사항</a></li>
-                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li><a href="/board/15">공지사항</a></li>
+                <li><a href="/board/16">문의사항</a></li>
+                <li><a href="/board/17">자주 묻는 질문</a></li>
                 <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
@@ -46,8 +46,7 @@
                     </div>
 
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i> 
-                        &nbsp;자바 라이브러리의 휴관일은 <b>매주 금요일 및 법정 공휴일</b>입니다.  
-                        <br>휴관일을 제외한 자바 라이브러리의 운영시간은 <b>평일(월~목요일)</b>은 <b>오전 9시부터 오후 8시</b>까지이며,
+                        &nbsp;자바 라이브러리의 휴관일은 <b>매주 금요일 및 법정 공휴일</b>입니다. 휴관일을 제외한 자바 라이브러리의 운영시간은 <b>평일(월~목요일)</b>은 <b>오전 9시부터 오후 8시</b>까지이며,
                         <b>주말(토요일/일요일)</b>은 <b>오전 9시부터 오후 6시</b>까지 운영됩니다. 운영시간은 도서관의 상황에 따라 유기적으로 변동될 수 있으니 이 점 참고 바랍니다.
                     </p>
 
@@ -63,8 +62,7 @@
                     <div class="faq-question"><i class="fa-solid fa-q" style="color: rgb(19, 150, 202);"> .</i> 도서 대출 기한은 어떻게 되나요?
                     </div>
                     <p class="faq-answer"><i class="fa-solid fa-a" style="color: rgb(247, 83, 54);"> .</i>
-                        &nbsp; 대출은 <b>최대 2주</b>의 기한이 주어집니다. 
-                        <br>반납일이 연체 됐을 경우 연체된 기간 만큼 도서 대출이 금지되오니 이 점 참고 바랍니다.
+                        &nbsp; 대출은 <b>최대 2주</b>의 기한이 주어집니다. 반납일이 연체 됐을 경우 연체된 기간 만큼 도서 대출이 금지되오니 이 점 참고 바랍니다.
                     </p>
 
 
@@ -129,8 +127,15 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
 
-    <script src="/resources/js/board/faq-style.js"></script>
+        const cateCode = "${cateCode}";
+         
+    </script>
+
+    <script src="/resources/js/board/faq.js"></script>
+
+
 
 </body>
 

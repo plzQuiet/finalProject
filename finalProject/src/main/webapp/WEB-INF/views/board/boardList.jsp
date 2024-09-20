@@ -41,8 +41,8 @@
             <div class="category">이용자 마당</div>
             <ul class="side-menu">
                 <li><a href="/board/15">공지사항</a></li>
-                <li class="side1"><a href="/board/16">문의사항</a></li>
-                <li class="side2"><a href="/board/17">자주 묻는 질문</a></li>
+                <li><a href="/board/16">문의사항</a></li>
+                <li><a href="/board/17">자주 묻는 질문</a></li>
                 <li class="last-menu"><a href="/board/18">책 후기 나눠요</a></li>
             </ul>
 
@@ -214,7 +214,7 @@
             case "16" : li[1].classList.add("side-current"); break;
             case "17" : li[2].classList.add("side-current"); break;
             case "18" : li[3].classList.add("side-current"); break;
-        } 
+        }  
 
     </script>
 

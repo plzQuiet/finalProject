@@ -4,45 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comment</title>
+    <link rel="stylesheet" href="/resources/css/board/comment.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-    <link rel="stylesheet" href="../../css/board/comment-style.css">
 </head>
 <body>
 
-    <!-- 댓글 작성된 영역 -->
     <div id="commentArea">
         <div class="comment-list-area">
+            <ul id="commentList">
+                <c:forEach items="${board.commentList}" var="comment">
+                    <li class="comment-row">
+                        <p class="comment-writer">
+                            <span>닉네임</span>
+                            <span class="comment-date">작성일</span>
+                        </p>
 
-            <div class="comment-detail">
-                <div>
-                    <p class="comment-info">
-                        <!-- 이름 -->
-                        <span class="comment-writer">김길동</span>
-
-                        <!-- 작성일 -->
-                        <span class="comment-date">2024-09-25</span>
-                    </p>
-
-                    <!-- 댓글 내용 -->
-                    <p>저랑 취향이 같네용</p>
-                </div>
-                <!-- 버튼 영역 -->
-                <!-- 댓글 작성자만 작성 가능 -->
-                <div class="comment-btn-area">
-                    <!-- js 필요 -->
-                    <button>수정</button>
-                    <button>삭제</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 댓글 작성하는 영역 -->
-        <!-- 관리자만 보이는 영역 -->
-        <div class="comment-write-area">
-            <textarea id="commentContent"></textarea>
-            <button id="commentAdd">등록</button>
+                        <p class="comment-content">댓글 내용</p>
+                        <div class="comment-btn-area">
+                            <button>수정</button>
+                            <button>삭제</button>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
         </div>
     </div>
+
+    <script src="/resources/js/board/comment.js"></script>
     
 </body>
 </html>

@@ -128,13 +128,12 @@ input[type='checkbox']{
 .pagination a{
     display: block;
     text-decoration: none;
-    color: black;
     font-weight: bold;
 }
 
 .current{
     background-color: #c5c5c5;
     border-radius: 30%;
-    color: white !important;
+    color: black !important;
     letter-spacing: 0 !important;
 }
