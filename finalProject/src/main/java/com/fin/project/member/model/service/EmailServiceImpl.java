@@ -51,7 +51,6 @@ public class EmailServiceImpl implements EmailService {
                 key += ch;
             }
             
-            int num = (int)(Math.random() * 10);
             key += num;
         }
 		
