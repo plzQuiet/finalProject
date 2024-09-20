@@ -97,7 +97,7 @@
 	</select>
 	
 	<select id="payment" resultType="map">
-		SELECT FOOD_NAME, FOOD_QTY,
+		SELECT FOOD_NAME, TYPE_NO, FOOD_QTY,
 			TO_CHAR(PAY_DATE, 'YYYY-MM-DD HH24:MI') PAY_DATE,
 			FOOD_PRICE * FOOD_QTY FOOD_PRICE
 		FROM PAY
