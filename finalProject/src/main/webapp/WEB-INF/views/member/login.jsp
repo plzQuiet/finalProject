@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<form action="/member/login" method="post" name="loginFrm" id="loginFrm">
-		<div class="login-msg">Login</div>
+		<div class="login-msg">로그인</div>
 		
 		<div class="login-input-area id">
 			<input type="text" name="memberEmail" id="memberEmail" placeholder="아이디(이메일)" value="${cookie.saveId.value}">

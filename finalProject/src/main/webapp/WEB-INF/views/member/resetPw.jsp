@@ -16,7 +16,6 @@
 	
 	<form action="/member/findPw" method="post" name="findPwFrm" id="findPwFrm">
 		<div class="findPw-logo">
-			<img src="/resources/images/logo.png">
 			비밀번호 초기화
 		</div>
 		
