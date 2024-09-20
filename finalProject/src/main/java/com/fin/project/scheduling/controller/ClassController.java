@@ -155,7 +155,7 @@ public class ClassController {
 		classSchedule.setBoardNo(boardNo);
 		
 		
-		String webPath = "/resources/images/board/";
+		String webPath = "/resources/images/scheduling/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		// 클래스 수정 서비스 호출
@@ -166,7 +166,7 @@ public class ClassController {
 		if(rowCount > 0) {
 			path += "/scheduling/"+cateCode+"/"+boardNo+"?cp="+cp;
 		} else {
-			path += "/scheduling/"+cateCode+"/"+boardNo+ "/update";
+			path += "update";
 		}
 		
 		return path;
