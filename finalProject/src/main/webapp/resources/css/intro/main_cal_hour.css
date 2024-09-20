@@ -187,7 +187,7 @@
 
 #goToLibraryCal > a > .fa-plus{
     position: absolute;
-    top: 5px;
+    top: 6px;
     left: 6px;
 }
 
@@ -347,13 +347,10 @@
     width: 100%;
     text-align: center;
     color: #0054b4;
-    position: relative;
 }
 
 #goToLibraryHour > a > .fa-plus{
-    position: absolute;
-    top: 5px;
-    left: 6px;
+    line-height: 25px;
 }
 
 #goToLibraryHour:hover{
