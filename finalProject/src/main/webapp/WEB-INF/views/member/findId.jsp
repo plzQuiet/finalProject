@@ -16,7 +16,6 @@
 	
 	<form action="/member/findId" method="post" name="findIdFrm" id="findIdFrm">
 		<div class="findId-logo">
-			<img src="/resources/images/logo.png">
 			아이디 찾기
 		</div>
 		

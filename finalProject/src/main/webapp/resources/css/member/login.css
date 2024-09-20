@@ -16,7 +16,7 @@ form[name='loginFrm']{
 }
 
 .login-input-area{
-    border: 1px solid #c5ccd2;
+    border: 1px solid #d4d4d4;
     overflow: hidden;
 }
 
@@ -72,11 +72,11 @@ label[for="saveId"]{
 
 .login-nav > li{
 	padding: 5px;
-	color: #555;
+	color: black;
 }
 
 .login-nav a{
-	color: #555;
+	color:black;
 }
 
 .login-nav a:hover{
