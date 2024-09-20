@@ -11,7 +11,6 @@
     </c:if>
 </c:forEach>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
