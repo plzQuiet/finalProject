@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Java Library</title>
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/member/signUp.css">
 </head>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JavaLibrary - 인사말</title>
+<title>Java Library - 인사말</title>
 
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JavaLibrary - 일정 편집</title>
+<title>Java Library - 일정 편집</title>
 
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">

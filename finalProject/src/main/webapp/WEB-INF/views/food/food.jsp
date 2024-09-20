@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Food</title>
+	<title>Java Library - Food</title>
 	<link rel="stylesheet" href="/resources/css/food/food.css">
 	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 	<link rel="stylesheet" href="/resources/css/main-style.css">

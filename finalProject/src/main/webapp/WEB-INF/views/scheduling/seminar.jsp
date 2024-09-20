@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaLibrary - 세미나실</title>
+    <title>Java Library - 세미나실</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/common/sideMenu.css">

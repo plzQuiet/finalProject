@@ -9,7 +9,7 @@
 <c:set var="libAdd" value="${another.libAdd}"/>
 <%-- 가져온 값 변수에 담음 --%>
 <meta charset="UTF-8">
-<title>JavaLibrary - 주변 도서관</title>
+<title>Java Library - 주변 도서관</title>
 
 <link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">

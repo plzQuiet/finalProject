@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글쓰기</title>
+    <title>Java Library - ${cateName}</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/board/qnaWrite-style.css">

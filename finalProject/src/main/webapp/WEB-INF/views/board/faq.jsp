@@ -4,10 +4,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<c:forEach items="${category}" var="catelist">
+    <c:if test="${catelist.CAT_CODE == cateCode}">
+        <c:set var="cateName" value="${catelist.CAT_NAME}"/>
+    </c:if>
+</c:forEach>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
+    <title>Java Library - ${cateName}</title>
 
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <link rel="stylesheet" href="/resources/css/board/faq-style.css">
