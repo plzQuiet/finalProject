@@ -1,5 +1,7 @@
 .swiper-container{
-    width: 650px;
+    width: 688px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .swiper {
