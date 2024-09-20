@@ -73,3 +73,59 @@
     color: #0054b4;
     font-weight: 800;
 }
+
+/* 로그인 시 */
+.main-login-member-title{
+    border-radius: 50px;
+    color: #80AFE1;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.main-login-table{
+    width: 90%;
+    margin: auto;
+}
+
+.main-login-table table{
+    border-collapse: collapse;
+}
+
+.main-login-table table td{
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.main-login-table table .second-tr{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.main-logout-btn-area{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.main-logout-btn-area #main-my-library-btn{
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+    background-color: #0054b4;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.main-logout-btn-area #main-my-library-btn a{
+    display: inline-block;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+}
