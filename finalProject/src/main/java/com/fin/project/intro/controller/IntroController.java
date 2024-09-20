@@ -154,7 +154,7 @@ public class IntroController {
 		}
 		
 		
-		ra.addFlashAttribute("message", message);
+		ra.addFlashAttribute("introMsg", message);
 		
 		return path;
 	}
@@ -211,7 +211,7 @@ public class IntroController {
 		
 		System.out.println(message);
 		
-		ra.addFlashAttribute("message", message);
+		ra.addFlashAttribute("introMsg", message);
 		
 		return path;
 	}
@@ -237,7 +237,7 @@ public class IntroController {
 		
 		System.out.println(message);
 		
-		ra.addFlashAttribute("message", message);
+		ra.addFlashAttribute("introMsg", message);
 		
 		return path;
 	}
