@@ -81,6 +81,12 @@ public class ClassServiceImpl implements ClassService{
 		classSchedule.setBoardTitle(Util.XSSHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.XSSHandling(classSchedule.getBoardContent()));
 		
+		// newLineHandling
+		classSchedule.setBoardTitle(Util.newLineHandling(classSchedule.getBoardTitle()));
+		classSchedule.setBoardContent(Util.newLineHandling(classSchedule.getBoardContent()));
+		
+		
+		
 		int boardNo = dao.classInsert(classSchedule);
 		
 		// 삽입 후 BOARD_NO를 classSchedule에 설정
@@ -127,6 +133,11 @@ public class ClassServiceImpl implements ClassService{
 		
 		classSchedule.setBoardTitle(Util.XSSHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.XSSHandling(classSchedule.getBoardContent()));
+		
+		// newLineHandling
+		classSchedule.setBoardTitle(Util.newLineHandling(classSchedule.getBoardTitle()));
+		classSchedule.setBoardContent(Util.newLineHandling(classSchedule.getBoardContent()));
+		
 		
 		int boardNo = dao.classUpdate(classSchedule);
 		

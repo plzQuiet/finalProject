@@ -39,7 +39,7 @@
 
             <!-- 게시글 작성 화면 -->
             <section class="board-detail">
-                <form action="/scheduling/12/insert" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                <form action="update" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
 
                     <h1 class="board-title">
                         <input type="text" name="boardTitle" placeholder="제목" value="${classSchedule.boardTitle}">

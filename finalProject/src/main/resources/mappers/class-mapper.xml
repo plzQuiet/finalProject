@@ -207,7 +207,7 @@
     	UPDATE BOARD SET
 		BOARD_TITLE = #{boardTitle}
 		, BOARD_CONTENT = #{boardContent}
-		, B_UPDATE_DATE = SYSDATE
+		, B_UPDATE_DT = SYSDATE
 		WHERE CAT_CODE = 12
 		AND BOARD_NO = #{boardNo}
     </update>

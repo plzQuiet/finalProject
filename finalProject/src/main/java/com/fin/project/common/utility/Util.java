@@ -18,7 +18,6 @@ public class Util {
 		return content;
 	}
 
-
 	// a.jpg
 
 	// 파일명 변경 메소드
@@ -34,6 +33,14 @@ public class Util {
 		String ext = originFileName.substring(originFileName.lastIndexOf("."));
 
 		return date + str + ext;
+	}
+
+	public static String newLineHandling(String content) {
+		return content.replaceAll("(\r\n|\n\r|\n|\r)", "<br>");
+
+		// textarea의 엔터 : \r\n
+		// \r : 캐리지 리턴(첫 번째로 돌아가기)
+		// \n : new line(다음줄로 이동)
 	}
 
 }
