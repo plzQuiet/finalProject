@@ -104,8 +104,6 @@ if(payBtn != null){
 						popUpLayer.style.display = 'block';
 					}
 	
-					if(result == '0'){
-					}
 				}
 			)
 		})
@@ -160,10 +158,13 @@ function agree(){
 	if(qty!=0 || price != 0){
 		qty= 0;
 		price=0;
+		popUpLayer.style.display = 'none';
+		window.location.href="/myPayment";
+		
+	}else{
+		popUpLayer.style.display = 'none';
+		window.location.reload();
 	}
-	popUpLayer.style.display = 'none';
-	window.location.reload();
-	
 }
 
 
