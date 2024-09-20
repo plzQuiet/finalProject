@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.dto.Pay;
 import com.fin.project.food.model.service.FoodService;
 
 
@@ -103,5 +105,12 @@ public class CafeController {
 		ra.addFlashAttribute("UpdateMenu", result);
 		
 		return "redirect:/cafe";
+	}
+	
+	// 카페 결제
+	@PostMapping("/cafe/pay")
+	@ResponseBody
+	public int insertCafePay(@RequestBody Pay pay) {
+		return service.insertCafePay(pay);
 	}
 }

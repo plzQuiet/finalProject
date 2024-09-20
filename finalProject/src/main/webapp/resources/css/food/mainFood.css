@@ -28,6 +28,7 @@
 	background-color: white;
 	border-radius:100%;
 	box-shadow: 2px 2px 5px rgba(69, 69, 69, 0.3);
+    
 }
 
 #goToFood:hover{
@@ -45,6 +46,7 @@
 	width: 100%;
 	height: 100%;
 	color: #8FB788;
+    line-height: 25px;
 }
 .main-food-area #goToFood i:hover{
 	color: white;

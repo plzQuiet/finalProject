@@ -106,6 +106,7 @@
 		<script> 
 			let addMenu = "${AddMenu}";
 			let updateSnackMenu = "${UpdateSnackMenu}";
+			let loginMemberNo = "${loginMember.memberNo}";
 		</script>
 	<script src="/resources/js/food/food.js" defer></script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

@@ -23,6 +23,7 @@
 		<typeAlias type="com.fin.project.scheduling.model.dto.ClassSchedule" alias="Class"/>
 		<typeAlias type="com.fin.project.search.model.dto.Search" alias="Search"/>
 		<typeAlias type="com.fin.project.scheduling.model.dto.ReservationPlace" alias="Place"/>
+		<typeAlias type="com.fin.project.food.model.dto.Pay" alias="Pay"/>
 
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->

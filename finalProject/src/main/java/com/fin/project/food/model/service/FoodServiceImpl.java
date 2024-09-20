@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fin.project.common.utility.Util;
 import com.fin.project.food.model.dao.FoodDAO;
 import com.fin.project.food.model.dto.Food;
+import com.fin.project.food.model.dto.Pay;
 
 @Service
 public class FoodServiceImpl implements FoodService{
@@ -200,6 +201,32 @@ public class FoodServiceImpl implements FoodService{
 
 		}
 		
+		return result;
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int insertFoodPay(Pay pay) {
+		return dao.insertFoodPay(pay);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int insertCafePay(Pay payList) {
+		
+		List<Integer> foodNoList = payList.getFoodNoList();
+        List<Integer> foodQtyList = payList.getFoodQtyList();
+        int result = 0;
+        
+        for (int i = 0; i < foodNoList.size(); i++) {
+            Pay pay = new Pay();
+            pay.setMemberNo(payList.getMemberNo());
+            pay.setFoodNo(foodNoList.get(i));
+            pay.setFoodQty(foodQtyList.get(i));
+
+            // 각 행을 개별적으로 insert
+            result = dao.insertCafePay(pay);
+        }
 		return result;
 	}	
 
