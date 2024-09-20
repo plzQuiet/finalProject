@@ -30,3 +30,14 @@
 
   /* object-fit: cover; */
 }
+
+/* 이전 다음 버튼 */
+.swiper-button-next, .swiper-button-prev{
+  color: #0054B4;
+  font-weight: bolder;
+}
+
+/* 아래 동그라미 */
+.swiper-pagination-bullet-active {
+  background: var(--swiper-pagination-color, #0054b4);
+}

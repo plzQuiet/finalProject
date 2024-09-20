@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/board/main-notice.css">
     <link rel="stylesheet" href="/resources/css/food/mainFood.css">
     <link rel="stylesheet" href="/resources/css/member/mainLogin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="/resources/css/scheduling/slideClass.css">
 </head>
 <body>
