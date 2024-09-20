@@ -159,7 +159,7 @@
 /* 도서관 달력 이동 id */
 #goToLibraryCal{
     position: absolute;
-    top: 5px;
+    top: 3px;
     right: 10px;
 
     display: flex;
@@ -182,7 +182,13 @@
 #goToLibraryCal > a{
     height: 100%;
     width: 100%;
-    text-align: center;
+    position: relative;
+}
+
+#goToLibraryCal > a > .fa-plus{
+    position: absolute;
+    top: 5px;
+    left: 6px;
 }
 
 #goToLibraryCal:hover{
@@ -307,13 +313,13 @@
 .hour-holiday{
     width: 100%;
     padding: 5px 25px;
-    color: #555;
+    color: #797979;
 }
 
 /* 이용사간 페이지로 이동하는 id */
 #goToLibraryHour{
     position: absolute;
-    top: 10px;
+    top: 7px;
     right: 10px;
 
     display: flex;
@@ -341,6 +347,13 @@
     width: 100%;
     text-align: center;
     color: #0054b4;
+    position: relative;
+}
+
+#goToLibraryHour > a > .fa-plus{
+    position: absolute;
+    top: 5px;
+    left: 6px;
 }
 
 #goToLibraryHour:hover{

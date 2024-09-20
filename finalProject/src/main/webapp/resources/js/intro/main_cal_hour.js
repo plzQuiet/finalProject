@@ -42,7 +42,7 @@ function typeCalendar(type){
         for(let e of eventList){
             /* 값 하나하나 담을 객체 */
             let event = {
-                title : e.calendarName,
+               /*  title : e.calendarName, - 캘랜더 일정 너무 작아서 주석*/
                 start : e.startDt
             };
 

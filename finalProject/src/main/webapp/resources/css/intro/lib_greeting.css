@@ -6,4 +6,10 @@
 		center 20%;
 	background-size: cover;
 	margin-bottom: 30px;
+	
+}
+
+#greeting_book + p{
+	line-height: 40px;
+	font-size: 20px;
 }

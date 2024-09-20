@@ -17,6 +17,8 @@ thead>tr {
 thead>tr>th {
 	border: 1px solid #d4d4d4;
 	padding: 10px;
+	color: white;
+	font-weight: 400;
 }
 
 thead>tr>th:nth-child(1) {

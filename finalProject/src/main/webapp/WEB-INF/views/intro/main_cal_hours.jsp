@@ -24,7 +24,7 @@
 
         </div>
         <div class="surround-calendar-area">
-            <div id="goToLibraryCal"> <a href="/intro/1/8/30">+</a></div>
+            <div id="goToLibraryCal"> <a href="/intro/1/8/30"><i class="fa-solid fa-plus"></i></a></div>
             <div id='calendar'></div>
         </div>
     </article>
@@ -33,7 +33,7 @@
         <div class="hour-title">
             <i class="fa-regular fa-clock"></i> 
             <span>자바도서관 운영시간</span>
-            <div id="goToLibraryHour"><a href="/intro/1/8/29">+</a></div>
+            <div id="goToLibraryHour"><a href="/intro/1/8/29"><i class="fa-solid fa-plus"></i></a></div>
         </div>
 
         <div class="hour-table-area">
