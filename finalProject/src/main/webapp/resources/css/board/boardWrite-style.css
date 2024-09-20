@@ -106,26 +106,6 @@ header{
     background-color: #8FB788;
 }
 
-/* 레벨3 메뉴 ul(하위에 하위 메뉴) */
-.side-menu > li > ul{
-    padding: 20px;
-    list-style: none;
-    text-align: left;
-    background-color: white;
-    border: 1px solid #8FB788;
-}
-
-/* 레벨3 안에 있는 a태그 */
-.side-menu > li > ul > li > a{
-    color: #555;
-    text-decoration: none;
-    transition-duration: 0.3s;
-}
-
-.side-menu > li > ul > li > a:hover{
-    font-weight: bold;
-}
-
 /* 마지막 메뉴일 경우 */
 .last-menu{
     border-bottom-left-radius: 10px 10px;
@@ -138,9 +118,10 @@ header{
     background-color: #8FB788;
 }
 
-.side-menu > li > a.side-current-a{
+.side-menu > li.side-current > a{
     color: white;
 }
+
 
 /* 레벨3 메뉴 a태그 현재 선택된 메뉴일 경우 */
 .side-menu > li > ul > li > a.side-side-current{
@@ -205,7 +186,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #c2c1c1;
+    border: 1px solid #555;
     cursor: pointer;
 }
 
@@ -234,6 +215,7 @@ h5{
 }
 
 [name="boardContent"]{
+    padding: 10px;
     width: 100%;
     height: 500px;
     resize: none;
@@ -249,7 +231,6 @@ h5{
 
 .btn-area button{
     background-color: #8FB788;
-    color: white;
     border: none;
     width: 70px;
     height: 30px;
@@ -259,7 +240,7 @@ h5{
 .btn-area button:hover{
     background-color: white;
     border: 1px solid #8FB788;
-    color: black;
+    cursor: pointer;
 }
 
 /* 삭제버튼 */

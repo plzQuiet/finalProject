@@ -148,7 +148,6 @@ input{
 
 .list-table > thead{
     background-color: #8FB788;
-    color: white;
     /* border-top: solid 3px #008C1D; */
 
 }
@@ -192,7 +191,6 @@ input{
 .btn-area button{
     background-color: #8FB788;
     border: none;
-    color: white;
     width: 70px;
     height: 30px;
     margin-left: 10px;
@@ -200,7 +198,6 @@ input{
 
 .btn-area button:hover{
     background-color: white;
-    color: black;
     border: 1px solid #8FB788;
     cursor: pointer;
 }
@@ -230,14 +227,13 @@ input{
 .pagination a{
     display: block;
     text-decoration: none;
-    color: black;
     font-weight: bold;
 }
 
 .current{
     background-color: #8FB788;
     border-radius: 30%;
-    color: white !important;
+    color: black !important;
     letter-spacing: 0 !important;
 
 }

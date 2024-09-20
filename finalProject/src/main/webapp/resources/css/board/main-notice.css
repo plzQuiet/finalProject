@@ -30,38 +30,26 @@
     font-size: 18px;
 }
 
-#gotoNotice i{
-	width: 100%;
-	height: 100%;
-	color: white;
-}
-#gotoNotice i:hover{
-	text-decoration: underline;
-}
-
-
-#gotoNotice a{
-    height: 100%;
-    text-decoration: none;
-}
-
-#gotoNotice a:hover{
-    text-decoration: underline;
-}
-
-/* #gotoNotice a>i{
-    color: #0054b4;
+#gotoNotice > a{
+    display: inline-block;
+    border-radius: 50%;
+	width: 28px;
+	height: 28px;
     background-color: white;
-    border-radius: 100%;
- 
-
+    text-decoration: none;
+    position: relative;
 }
 
-#gotoNotice i:hover{
-    text-decoration: underline;
-    color: white;
-} */
+#gotoNotice i{
+    position: absolute;
+    top: 8px;
+    left: 8.5px;
+    color: #0054b4;
+}
 
+#gotoNotice > a:hover{
+    background-color: #8fb788;
+}
 
 
 .main-notice-area .list-wrapper{

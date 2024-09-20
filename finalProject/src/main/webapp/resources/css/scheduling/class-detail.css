@@ -44,8 +44,8 @@ header{
 .content-suround-section{
     min-height: 500px;
     margin: 70px 0px 0 0;
-    /* width: 75%; */
-    width: 100%;
+    width: 75%;
+    /* width: 100%; */
 }
 
 /* 카테 제목 */
@@ -73,7 +73,7 @@ header{
 
 /* 게시판 nav */
 .board-nav{
-    padding: 20px 0;
+    padding: 20px 0px;
     border-bottom: 1px solid #d4d4d4;
     display: flex;
 }
@@ -145,7 +145,6 @@ h5{color: #555;}
 .btn-area button{
     background-color: #8FB788;
     border: none;
-    color: white;
     width: 70px;
     height: 30px;
     margin-left: 10px;
@@ -153,7 +152,6 @@ h5{color: #555;}
 
 .btn-area button:hover{
     background-color: white;
-    color: black;
     border: 1px solid #8FB788;
     cursor: pointer;
 }

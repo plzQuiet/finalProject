@@ -46,8 +46,10 @@
 
                     <!-- 교육기간 / 신청기간 / 최대인원 -->
                     <div class="board-nav">
-                        <span>신청기간 : <input type="date" id="recStartDt" name="recruitmentStartDt"> ~ <input type="date" id="recEndDt" name="recruitmentEndDt"></span>&nbsp;|&nbsp; 
-                        <span>교육기간 : <input type="date" id="startDt" name="startDt"> ~ <input type="date" id="endDt" name="endDt"></span>&nbsp;|&nbsp; 
+                        <span>신청기간 : <input type="date" id="recStartDt" name="recruitmentStartDt"> ~ <input type="date" id="recEndDt" name="recruitmentEndDt"></span>
+                        <br>
+                        <span>교육기간 : <input type="date" id="startDt" name="startDt"> ~ <input type="date" id="endDt" name="endDt"></span> 
+                        <br>
                         <span>최대인원 : <input type="number" id="maxP" name="maxParticipant" style="width: 50px;" min="0" ></span>
                     </div>
 
