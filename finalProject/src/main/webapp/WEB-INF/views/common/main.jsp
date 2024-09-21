@@ -15,15 +15,16 @@
     <link rel="stylesheet" href="/resources/css/member/mainLogin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="/resources/css/scheduling/slideClass.css">
+    <link rel="stylesheet" href="/resources/css/search/mainSearch.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
+	<jsp:include page="/WEB-INF/views/search/mainSearch.jsp"/>
 	<section class="main-page-suround-area-section">
-
+		
         <article class="main-class-login-area">
             <jsp:include page="/WEB-INF/views/scheduling/slideClass.jsp"/>
-            <div></div>
             <jsp:include page="/WEB-INF/views/member/mainLogin.jsp"/>
         </article>
         <%-- 이용시간 및 달력 --%>
