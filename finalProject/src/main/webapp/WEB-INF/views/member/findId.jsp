@@ -25,22 +25,15 @@
 			<input type="text" name="memberName" id="memberName">
 		</div>
 		
-		<span class="findPw-message" id="nameMessage"></span>
-		
-		
 		<div class="findId-input-area">
 			<span>전화번호</span>
 			<input type="text" name="memberPhoneNo" id="memberPhoneNo">
 		</div>
-		
-		<span class="findPw-message" id="pnoMessage"></span>
-		
 		
 		<div class="btn-area">
 			<button>확인</button>
 		</div>
 	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-	<script src="/resources/js/member/findId.js"></script>
 </body>
 </html>

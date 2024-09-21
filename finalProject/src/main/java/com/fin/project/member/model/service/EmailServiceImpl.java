@@ -70,7 +70,7 @@ public class EmailServiceImpl implements EmailService {
 			String charset = "UTF-8";
 			
 			String mailContent
-				= "<p>Java Library " + title + "인증코드입니다. </p>"
+				= "<p>Java Library " + title + " 인증코드입니다. </p>"
 				+ "<h3 style='color:blue'>" + authKey + "</h3>";
 			
 			mail.setFrom(new InternetAddress(fromEmail, fromUsername));

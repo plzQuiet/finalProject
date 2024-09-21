@@ -1,4 +1,4 @@
-form[name='findPwFrm']{
+form[name='resetPwFrm']{
 	margin: 50px auto;
 	width: 500px;
 	border: 1px solid #8FB788;
@@ -6,7 +6,7 @@ form[name='findPwFrm']{
 	border-radius: 10px;
 }
 
-.findPw-logo{
+.resetPw-logo{
 	font-size: 32px;
 	font-weight: bold;
 	line-height: 100px;
@@ -14,12 +14,12 @@ form[name='findPwFrm']{
 	margin-bottom: 50px;
 }
 
-.findPw-logo > img{
+.resetPw-logo > img{
 	height: 100px;
 	vertical-align: top;
 }
 
-.findPw-input-area{
+.resetPw-input-area{
 	display: flex;
 	justify-content: space-between;
 	position: relative;
@@ -31,7 +31,7 @@ form[name='findPwFrm']{
 	line-height: 60px;
 }
 
-.findPw-input-area > input{
+.resetPw-input-area > input{
 	width: 70%;
 	height: 90%;
 	padding: 0 20px;
@@ -41,7 +41,7 @@ form[name='findPwFrm']{
 	outline: none;
 }
 
-.findPw-input-area > button{
+.resetPw-input-area > button{
 	position: absolute;
 	height: 25px;
 	top: 15px;
@@ -54,15 +54,16 @@ form[name='findPwFrm']{
 	color: white;
 }
 
-.findPw-input-area > button:hover{
+.resetPw-input-area > button:hover{
 	background-color: white;
+	color: #8FB788;
 	border: 1px solid #8FB788;
 }
 
-.findPw-message{
+.resetPw-message{
 	font-size: 14px;
     letter-spacing: -1px;
-    padding-left: 5px;
+    margin-left: 140px;
 }
 
 .btn-area{

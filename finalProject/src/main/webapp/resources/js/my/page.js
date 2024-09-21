@@ -1,16 +1,8 @@
-const side = document.querySelectorAll(".side-wrap > a");
-
-for(let i = 0; i < side.length; i++){
-    if(side[i].getAttribute("href") == location.pathname){
-        side[i].style.fontWeight = "bold";
-    }
-}
-
 const memberName = document.getElementById("memberName");
 const memberPhoneNo = document.getElementById("memberPhoneNo");
-const updateInfo = document.getElementById("updateInfo");
+const updateFrm = document.getElementById("updateFrm");
 
-if(updateInfo != null){
+if(updateFrm != null){
 
     initName = memberName.value;
     initPhoneNo = memberPhoneNo.value;
@@ -49,7 +41,7 @@ if(updateInfo != null){
     
     })
     
-    updateInfo.addEventListener("submit", e=>{
+    updateFrm.addEventListener("submit", e=>{
         if(memberName.style.color == "red"){
             alert("이름이 유효하지 않습니다.");
             memberName.focus();

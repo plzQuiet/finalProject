@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/my/library/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/sideMenu.jsp"/>
 		
 		<section class="list-area">
 			<h1>예약 및 신청</h1>

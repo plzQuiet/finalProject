@@ -50,7 +50,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/resetPw")
-	public String findPw() {
+	public String resetPw() {
 		return "member/resetPw";
 	}
 	
@@ -117,13 +117,13 @@ public class MemberController {
 	@PostMapping("/findId")
 	public String findId(Member inputMember, RedirectAttributes ra) {
 		
-		int result = service.findId(inputMember);
+		String result = service.findId(inputMember);
 		
 		String message = null;
 		String path = "redirect:";
 		
-		if(result > 0) {
-			message = "아이디 찾기 성공";
+		if(result != null) {
+			message = "아이디 : " + result;
 			path += "/";
 			
 		}else {
@@ -149,8 +149,8 @@ public class MemberController {
 			path += "/";
 			
 		}else {
-			message = "아이디 찾기 실패 ㅠㅠ";
-			path += "findId";
+			message = "비밀번호 초기화 실패 ㅠㅠ";
+			path += "resetPw";
 		}
 		
 		ra.addFlashAttribute("message", message);

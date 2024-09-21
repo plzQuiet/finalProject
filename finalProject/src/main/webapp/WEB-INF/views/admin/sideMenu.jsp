@@ -7,7 +7,7 @@
 <article class="side-menu">
 	<div>관리자</div>
 	<ul>
-		<li class="side-category">
+		<li class="select-menu">
 			<a href="/admin/1">관리</a>
 		</li>
 		<li>
