@@ -92,3 +92,11 @@
     height: 50%;
     gap: 15px;
 }
+
+.main-food-closed-day{
+	color:red;
+	height:100% !important;
+	text-align:center;
+	border:0 !important;
+	
+}
