@@ -13,7 +13,7 @@
 	
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 		<section class="main">
-			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+			<jsp:include page="/WEB-INF/views/search/sideMenu.jsp"></jsp:include>
 
 			<section class="main-content">
 				<div class="main-title">상세 검색</div>
@@ -52,7 +52,9 @@
 
 								<div class="searchYear">
 									<div class="inputYear">
-										<input type="text" id="inputYear"></input> 부터 <input type="text" id="inputYear"></input>
+										<input type="text" id="inputYear"></input> 
+										<span>부터 </span>
+										<input type="text" id="inputYear"></input>
 									</div>
 								</div>
 

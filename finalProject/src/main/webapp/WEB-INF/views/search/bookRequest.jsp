@@ -13,7 +13,7 @@
 	
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 		<section class="main">
-			<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+			<jsp:include page="/WEB-INF/views/search/sideMenu.jsp"></jsp:include>
 
 			<section class="main-content">
 				<div class="main-title">희망 도서 신청</div>
@@ -63,8 +63,10 @@
 						<hr class="last-line">
 						<div class="apply-area">
 							<div class="apply-text">희망 자료 신청 또는 조회를 하려면 버튼을 누르세요 </div>
-							<button id="apply-btn" onclick="location.href=''">조회</button>
-							<button id="request-btn" onclick="location.href='bookRequestForm'">신청</button>
+							<div class="apply-btn-area">
+								<button id="apply-btn" onclick="location.href=''">조회</button>
+								<button id="request-btn" onclick="location.href='bookRequestForm'">신청</button>
+							</div>
 						</div>
 						
 					</div>

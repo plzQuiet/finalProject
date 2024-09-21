@@ -18,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
 		<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
-		<jsp:include page="/WEB-INF/views/common/sideMenu.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/search/sideMenu.jsp" defer></jsp:include>
 
 		<section class="main-content">
 			<div class="main-title">신청 양식</div>

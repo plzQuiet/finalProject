@@ -12,12 +12,14 @@
 
 .main-content {
 	margin-top: 70px;
-	width: 750px;
+	width: 774px;
+	min-height: 700px;
 }
 
 .main-title {
 	font-size: 40px;
 	margin-bottom: 40px;
+	font-weight: 800;
 }
 
 .titleLine{
@@ -54,8 +56,13 @@
 	margin-bottom: 30px;
 }
 
+.apply-book-details > ul{
+	margin: 20px 0;
+}
+
 .apply-book-details > ul > li{
 	margin-left:30px;
+	margin-bottom: 10px;
 }
 .apply-area{
 	display: flex;
@@ -64,44 +71,47 @@
 	width: 100%;
 	background-color: #d4d4d4;
 	height: 50px;
-	
+	justify-content: space-between;
 }
 .apply-text{
 	margin-top:15px;
 	margin-left:15px;
 	margin-right:15px;
 }
+
+.apply-btn-area{
+	display:flex;
+	align-items:center;
+	gap: 10px;
+	margin-right: 10px;
+}
+
 .last-line{
 	margin-bottom:30px;
 }
 .line{
 	width:40px;
 	border: 1px solid #8FB788;
+	margin: 10px 0;
 }
 
+#request-btn,
 #apply-btn{
 	background-color: white;
 	color : #8FB788;
 	border: 1px solid #8FB788;
 	cursor: pointer;
-	height: 40px;	
+	height: 30px;	
 	width: 60px;
 	margin:auto;
-	border-radius:5px;
-	
+	border-radius:10px;
 }
 
-#request-btn{
-	background-color: #8FB788;
-	color : white;
-	border: #8FB788;
-	cursor: pointer;
-	height: 40px;	
-	margin: auto;
-	width: 60px;
-	border-radius:5px;
+#request-btn:hover,
+#apply-btn:hover{
+	background-color : #8FB788;
+	color:white;
 }
-
 
 
 .request-form{
