@@ -9,33 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Library</title>
     <link rel="stylesheet" href="/resources/css/main-style.css">
-    <link rel="stylesheet" href="/resources/css/member/findPw.css">
+    <link rel="stylesheet" href="/resources/css/member/resetPw.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
-	<form action="/member/findPw" method="post" name="findPwFrm" id="findPwFrm">
-		<div class="findPw-logo">
+	<form action="/member/resetPw" method="post" name="resetPwFrm" id="resetPwFrm">
+		<div class="resetPw-logo">
 			비밀번호 초기화
 		</div>
 		
 		
-		<div class="findPw-input-area">
+		<div class="resetPw-input-area">
 			<span>이메일</span>
 			<input type="text" name="memberEmail" id="memberEmail">
 			<button type="button" id="sendAuthKeyBtn">인증번호 받기</button>
 		</div>
 		
-		<span class="findPw-message" id="emailMessage"></span>
+		<span class="resetPw-message" id="emailMessage"></span>
 		
 		
-		<div class="findPw-input-area">
+		<div class="resetPw-input-area">
 			<span>인증번호</span>
 			<input type="text" name="authKey" id="authKey">
 			<button type="button" id="checkAuthKeyBtn">인증하기</button>
 		</div>
 		
-		<span class="findPw-message" id="authKeyMessage"></span>
+		<span class="resetPw-message" id="authKeyMessage"></span>
 		
 		<div class="btn-area">
 			<button>확인</button>
@@ -43,6 +43,6 @@
 	</form>
 		
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-	<script src="/resources/js/member/findPw.js"></script>
+	<script src="/resources/js/member/resetPw.js"></script>
 </body>
 </html>

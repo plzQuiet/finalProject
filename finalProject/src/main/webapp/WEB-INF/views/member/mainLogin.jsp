@@ -8,7 +8,8 @@
 <section class="main-login-area">
     <c:if test="${empty loginMember}">
         <article class="main-login-title">회원 로그인</article>
-        <article class="main-login-form">
+        <form action="/member/login" method="POST" class="main-login-form">
+
 
             <form action="/member/login" method="post" name="loginFrm" id="loginFrm">
                 <input type="text" name="memberEmail" placeholder="아이디 입력" value="${cookie.saveId.value}"/>
@@ -25,6 +26,7 @@
                 </div>
             </form>
 
+
             <div class="main-my-area">
                 <a href="/member/findId"><span>ID 찾기</span></a>
                 <span>|</span>
@@ -32,7 +34,7 @@
                 <span>|</span>
                 <a href="/member/signUp"><span>회원가입</span></a>
             </div>
-        </article>
+        </form>
     </c:if>
     <c:if test="${!empty loginMember}">
         <article class="main-login-title main-login-member-title"><strong>${loginMember.memberName}</strong>님 환영합니다.</article>
@@ -40,15 +42,15 @@
             <table>
                 <tr>
                     <td>도서대출현황</td>
-                    <td>0</td>
+                    <td>${loginMember.loanBook}</td>
                 </tr>
                 <tr class="second-tr">
                     <td>도서예약현황</td>
-                    <td>0</td>
+                    <td>${loginMember.resvBook}</td>
                 </tr>
                 <tr>
                     <td>연체도서</td>
-                    <td>0</td>
+                    <td>${loginMember.overdueBook}</td>
                 </tr>
             </table>
             <div class="main-login-btn-area main-logout-btn-area">

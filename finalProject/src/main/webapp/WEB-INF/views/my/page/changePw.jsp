@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/my/page/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/sideMenu.jsp"/>
 
 		<section class="myPage">
 

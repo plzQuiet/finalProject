@@ -1,12 +1,4 @@
-const side = document.querySelectorAll(".side-wrap > a");
 const libNav = document.querySelectorAll(".nav-area > a");
-const params = new URL(location.href).searchParams;
-
-for(let i = 0; i < side.length; i++){
-    if(side[i].getAttribute("href") == location.pathname){
-        side[i].style.fontWeight = "bold";
-    }
-}
 
 for(let i = 1; i <= libNav.length; i++){
     if(params.get("m") == null){

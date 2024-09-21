@@ -18,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/my/payment/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/sideMenu.jsp"/>
 		
 		<section class="list-area">
 			<h1>결제내역</h1>

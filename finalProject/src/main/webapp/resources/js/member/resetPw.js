@@ -51,7 +51,7 @@ sendAuthKeyBtn.addEventListener("click", function(){
 
     if(checkObj.memberEmail){
 
-        fetch("/sendEmail/signUp?email="+memberEmail.value)
+        fetch("/sendEmail/resetPw?email="+memberEmail.value)
         .then(resp => resp.text())
         .then(result => {
             if(result > 0){
@@ -134,7 +134,7 @@ checkAuthKeyBtn.addEventListener("click", function(){
 
 });
 
-document.getElementById("findPwFrm").addEventListener("submit", e=>{
+document.getElementById("resetPwFrm").addEventListener("submit", e=>{
     for(let key in checkObj){
         if(!checkObj[key]){
             let str = "";
