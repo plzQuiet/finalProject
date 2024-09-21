@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int findId(Member inputMember) {
+	public String findId(Member inputMember) {
 		return dao.findId(inputMember);
 	}
 

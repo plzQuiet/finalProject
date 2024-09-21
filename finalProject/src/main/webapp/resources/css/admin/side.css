@@ -1,8 +1,8 @@
 .side-menu{width: 200px;}
 
-.side-category{background-color: #c5c5c5;}
+.select-menu{background-color: #c5c5c5;}
 
-.side-category > a{color: white;}
+.select-menu > a{color: white;}
 
 .side-menu a{display: block;}
 

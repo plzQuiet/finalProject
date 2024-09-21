@@ -18,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 	<section class="container">
-		<jsp:include page="/WEB-INF/views/my/page/sideMenu.jsp"/>
+		<jsp:include page="/WEB-INF/views/my/sideMenu.jsp"/>
 
 		<section class="list-area">
 			<h1>내가 쓴 글</h1>

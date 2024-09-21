@@ -8,12 +8,15 @@
 <section class="main-login-area">
     <c:if test="${empty loginMember}">
         <article class="main-login-title">회원 로그인</article>
-        <article class="main-login-form">
+        <form action="/member/login" method="POST" class="main-login-form">
 
-            <input type="text" name="id" placeholder="아이디 입력"/>
-            <input type="password" name="pw" placeholder="비밀번호 입력"/>
+            <input type="text" name="memberEmail" placeholder="아이디 입력" value="${cookie.saveId.value}"/>
+            <input type="password" name="memberPw" placeholder="비밀번호 입력"/>
             <div class="main-saveId">
-                <input type="checkbox" name="saveId"/>
+                <c:if test="${!empty cookie.saveId.value}">
+                    <c:set var="save" value="checked"/>
+                </c:if>
+                <input type="checkbox" name="saveId" id="saveId" ${save}/>
                 <label for="saveId">아이디 저장</label>
             </div>
             <div class="main-login-btn-area">
@@ -26,7 +29,7 @@
                 <span>|</span>
                 <a href="/member/signUp"><span>회원가입</span></a>
             </div>
-        </article>
+        </form>
     </c:if>
     <c:if test="${!empty loginMember}">
         <article class="main-login-title main-login-member-title"><strong>${loginMember.memberName}</strong>님 환영합니다.</article>
@@ -34,15 +37,15 @@
             <table>
                 <tr>
                     <td>도서대출현황</td>
-                    <td>0</td>
+                    <td>${loginMember.loanBook}</td>
                 </tr>
                 <tr class="second-tr">
                     <td>도서예약현황</td>
-                    <td>0</td>
+                    <td>${loginMember.resvBook}</td>
                 </tr>
                 <tr>
                     <td>연체도서</td>
-                    <td>0</td>
+                    <td>${loginMember.overdueBook}</td>
                 </tr>
             </table>
             <div class="main-login-btn-area main-logout-btn-area">

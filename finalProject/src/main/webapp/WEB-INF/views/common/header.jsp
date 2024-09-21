@@ -98,6 +98,7 @@
 </header>
 
 <c:set var="requestAddr" value="${requestScope['javax.servlet.forward.servlet_path']}"/>
+<c:set var="reqAddr" value="${fn:split(requestAddr, '/')}" scope="request"/>
 
 <c:if test="${requestAddr != '/'}">
     <div class="library-book">

@@ -28,6 +28,12 @@ public class EmailController {
 		return service.signUp(email, "회원 가입");
 	}
 	
+	@GetMapping("/resetPw")
+	@ResponseBody
+	public int resetPw(String email) {
+		return service.signUp(email, "비밀번호 초기화");
+	}
+	
 	@GetMapping("/checkAuthKey")
 	@ResponseBody
 	public int checkAuthkey(@RequestParam Map<String, Object> paramMap) {

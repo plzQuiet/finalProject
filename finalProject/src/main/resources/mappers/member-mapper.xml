@@ -14,6 +14,9 @@
 		<result property="memberDeleteFlag" column="MEMBER_DEL_FL"/>
 		<result property="enrollDate" column="ENROLL_DT"/>
 		<result property="authority" column="AUTHORITY"/>
+		<result property="loanBook" column="LOAN_BOOK"/>
+		<result property="overdueBook" column="OVERDUE_BOOK"/>
+		<result property="resvBook" column="RESV_BOOK"/>
 	</resultMap>
 	
 	<insert id="signUp">
@@ -36,13 +39,23 @@
 		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NAME, MEMBER_PW,
 			MEMBER_PNO, MEMBER_ADDR, MEMBER_GENDER, MEMBER_DOB,
 			MEMBER_ADDR, AUTHORITY,
-			TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT
-		FROM MEMBER
+			TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT,
+			(SELECT COUNT(*) FROM BORROW B
+				WHERE RETURN_DT IS NULL
+				AND M.MEMBER_NO = B.MEMBER_NO) LOAN_BOOK,
+			(SELECT COUNT(*) FROM BORROW B
+				WHERE RETURN_DT IS NULL
+				AND <![CDATA[RETURN_DUE_DT < SYSDATE]]>
+				AND M.MEMBER_NO = B.MEMBER_NO) OVERDUE_BOOK,
+			(SELECT COUNT(*) FROM B_RESERVATION BR
+				WHERE <![CDATA[RESERVATION_DT + 2 < SYSDATE]]>
+				AND M.MEMBER_NO = BR.MEMBER_NO) RESV_BOOK
+		FROM MEMBER M
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
 	
-	<select id="findId" resultType="_int">
+	<select id="findId" resultType="string">
 		SELECT MEMBER_EMAIL FROM MEMBER
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_NAME = #{memberName}

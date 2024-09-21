@@ -1,8 +1,8 @@
 .side-menu{width: 200px;}
 
-.side-category{background-color: #8FB788;}
+.select-menu{background-color: #8FB788;}
 
-.side-category > a{color: white;}
+.select-menu > a{color: white;}
 
 .side-menu a{display: block;}
 
@@ -55,5 +55,5 @@
 }
 
 .side-wrap > a:hover{
-	text-decoration: underline;
+	font-weight: bold;
 }

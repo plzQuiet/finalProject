@@ -21,4 +21,8 @@ public class Member {
 	private String enrollDate;
 	private int authority;
 	
+	private int loanBook;
+	private int overdueBook;
+	private int resvBook;
+	
 }

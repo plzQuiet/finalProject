@@ -22,7 +22,7 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
 
-	public int findId(Member inputMember) {
+	public String findId(Member inputMember) {
 		return sqlSession.selectOne("memberMapper.findId", inputMember);
 	}
 
