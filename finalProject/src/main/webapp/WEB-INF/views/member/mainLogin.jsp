@@ -10,15 +10,21 @@
         <article class="main-login-title">회원 로그인</article>
         <article class="main-login-form">
 
-            <input type="text" name="id" placeholder="아이디 입력"/>
-            <input type="password" name="pw" placeholder="비밀번호 입력"/>
-            <div class="main-saveId">
-                <input type="checkbox" name="saveId"/>
-                <label for="saveId">아이디 저장</label>
-            </div>
-            <div class="main-login-btn-area">
-                <button id="main-login-btn">로그인</button>
-            </div>
+            <form action="/member/login" method="post" name="loginFrm" id="loginFrm">
+                <input type="text" name="memberEmail" placeholder="아이디 입력" value="${cookie.saveId.value}"/>
+                <input type="password" name="memberPw" placeholder="비밀번호 입력"/>
+                <div class="main-saveId">
+                    <c:if test="${!empty cookie.saveId.value}">
+                        <c:set var="save" value="checked"/>
+                    </c:if>
+                    <input type="checkbox" name="saveId" ${save}/>
+                    <label for="saveId">아이디 저장</label>
+                </div>
+                <div class="main-login-btn-area">
+                    <button id="main-login-btn">로그인</button>
+                </div>
+            </form>
+
             <div class="main-my-area">
                 <a href="/member/findId"><span>ID 찾기</span></a>
                 <span>|</span>
