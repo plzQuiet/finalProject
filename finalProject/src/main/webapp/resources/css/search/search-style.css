@@ -104,12 +104,15 @@ input {
 }
 
 .book-row{
-	display: flex;
-	justify-content: space-between;
 	padding: 15px;
 }
 
-.book-row > span{
+.book-info-wapper{
+	display: flex;
+	justify-content: space-between;
+}
+
+.book-info-wapper > span{
 	font-size: 50px;
 	cursor: pointer;
 }
@@ -384,9 +387,8 @@ select:disabled {
 
 table{
 	border :1px solid #d4d4d4;
-	margin-left:20px;
-	margin-bottom:30px;
-	width:700px;
+	margin-top: 10px;
+	width:100%;
 	text-align: center;
 }
 

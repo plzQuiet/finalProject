@@ -27,4 +27,8 @@ public class BookDAO {
 		return sqlSession.selectList("bookMapper.selectBookList", paramMap, rowBounds);
 	}
 
+	public List<Integer> selectlikeList(int memberNo) {
+		return sqlSession.selectList("bookMapper.selectLikeList", memberNo);
+	}
+
 }

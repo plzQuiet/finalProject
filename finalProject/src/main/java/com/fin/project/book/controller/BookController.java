@@ -44,7 +44,7 @@ public class BookController {
 	
 	@GetMapping("/search")
 	@ResponseBody
-	private List<Book> search(@RequestParam Map<String, Object> paramMap) {
+	private Map<String, Object> search(@RequestParam Map<String, Object> paramMap) {
 		return service.selectBookList(paramMap);
 	}
 	
