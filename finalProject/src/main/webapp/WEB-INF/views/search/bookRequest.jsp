@@ -22,10 +22,8 @@
 					<div class="body-title">신청 안내</div>
 					<!-- 신청 안내 박스 -->
 					<div class="apply-box">
-						<div class="apply-box-img"></div>
-						<div class="apply-box-index"><p>희망 도서 신청 시 다양한 주제의 도서를 선정하기 위해 신청하신 도서가 선정되지 않을 수 있습니다.</p> </div>
+						<div class="apply-box-index">※<p>희망 도서 신청시 다양한 주제 선정을 위해서 신청하신 도서가 선정되지 않을 수 있으니 양해 부탁드립니다.</p> </div>
 					</div>
-					
 					
 					<!-- 상세 내용 -->
 					<div class="apply-book-detail">
