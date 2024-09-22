@@ -19,9 +19,11 @@
 	<!-- 전체 검색 -->
 	<select id="selectBookList" resultMap="book_rm">
 		SELECT BOOK_THUMBNAIL, BOOK_TITLE, BOOK_AUTHOR, BOOK_NO, BOOK_STATE,
-			BOOK_ISBN, BOOK_SUPPLE,
+			BOOK_ISBN, BOOK_SUPPLE, BOOK_PUB, BOOK_PUB_DT,
 			(SELECT TO_CHAR(RETURN_DUE_DT, 'YYYY-MM-DD')
-			 FROM BORROW BOR WHERE B.BOOK_NO = BOR.BOOK_NO) RETURN_DUE_DT,
+			 FROM BORROW BOR
+			 WHERE B.BOOK_NO = BOR.BOOK_NO
+			 	AND RETURN_DT IS NULL) RETURN_DUE_DT,
 			(SELECT COUNT(*)FROM B_RESERVATION BR WHERE B.BOOK_NO = BR.BOOK_NO) RESV_COUNT
 		FROM BOOK B
 		WHERE
@@ -47,5 +49,14 @@
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
 
+	<select id="countReservation" resultType="_int">
+		SELECT COUNT(*) FROM B_RESERVATION
+		WHERE BOOK_NO = #{bookNo}
+		AND MEMBER_NO = #{memberNo}
+	</select>
+	
+	<insert id="insertReservation">
+		INSERT INTO B_RESERVATION VALUES(SEQ_BRESERVATION_NO.NEXTVAL, #{bookNo}, #{memberNo}, DEFAULT)
+	</insert>
 
 </mapper>

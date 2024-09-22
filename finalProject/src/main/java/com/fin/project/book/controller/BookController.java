@@ -48,4 +48,10 @@ public class BookController {
 		return service.selectBookList(paramMap);
 	}
 	
+	@GetMapping("/resv")
+	@ResponseBody
+	private int reservation(@RequestParam Map<String, Object> paramMap) {
+		return service.reservation(paramMap);
+	}
+	
 }

@@ -67,29 +67,30 @@ searchBtn.addEventListener("click", ()=>{
                 
                 const borrowText = document.createElement("span");
 
-                if(b.bookState == 'I'){
+                if(b.bookState == 'I' || b.returnDueDate != null){
                     borrowText.style.color = "red";
                     borrowText.innerText = "대출 불가능";
-    
-                    const resvBtn = document.createElement("button");
-                    resvBtn.classList.add("resvBtn");
-                    resvBtn.innerText = `예약 / 소장정보`;
-                    resvBtn.addEventListener("click", e=>{
-                        const table = e.target.parentElement.parentElement.parentElement.nextElementSibling;
-                        console.log(table);
-                        if(table.style.display == "none"){
-                            table.style.display = "table";
-                        }else{
-                            table.style.display = "none";
-                        }
-                    });
-    
-                    const i = document.createElement("i");
-                    i.classList.add("fa-solid", "fa-caret-down");
+                    p4.append(borrowText);
 
-                    resvBtn.append(i);
+                    if(b.returnDueDate != null){
 
-                    p4.append(borrowText, resvBtn);
+                        const resvInfoBtn = document.createElement("button");
+                        resvInfoBtn.classList.add("resvInfoBtn");
+                        resvInfoBtn.innerText = `예약 / 소장정보`;
+                        resvInfoBtn.addEventListener("click", e=>{
+                            const table = e.target.parentElement.parentElement.parentElement.nextElementSibling;
+                            if(table.style.display == "none"){
+                                table.style.display = "table";
+                            }else{
+                                table.style.display = "none";
+                            }
+                        });
+                        const i = document.createElement("i");
+                        i.classList.add("fa-solid", "fa-caret-down");
+                        resvInfoBtn.append(i);
+
+                        p4.append(resvInfoBtn);
+                    }
                     
                 }else{
                     borrowText.style.color = "green";
@@ -105,7 +106,7 @@ searchBtn.addEventListener("click", ()=>{
 
                 queryResult.append(bookRow);
 
-                if(b.bookState == 'I'){
+                if(b.bookState == 'I' || b.returnDueDate != null){
                     const table = document.createElement("table");
                     table.setAttribute("style", "display : none");
                     
@@ -132,21 +133,23 @@ searchBtn.addEventListener("click", ()=>{
                     const td1 = document.createElement("td");
                     td1.innerText = `JAVA LIBRARY`;
                     const td2 = document.createElement("td");
-                    td2.innerText = `대출 중
-                                     (예약 가능)
+                    td2.innerText = `대출중
+                                     예약 가능
                                      (예약 : ${b.resvCount}명)`;
                     const td3 = document.createElement("td");
-                    td3.innerText = `${b.returnDueDate}`;
+                    td3.innerText = `${(b.returnDueDate)}`;
                     const td4 = document.createElement("td");
                     const td5 = document.createElement("td");
                     td5.innerText = `${(b.bookSupple == 'N' ? "없음" : "있음")}`;
                     const td6 = document.createElement("td");
                     td6.innerText = ``;
                     
-                    const button = document.createElement("button");
-                    button.innerText = "예약하기";
+                    const resvBtn = document.createElement("button");
+                    resvBtn.innerText = "예약하기";
+                    resvBtn.classList.add("resvBtn")
+                    resvBtn.addEventListener("click", ()=>{showModal(b)});
 
-                    td4.append(button);
+                    td4.append(resvBtn);
 
                     theadTr.append(th1, th2, th3, th4, th5, th6);
                     tbodyTr.append(td1, td2, td3, td4, td5, td6);
@@ -165,6 +168,53 @@ searchBtn.addEventListener("click", ()=>{
         .catch(e => console.log(e))
     }
 })
+
+const modal = document.getElementById("popup_layer");
+function showModal(book){
+    modal.style.display = "block";
+    const img = document.querySelector(".popup_content_left > img");
+    img.setAttribute("src", book.thumbnail);
+
+    const detail = document.getElementsByClassName("popup_content_right")[0].children;
+    detail[1].innerText = `도서명 : ${book.bookTitle}`;
+    detail[2].innerText = `저자 : ${book.bookAuthor}`;
+    detail[3].innerText = `발행처 : ${book.bookPub}`;
+    detail[4].innerText = `발행연도 : ${book.bookPubDate}`;
+    detail[5].innerText = `ISBN : ${book.isbn}`;
+
+    const confirmBtn = document.getElementById("confirm_btn");
+    confirmBtn.setAttribute("onclick", "addReservation(" + book.bookNo + ")");
+}
+
+const cancelBtn = document.getElementById("cancel_btn");
+cancelBtn.addEventListener("click", ()=>{
+    modal.style.display = "none";
+})
+
+function addReservation(bookNo){
+
+    if(loginMemberNo == ""){
+        alert("로그인 후 이용해주세요");
+        return;
+    }
+
+    fetch("/book/resv?bookNo=" + bookNo + "&memberNo=" + loginMemberNo)
+    .then(resp=>resp.text())
+    .then(result=>{
+
+        if(result == -1){
+            alert("이미 예약한 도서입니다");
+        }else if(result > 0){
+            alert("예약 성공!!");
+        }else{
+            alert("예약 실패 ㅠㅠ");
+        }
+
+        modal.style.display = "none";
+
+    })
+    .catch(e=>console.log)
+}
 
 // swiper
 const sampleSlider = new Swiper('.sample', {

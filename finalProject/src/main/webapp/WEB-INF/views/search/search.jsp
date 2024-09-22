@@ -60,6 +60,7 @@
             </div>
         </section>
     </section>
+    <jsp:include page="/WEB-INF/views/search/searchModal.jsp"></jsp:include>
     <script>
         const loginMemberNo = "${loginMember.memberNo}";
     </script>
