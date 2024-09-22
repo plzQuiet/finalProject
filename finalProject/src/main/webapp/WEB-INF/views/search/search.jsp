@@ -60,6 +60,9 @@
             </div>
         </section>
     </section>
+    <script>
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
     <script src="/resources/js/search/search.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>

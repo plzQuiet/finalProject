@@ -7,6 +7,6 @@ import com.fin.project.book.model.dto.Book;
 
 public interface BookService {
 
-	List<Book> selectBookList(Map<String, Object> paramMap);
+	Map<String, Object> selectBookList(Map<String, Object> paramMap);
 
 }

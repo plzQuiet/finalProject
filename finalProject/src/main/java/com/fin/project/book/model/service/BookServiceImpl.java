@@ -2,6 +2,7 @@ package com.fin.project.book.model.service;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,17 +19,27 @@ public class BookServiceImpl implements BookService {
     private BookDAO dao;
 
 	@Override
-	public List<Book> selectBookList(Map<String, Object> paramMap) {
+	public Map<String, Object> selectBookList(Map<String, Object> paramMap) {
 		
 		List<Book> bookList = new ArrayList<Book>();
+		List<Integer> likeList = new ArrayList<Integer>();
 		
-		if(paramMap.containsKey("key")) {
-			bookList = dao.selectBookList(paramMap);
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(paramMap.containsKey("limit")) {
+			bookList = dao.selectBookList(paramMap, Integer.parseInt(String.valueOf(paramMap.get("limit"))));
 		}else {
-			bookList = dao.selectBookList(paramMap, 5);
+			bookList = dao.selectBookList(paramMap);
 		}
 		
-		return bookList;
+		if(paramMap.get("memberNo") != "") {
+			likeList = dao.selectlikeList(Integer.parseInt(String.valueOf(paramMap.get("memberNo"))));
+		}
+		
+		map.put("bookList", bookList);
+		map.put("likeList", likeList);
+		
+		return map;
 	}
     
 }

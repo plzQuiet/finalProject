@@ -18,5 +18,8 @@ public class Book {
     private String thumbnail;
     private String bookState;
     private String bookSupple;
+    
+    private String returnDueDate;
+    private int resvCount;
 
 }
