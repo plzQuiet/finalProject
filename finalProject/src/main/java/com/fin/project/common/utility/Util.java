@@ -42,5 +42,11 @@ public class Util {
 		// \r : 캐리지 리턴(첫 번째로 돌아가기)
 		// \n : new line(다음줄로 이동)
 	}
+	
+	// <br>을 줄바꿈으로 변환
+    public static String reverseNewLineHandling(String content) {
+        return content.replaceAll("<br>", "\n");
+    }
+
 
 }
