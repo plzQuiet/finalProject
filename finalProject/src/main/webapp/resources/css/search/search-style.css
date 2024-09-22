@@ -210,7 +210,7 @@ input {
 }
 
 .details, .detailsYear, .detailsAlign, .detailsCount {
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	font-size: 18px;
 	margin-left: 15px;
 	width: 100px;
@@ -326,7 +326,7 @@ select:disabled {
 }
 
 .searchPrint {
-	margin-top: 22px;
+	margin-top: 27px;
 }
 
 #searchPrint{
