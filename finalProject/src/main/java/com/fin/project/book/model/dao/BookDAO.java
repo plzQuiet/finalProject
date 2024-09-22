@@ -39,4 +39,8 @@ public class BookDAO {
 		return sqlSession.insert("bookMapper.insertReservation", paramMap);
 	}
 
+	public int insertRequest(Map<String, Object> paramMap) {
+		return sqlSession.insert("bookMapper.insertRequest", paramMap);
+	}
+
 }

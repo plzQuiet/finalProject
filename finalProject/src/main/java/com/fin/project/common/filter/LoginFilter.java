@@ -17,7 +17,7 @@ import com.fin.project.member.model.dto.Member;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(filterName = "LoginFilter", urlPatterns = {"/myLibrary/*","/myPage/*", "/board2/*", "/myPayment/*"})
+@WebFilter(filterName = "LoginFilter", urlPatterns = {"/myLibrary/*","/myPage/*", "/board2/*", "/myPayment/*", "/book/2/2"})
 public class LoginFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {

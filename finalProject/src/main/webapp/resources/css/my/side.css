@@ -44,14 +44,13 @@
 }
 
 .side-wrap {
-	height: 165px;
 	padding: 20px;
 	background-color: white;
 }
 
 .side-wrap > a{
-	margin-bottom: 10px;
-	font-size: 13px;
+	font-size: 16px;
+	color: #555;
 }
 
 .side-wrap > a:hover{

@@ -55,5 +55,11 @@ public class BookServiceImpl implements BookService {
 		
 		return dao.insertReservation(paramMap);
 	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int insertRequest(Map<String, Object> paramMap) {
+		return dao.insertRequest(paramMap);
+	}
     
 }

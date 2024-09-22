@@ -43,4 +43,24 @@ switch(path){
                                     </ul>
                                     `    
     }break;
+
+    case "/book/2/1" :{
+        sideMenuArticle.innerHTML = `
+                                    <div class="category">자료 검색</div>
+                                    <ul class="side-menu">
+                                        <li><a href="/book/1/1">통합 자료 검색</a></li>
+                                        <li class="last-menu side-current"><a href="/book/2" class="side-current-a">희망 도서 신청</a></li>
+                                    </ul>
+                                    `    
+    }break;
+
+    case "/book/2/2" :{
+        sideMenuArticle.innerHTML = `
+                                    <div class="category">자료 검색</div>
+                                    <ul class="side-menu">
+                                        <li><a href="/book/1/1">통합 자료 검색</a></li>
+                                        <li class="last-menu side-current"><a href="/book/2" class="side-current-a">희망 도서 신청</a></li>
+                                    </ul>
+                                    `    
+    }break;
 }

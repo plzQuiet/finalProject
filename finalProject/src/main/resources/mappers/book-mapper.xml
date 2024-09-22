@@ -82,5 +82,12 @@
 	<insert id="insertReservation">
 		INSERT INTO B_RESERVATION VALUES(SEQ_BRESERVATION_NO.NEXTVAL, #{bookNo}, #{memberNo}, DEFAULT)
 	</insert>
+	
+	<insert id="insertRequest">
+		INSERT INTO BOOK_REQUEST VALUES
+			(SEQ_RBOOK_NO.NEXTVAL, #{memberNo}, #{bookAuthor}, #{bookTitle},
+			#{bookPub}, #{reqTitle}, DEFAULT, DEFAULT,
+			TO_DATE(#{bookPubDate}, 'YYYY-DD-MM'), #{reqOpinion})
+	</insert>
 
 </mapper>
