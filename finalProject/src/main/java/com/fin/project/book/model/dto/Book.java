@@ -13,7 +13,7 @@ public class Book {
     private String bookAuthor;
     private String bookTitle;
     private String bookPub;
-    private String bookPubDt;
+    private String bookPubDate;
     private String isbn;
     private String thumbnail;
     private String bookState;

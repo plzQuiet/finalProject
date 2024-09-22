@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fin.project.book.model.dao.BookDAO;
 import com.fin.project.book.model.dto.Book;
@@ -40,6 +41,19 @@ public class BookServiceImpl implements BookService {
 		map.put("likeList", likeList);
 		
 		return map;
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int reservation(Map<String, Object> paramMap) {
+		
+		int count = dao.countReservation(paramMap);
+		
+		if(count > 0) {
+			return -1;
+		}
+		
+		return dao.insertReservation(paramMap);
 	}
     
 }

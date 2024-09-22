@@ -9,4 +9,6 @@ public interface BookService {
 
 	Map<String, Object> selectBookList(Map<String, Object> paramMap);
 
+	int reservation(Map<String, Object> paramMap);
+
 }

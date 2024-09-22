@@ -31,4 +31,12 @@ public class BookDAO {
 		return sqlSession.selectList("bookMapper.selectLikeList", memberNo);
 	}
 
+	public int countReservation(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("bookMapper.countReservation", paramMap);
+	}
+
+	public int insertReservation(Map<String, Object> paramMap) {
+		return sqlSession.insert("bookMapper.insertReservation", paramMap);
+	}
+
 }
