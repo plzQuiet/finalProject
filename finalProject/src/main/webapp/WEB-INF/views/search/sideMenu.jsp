@@ -2,19 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <article class="side-menu-article">
-	<div class="category">자료 검색</div>
-	<ul class="side-menu">
-		<li class="side-current">
-			<a href="/book/1/1" class="side-current-a">통합 자료 검색</a>
-			<c:if test="${reqAddr[1] == '1'}">
-				<ul class="side-side-current">
-					<li><a href="/book/1/1">간략검색</a></li>
-					<li><a href="/book/1/2">상세검색</a></li>
-				</ul>
-			</c:if>
-		</li>
-		<li class="last-menu"><a href="/book/2">희망 도서 신청</a></li>
-	</ul>
-
 </article>
 
+<script src="/resources/js/search/sideMenu.js"></script>
