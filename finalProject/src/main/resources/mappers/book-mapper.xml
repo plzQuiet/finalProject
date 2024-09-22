@@ -36,8 +36,32 @@
 				BOOK_AUTHOR LIKE '%${query}%'
 			</when>
 
-			<otherwise>
+			<when test='key == "ta"'>
 				(BOOK_TITLE LIKE '%${query}%' OR BOOK_AUTHOR LIKE '%${query}%')
+			</when>
+			
+			<otherwise>
+				1=1
+				<if test='query != ""'>
+					AND BOOK_TITLE LIKE '%${query}%'
+				</if>
+				
+				<if test='author != ""'>
+					AND BOOK_AUTHOR LIKE '%${author}%'
+				</if>
+				
+				<if test='pub != ""'>
+					AND BOOK_PUB LIKE '%${pub}%'
+				</if>
+				
+				<if test='startYear != ""'>
+					AND <![CDATA[TO_NUMBER(BOOK_PUB_DT) >= #{startYear}]]>
+				</if>
+				
+				<if test='endYear != ""'>
+					AND <![CDATA[TO_NUMBER(BOOK_PUB_DT) <= #{endYear}]]>
+				</if>
+				
 			</otherwise>
 		</choose>
 		ORDER BY BOOK_NO DESC
