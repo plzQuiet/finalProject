@@ -15,6 +15,20 @@
 		<result property="returnDueDate" column="RETURN_DUE_DT" />
 		<result property="resvCount" column="RESV_COUNT" />
 	</resultMap>
+	
+	<resultMap type="BookReq" id="bookReq_rm">
+		<id property="requestNo" column="REQ_BOOK_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberName" column="MEMBER_NAME" />
+		<result property="requestTitle" column="REQ_TITLE" />
+		<result property="requestDate" column="REQ_DT" />
+		<result property="requestApprove" column="REQ_APPROVE" />
+		<result property="requestOpinion" column="REQ_OPINION" />
+		<result property="bookAuthor" column="BOOK_AUTHOR" />
+		<result property="bookTitle" column="BOOK_TITLE" />
+		<result property="bookPub" column="BOOK_PUB" />
+		<result property="bookPubDate" column="PUB_DT" />
+	</resultMap>
 
 	<!-- 전체 검색 -->
 	<select id="selectBookList" resultMap="book_rm">
@@ -89,5 +103,18 @@
 			#{bookPub}, #{reqTitle}, DEFAULT, DEFAULT,
 			TO_DATE(#{bookPubDate}, 'YYYY-DD-MM'), #{reqOpinion})
 	</insert>
+	
+	<select id="getRequestCount" resultType="_int">
+		SELECT COUNT(*) FROM BOOK_REQUEST
+	</select>
+	
+	<select id="selectRequestList" resultMap="bookReq_rm">
+		SELECT REQ_BOOK_NO, MEMBER_NO, MEMBER_NAME,
+			REQ_TITLE, REQ_APPROVE, REQ_OPINION,
+			TO_CHAR(REQ_DT, 'YYYY-MM-DD') REQ_DT
+		FROM BOOK_REQUEST
+		JOIN MEMBER USING(MEMBER_NO)
+		ORDER BY REQ_BOOK_NO
+	</select>
 
 </mapper>

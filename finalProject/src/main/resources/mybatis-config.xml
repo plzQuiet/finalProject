@@ -24,7 +24,7 @@
 		<typeAlias type="com.fin.project.book.model.dto.Book" alias="Book"/>
 		<typeAlias type="com.fin.project.scheduling.model.dto.ReservationPlace" alias="Place"/>
 		<typeAlias type="com.fin.project.food.model.dto.Pay" alias="Pay"/>
-
+		<typeAlias type="com.fin.project.book.model.dto.BookRequest" alias="BookReq"/>
 	</typeAliases>
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
