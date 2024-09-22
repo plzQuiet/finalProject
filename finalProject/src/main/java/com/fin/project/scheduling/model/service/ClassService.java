@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fin.project.scheduling.model.dto.BoardImage;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 
 public interface ClassService {
@@ -32,12 +33,12 @@ public interface ClassService {
 
 	/** 클래스 작성(내용, 일정, 사진)
 	 * @param classSchedule
-	 * @param image
+	 * @param images
 	 * @param webPath
 	 * @param filePath
 	 * @return
 	 */
-	int classInsert(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath) throws IllegalStateException, IOException;
+	int classInsert(ClassSchedule classSchedule, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException;
 
 	/** 클래스 삭제
 	 * @param map
@@ -53,13 +54,13 @@ public interface ClassService {
 
 	/**클래스 수정
 	 * @param classSchedule
-	 * @param image
+	 * @param images
 	 * @param webPath
 	 * @param filePath
 	 * @param deleteList
 	 * @return
 	 */
-	int classUpdate(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath,
+	int classUpdate(ClassSchedule classSchedule, List<MultipartFile> images, String webPath, String filePath,
 			String deleteList) throws IllegalStateException, IOException;
 
 	

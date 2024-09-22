@@ -66,7 +66,7 @@
                                 <img src="${img0}" class="preview" id="preview">
                                 <p id="img-ment">이미지 파일을 선택해 주세요.</p>
                             </label>
-                            <input type="file" name="image" class="inputImage" id="img0" accept="image/*">
+                            <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
                             <span class="delete-image" id="delete-image">&times;</span>
                         </div>
                     </div>

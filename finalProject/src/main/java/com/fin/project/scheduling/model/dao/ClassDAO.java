@@ -104,9 +104,9 @@ public class ClassDAO {
 	 * @param boardImage
 	 * @return
 	 */
-	public int insertClassImage(BoardImage classImage) {
+	public int insertClassImage(BoardImage img) {
 		
-		return sqlSession.insert("classMapper.insertClassImage", classImage);
+		return sqlSession.insert("classMapper.insertClassImage", img);
 	}
 
 	public int classDelete(Map<String, Object> map) {
@@ -162,13 +162,23 @@ public class ClassDAO {
 		return sqlSession.delete("classMapper.imageDelete", deleteMap);
 	}
 
-	/** 클래스 '이미지' 수정
-	 * @param uploadImage
+	/**클래스 '이미지' 수정
+	 * @param img
 	 * @return
 	 */
-	public int imageUpdate(BoardImage uploadImage) {
+	public int updateClassImage(BoardImage img) {
 		
-		return sqlSession.update("classMapper.imageUpdate", uploadImage);
+		return sqlSession.update("classMapper.updateClassImage", img);
+	}
+	
+	
+	/**클래스 이미지 리스트 삽입
+	 * @param uploadList
+	 * @return
+	 */
+	public int insertClassImageList(List<BoardImage> uploadList) {
+		
+		return sqlSession.insert("classMapper.insertClassImageList", uploadList);
 	}
 
 

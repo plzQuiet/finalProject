@@ -2,6 +2,7 @@ package com.fin.project.scheduling.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,19 +70,22 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public ClassSchedule selectClass(Map<String, Object> map) {
 		
-		return dao.selectClass(map);
+		ClassSchedule classSchedule = dao.selectClass(map);
+		
+		
+		return classSchedule;
 	}
 	
 	// 클레스 작성
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int classInsert(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath) throws IllegalStateException, IOException {
+	public int classInsert(ClassSchedule classSchedule,List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException {
 		
 		// XSS방지
 		classSchedule.setBoardTitle(Util.XSSHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.XSSHandling(classSchedule.getBoardContent()));
 		
-		// newLineHandling
+		// 줄바꿈을 <br>로 변환
 		classSchedule.setBoardTitle(Util.newLineHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.newLineHandling(classSchedule.getBoardContent()));
 		
@@ -95,91 +99,133 @@ public class ClassServiceImpl implements ClassService{
 	    // CLASS_SCHEDULE 테이블에 삽입
 	    int result = dao.insertClassSchedule(classSchedule);
 		
-		if (boardNo > 0) { // 게시글 삽입 성공
-	        
-	        if (image != null && !image.isEmpty()) {
-	            BoardImage classImage = new BoardImage();
-	            classImage.setImagePath(webPath); // 웹 접근 경로
-	            classImage.setBoardNo(boardNo); // 게시글 번호
-	            classImage.setImageOrder(0); // 단일 이미지의 경우 순서 0
-	            
-	            // 파일 원본명 (by MultipartFile)
-	            String fileName = image.getOriginalFilename();
-	            classImage.setImageOriginal(fileName); // 원본명
-	            classImage.setImageReName(Util.fileRename(fileName)); // 변경명
-	            
-	            // BOARD_IMG 테이블에 INSERT 하는 DAO 호출
-	            result = dao.insertClassImage(classImage);
-	            
-	            if (result == 1) { // 삽입 성공
-	                // 서버에 파일 저장 (transferTo())
-	                File file = new File(filePath + classImage.getImageReName());
-	                image.transferTo(file);
-	            } else { // 삽입 실패
-	                // 삽입 실패 시 예외를 강제로 발생시켜 롤백
-	                throw new FileUploadException(); // 사용자 정의 예외 발생
-	            }
-	        }
-	    }
-	    
-	    return boardNo;
+	    if(boardNo > 0 && images != null) {
+
+			List<BoardImage> uploadList = new ArrayList<BoardImage>();
+
+			for(int i=0; i<images.size(); i++) {
+
+				if(images.get(i).getSize() > 0) {
+
+					BoardImage img = new BoardImage();
+
+					img.setBoardNo(boardNo);
+					img.setImagePath(webPath);
+					img.setImageOrder(i);
+
+					String fileName = images.get(i).getOriginalFilename();
+					img.setImageOriginal(fileName);
+					img.setImageReName(Util.fileRename(fileName));
+
+					uploadList.add(img);
+
+				}
+			}
+
+			if(!uploadList.isEmpty()) {
+
+				result = dao.insertClassImageList(uploadList);
+
+				if(result == uploadList.size()) {
+
+					for(int i=0; i<uploadList.size(); i++) {
+
+						String rename = uploadList.get(i).getImageReName();
+
+						int index = uploadList.get(i).getImageOrder();
+
+						images.get(index).transferTo(new File(filePath + rename));
+					}
+				}else {
+
+					throw new FileUploadException();
+				}
+			}
+		}
+
+		return boardNo;
 	}
 	
 	// 클래스 수정
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int classUpdate(ClassSchedule classSchedule, MultipartFile image, String webPath, String filePath,
+	public int classUpdate(ClassSchedule classSchedule, List<MultipartFile> images, String webPath, String filePath,
 			String deleteList) throws IllegalStateException, IOException {
 		
 		classSchedule.setBoardTitle(Util.XSSHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.XSSHandling(classSchedule.getBoardContent()));
 		
-		// newLineHandling
+		// 줄바꿈을 <br>로 변환
 		classSchedule.setBoardTitle(Util.newLineHandling(classSchedule.getBoardTitle()));
 		classSchedule.setBoardContent(Util.newLineHandling(classSchedule.getBoardContent()));
 		
 		
-		int boardNo = dao.classUpdate(classSchedule);
-		
-		classSchedule.setBoardNo(boardNo);
-		
-		int result = dao.updateClassSchedule(classSchedule);
-		
-		if(result > 0) {
-			if(deleteList != null && !deleteList.equals("")) {
+		int result = dao.classUpdate(classSchedule);
 				
-				Map<String, Object> deleteMap = new HashMap<String, Object>();
-				deleteMap.put("deleteList", deleteList);
-				deleteMap.put("boardNo", classSchedule.getBoardNo());
-				
-				result = dao.imageDelete(deleteMap);
-				
-				if(result == 0) { // 이미지 삭제 실패 시 전체 롤백
-									// -> 예외 강제로 발생
-					throw new ImageDeleteException();
-				}
-			}
-			
-			BoardImage uploadImage = new BoardImage();
-			uploadImage.setImagePath(webPath);
-			uploadImage.setBoardNo(classSchedule.getBoardNo());
-			uploadImage.setImageOrder(0);
-			
-			if (image != null && !image.isEmpty()) {
-			    String fileName = image.getOriginalFilename();
-			    uploadImage.setImageOriginal(fileName);
-			    uploadImage.setImageReName(Util.fileRename(fileName));
-			    
-			    result = dao.imageUpdate(uploadImage);
-			    
-			    if (result > 0) {
-			        String rename = uploadImage.getImageReName();
-			        image.transferTo(new File(filePath + rename));
-			    }
-			}
-		}
 		
-		return result;
+		result = dao.updateClassSchedule(classSchedule);
+		
+		
+	    if(result > 0) {
+	        
+	        if(!deleteList.equals("")) {
+	            
+	            Map<String, Object> deleteMap =  new HashMap<>();
+	            deleteMap.put("boardNo", classSchedule.getBoardNo());
+	            deleteMap.put("deleteList", deleteList);
+	            
+	            result = dao.imageDelete(deleteMap);
+	            
+	            if(result == 0) {
+	                
+	                throw new ImageDeleteException();
+	            }
+	            
+	        }
+
+	        if (images != null && !images.isEmpty()) {
+	            List<BoardImage> uploadList = new ArrayList<>();
+
+	            for(int i = 0; i < images.size(); i++) {
+	                
+	                if(images.get(i).getSize() > 0) {  
+	                    
+	                    BoardImage img = new BoardImage();
+	                    img.setImagePath(webPath);
+	                    img.setImageOrder(i);
+	                    img.setBoardNo(classSchedule.getBoardNo());
+	                    
+	                    String fileName = images.get(i).getOriginalFilename();
+	                    
+	                    img.setImageOriginal(fileName);
+	                    img.setImageReName(Util.fileRename(fileName));
+	                    
+	                    uploadList.add(img);
+	                    
+	                    result = dao.updateClassImage(img);
+	                    
+	                    if(result == 0) {
+	                    	result = dao.insertClassImage(img);
+	                    }
+	                }
+	            }
+	            
+	            if(!uploadList.isEmpty()) {
+	                
+	                for(int i = 0; i < uploadList.size(); i++) {
+	                    
+	                    int index = uploadList.get(i).getImageOrder();
+	                    
+	                    String rename = uploadList.get(i).getImageReName();
+	                    
+	                    images.get(index).transferTo(new File(filePath + rename));
+	                            
+	                }
+	            }
+	        }
+	    }
+
+	    return result;
 	}
 	
 	

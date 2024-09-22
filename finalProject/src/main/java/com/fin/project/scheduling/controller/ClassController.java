@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.member.model.dto.Member;
+import com.fin.project.scheduling.model.dto.BoardImage;
 import com.fin.project.scheduling.model.dto.ClassSchedule;
 import com.fin.project.scheduling.model.service.ClassService;
 
@@ -91,8 +92,7 @@ public class ClassController {
 	// 클래스 작성
 	@PostMapping("/{cateCode:12}/insert")
 	public String boardInsert(@PathVariable("cateCode") int cateCode, @ModelAttribute ClassSchedule classSchedule,
-			@RequestParam(value = "image", required = false) MultipartFile image,
-			@RequestParam(value = "existingImage", required = false) String existingImage,HttpSession session,
+			@RequestParam(value="images", required=false) List<MultipartFile> images,HttpSession session,
 			@SessionAttribute("loginMember") Member loginMember) throws IllegalStateException, IOException {
 
 		classSchedule.setMemberNo(loginMember.getMemberNo());
@@ -105,28 +105,20 @@ public class ClassController {
 		
 		
 		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호(boardNo) 반환 받기
-		int boardNo = service.classInsert(classSchedule, image, webPath, filePath);
+		int boardNo = service.classInsert(classSchedule, images, webPath, filePath);
 
-		String path = "redirect:";
-
-		if (boardNo > 0) { // 게시글 성공 시
-
-			path += "/scheduling/" + cateCode + "/" + boardNo;
-
-		} else {
-
-			path += "insert";
-
-		}
-
-		return path;
+		 if (boardNo > 0) {
+	            return "redirect:/scheduling/" + cateCode + "/" + boardNo;
+	        } else {
+	            return "redirect:/scheduling/" + cateCode + "/insert";
+	        }
 	}
 	
 	// 클래스 수정 화면 전환
 	@GetMapping("/{cateCode:12}/{boardNo}/update")
 	public String classUpdate(@PathVariable("cateCode") int cateCode
 							  , @PathVariable("boardNo") int boardNo
-							  , Model model // 데이터 전달용 객체(기본적으로 request scope)
+							  , Model model 
 							  ) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -142,10 +134,10 @@ public class ClassController {
 	
 	// 클래스 수정
 	@PostMapping("/{cateCode:12}/{boardNo}/update")
-	public String classUpdate(ClassSchedule classSchedule //커맨드 객체
-			, @RequestParam(value="deleteList", required=false) String deleteList // 삭제할 이미지
-			, @RequestParam(value="cp", required=false, defaultValue="1") int cp // 쿼리 스트링 유지
-			, @RequestParam(value="image", required=false) MultipartFile image // 업로드된 이미지
+	public String classUpdate(@ModelAttribute ClassSchedule classSchedule 
+			, @RequestParam(value="deleteList", required=false, defaultValue="") String deleteList 
+			, @RequestParam(value="cp", required=false, defaultValue="1") int cp 
+			,  @RequestParam(value="images", required=false) List<MultipartFile> images 
 			, @PathVariable("cateCode") int cateCode
 			, @PathVariable("boardNo") int boardNo
 			, HttpSession session // 서버 파일 저장 경로 얻어올 용도 
@@ -159,17 +151,14 @@ public class ClassController {
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		// 클래스 수정 서비스 호출
-		int rowCount = service.classUpdate(classSchedule, image, webPath, filePath, deleteList);
+		int result = service.classUpdate(classSchedule, images, webPath, filePath, deleteList);
 		
-		String path = "redirect:";
 		
-		if(rowCount > 0) {
-			path += "/scheduling/"+cateCode+"/"+boardNo+"?cp="+cp;
-		} else {
-			path += "update";
-		}
-		
-		return path;
+		 if (result > 0) {
+	            return "redirect:/scheduling/12/" + classSchedule.getBoardNo() + "?cp=" + cp;
+	        } else {
+	            return "redirect:/scheduling/12/" + classSchedule.getBoardNo() + "/update";
+	        }
 	}
 
 	// 클래스 삭제  
