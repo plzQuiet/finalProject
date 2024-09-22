@@ -34,22 +34,22 @@
 .apply-box{
 	display:flex;
 	width:100%;
-	border:1px solid #ddd;
 	height:90px;
 	margin-bottom:30px;
 }
-.apply-box-img{
-	border-right: 1px solid #ddd;
-	width:20%;
-}
+
 .apply-box-index{
 	display:flex;
-	align-items: center;	
-	
+	font-weight: 800;
+	font-size: 20px;
 }
-.apply-box-index > p {
-	margin-left: 10px;
-	margin-right: 10px;
+
+.apply-box-index p {
+	margin-left: 5px;
+	font-weight: 800;
+	font-size: 20px;
+	word-break: keep-all;
+	line-height: 30px;
 }
 
 .apply-book-details{
