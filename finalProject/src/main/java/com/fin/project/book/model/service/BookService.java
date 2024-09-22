@@ -11,4 +11,6 @@ public interface BookService {
 
 	int reservation(Map<String, Object> paramMap);
 
+	int insertRequest(Map<String, Object> paramMap);
+
 }

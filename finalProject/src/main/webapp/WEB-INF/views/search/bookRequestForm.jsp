@@ -4,21 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>신청양식</title>
-<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
-
+<title>Java Library</title>
+<link rel="stylesheet" href="/resources/css/main-style.css">
 <link rel="stylesheet" href="/resources/css/common/sideMenu.css">
 <link rel="stylesheet" href="/resources/css/common/modal.css">
-<link rel="stylesheet" href="/resources/css/main-style.css">
+<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
 </head>
 <body>
-	<script>
-		document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-	  </script>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<section class="main">
-		<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
-		<jsp:include page="/WEB-INF/views/search/sideMenu.jsp" defer></jsp:include>
+		<jsp:include page="/WEB-INF/views/search/sideMenu.jsp"></jsp:include>
 
 		<section class="main-content">
 			<div class="main-title">신청 양식</div>
@@ -33,11 +28,11 @@
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td><input type="date" id="currentDate"/></td>
+								<td><input type="date" id="currentDate" readonly/></td>
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>로그인 유저 이름 가져와야 함</td>
+								<td>${loginMember.memberName}</td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
@@ -52,8 +47,8 @@
 								<td><input type="text"/></td>
 							</tr>
 							<tr>
-								<th>출판일자</th>
-								<td><input type="text"/></td>
+								<th>출판연도</th>
+								<td><input type="date"/></td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
@@ -64,15 +59,18 @@
 					</table>
 				</div>
 				<div class="btn-area">
-					<button id="request-btn" onclik="">신청하기</button>
+					<button id="request-btn">신청하기</button>
 				</div>
 			</section>
 		</section>
-
+		
 	</section>
-	
-	<script src="/resources/js/search/bookRequest.js"></script>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
+	<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<script>
+		const loginMemberNo = "${loginMember.memberNo}"
+	</script>
+	<script src="/resources/js/search/bookRequest.js"></script>
 </body>
 </html>

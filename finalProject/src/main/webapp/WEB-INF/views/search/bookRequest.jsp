@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
-<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+<title>Java Library</title>
 <link rel="stylesheet" href="/resources/css/main-style.css">
+<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
 </head>
 <body>
 	
@@ -62,17 +63,25 @@
 						<div class="apply-area">
 							<div class="apply-text">희망 자료 신청 또는 조회를 하려면 버튼을 누르세요 </div>
 							<div class="apply-btn-area">
-								<button id="apply-btn" onclick="location.href=''">조회</button>
-								<button id="request-btn" onclick="location.href='bookRequestForm'">신청</button>
+								<button id="apply-btn" onclick="location.href='2/1'">조회</button>
+								<button id="request-btn">신청</button>
 							</div>
 						</div>
 						
 					</div>
 				</section>
 			</section>
-
 		</section>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-	
+	<script>
+		const memberNo = "${loginMember.memberNo}";
+		document.getElementById("request-btn").addEventListener("click", ()=>{
+			if(memberNo == ""){
+				alert("로그인 후 이용가능합니다.")
+			}else{
+				location.href='2/2';
+			}
+		})
+	</script>
 </body>
 </html>

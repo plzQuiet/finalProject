@@ -7,7 +7,6 @@
 .side-menu a{display: block;}
 
 .side-menu > div{
-	height: 140px;
 	font-size: 20px;
 	font-weight: bold;
 	background-color: #555555;
@@ -44,14 +43,13 @@
 }
 
 .side-wrap {
-	height: 165px;
 	padding: 20px;
 	background-color: white;
 }
 
 .side-wrap > a{
-	margin-bottom: 10px;
-	font-size: 13px;
+	margin-bottom: 5px;
+	font-size: 15px;
 }
 
 .side-wrap > a:hover{

@@ -37,9 +37,14 @@ public class BookController {
 		return "search/bookRequest";
 	}
 	
-	@GetMapping("/3")
-	public String test() {
-		return "search/searchDetail";
+	@GetMapping("/2/1")
+	public String requestHistory() {
+		return "search/requestHistory";
+	}
+	
+	@GetMapping("/2/2")
+	public String requestForm() {
+		return "search/bookRequestForm";
 	}
 	
 	@GetMapping("/search")
@@ -52,6 +57,12 @@ public class BookController {
 	@ResponseBody
 	private int reservation(@RequestParam Map<String, Object> paramMap) {
 		return service.reservation(paramMap);
+	}
+	
+	@PostMapping("/2/2")
+	@ResponseBody
+	public int insertRequest(@RequestBody Map<String, Object> paramMap) {
+		return service.insertRequest(paramMap);
 	}
 	
 }
