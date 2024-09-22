@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +39,13 @@ public class BookController {
 	}
 	
 	@GetMapping("/2/1")
-	public String requestHistory() {
+	public String requestHistory(Model model
+			, @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+		
+		Map<String, Object> map = service.selectRequestList(cp);
+		
+		model.addAttribute("map", map);
+		
 		return "search/requestHistory";
 	}
 	

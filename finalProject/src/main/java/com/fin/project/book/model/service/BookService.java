@@ -13,4 +13,6 @@ public interface BookService {
 
 	int insertRequest(Map<String, Object> paramMap);
 
+	Map<String, Object> selectRequestList(int cp);
+
 }

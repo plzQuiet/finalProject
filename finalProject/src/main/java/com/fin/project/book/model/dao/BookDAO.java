@@ -8,7 +8,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.fin.project.board.model.dto.Pagination;
 import com.fin.project.book.model.dto.Book;
+import com.fin.project.book.model.dto.BookRequest;
 
 @Repository
 public class BookDAO {
@@ -41,6 +43,19 @@ public class BookDAO {
 
 	public int insertRequest(Map<String, Object> paramMap) {
 		return sqlSession.insert("bookMapper.insertRequest", paramMap);
+	}
+
+	public int getRequestCount() {
+		return sqlSession.selectOne("bookMapper.getRequestCount");
+	}
+
+	public List<BookRequest> selectRequestList(Pagination pagination) {
+		
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("bookMapper.selectRequestList", pagination, rowBounds);
 	}
 
 }

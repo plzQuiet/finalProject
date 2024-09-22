@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fin.project.board.model.dto.Pagination;
 import com.fin.project.book.model.dao.BookDAO;
 import com.fin.project.book.model.dto.Book;
+import com.fin.project.book.model.dto.BookRequest;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -60,6 +62,22 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public int insertRequest(Map<String, Object> paramMap) {
 		return dao.insertRequest(paramMap);
+	}
+
+	@Override
+	public Map<String, Object> selectRequestList(int cp) {
+		
+		int listCount = dao.getRequestCount();
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<BookRequest> reqList = dao.selectRequestList(pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("reqList", reqList);
+		
+		return map;
 	}
     
 }
