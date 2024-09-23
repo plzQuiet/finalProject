@@ -50,9 +50,7 @@ requestBtn.addEventListener("click", ()=>{
     })
     .then(resp=>resp.text())
     .then(result=>{
-        console.log(result)
         if(result > 0){
-
             popUpLayer.style.display = "block";
         }
     })

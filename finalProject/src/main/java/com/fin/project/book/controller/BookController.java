@@ -56,9 +56,9 @@ public class BookController {
 			@PathVariable("requestNo") int requestNo,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp){
 		
-		BookRequest request = service.selectRequestDetail(requestNo);
+		BookRequest bookReq = service.selectRequestDetail(requestNo);
 		
-		model.addAttribute("request", request);
+		model.addAttribute("bookReq", bookReq);
 		
 		return "search/bookRequestDetail";
 	}
