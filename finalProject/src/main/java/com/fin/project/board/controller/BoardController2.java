@@ -43,7 +43,6 @@ public class BoardController2 {
 	private BoardService boardService;
 
 	// 게시글 작성 화면 전환 
-	// cateCode: 15,18
 	@GetMapping("/{cateCode:15|16|18}/insert")
 	public String boardInsert(@PathVariable("cateCode") int cateCode) {
 		
@@ -54,14 +53,6 @@ public class BoardController2 {
 		return "board/boardWrite";
 	}
 
-	// 게시글 작성 화면 전환 
-	// cateCode: 16 
-//	@GetMapping("{cateCode:16}/insert")
-//	public String boardInsert(@PathVariable("cateCode") int cateCode) {
-//		
-//		return "board/qnaWrite";
-//	}
-
 	// 게시글 작성
 	@PostMapping("/{cateCode:15|16|18}/insert")
 	public String boardInsert(@PathVariable("cateCode") int cateCode,
@@ -70,7 +61,6 @@ public class BoardController2 {
 							  Board board, HttpSession session, RedirectAttributes ra
 							  ) throws IOException, IllegalStateException {
 
-//		System.out.println(board);
 		board.setMemberNo(loginMember.getMemberNo());
 
 		board.setCateCode(cateCode);
@@ -132,7 +122,6 @@ public class BoardController2 {
 							  @SessionAttribute("loginMember") Member loginMember) 
 							  throws IllegalStateException, IOException {
 
-//		System.out.println(board);
 		board.setBoardNo(boardNo);
 		board.setCateCode(cateCode);
 

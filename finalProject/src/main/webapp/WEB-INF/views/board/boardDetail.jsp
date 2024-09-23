@@ -49,7 +49,14 @@
             <!-- 게시글 상세 화면 -->
             <section class="board-detail">
                 <!-- 제목 -->
-                <h1 class="board-title">${board.boardTitle}</h1>
+                <c:choose>
+                    <c:when test="${board.boardSecretFlag == 'Y'}">
+                        <h1 class="board-title"><i class="fa-solid fa-lock"></i> ${board.boardTitle}</h1>
+                    </c:when>
+                    <c:otherwise>
+                        <h1 class="board-title">${board.boardTitle}</h1>
+                    </c:otherwise>
+                </c:choose>
 
                 <!-- 작성자 / 작성일 / 조회수 -->
                 <div class="board-nav">

@@ -292,7 +292,16 @@
 				#{cateCode},
 				#{boardTitle},
 				#{boardContent},
-				DEFAULT, NULL, DEFAULT, DEFAULT, DEFAULT )
+				DEFAULT, NULL, DEFAULT, DEFAULT,
+				
+				<if test='boardSecretFlag != null'>
+					#{boardSecretFlag}
+				</if>
+		
+				<if test='boardSecretFlag == null'>
+					DEFAULT
+				</if>
+				)
 	</insert>
 	
 	<!-- 이미지 리스트 삽입 -->
