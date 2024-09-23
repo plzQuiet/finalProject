@@ -178,10 +178,24 @@ table th{
 }
 
 .btn-area{
-	background-color: #ddd;
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
+    text-align: right;
+    padding-bottom: 12px;
+}
+
+.btn-area button{
+    background-color: #8FB788;
+    border: none;
+    color: white;
+    width: 70px;
+    height: 30px;
+    margin-left: 10px;
+	cursor: pointer;
+}
+
+.btn-area button:hover{
+    background-color: white;
+    border: 1px solid #8FB788;
+    color: black;
 }
 
 /* bookrequst-form area */

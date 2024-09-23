@@ -51,7 +51,7 @@
 											<tr>
 												<td>${request.requestNo}</td>
 												<td><a href="/book/2/1/${request.requestNo}?cp=${pagination.currentPage}">${request.requestTitle}</a></td>
-												<td>${request.memberName}</td>
+												<td>${fn:substring(request.memberName, 0,1)}*<c:if test="${fn:length(request.memberName) > 2}">${fn:substring(request.memberName, 2, fn:length(request.memberName))}</c:if></td>
 												<td>${request.requestDate}</td>
 												<td>
 													<c:if test="${request.requestApprove == 'W'}">대기중</c:if>
