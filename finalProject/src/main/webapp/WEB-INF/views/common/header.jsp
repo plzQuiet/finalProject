@@ -55,14 +55,16 @@
 				</ul>
 			</li>
 	        <li>
-				<a href="/myLibrary/book"  onclick="alert('로그인 후 이용가능합니다.')">내 서재</a>
+				<a href="/myLibrary/book" onclick="alertMsg()">내 서재</a>
 				<ul>
-					<li><a href="/myLibrary/book">나의 도서관</a></li>
-					<li><a href="/myPayment">결제내역</a></li>
-					<li><a href="/myPage/info">회원정보</a></li>
+					<li><a href="/myLibrary/book" onclick="alertMsg()">나의 도서관</a></li>
+					<li><a href="/myPayment" onclick="alertMsg()">결제내역</a></li>
+					<li><a href="/myPage/info" onclick="alertMsg()">회원정보</a></li>
 				</ul>
 			</li>
 	    </ul>
+
+		
 	    
         <div class="header-top-menu">
             <c:choose>
@@ -107,3 +109,12 @@
 </c:if>
 
 <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
+<script>
+	const loginMember = "${loginMember}";
+
+	function alertMsg(){
+		if(loginMember == ""){
+			alert("로그인 후 이용해주세요.");
+		}
+	}
+</script>
