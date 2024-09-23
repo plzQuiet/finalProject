@@ -49,7 +49,7 @@
 									<td>디지털열람실</td>
 									<td>${l.RESERVATION_DT}</td>
 									<td>${l.START_TIME} ~ ${l.END_TIME}</td>
-									<td><button onclick="reservCancle(${l.RESERVATION_NO})">취소</button></td>
+									<td><button onclick="reservcancel(${l.RESERVATION_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

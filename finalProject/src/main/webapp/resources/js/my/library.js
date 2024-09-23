@@ -11,8 +11,8 @@ for(let i = 1; i <= libNav.length; i++){
     }
 }
 
-function bookCancle(rNo){
-    fetch("/bookCancle",{
+function bookcancel(rNo){
+    fetch("/bookcancel",{
         method : "DELETE",
         headers : {"Content-Type" : "application/json"},
         body : rNo
@@ -29,8 +29,8 @@ function bookCancle(rNo){
     .catch(e=>console.log(e))
 }
 
-function reservCancle(rNo){
-    fetch("/reservCancle",{
+function reservcancel(rNo){
+    fetch("/reservcancel",{
         method : "DELETE",
         headers : {"Content-Type" : "application/json"},
         body : rNo
@@ -47,8 +47,8 @@ function reservCancle(rNo){
     .catch(e=>console.log(e))
 }
 
-function classCancle(boardNo){
-    fetch("/classCancle",{
+function classcancel(boardNo){
+    fetch("/classcancel",{
         method : "DELETE",
         headers : {"Content-Type" : "application/json"},
         body : boardNo
@@ -65,8 +65,8 @@ function classCancle(boardNo){
     .catch(e=>console.log(e))
 }
 
-function bookmarkCancle(bookNo){
-    fetch("/bookmarkCancle",{
+function bookmarkcancel(bookNo){
+    fetch("/bookmarkcancel",{
         method : "DELETE",
         headers : {"Content-Type" : "application/json"},
         body : bookNo

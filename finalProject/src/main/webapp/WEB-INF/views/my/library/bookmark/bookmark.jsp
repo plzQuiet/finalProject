@@ -49,7 +49,7 @@
 									<td>${b.BOOK_PUB}</td>
 									<td>${b.BOOK_PUB_DT}</td>
 									<td>${b.BOOK_ISBN}</td>
-									<td><span onclick="bookmarkCancle(${b.BOOK_NO})" class="bookMarkStar">★</span></td>
+									<td><span onclick="bookmarkcancel(${b.BOOK_NO})" class="bookMarkStar">★</span></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

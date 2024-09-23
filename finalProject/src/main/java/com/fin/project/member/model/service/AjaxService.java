@@ -5,12 +5,12 @@ public interface AjaxService {
 
 	int dupCheckEmail(String email);
 
-	int bookCancle(int rNo);
+	int bookcancel(int rNo);
 
-	int reservCancle(int rNo);
+	int reservcancel(int rNo);
 
-	int classCancle(int boardNo);
+	int classcancel(int boardNo);
 
-	int bookmarkCancle(int bookNo);
+	int bookmarkcancel(int bookNo);
 	
 }
