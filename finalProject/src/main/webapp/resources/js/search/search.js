@@ -111,6 +111,8 @@ function showBookList(result){
             span.innerText = "★";
         }
 
+        span.setAttribute("onclick", `bookLike(this, ${b.bookNo}, "${loginMemberNo}")`);
+
         const p1 = document.createElement("p");
         p1.innerText = `${b.bookTitle}`;
         const p2 = document.createElement("p");
@@ -268,6 +270,45 @@ function addReservation(bookNo){
     .catch(e=>console.log)
 }
 
+function bookLike(el, bookNo, memberNo){
+
+    if(memberNo == ""){
+        alert("로그인 후 이용해주세요.");
+        return;
+    }
+
+    let check;
+    if(el.innerText == "☆"){
+        check = 0;
+    }else{
+        check = 1;
+    }
+
+    const obj = {
+        bookNo : bookNo,
+        memberNo : memberNo,
+        check : check
+    };
+
+    fetch("/book/like", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(obj)
+    })
+    .then(resp => resp.text())
+    .then(result => {
+        if(result > 0){
+            if(check == 0){
+                el.innerText = "★";
+            }else{
+                el.innerText = "☆";
+            }
+        }
+    })
+    .catch(e=>console.log(e))
+
+}
+
 // swiper
 /*const sampleSlider = new Swiper('.sample', {
     slidesPerView: 3,
@@ -278,24 +319,24 @@ function addReservation(bookNo){
     }
 })*/
 
-
-
-
-
 /* 초기화 버튼 */
-document.getElementById("refresh-btn").addEventListener("click", ()=>{
-    const inputDetail = document.getElementsByClassName("inputDetail");
-    for(let i=0; i<inputDetail.length; i++){
-        if(inputDetail[i].value.trim().length != 0){
-            inputDetail[i].value="";
+if(resetBtn != null){
+
+    resetBtn.addEventListener("click", ()=>{
+        const inputDetail = document.getElementsByClassName("inputDetail");
+        for(let i=0; i<inputDetail.length; i++){
+            if(inputDetail[i].value.trim().length != 0){
+                inputDetail[i].value="";
+            }
         }
-    }
+    
+        let searchPrint = document.getElementById("searchPrint");
+        if(searchPrint != 10){
+            searchPrint=10;
+            location.reload();
+        }    
+    
+    })
 
-    let searchPrint = document.getElementById("searchPrint");
-    if(searchPrint != 10){
-        searchPrint=10;
-        location.reload();
-    }    
-
-})
+}
 

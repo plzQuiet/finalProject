@@ -86,4 +86,10 @@ public class BookController {
 		return service.insertRequest(paramMap);
 	}
 	
+	@PostMapping("/like")
+	@ResponseBody
+	public int like(@RequestBody Map<String, Integer> paramMap) {
+		return service.like(paramMap);
+	}
+	
 }
