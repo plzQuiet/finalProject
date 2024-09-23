@@ -25,6 +25,10 @@
 	font-size: 20px;
 }
 
+.main-search-area .searchForm input:focus{
+	outline: none;
+}
+
 .main-search-area .searchForm button{
 	border:0;
 	background-color: white;

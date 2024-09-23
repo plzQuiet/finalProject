@@ -282,5 +282,20 @@ function addReservation(bookNo){
 
 
 
+/* 초기화 버튼 */
+document.getElementById("refresh-btn").addEventListener("click", ()=>{
+    const inputDetail = document.getElementsByClassName("inputDetail");
+    for(let i=0; i<inputDetail.length; i++){
+        if(inputDetail[i].value.trim().length != 0){
+            inputDetail[i].value="";
+        }
+    }
 
+    let searchPrint = document.getElementById("searchPrint");
+    if(searchPrint != 10){
+        searchPrint=10;
+        location.reload();
+    }    
+
+})
 
