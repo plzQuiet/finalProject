@@ -128,7 +128,8 @@ function showBookList(result){
             p4.append(borrowText);
 
             if(b.returnDueDate != null){
-
+                borrowText.innerText = "대출중";
+                borrowText.style.color = "blue";
                 const resvInfoBtn = document.createElement("button");
                 resvInfoBtn.classList.add("resvInfoBtn");
                 resvInfoBtn.innerText = `예약 / 소장정보`;
