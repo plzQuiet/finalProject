@@ -78,6 +78,14 @@
 	padding : 10px;
 }
 
+/* 세미나실 *멘트 */
+.popup_box #reservation_content p:nth-child(4){ 
+	font-size: 15px;
+	color : #555;
+	font-weight: 800;
+	padding : 10px;
+}
+
 /*버튼영역*/
 .popup_box .popup_btn {
 	display:table;

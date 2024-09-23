@@ -1,13 +1,20 @@
-const writeBtn = document.getElementById("writeBtn");
+const updateBtn = document.getElementById("updateBtn");
 
-writeBtn.addEventListener("click", ()=>{
+
+updateBtn.addEventListener("click", ()=>{
+
     const input = document.querySelectorAll(".request-form input");
-    
     for(let i=0; i<input.length; i++){
         if(input[i].value.trim().length == 0){
             alert("입력하지 않은 항목이 있습니다.");
             return;
         }
+    }
+
+    const textarea = document.getElementById("opinion");
+    if(textarea.value.trim().length == 0){
+        alert("입력하지 않은 항목이 있습니다.");
+        return;
     }
 
     const obj = {
@@ -28,7 +35,11 @@ writeBtn.addEventListener("click", ()=>{
     .then(resp=>resp.text())
     .then(result=>{
         if(result > 0){
-            popUpLayer.style.display = "block";
+            alert("수정완료!!");
+            location.replace("/book/2/1");
+        }else{
+            alert("수정 실패 ㅠㅠ");
+            location.replace("update");
         }
     })
     .catch(e=>console.log(e))
