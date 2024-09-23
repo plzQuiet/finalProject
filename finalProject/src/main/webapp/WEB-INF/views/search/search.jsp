@@ -42,7 +42,7 @@
                     <option value="a" aSel>저자</option>
                 </select>
 
-                <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요" value="${param.query}">
+                <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요" value="${param.query}" onkeyup="if(window.event.keyCode==13){searchKeyword()}">
 
                 <button id="searchBtn">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -105,5 +105,11 @@
             })();        
         </script>
     </c:if>
+
+    <script>
+        function searchKeyword(){
+            document.getElementById("searchBtn").click();
+        }
+    </script>
 </body>
 </html>
