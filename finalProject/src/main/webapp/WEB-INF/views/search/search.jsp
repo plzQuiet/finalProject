@@ -31,7 +31,7 @@
                 <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요">
 
                 <button id="searchBtn">
-                    <i class="fa-solid fa-magnifying-glass"></i>검색
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
 
             </div>

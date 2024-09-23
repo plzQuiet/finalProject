@@ -16,6 +16,7 @@
 
 		<section class="main-content">
 			<div class="main-title">상세 검색</div>
+			<hr class="titleLine"/>
 			<section class="body-content">
 				<div class="searchFormDetail">
 					<div class="detailItem">
