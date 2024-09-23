@@ -37,14 +37,13 @@
 	height: 28px;
     background-color: white;
     text-decoration: none;
-    position: relative;
 }
 
 #gotoNotice i{
-    position: absolute;
-    top: 8px;
-    left: 8.5px;
+    line-height: 28px;
+    text-align: center;
     color: #0054b4;
+    width: 100%;
 }
 
 #gotoNotice > a:hover{
