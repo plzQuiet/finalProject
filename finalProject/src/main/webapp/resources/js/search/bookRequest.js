@@ -33,6 +33,8 @@ requestBtn.addEventListener("click", ()=>{
         }
     }
 
+    requestBtn.setAttribute("disabled", "disabled");
+
     const obj = {
         reqTitle : input[0].value,
         memberNo : loginMemberNo,
