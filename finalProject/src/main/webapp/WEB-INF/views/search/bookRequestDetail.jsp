@@ -24,53 +24,58 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td><input type="text"  maxlength="300" value="${bookReq.requestTitle}"/></td>
+								<td>${bookReq.requestTitle}"</td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td><input type="date" id="currentDate" value="${bookReq.requestTitle}" readonly/></td>
+								<td>${bookReq.requestDate}"</td>
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>${loginMember.memberName}</td>
+								<td>${bookReq.memberName}</td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
-								<td><input type="text"/></td>
+								<td>${bookReq.bookTitle}</td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td><input type="text"/></td>
+								<td>${bookReq.bookAuthor}</td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td><input type="text"/></td>
+								<td>${bookReq.bookPub}</td>
 							</tr>
 							<tr>
 								<th>출판연도</th>
-								<td><input type="date" id="publishDate"/></td>
+								<td>${bookReq.bookPubDate}</td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
-								<td><textarea id="opinion" cols="20"></textarea></td>
+								<td><textarea id="opinion" cols="20">${bookReq.requestOpinion}</textarea></td>
 							</tr>
 
 						</tbody>
 					</table>
 				</div>
 				<div class="btn-area">
-					<button id="request-btn">신청하기</button>
+					<c:if test="${loginMember.memberNo == bookReq.memberNo}">
+						<button id="updateBtn">수정</button>
+						<button id="deleteBtn">삭제</button>
+					</c:if>
+
+					<button id="goToListBtn">목록으로</button>
 				</div>
 			</section>
 		</section>
 		
 	</section>
 
-	<jsp:include page="/WEB-INF/views/search/requestModal.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
-		const loginMemberNo = "${loginMember.memberNo}"
+		const loginMemberNo = "${loginMember.memberNo}";
+		const requestNo = "${bookReq.requestNo}";
 	</script>
-	<script src="/resources/js/search/bookRequest.js"></script>
+	<script src="/resources/js/search/bookRequestDetail.js"></script>
 </body>
 </html>

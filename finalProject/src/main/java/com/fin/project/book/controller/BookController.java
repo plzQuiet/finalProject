@@ -60,7 +60,7 @@ public class BookController {
 		
 		model.addAttribute("bookReq", bookReq);
 		
-		return "search/bookRequestForm";
+		return "search/bookRequestDetail";
 	}
 	
 	@GetMapping("/2/2")
