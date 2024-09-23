@@ -26,7 +26,7 @@
 				<a href="writing?m=1">게시글</a>
 				<a href="writing?m=2">댓글</a>
 			</div>
-			<p>총 ${fn:length(list)}건</p>
+			<p>총 ${pagination.listCount}건</p>
 			<table id="list-table">
 				<thead>
 					<tr>
