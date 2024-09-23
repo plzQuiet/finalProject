@@ -79,5 +79,10 @@ public class BookServiceImpl implements BookService {
 		
 		return map;
 	}
+
+	@Override
+	public BookRequest selectRequestDetail(int requestNo) {
+		return dao.selectRequestDetail(requestNo);
+	}
     
 }
