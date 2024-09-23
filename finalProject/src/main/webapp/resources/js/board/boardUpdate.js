@@ -6,7 +6,9 @@ const deleteImage = document.getElementsByClassName("delete-image");
 const deleteSet = new Set();
 
 for(let i=0; i<inputImage.length; i++){
+
     inputImage[i].addEventListener("change", e=>{
+
         const file = e.target.files[0];
 
         if(file != undefined){
@@ -40,8 +42,8 @@ for(let i=0; i<inputImage.length; i++){
 
 // 게시글 수정 시 제목, 내용 작성 여부 검사
 const boardWriteFrm = document.getElementById("boardWriteFrm");
-const boardTitle = document.getElementsByClassName("boardTitle");
-const boardContent = document.getElementsByClassName("boardContent");
+const boardTitle = document.getElementsByName("boardTitle")[0];
+const boardContent = document.querySelector("[name='boardContent']");
 
 boardWriteFrm.addEventListener("submit", e=>{
 
@@ -61,7 +63,7 @@ boardWriteFrm.addEventListener("submit", e=>{
         return;
     }
 
-    document.querySelector("name=['deleteList']").value = Array.from(deleteSet);
+    document.querySelector("[name='deleteList']").value = Array.from(deleteSet);
 })
 
 const li = document.querySelectorAll(".side-menu > li");
@@ -73,11 +75,12 @@ switch(cateCode){
     case "18" : li[3].classList.add("side-current"); break;
 }
 
-// 게시글 공개/비공개
-if(secret == 'N'){
-    document.getElementById("public").setAttribute("checked", "checked");
-}
 
-if(secret == 'Y'){
-    document.getElementById("private").setAttribute("checked", "checked");
-}
+// 게시글 공개/비공개
+// if(secret == 'N'){
+//     document.getElementById("public").setAttribute("checked", "checked");
+// }
+
+// if(secret == 'Y'){
+//     document.getElementById("private").setAttribute("checked", "checked");
+// }
