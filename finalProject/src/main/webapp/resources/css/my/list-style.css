@@ -90,10 +90,6 @@
 	text-decoration: underline;
 }
 
-#list-table td > span{
-	cursor: pointer;
-}
-
 .pagination{
     list-style: none;
     display: flex;
@@ -127,4 +123,8 @@
     border-radius: 30%;
     color: white !important;
     letter-spacing: 0 !important;
+}
+
+.bookMarkStar{
+	cursor:pointer;
 }
