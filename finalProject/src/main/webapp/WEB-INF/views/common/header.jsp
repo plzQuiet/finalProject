@@ -83,7 +83,7 @@
         
                     <div class="header-menu">
 						<c:if test="${loginMember.authority == 1}">
-							<a href="/myPage/info">내 서재</a>
+							<a href="/myPage/info">내 정보</a>
 						</c:if>
 
 						<c:if test="${loginMember.authority == 2}">

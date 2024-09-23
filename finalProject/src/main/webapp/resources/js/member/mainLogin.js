@@ -8,5 +8,6 @@ function getRandomColor() {
 
 const mainLoginBtn = document.getElementById("main-login-btn");
 
-
-setInterval(() => mainLoginBtn.style.backgroundColor=getRandomColor(), 140);
+if(mainLoginBtn != null){
+    setInterval(() => mainLoginBtn.style.backgroundColor=getRandomColor(), 140);
+}
