@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>Modal</title>
 	<link rel="stylesheet" href="/resources/css/common/modal.css">
+	<link rel="stylesheet" href="/resources/css/search/requestModal.css">
 </head>
 <body>
 	<div id="popup_layer">
@@ -19,7 +20,7 @@
 	      <div class="popup_content">
 	      <!-- 안에 p태그로 함 -->
 				<div class="popup_content_mid">
-					<p><b>도서 신청이 완료되었습니다!</b></p>
+					<p>도서 신청이 완료되었습니다!</p>
 				</div>	
 	      	<!--팝업 버튼 영역-->
 			<div class="popup_btn">

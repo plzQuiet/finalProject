@@ -24,7 +24,7 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td><input type="text"  maxlength="10"/></td>
+								<td><input type="text"  maxlength="300"/></td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
@@ -48,7 +48,7 @@
 							</tr>
 							<tr>
 								<th>출판연도</th>
-								<td><input type="date"/></td>
+								<td><input type="date" id="publishDate"/></td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
