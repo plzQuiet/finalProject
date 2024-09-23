@@ -24,7 +24,7 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td><input type="text"  maxlength="300" value="${bookReq.requestTitle}"/></td>
+								<td><input type="text"  maxlength="300" value="${bookReq.requestTitle}"/ placeholder="제목 입력"></td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
@@ -36,23 +36,23 @@
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
-								<td><input type="text"/></td>
+								<td><input type="text" placeholder="도서명 입력" /></td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td><input type="text"/></td>
+								<td><input type="text" placeholder="저자 입력" /></td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td><input type="text"/></td>
+								<td><input type="text" placeholder="출판사 입력"/></td>
 							</tr>
 							<tr>
-								<th>출판연도</th>
-								<td><input type="date" id="publishDate"/></td>
+								<th>출판 연도</th>
+								<td><input type="date" id="publishDate"  placeholder="출판 연도 입력" /></td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
-								<td><textarea id="opinion" cols="20"></textarea></td>
+								<td><textarea id="opinion" cols="20"  placeholder="내용 입력"></textarea></td>
 							</tr>
 
 						</tbody>
