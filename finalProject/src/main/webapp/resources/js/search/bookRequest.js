@@ -1,3 +1,4 @@
+
 const requestBtn = document.getElementById("request-btn");
 document.getElementById('currentDate').value= new Date().toISOString().slice(0, 10);
 
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     confirmBtn.addEventListener("click", function () {
         popUpLayer.style.display = 'none'; // 모달 닫기
+        location.href="/book/2/1";
 
     });
 
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 requestBtn.addEventListener("click", ()=>{
-
     const input = document.querySelectorAll(".request-form input");
     
     for(let i=0; i<input.length; i++){
@@ -49,7 +50,9 @@ requestBtn.addEventListener("click", ()=>{
     })
     .then(resp=>resp.text())
     .then(result=>{
+        console.log(result)
         if(result > 0){
+
             popUpLayer.style.display = "block";
         }
     })
