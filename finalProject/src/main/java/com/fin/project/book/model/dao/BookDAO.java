@@ -62,4 +62,12 @@ public class BookDAO {
 		return sqlSession.selectOne("bookMapper.selectRequestDetail", requestNo);
 	}
 
+	public int insertBookLike(Map<String, Integer> paramMap) {
+		return sqlSession.insert("bookMapper.insertBookLike", paramMap);
+	}
+
+	public int deleteBookLike(Map<String, Integer> paramMap) {
+		return sqlSession.insert("bookMapper.deleteBookLike", paramMap);
+	}
+
 }

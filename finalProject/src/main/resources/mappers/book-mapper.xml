@@ -127,5 +127,15 @@
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE REQ_BOOK_NO = #{requestNo}
 	</select>
+	
+	<insert id="insertBookLike">
+		INSERT INTO BOOK_LIKE VALUES(#{memberNo}, #{bookNo})
+	</insert>
+	
+	<delete id="deleteBookLike">
+		DELETE FROM BOOK_LIKE
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOOK_NO = #{bookNo}
+	</delete>
 
 </mapper>

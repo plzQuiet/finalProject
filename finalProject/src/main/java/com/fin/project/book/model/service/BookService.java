@@ -18,4 +18,6 @@ public interface BookService {
 
 	BookRequest selectRequestDetail(int requestNo);
 
+	int like(Map<String, Integer> paramMap);
+
 }

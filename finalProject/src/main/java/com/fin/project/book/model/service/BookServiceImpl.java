@@ -84,5 +84,21 @@ public class BookServiceImpl implements BookService {
 	public BookRequest selectRequestDetail(int requestNo) {
 		return dao.selectRequestDetail(requestNo);
 	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int like(Map<String, Integer> paramMap) {
+		
+		int result = 0;
+		
+		if(paramMap.get("check") == 0) {
+			result = dao.insertBookLike(paramMap);
+			
+		}else {
+			result = dao.deleteBookLike(paramMap);
+		}
+		
+		return result;
+	}
     
 }
