@@ -19,9 +19,10 @@
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><a href="#"><img src="/resources/images/scheduling/f20240806Hp14.png"></a></div>
-      <div class="swiper-slide"><a href="#"><img src="/resources/images/scheduling/f20240806Hp14.png"></a></div>
-      <div class="swiper-slide"><a href="#"><img src="/resources/images/scheduling/f20240806Hp14.png"></a></div>
+      <div class="swiper-slide"><a href="/scheduling/12/4009"><img src="/resources/images/scheduling/Rlanguage-1.jpg"></a></div>
+      <div class="swiper-slide"><a href="/scheduling/12/4008"><img src="/resources/images/scheduling/increase-2.jpg"></a></div>
+      <div class="swiper-slide"><a href="/scheduling/12/4007"><img src="/resources/images/scheduling/Gephi-3.jpg"></a></div>
+      <div class="swiper-slide"><a href="/scheduling/12/40006"><img src="/resources/images/scheduling/text-4.jpg"></a></div>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>

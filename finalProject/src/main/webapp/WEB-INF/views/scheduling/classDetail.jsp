@@ -70,7 +70,7 @@
 
                 <!-- 게시글 내용 -->
                 <div class="board-content">
-                    ${classBoard.boardContent}
+                    <pre>${classBoard.boardContent}</pre>
                 </div>
 
                 <!-- 버튼 영역(회원) -->
@@ -81,6 +81,12 @@
                     <button id="applyBtn" onclick="applyModal()">신청</button>
                     </c:if>
 
+                    <button id="goToListBtn">목록으로</button>
+                </div>
+                </c:if>
+
+                <c:if test="${empty loginMember.authority}">
+                <div class="btn-area">
                     <button id="goToListBtn">목록으로</button>
                 </div>
                 </c:if>
