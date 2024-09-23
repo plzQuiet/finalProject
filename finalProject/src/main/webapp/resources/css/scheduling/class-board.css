@@ -123,11 +123,6 @@ input{
 }
 
 
-
-
-
-
-
 /* 게시글 목록 */
 .board-list{
     width: 100%;
@@ -148,8 +143,7 @@ input{
 
 .list-table > thead{
     background-color: #8FB788;
-    /* border-top: solid 3px #008C1D; */
-
+    color: white;
 }
 
 .list-table tr{
@@ -190,6 +184,7 @@ input{
 
 .btn-area button{
     background-color: #8FB788;
+    color: white;
     border: none;
     width: 70px;
     height: 30px;
@@ -199,6 +194,7 @@ input{
 .btn-area button:hover{
     background-color: white;
     border: 1px solid #8FB788;
+    color: black;
     cursor: pointer;
 }
 
@@ -233,7 +229,7 @@ input{
 .current{
     background-color: #8FB788;
     border-radius: 30%;
-    color: black !important;
+    color: white !important;
     letter-spacing: 0 !important;
 
 }

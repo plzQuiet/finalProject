@@ -212,8 +212,7 @@ input{
 
 .list-table > thead{
     background-color: #8FB788;
-    /* color: white; */
-    color: black;
+    color: white;
 }
 
 .list-table tr{
@@ -257,25 +256,22 @@ input{
     margin-bottom: 20px;
 }
 
-/* .btn-area button{
-    border-radius: 5px;
-} */
-
 #writeBtn{
     /* margin-right: 50px; */
-    width: 90px;
-    height: 40px;
+    width: 85px;
+    height: 35px;
     border: none;
     cursor: pointer;
     border: 1px solid #8FB788;
     background-color: #8FB788;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-top: 10px;
 }
 
 #writeBtn:hover{
     background-color: white;
+    color: black;
 }
 
 /* pagination */
@@ -310,7 +306,7 @@ input{
 .current{
     background-color: #8FB788;
     border-radius: 30%;
-    color: black !important;
+    color: white !important;
     letter-spacing: 0 !important;
 }
 

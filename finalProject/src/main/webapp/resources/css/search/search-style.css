@@ -14,7 +14,7 @@
 	font-size:16px;
 	border:none;
 	width: 60px;
-	margin-right: 20px;
+	margin-left: 50px;
 }
 
 .fa-solid{
@@ -69,9 +69,9 @@
 
 .searchBar {
 	display: flex;
-	border: 1px solid black;
+	border: 1px solid #8FB788;
 	height: 42px;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	overflow: hidden;
 	justify-content: space-between;
 }
@@ -85,6 +85,10 @@ input {
 	border: none;
 	outline: none;
 	
+}
+
+#searchBtn i{
+	color: #8FB788;
 }
 
 #key{
@@ -113,8 +117,9 @@ input {
 }
 
 .book-info-wapper > span{
-	font-size: 50px;
+	font-size: 35px;
 	cursor: pointer;
+	height: 40px;
 }
 
 .book-info{
@@ -128,7 +133,9 @@ input {
 
 .book-info > p:nth-of-type(1){
 	font-size: 20px;
+	font-weight: bold;
 }
+
 .book-info > p:nth-of-type(2){}
 .book-info > p:nth-of-type(3){}
 .book-info > p:nth-of-type(4){}
@@ -160,7 +167,7 @@ input {
 }
 
 .titleLine{
-	border:2px solid #d4d4d4;
+	border:3px solid #d4d4d4;
 	margin-bottom: 30px;
 }
 
@@ -194,7 +201,7 @@ input {
 }
 
 .searchFormDetail {
-	border: 1px solid #8FB788;
+	border: 3px solid #8FB788;
 	height: 400px;
 	display: flex;
 }
@@ -237,12 +244,14 @@ input {
 
 .bookTitle, .author, .publisher {
 	border: 1px solid #8FB788;
+	background-color: #8FB788;
+	color: white;
 	height: 30px;
 	width: 70px;
 	text-align: center;
 	font-size: 14px;
 	line-height: 30px;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 }
 
 .input {
@@ -269,7 +278,7 @@ input {
 	padding: 10px 12px;
 	font-size: 12px;
 	height: 30px;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	border: 1px solid #8FB788;
 }
 
@@ -278,7 +287,7 @@ input {
 	padding: 10px;
 	font-size: 12px;
 	height: 30px;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	border: 1px solid #8FB788;
 }
 
@@ -286,7 +295,7 @@ input {
 	margin-top: 23px;
 }
 
-select {
+/* select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -301,17 +310,17 @@ select {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   outline:none;
   
-}
+} */
 
-select:hover {
+/* select:hover {
   border-color: #8FB788;
-}
+} */
 
 select:focus {
-  border-color:  #8FB788;
-  box-shadow: 0 0 1px 3px #DDF8D7;
+  /* border-color:  #8FB788; */
+  /* box-shadow: 0 0 1px 3px #DDF8D7; */
   box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color:  #8FB788;
+  /* color:  #8FB788; */
   outline: none;
 }
 
@@ -322,7 +331,7 @@ select:disabled {
 #searchAlign{
 	padding:5px;
 	border: 1px solid #8FB788; 
-	border-radius: 5px;
+	/* border-radius: 5px; */
 }
 
 .searchPrint {
@@ -332,7 +341,7 @@ select:disabled {
 #searchPrint{
 	padding:5px;
 	border: 1px solid #8FB788; 
-	border-radius: 5px;
+	/* border-radius: 5px; */
 }
 
 .btn-area {
@@ -348,17 +357,18 @@ select:disabled {
 	width: 80px;
 	margin-top:10px;
 	padding: 0.5rem 1rem;
-	background-color: white;
-	color: #8FB788;
+	background-color: #8FB788;
+	color: white;
 	cursor: pointer;
 	border: 1.5px solid #8FB788;
 	outline: 0;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	text-decoration: none;
 }
 #index-btn:hover, #refresh-btn:hover{
 	background-color: #8FB788;
-	color:white;
+	color:black;
+	background-color: white;
 }
 
 /*자료 검색 페이지*/

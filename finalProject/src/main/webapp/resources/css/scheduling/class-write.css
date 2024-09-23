@@ -144,6 +144,7 @@ h5{color: #555;}
 
 .btn-area button{
     background-color: #8FB788;
+    color: white;
     border: none;
     width: 70px;
     height: 30px;
@@ -153,6 +154,7 @@ h5{color: #555;}
 .btn-area button:hover{
     background-color: white;
     border: 1px solid #8FB788;
+    color: black;
     cursor: pointer;
 }
 
