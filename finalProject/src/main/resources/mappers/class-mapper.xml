@@ -126,7 +126,7 @@
 			</when>
 
 		</choose>
-		ORDER BY BOARD_NO DESC
+		ORDER BY B_CREATE_DT DESC
 	</select>
 	
 	<!-- 클래스 상세 조회 -->
