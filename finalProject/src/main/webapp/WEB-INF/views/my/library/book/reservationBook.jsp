@@ -51,7 +51,7 @@
 									<td>${l.BOOK_TITLE}</td>
 									<td>${l.RESERVATION_DT}</td>
 									<td>${l.RESERVATION_DT_E}</td>
-									<td><button onclick="bookCancle(${l.RESERVATION_NO})">취소</button></td>
+									<td><button onclick="bookcancel(${l.RESERVATION_NO})">취소</button></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>

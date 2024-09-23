@@ -51,7 +51,7 @@
 										<c:if test="">
 											
 										</c:if>
-										<button onclick="classCancle(${l.BOARD_NO})">취소</button>
+										<button onclick="classcancel(${l.BOARD_NO})">취소</button>
 									</td>
 								</tr>
 							</c:forEach>

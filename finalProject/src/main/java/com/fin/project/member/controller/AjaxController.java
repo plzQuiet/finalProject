@@ -23,24 +23,24 @@ public class AjaxController {
 		return service.dupCheckEmail(email);
 	}
 	
-	@DeleteMapping("/bookCancle")
-	public int bookCancle(@RequestBody int rNo) {
-		return service.bookCancle(rNo);
+	@DeleteMapping("/bookcancel")
+	public int bookcancel(@RequestBody int rNo) {
+		return service.bookcancel(rNo);
 	}
 	
-	@DeleteMapping("/reservCancle")
-	public int reservCancle(@RequestBody int rNo) {
-		return service.reservCancle(rNo);
+	@DeleteMapping("/reservcancel")
+	public int reservcancel(@RequestBody int rNo) {
+		return service.reservcancel(rNo);
 	}
 	
-	@DeleteMapping("/classCancle")
-	public int classCancle(@RequestBody int boardNo) {
-		return service.classCancle(boardNo);
+	@DeleteMapping("/classcancel")
+	public int classcancel(@RequestBody int boardNo) {
+		return service.classcancel(boardNo);
 	}
 	
-	@DeleteMapping("/bookmarkCancle")
-	public int bookmarkCancle(@RequestBody int bookNo) {
-		return service.bookmarkCancle(bookNo);
+	@DeleteMapping("/bookmarkcancel")
+	public int bookmarkcancel(@RequestBody int bookNo) {
+		return service.bookmarkcancel(bookNo);
 	}
 	
 }

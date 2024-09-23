@@ -19,25 +19,25 @@ public class AjaxServiceImpl implements AjaxService {
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int bookCancle(int rNo) {
-		return dao.bookCancle(rNo);
+	public int bookcancel(int rNo) {
+		return dao.bookcancel(rNo);
 	}
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int reservCancle(int rNo) {
-		return dao.reservCancle(rNo);
+	public int reservcancel(int rNo) {
+		return dao.reservcancel(rNo);
 	}
 
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int classCancle(int boardNo) {
-		return dao.classCancle(boardNo);
+	public int classcancel(int boardNo) {
+		return dao.classcancel(boardNo);
 	}
 
 	@Override
-	public int bookmarkCancle(int bookNo) {
-		return dao.bookmarkCancle(bookNo);
+	public int bookmarkcancel(int bookNo) {
+		return dao.bookmarkcancel(bookNo);
 	}
 	
 }

@@ -7,19 +7,19 @@
 		WHERE MEMBER_EMAIL = #{email}
 	</select>
 	
-	<delete id="bookCancle">
+	<delete id="bookcancel">
 		DELETE FROM B_RESERVATION WHERE RESERVATION_NO = #{rNo}
 	</delete>
 	
-	<delete id="reservCancle">
+	<delete id="reservcancel">
 		DELETE FROM RESERVATION_PLACE WHERE RESERVATION_NO = #{rNo}
 	</delete>
 	
-	<delete id="classCancle">
+	<delete id="classcancel">
 		DELETE FROM CLASS_PEOPLE WHERE BOARD_NO = #{boardNo}
 	</delete>
 	
-	<delete id="bookmarkCancle">
+	<delete id="bookmarkcancel">
 		DELETE FROM BOOK_LIKE WHERE BOOK_NO = #{bookNo}
 	</delete>
 

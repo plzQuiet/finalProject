@@ -14,20 +14,20 @@ public class AjaxDAO {
 		return sqlSession.selectOne("ajaxMapper.dupCheckEmail", email);
 	}
 
-	public int bookCancle(int rNo) {
-		return sqlSession.delete("ajaxMapper.bookCancle", rNo);
+	public int bookcancel(int rNo) {
+		return sqlSession.delete("ajaxMapper.bookcancel", rNo);
 	}
 
-	public int reservCancle(int rNo) {
-		return sqlSession.delete("ajaxMapper.reservCancle", rNo);
+	public int reservcancel(int rNo) {
+		return sqlSession.delete("ajaxMapper.reservcancel", rNo);
 	}
 
-	public int classCancle(int boardNo) {
-		return sqlSession.delete("ajaxMapper.classCancle", boardNo);
+	public int classcancel(int boardNo) {
+		return sqlSession.delete("ajaxMapper.classcancel", boardNo);
 	}
 
-	public int bookmarkCancle(int bookNo) {
-		return sqlSession.delete("ajaxMapper.bookmarkCancle", bookNo);
+	public int bookmarkcancel(int bookNo) {
+		return sqlSession.delete("ajaxMapper.bookmarkcancel", bookNo);
 	}
 	
 }
