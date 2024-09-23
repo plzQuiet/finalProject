@@ -54,7 +54,7 @@
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
-								<td><textarea id="opinion" cols="20">${bookReq.requestOpinion}</textarea></td>
+								<td>${bookReq.requestOpinion}</td>
 							</tr>
 
 						</tbody>
@@ -64,6 +64,11 @@
 					<c:if test="${loginMember.memberNo == bookReq.memberNo}">
 						<button id="updateBtn">수정</button>
 						<button id="deleteBtn">삭제</button>
+					</c:if>
+
+					<c:if test="${loginMember.authority == 2}">
+						<button id="approvalBtn">승인</button>
+						<button id="declinedBtn">거절</button>
 					</c:if>
 
 					<button id="goToListBtn">목록으로</button>
@@ -76,6 +81,7 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
 		const loginMemberNo = "${loginMember.memberNo}";
+		const requestNo = "${bookReq.requestNo}"
 	</script>
 	<script src="/resources/js/search/bookRequestDetail.js"></script>
 </body>

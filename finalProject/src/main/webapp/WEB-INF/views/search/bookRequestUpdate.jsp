@@ -49,7 +49,7 @@
 								<td><input type="text" value="${bookReq.bookPub}"/></td>
 							</tr>
 							<tr>
-								<th>출판 연도${bookReq.bookPubDate}</th>
+								<th>출판 연도</th>
 								<td><input type="date" id="publishDate" value="${bookReq.bookPubDate}"/></td>
 							</tr>
 							<tr>
@@ -63,7 +63,7 @@
 
 				<div class="btn-area">
                     <button onclick="location.href='/book/2/1?cp=${param.cp}'">취소</button>
-                    <button id="writeBtn">등록</button>
+                    <button id="updateBtn">수정</button>
                 </div>
 			</section>
 		</section>
