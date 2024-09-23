@@ -72,6 +72,9 @@ public class ClassServiceImpl implements ClassService{
 		
 		ClassSchedule classSchedule = dao.selectClass(map);
 		
+		// 조회 시 <br> 태그를 줄바꿈으로 변환하여 보여줌
+	    classSchedule.setBoardContent(Util.reverseNewLineHandling(classSchedule.getBoardContent()));
+		
 		
 		return classSchedule;
 	}

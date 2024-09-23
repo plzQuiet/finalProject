@@ -92,22 +92,21 @@
                                 <c:otherwise>
                                     <c:forEach var="classBoard" items="${classBoardList}">
                                         <tr>
-                                            <c:choose>
+                                           <c:choose>
                                                 <c:when test="${classBoard.applicantCount >= classBoard.maxParticipant}">
                                                     <td>인원마감</td>
                                                 </c:when>
-
                                                 <c:otherwise>
-                                                    <c:if test="${sysdate < classBoard.recruitmentEndDt}">
-                                                    <td>신청가능</td>
+                                                    <c:if test="${sysdate < classBoard.recruitmentStartDt}">
+                                                        <td>신청대기</td>
                                                     </c:if>
-
+                                                    <c:if test="${sysdate >= classBoard.recruitmentStartDt && sysdate < classBoard.recruitmentEndDt}">
+                                                        <td>신청가능</td>
+                                                    </c:if>
                                                     <c:if test="${sysdate >= classBoard.recruitmentEndDt}">
-                                                    <td>기간마감</td>
+                                                        <td>기간마감</td>
                                                     </c:if>
-
                                                 </c:otherwise>
-
                                             </c:choose>
                                             
                                             <td>
@@ -135,10 +134,10 @@
 
                     <ul class="pagination">
                         <!-- 첫 페이지로 이동 -->
-                        <li><a href="/board/${cateCode}?cp=1${qs}">&lt;&lt;</a></li>
+                        <li><a href="/scheduling/${cateCode}?cp=1${qs}">&lt;&lt;</a></li>
 
                         <!-- 이전 목록 마지막 페이지로 이동 -->
-                        <li><a href="/board/${cateCode}?cp=${pagination.prevPage}${qs}">&lt;</a></li>
+                        <li><a href="/scheduling/${cateCode}?cp=${pagination.prevPage}${qs}">&lt;</a></li>
 
                         <!-- 특정 페이지로 이동 -->
                         <!-- 1페이지 씩 이동 -->
@@ -150,17 +149,17 @@
                                 </c:when>
 
                                 <c:otherwise>
-                                    <li><a href="/board/${cateCode}?cp=${i}${qs}">${i}</a></li>
+                                    <li><a href="/scheduling/${cateCode}?cp=${i}${qs}">${i}</a></li>
                                 </c:otherwise>
 
                             </c:choose>
                         </c:forEach>
 
                         <!-- 다음 목록 시작 페이지로 이동 : > -->
-                        <li><a href="/board/${cateCode}?cp=${pagination.nextPage}${qs}">&gt;</a></li>
+                        <li><a href="/scheduling/${cateCode}?cp=${pagination.nextPage}${qs}">&gt;</a></li>
 
                         <!-- 마지막 페이지로 이동 : >> -->
-                        <li><a href="/board/${cateCode}?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
+                        <li><a href="/scheduling/${cateCode}?cp=${pagination.maxPage}${qs}">&gt;&gt;</a></li>
                     </ul>
 
                 </div>
