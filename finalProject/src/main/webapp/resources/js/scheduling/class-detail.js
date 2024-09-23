@@ -83,7 +83,7 @@ function applyModal() {
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                window.location.href = `/scheduling/12/${boardNo}?cp=${cp}`; // 성공 시 리다이렉트
+                window.location.href = `/myLibrary/reserv?m=3`; // 성공 시 리다이렉트
             } else if (data.status === "error") {
                 // 신청 실패 모달 표시
                 document.getElementById('applyModal').style.display = 'block';
