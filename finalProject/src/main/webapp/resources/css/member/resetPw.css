@@ -7,16 +7,11 @@ form[name='resetPwFrm']{
 }
 
 .resetPw-logo{
-	font-size: 32px;
+	font-size: 30px;
 	font-weight: bold;
 	line-height: 100px;
 	text-align: center;
 	margin-bottom: 50px;
-}
-
-.resetPw-logo > img{
-	height: 100px;
-	vertical-align: top;
 }
 
 .resetPw-input-area{
@@ -26,7 +21,7 @@ form[name='resetPwFrm']{
 	height: 60px;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: bold;
 	line-height: 60px;
 }
@@ -35,7 +30,7 @@ form[name='resetPwFrm']{
 	width: 70%;
 	height: 90%;
 	padding: 0 20px;
-	font-size: 20px;
+	font-size: 18px;
 	border: 1px solid #d4d4d4;
 	border-radius: 5px;
 	outline: none;
@@ -78,7 +73,7 @@ form[name='resetPwFrm']{
 	border: none;
 	border-radius: 5px;
 	background-color: #8FB788;
-	font-size: 25px;
+	font-size: 22px;
 	color: white;
 	cursor: pointer;
 }

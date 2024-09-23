@@ -55,7 +55,7 @@
 				</ul>
 			</li>
 	        <li>
-				<a href="/myLibrary/book">내 서재</a>
+				<a href="/myLibrary/book"  onclick="alert('로그인 후 이용가능합니다.')">내 서재</a>
 				<ul>
 					<li><a href="/myLibrary/book">나의 도서관</a></li>
 					<li><a href="/myPayment">결제내역</a></li>

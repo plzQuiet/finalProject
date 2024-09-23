@@ -10,7 +10,7 @@
 
 .main-login-area .main-login-title{
     font-size: 18px;
-    padding: 20px;
+    padding: 16px;
 }
 
 .main-login-area .main-login-form{
@@ -19,7 +19,6 @@
     align-items: center;
     gap: 10px;
 }
-
 
 
 .main-login-area .main-login-form > input{
@@ -78,7 +77,7 @@
 
 /* 로그인 시 */
 .main-login-member-title{
-    border-radius: 50px;
+    border-radius: 30px;
     color: #80AFE1;
     background-color: white;
     text-align: center;
