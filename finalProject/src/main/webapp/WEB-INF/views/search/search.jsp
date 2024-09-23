@@ -18,17 +18,31 @@
     <section class="container">
         <jsp:include page="/WEB-INF/views/search/sideMenu.jsp"></jsp:include>
 
+            <c:if test="${!empty param.key}">
+                <c:choose>
+                    <c:when test="${param.key == 'ta'}">
+                        <c:set var="taSel" value="selected"/>
+                    </c:when>
+                    <c:when test="${param.key == 't'}">
+                        <c:set var="tSel" value="selected"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="aSel" value="selected"/>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+
         <section class="main-content">
             <div class="main-title">간략 검색</div>
             <hr class="titleLine"/>
             <div class="searchBar">
                 <select id="key">
-                    <option value="ta">전체</option>
-                    <option value="t">도서명</option>
-                    <option value="a">저자</option>
+                    <option value="ta" taSel>전체</option>
+                    <option value="t" tSel>도서명</option>
+                    <option value="a" aSel>저자</option>
                 </select>
 
-                <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요">
+                <input type="text" id="query" name="query" placeholder="도서를 검색해 주세요" value="${param.query}">
 
                 <button id="searchBtn">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -66,5 +80,30 @@
     </script>
     <script src="/resources/js/search/search.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+    <c:if test="${!empty param.query}">
+        <script>
+            (function(){
+                const options = document.querySelectorAll("#key > option");
+
+                let key;
+                for(let o of options){
+                    if(o.selected){
+                        key = o.value;
+                    }
+                }
+
+                if(query.value.trim().length != 0){
+                    fetch("/book/search?query=" + query.value + 
+                        "&key=" + key + "&memberNo=" + loginMemberNo)
+                    .then(resp => resp.json())
+                    .then(result => {
+                        showBookList(result);
+                    })
+                    .catch(e => console.log(e))
+                }
+            })();        
+        </script>
+    </c:if>
 </body>
 </html>
