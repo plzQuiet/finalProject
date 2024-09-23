@@ -7,11 +7,22 @@
 
 <section class="main-search-area">
    	<article class="searchForm">
-		<input type="text" id="query" name="query" placeholder="검색어를 입력하세요.">
-		<div class="searchArea">
-			<button type="button" id="searchBtn" onclick="searchBooks()"  
-			onclick="location.href='searchBook'">  <i class="fa-solid fa-magnifying-glass" style="width: fit-content;"></i></button>
-		</div>
+			<input type="text" id="query" name="query" placeholder="도서 검색어를 입력하세요." onkeyup="if(window.event.keyCode==13){gotoSearch()}">
+			<div class="searchArea">
+				<button type="button" id="searchBtn" 
+				onclick="gotoSearch()">  <i class="fa-solid fa-magnifying-glass" style="width: fit-content;"></i></button>
+			</div>
 	</article>
 </section>
+
+<script>
+	const query = document.getElementById("query");
+
+	const btn = document.getElementById("searchBtn");
+
+
+	function gotoSearch(){
+		location.href='/book/1/1?query=' + query.value + "&key=ta";
+	}
+</script>
 
