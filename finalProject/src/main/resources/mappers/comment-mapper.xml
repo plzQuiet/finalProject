@@ -15,7 +15,7 @@
 	
 	<!-- 댓글 수정 -->
 	<update id="update">
-		UPDATR "COMMENT" SET
+		UPDATE "COMMENT" SET
 		COMMENT_CONTENT = #{commentContent}
 		WHERE COMMENT_NO = #{commentNo}
 	</update>

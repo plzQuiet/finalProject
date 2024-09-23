@@ -35,7 +35,6 @@ public class CommentServiceImpl implements CommentService{
 	public int update(Comment comment) {
 		
 		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
-		System.out.println(comment);
 		return dao.update(comment);
 	}
 

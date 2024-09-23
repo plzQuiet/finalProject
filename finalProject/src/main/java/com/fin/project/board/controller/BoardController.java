@@ -82,7 +82,6 @@ public class BoardController {
 	@GetMapping("/{cateCode:15|16|18}/{boardNo}")
 	public String boardDetail(@PathVariable("cateCode") int cateCode,
 							  @PathVariable("boardNo") int boardNo,
-							 
 							  Model model, RedirectAttributes ra,
 							  @SessionAttribute(value="loginMember", required=false) Member loginMember,
 							  HttpServletRequest req, 
@@ -97,10 +96,10 @@ public class BoardController {
 		String path = null;
 		
 		if(board != null) {
-
+			
 			if(board.getBoardSecretFlag().equals("Y")) {
 				
-				if(loginMember == null || board.getMemberNo() != loginMember.getMemberNo()) {
+				if(loginMember == null || board.getMemberNo() != loginMember.getMemberNo() && loginMember.getAuthority() == 1) {
 					path =  "redirect:/board/" + cateCode;
 					
 					ra.addFlashAttribute("message", "작성자만 확인할 수 있습니다.");
