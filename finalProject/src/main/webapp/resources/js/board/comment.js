@@ -203,7 +203,7 @@ function updateComment(commentNo, btn){
         console.log(result)
         if(result > 0){
             alert("댓글이 수정되었습니다.");
-            window.location.reload();
+            window.location.reload(); // 제발 되길
             // selectCommentList();
 
         }else{
