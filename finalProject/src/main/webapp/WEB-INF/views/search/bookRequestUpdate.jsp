@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Java Library</title>
-<link rel="stylesheet" href="/resources/css/main-style.css">
-<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
-<link rel="stylesheet" href="/resources/css/common/modal.css">
-<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Java Library</title>
+	<link rel="stylesheet" href="/resources/css/main-style.css">
+	<link rel="stylesheet" href="/resources/css/common/sideMenu.css">
+	<link rel="stylesheet" href="/resources/css/common/modal.css">
+	<link rel="stylesheet" href="/resources/css/search/bookRequest-style.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
@@ -26,31 +26,31 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td>${bookReq.requestTitle}</td>
+								<td><input type="text"  maxlength="300" value="${bookReq.requestTitle}"/></td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td>${bookReq.requestDate}</td>
+								<td><input type="date" id="currentDate" value="${bookReq.requestDate}" readonly/></td>
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>${fn:substring(bookReq.memberName, 0,1)}*<c:if test="${fn:length(bookReq.memberName) > 2}">${fn:substring(bookReq.memberName, 2, fn:length(bookReq.memberName))}</c:if></td>
+								<td>${bookReq.memberName}</td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
-								<td>${bookReq.bookTitle}</td>
+								<td><input type="text" value="${bookReq.bookTitle}"/></td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td>${bookReq.bookAuthor}</td>
+								<td><input type="text" value="${bookReq.bookAuthor}"/></td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td>${bookReq.bookPub}</td>
+								<td><input type="text" value="${bookReq.bookPub}"/></td>
 							</tr>
 							<tr>
-								<th>출판 연도</th>
-								<td>${bookReq.bookPubDate}</td>
+								<th>출판 연도${bookReq.bookPubDate}</th>
+								<td><input type="date" id="publishDate" value="${bookReq.bookPubDate}"/></td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
@@ -60,14 +60,11 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="btn-area">
-					<c:if test="${loginMember.memberNo == bookReq.memberNo}">
-						<button id="updateBtn">수정</button>
-						<button id="deleteBtn">삭제</button>
-					</c:if>
 
-					<button id="goToListBtn">목록으로</button>
-				</div>
+				<div class="btn-area">
+                    <button onclick="location.href='/book/2/1?cp=${param.cp}'">취소</button>
+                    <button id="writeBtn">등록</button>
+                </div>
 			</section>
 		</section>
 		
@@ -76,7 +73,8 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
 		const loginMemberNo = "${loginMember.memberNo}";
+		const requestNo = "${bookReq.requestNo}";
 	</script>
-	<script src="/resources/js/search/bookRequestDetail.js"></script>
+	<script src="/resources/js/search/bookRequestUpdate.js"></script>
 </body>
 </html>

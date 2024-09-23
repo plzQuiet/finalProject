@@ -24,11 +24,11 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td><input type="text"  maxlength="300" value="${bookReq.requestTitle}"/ placeholder="제목 입력"></td>
+								<td><input type="text"  maxlength="300" placeholder="제목 입력"/></td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td><input type="date" id="currentDate" value="${bookReq.requestTitle}" readonly/></td>
+								<td><input type="date" id="currentDate" readonly /></td>
 							</tr>
 							<tr>
 								<th>신청자</th>
