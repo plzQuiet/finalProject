@@ -34,14 +34,14 @@ for(let i=0; i<inputImage.length; i++){
 
 // 게시글 작성 시 제목, 내용 작성 여부 검사
 const boardWirteFrm = document.getElementById("boardWriteFrm");
-const boardTitle = document.getElementById("boardTitle");
-const boardContent = document.querySelector("name=['boardContent']");
+const boardTitle = document.getElementsByName("boardTitle")[0];
+const boardContent = document.querySelector("[name='boardContent']");
 
 boardWirteFrm.addEventListener("submit", e=>{
 
     // 제목 미입력
     if(boardTitle.value.trim().length == 0){
-        alert("제목을 입력해주세요.")
+        alert("제목을 입력해주세요.");
         boardTitle.focus();
         boardTitle.value = "";
         e.preventDefault();
@@ -50,11 +50,11 @@ boardWirteFrm.addEventListener("submit", e=>{
 
     // 내용 미입력
     if(boardContent.value.trim().length == 0){
-        alert("내용을 입력해주세요.")
+        alert("내용을 입력해주세요.");
         boardContent.focus();
         boardContent.value = "";
         e.preventDefault();
         return;
     }
 
-})
+});

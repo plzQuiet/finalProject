@@ -300,8 +300,7 @@
 		
 				<if test='boardSecretFlag == null'>
 					DEFAULT
-				</if>
-				)
+				</if>)
 	</insert>
 	
 	<!-- 이미지 리스트 삽입 -->

@@ -58,6 +58,8 @@ public class BoardController2 {
 	public String boardInsert(@PathVariable("cateCode") int cateCode,
 							  @SessionAttribute("loginMember") Member loginMember,
 							  @RequestParam(value="images", required=false) List<MultipartFile> images,
+							  @RequestParam("boardTitle") String boardTitle,
+							  @RequestParam("boardContent") String boardContent,
 							  Board board, HttpSession session, RedirectAttributes ra
 							  ) throws IOException, IllegalStateException {
 
