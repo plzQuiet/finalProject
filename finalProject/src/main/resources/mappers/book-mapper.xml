@@ -137,5 +137,17 @@
 		WHERE MEMBER_NO = #{memberNo}
 		AND BOOK_NO = #{bookNo}
 	</delete>
+	
+	<update id="updateRequest">
+		UPDATE BOOK_REQUEST SET BOOK_AUTHOR = #{bookAuthor},
+			BOOK_TITLE = #{bookTitle}, BOOK_PUB = #{bookPub}, REQ_TITLE = #{reqTitle},
+			PUB_DT = #{bookPubDate}, REQ_OPINION = #{reqOpinion}
+		WHERE REQ_BOOK_NO = #{requestNo}
+	</update>
+	
+	<update id="updateApprove">
+		UPDATE BOOK_REQUEST SET REQ_APPROVE = #{approval}
+		WHERE REQ_BOOK_NO = #{requestNo}
+	</update>
 
 </mapper>
