@@ -15,6 +15,10 @@ public class BookDAO2 {
 	public int update(Map<String, Object> paramMap) {
 		return sqlSession.update("bookMapper.updateRequest", paramMap);
 	}
+	
+	public int delete(int requestNo) {
+		return sqlSession.delete("bookMapper.deleteRequest", requestNo);
+	}
 
 	public int approve(Map<String, Object> paramMap) {
 		return sqlSession.update("bookMapper.updateApprove", paramMap);

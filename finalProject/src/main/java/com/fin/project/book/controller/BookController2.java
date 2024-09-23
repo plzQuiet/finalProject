@@ -38,10 +38,16 @@ public class BookController2 {
 		return "search/bookRequestUpdate";
 	}
 	
-	@PostMapping("/2/1/{requestNo}/update")
+	@PostMapping("/update")
 	@ResponseBody
 	private int update(@RequestBody Map<String, Object> paramMap) {
 		return service.update(paramMap);
+	}
+	
+	@PostMapping("/delete")
+	@ResponseBody
+	private int delete(@RequestBody int requestNo) {
+		return service.delete(requestNo);
 	}
 	
 	@PostMapping("/admin/approve")

@@ -27,7 +27,7 @@ updateBtn.addEventListener("click", ()=>{
         reqOpinion : document.getElementById("opinion").value
     };
 
-    fetch("update", {
+    fetch("/book2/update", {
         method : "POST",
         headers : {"Content-Type" : "application/json"},
         body : JSON.stringify(obj)

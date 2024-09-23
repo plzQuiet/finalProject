@@ -11,7 +11,19 @@ const deleteBtn = document.getElementById("deleteBtn");
 if(deleteBtn != null){
     deleteBtn.addEventListener("click", () => {
         if(confirm("정말 삭제하시겠습니까?")){
-            location.href = location.pathname.replace("book","board2") + "/delete"+ location.search;
+            fetch("/book2/delete", {
+                method : "POST",
+                headers : {"Content-Type" : "application/json"},
+                body : requestNo
+            })
+            .then(resp => resp.text())
+            .then(result => {
+                if(result > 0){
+                    alert("삭제되었습니다.");
+                    location.href = "/book/2/1" + location.search;
+                }
+            })
+            .catch(e => console.log(e))
         }
     })
 }

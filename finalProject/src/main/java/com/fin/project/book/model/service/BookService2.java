@@ -8,4 +8,6 @@ public interface BookService2 {
 
 	int approve(Map<String, Object> paramMap);
 
+	int delete(int requestNo);
+
 }

@@ -63,6 +63,9 @@
 				<div class="btn-area">
 					<c:if test="${loginMember.memberNo == bookReq.memberNo}">
 						<button id="updateBtn">수정</button>
+					</c:if>
+
+					<c:if test="${loginMember.memberNo == bookReq.memberNo || loginMember.authority == 2}">
 						<button id="deleteBtn">삭제</button>
 					</c:if>
 

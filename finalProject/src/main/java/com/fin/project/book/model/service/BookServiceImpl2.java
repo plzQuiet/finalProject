@@ -17,6 +17,11 @@ public class BookServiceImpl2 implements BookService2 {
 	public int update(Map<String, Object> paramMap) {
 		return dao.update(paramMap);
 	}
+	
+	@Override
+	public int delete(int requestNo) {
+		return dao.delete(requestNo);
+	}
 
 	@Override
 	public int approve(Map<String, Object> paramMap) {
