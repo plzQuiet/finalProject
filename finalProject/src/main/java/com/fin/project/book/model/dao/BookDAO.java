@@ -58,4 +58,8 @@ public class BookDAO {
 		return sqlSession.selectList("bookMapper.selectRequestList", pagination, rowBounds);
 	}
 
+	public BookRequest selectRequestDetail(int requestNo) {
+		return sqlSession.selectOne("bookMapper.selectRequestDetail", requestNo);
+	}
+
 }

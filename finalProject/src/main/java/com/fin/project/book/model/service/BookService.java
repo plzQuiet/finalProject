@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fin.project.book.model.dto.Book;
+import com.fin.project.book.model.dto.BookRequest;
 
 public interface BookService {
 
@@ -14,5 +15,7 @@ public interface BookService {
 	int insertRequest(Map<String, Object> paramMap);
 
 	Map<String, Object> selectRequestList(int cp);
+
+	BookRequest selectRequestDetail(int requestNo);
 
 }

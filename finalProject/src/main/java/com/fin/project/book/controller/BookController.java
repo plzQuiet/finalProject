@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fin.project.book.model.dto.Book;
+import com.fin.project.book.model.dto.BookRequest;
 import com.fin.project.book.model.service.BookService;
 
 @Controller
@@ -47,6 +49,18 @@ public class BookController {
 		model.addAttribute("map", map);
 		
 		return "search/requestHistory";
+	}
+	
+	@GetMapping("/2/1/{requestNo}")
+	public String requestHistoryDetail(Model model,
+			@PathVariable("requestNo") int requestNo,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp){
+		
+		BookRequest bookReq = service.selectRequestDetail(requestNo);
+		
+		model.addAttribute("bookReq", bookReq);
+		
+		return "search/bookRequestForm";
 	}
 	
 	@GetMapping("/2/2")
