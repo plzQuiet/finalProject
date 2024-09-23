@@ -22,12 +22,12 @@
 		
 		<div class="findId-input-area">
 			<span>이름</span>
-			<input type="text" name="memberName" id="memberName">
+			<input type="text" name="memberName" id="memberName" placeholder="이름을 입력해주세요">
 		</div>
 		
 		<div class="findId-input-area">
 			<span>전화번호</span>
-			<input type="text" name="memberPhoneNo" id="memberPhoneNo">
+			<input type="text" name="memberPhoneNo" id="memberPhoneNo" placeholder="(-)없이 번호를 입력해주세요">
 		</div>
 		
 		<div class="btn-area">
