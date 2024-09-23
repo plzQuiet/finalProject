@@ -26,11 +26,11 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td>${request.requestTitle}"</td>
+								<td>${request.requestTitle}</td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td>${request.requestDate}"</td>
+								<td>${request.requestDate}</td>
 							</tr>
 							<tr>
 								<th>신청자</th>
@@ -49,7 +49,7 @@
 								<td>${request.bookPub}</td>
 							</tr>
 							<tr>
-								<th>출판연도</th>
+								<th>출판 연도</th>
 								<td>${request.bookPubDate}</td>
 							</tr>
 							<tr>
