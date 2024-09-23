@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,42 +26,42 @@
 						<tbody>
 							<tr class="request-tr">
 								<th>제목</th>
-								<td>${bookReq.requestTitle}"</td>
+								<td>${request.requestTitle}"</td>
 							</tr>
 							<tr>
 								<th>신청일자</th>
-								<td>${bookReq.requestDate}"</td>
+								<td>${request.requestDate}"</td>
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>${bookReq.memberName}</td>
+								<td>${fn:substring(request.memberName, 0,1)}*<c:if test="${fn:length(request.memberName) > 2}">${fn:substring(request.memberName, 2, fn:length(request.memberName))}</c:if></td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>
-								<td>${bookReq.bookTitle}</td>
+								<td>${request.bookTitle}</td>
 							</tr>
 							<tr>
 								<th>저자</th>
-								<td>${bookReq.bookAuthor}</td>
+								<td>${request.bookAuthor}</td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td>${bookReq.bookPub}</td>
+								<td>${request.bookPub}</td>
 							</tr>
 							<tr>
 								<th>출판연도</th>
-								<td>${bookReq.bookPubDate}</td>
+								<td>${request.bookPubDate}</td>
 							</tr>
 							<tr>
 								<th class="opinion">추천의견</th>
-								<td><textarea id="opinion" cols="20">${bookReq.requestOpinion}</textarea></td>
+								<td><textarea id="opinion" cols="20">${request.requestOpinion}</textarea></td>
 							</tr>
 
 						</tbody>
 					</table>
 				</div>
 				<div class="btn-area">
-					<c:if test="${loginMember.memberNo == bookReq.memberNo}">
+					<c:if test="${loginMember.memberNo == request.memberNo}">
 						<button id="updateBtn">수정</button>
 						<button id="deleteBtn">삭제</button>
 					</c:if>
@@ -74,7 +76,7 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
 		const loginMemberNo = "${loginMember.memberNo}";
-		const requestNo = "${bookReq.requestNo}";
+		const requestNo = "${request.requestNo}";
 	</script>
 	<script src="/resources/js/search/bookRequestDetail.js"></script>
 </body>
