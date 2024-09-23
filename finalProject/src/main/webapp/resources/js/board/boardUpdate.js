@@ -74,13 +74,3 @@ switch(cateCode){
     case "17" : li[2].classList.add("side-current"); break;
     case "18" : li[3].classList.add("side-current"); break;
 }
-
-
-// 게시글 공개/비공개
-// if(secret == 'N'){
-//     document.getElementById("public").setAttribute("checked", "checked");
-// }
-
-// if(secret == 'Y'){
-//     document.getElementById("private").setAttribute("checked", "checked");
-// }
