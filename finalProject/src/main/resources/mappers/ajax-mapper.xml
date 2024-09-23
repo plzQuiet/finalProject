@@ -16,7 +16,7 @@
 	</delete>
 	
 	<delete id="classCancle">
-		DELETE FROM CLASS_SCHEDULE WHERE BOARD_NO = #{boardNo}
+		DELETE FROM CLASS_PEOPLE WHERE BOARD_NO = #{boardNo}
 	</delete>
 	
 	<delete id="bookmarkCancle">

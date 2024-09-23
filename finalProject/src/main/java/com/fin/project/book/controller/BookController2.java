@@ -41,7 +41,6 @@ public class BookController2 {
 	@PostMapping("/2/1/{requestNo}/update")
 	@ResponseBody
 	private int update(@RequestBody Map<String, Object> paramMap) {
-		
 		return service.update(paramMap);
 	}
 	
