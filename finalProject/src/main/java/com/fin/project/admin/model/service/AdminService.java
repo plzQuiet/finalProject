@@ -8,11 +8,7 @@ public interface AdminService {
 
 	int member(String updateList);
 
-	Map<String, Object> selectboardList(int cp);
-
 	int board(String updateList);
-
-	Map<String, Object> selectCommentList(int cp);
 
 	int comment(String updateList);
 
