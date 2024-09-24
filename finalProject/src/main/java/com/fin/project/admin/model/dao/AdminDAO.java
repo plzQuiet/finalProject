@@ -35,35 +35,10 @@ public class AdminDAO {
 		return sqlSession.update("adminMapper.updateMember", updateList);
 	}
 
-	public int getboardCount() {
-		return sqlSession.selectOne("boardMapper.getBoardCount");
-	}
-
-	public List<Board> selectboardList(Pagination pagination) {
-		
-		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
-		
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
-		return sqlSession.selectList("boardMapper.selectBoardListAdmin", null, rowBounds);
-	}
-
 	public int board(String updateList) {
 		return sqlSession.update("adminMapper.updateBoard", updateList);
 	}
 
-	public int getCommentCount() {
-		return sqlSession.selectOne("boardMapper.getCommentCount");
-	}
-
-	public List<Comment> selectCommentList(Pagination pagination) {
-		
-		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
-		
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
-		return sqlSession.selectList("boardMapper.selectCommentList", null, rowBounds);
-	}
 
 	public int comment(String updateList) {
 		return sqlSession.update("adminMapper.updateComment", updateList);

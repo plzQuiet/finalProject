@@ -30,7 +30,7 @@
 					<input type="checkbox" id="all"> 전체선택
 				</label>
 			</div>
-			
+
 			<form action="2" method="POST" name="adminFrm">
 				<table id="list-table" style="table-layout:fixed;">
 					<thead>

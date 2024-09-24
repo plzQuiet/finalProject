@@ -22,8 +22,8 @@ public class BoardDAO {
 	 * @param cateCode
 	 * @return 
 	 */
-	public int getListCount(int cateCode) {
-		return sqlSession.selectOne("boardMapper.getListCount", cateCode);
+	public int getListCount() {
+		return sqlSession.selectOne("boardMapper.getListCount");
 	}
 
 	public int searchListCount(Map<String, Object> search) {
@@ -36,13 +36,13 @@ public class BoardDAO {
 	 * @param pagination
 	 * @return boardList
 	 */
-	public List<Board> selectBoardList(int cateCode, Pagination pagination) {
+	public List<Board> selectBoardList(Pagination pagination) {
 
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 
 		RowBounds rowbounds = new RowBounds(offset, pagination.getLimit());
 
-		return sqlSession.selectList("boardMapper.selectBoardList", cateCode, rowbounds);
+		return sqlSession.selectList("boardMapper.selectBoardList", null, rowbounds);
 	}
 
 	/** 

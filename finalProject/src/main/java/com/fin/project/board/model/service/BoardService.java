@@ -35,11 +35,6 @@ public interface BoardService {
 	 */
 	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
 
-
-
-
-
-
-
+	Map<String, Object> selectBoardList(int cp);
 
 }

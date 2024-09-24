@@ -50,4 +50,8 @@ public class CommentDAO {
 		return sqlSession.update("commentMapper.delete", commentNo);
 	}
 
+	public int getListCount() {
+		return sqlSession.selectOne("boardMapper.getCommentListCount");
+	}
+
 }
