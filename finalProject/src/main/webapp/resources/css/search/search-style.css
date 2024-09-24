@@ -146,10 +146,12 @@ input {
 	font-size: 14px;
 	cursor: pointer;
 	border: none;
-	background-color: white;
-	color: #0054b4;
-	border: 1px solid #d4d4d4;
-	border-radius: 5px;
+	background-color: #8FB788;
+	color: white;
+}
+
+.resvInfoBtn:hover{
+	text-decoration: underline;
 }
 
 .resvInfoBtn i{ margin-left: 10px;}
