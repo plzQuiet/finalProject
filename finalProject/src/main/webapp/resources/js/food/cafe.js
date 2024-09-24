@@ -312,7 +312,7 @@ document.querySelectorAll('#menu-del-btn').forEach(button => {
 												<p style="margin:20px">정말 해당 메뉴를 삭제하시겠습니까?</p>
 												<div class="popup_btn">
 													<button id="agree_btn" onclick="agreeDel()">확인</button>
-													<button id="cancel_btn" type="button" onclick="cancel()">취소</button>
+													<button id="cancel_btn" type="button" onclick="cancel()" style="margin:10px">취소</button>
 												</div>
 											`
 
@@ -466,6 +466,17 @@ $('#menu-add-btn').on("click", ()=>{
 			popupBox.classList.remove("menu-add-popupBox");
 			popUpContent[0].innerHTML = `
 				<p>메뉴 가격을 기입해주세요!</p>
+				<div class="popup_btn">
+					<button id="menu-add-btn" onclick="agree()">확인</button>
+				</div>
+			`
+		}
+
+		if(isNaN(document.getElementById("menuPrice").value)){
+			e.preventDefault();
+			popupBox.classList.remove("menu-add-popupBox");
+			popUpContent[0].innerHTML = `
+				<p>메뉴 가격은 숫자를 입력하셔야합니다.</p>
 				<div class="popup_btn">
 					<button id="menu-add-btn" onclick="agree()">확인</button>
 				</div>
