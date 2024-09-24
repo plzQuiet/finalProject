@@ -129,6 +129,33 @@ commentAdd.addEventListener("click", e=>{
 });
 
 
+// 댓글 삭제
+function deleteComment(commentNo){
+
+    if(confirm("정말 삭제하시겠습니까?")){
+
+        fetch("/comment", {
+            method  : "DELETE",
+            headers : {"Content-Type" : "application/json"},
+            body    : commentNo
+        })
+        .then(resp => resp.text())
+        .then(result => {
+
+            if(result  > 0){
+                alert("댓글이 삭제되었습니다.");
+                window.location.reload();
+            
+            }else {
+                alert("댓글 삭제에 실패했습니다.");
+            }
+        })
+        .catch(e => console.log(e));
+    }
+}
+
+
+
 // 댓글 수정 화면 전환
 let beforeCommentRow;
 
@@ -141,6 +168,9 @@ function showUpdateComment(commentNo, btn){
         if(confirm("다른 댓글이 수정 중입니다. 현재 댓글을 수정 하시겠습니까?")){
 
             temp[0].parentElement.innerHTML = beforeCommentRow;
+            
+        }else{
+            return;
         }
 
     }
@@ -225,30 +255,5 @@ function updateCancel(btn){
 }
 
 
-
-// 댓글 삭제
-function deleteComment(commentNo){
-
-    if(confirm("정말 삭제하시겠습니까?")){
-
-        fetch("/comment", {
-            method  : "DELETE",
-            headers : {"Content-Type" : "application/json"},
-            body    : commentNo
-        })
-        .then(resp => resp.text())
-        .then(result => {
-
-            if(result  > 0){
-                alert("댓글이 삭제되었습니다.");
-                window.location.reload();
-            
-            }else {
-                alert("댓글 삭제에 실패했습니다.");
-            }
-        })
-        .catch(e => console.log("댓글 삭제 중 오류 발생", e));
-    }
-}
 
 
