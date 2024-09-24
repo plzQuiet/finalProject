@@ -171,11 +171,12 @@ confirmBtn.addEventListener("click", function() {
 cancelBtn.addEventListener("click", function() {
     // 알림창 모달 숨기기
     alertModal.style.display = 'none';
+    location.href = location.href;
 });
 
 reservHistoryBtn.addEventListener("click", function() {
     // 예약 이력 페이지로 이동
-    window.location.href = "/myLibrary/reserv?m=2";
+    location.href = "/myLibrary/reserv?m=2";
 });
 
 

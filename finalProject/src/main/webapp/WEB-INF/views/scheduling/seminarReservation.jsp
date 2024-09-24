@@ -123,7 +123,7 @@
                 </div>
                 <div class="popup_btn">
                     <button id="confirm_btn">확인</button>
-                    <button id="cancel_btn">취소</button>
+                    <button type="button" id="cancel_btn">취소</button>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                     <p>* 세미나실의 위치는 시설안내를 통해 확인하세요</p>
                 </div>
                 <div class="popup_btn">
-                    <button id="reserv_history"><a href="/myLibrary/reserv">예약이력</a></button>
+                    <button id="reserv_history"><a>예약이력</a></button>
                 </div>
             </div>
         </div>
