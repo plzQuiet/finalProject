@@ -42,44 +42,14 @@ public class AdminServiceImpl implements AdminService {
 		return dao.member(updateList);
 	}
 
-	@Override
-	public Map<String, Object> selectboardList(int cp) {
-		
-		int listCount = dao.getboardCount();
-		
-		Pagination pagination = new Pagination(cp, listCount);
-		
-		List<Board> boardList = dao.selectboardList(pagination);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pagination", pagination);
-		map.put("boardList", boardList);
-		
-		return map;
-	}
-
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int board(String updateList) {
 		return dao.board(updateList);
 	}
 
-	@Override
-	public Map<String, Object> selectCommentList(int cp) {
-		
-		int listCount = dao.getCommentCount();
-		
-		Pagination pagination = new Pagination(cp, listCount);
-		
-		List<Comment> commentList = dao.selectCommentList(pagination);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pagination", pagination);
-		map.put("commentList", commentList);
-		
-		return map;
-	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int comment(String updateList) {
 		return dao.comment(updateList);

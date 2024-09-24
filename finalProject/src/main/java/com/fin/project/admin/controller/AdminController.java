@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fin.project.admin.model.service.AdminService;
+import com.fin.project.board.model.service.BoardService;
+import com.fin.project.board.model.service.CommentService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +25,12 @@ public class AdminController {
 
 	@Autowired
 	private AdminService service;
+	
+	@Autowired
+	private BoardService boardService;
+	
+	@Autowired
+	private CommentService CommentService;
 
 	@GetMapping("/1")
 	private String member(Model model,
@@ -39,7 +47,7 @@ public class AdminController {
 	private String board(Model model,
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp) {
 		
-		Map<String, Object> map = service.selectboardList(cp);
+		Map<String, Object> map = boardService.selectBoardList(cp);
 		
 		model.addAttribute("map", map);
 		
@@ -50,7 +58,7 @@ public class AdminController {
 	private String comment(Model model,
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp) {
 		
-		Map<String, Object> map = service.selectCommentList(cp);
+		Map<String, Object> map = CommentService.selectCommentList(cp);
 		
 		model.addAttribute("map", map);
 		

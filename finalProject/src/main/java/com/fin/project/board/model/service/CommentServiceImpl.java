@@ -1,12 +1,16 @@
 package com.fin.project.board.model.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fin.project.board.model.dao.CommentDAO;
+import com.fin.project.board.model.dto.Board;
 import com.fin.project.board.model.dto.Comment;
+import com.fin.project.board.model.dto.Pagination;
 import com.fin.project.common.utility.Util;
 
 @Service
@@ -20,6 +24,23 @@ public class CommentServiceImpl implements CommentService{
 	public List<Comment> select(int boardNo) {
 		
 		return dao.select(boardNo);
+	}
+	
+	// 전체 댓글 목록 조회
+	@Override
+	public Map<String, Object> selectCommentList(int cp) {
+		
+		int listCount = dao.getListCount();
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<Comment> commentList = dao.select(-1);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("commentList", commentList);
+		
+		return map;
 	}
 
 	// 댓글 작성
@@ -44,6 +65,5 @@ public class CommentServiceImpl implements CommentService{
 		
 		return dao.delete(commentNo);
 	}
-	
 
 }
