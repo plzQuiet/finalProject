@@ -161,7 +161,7 @@
             </div>
             <div class="popup_btn">
                 <button id="confirm_btn">확인</button>
-                <button id="cancel_btn">취소</button>
+                <button type="button" id="cancel_btn">취소</button>
             </div>
         </div>
     </div>

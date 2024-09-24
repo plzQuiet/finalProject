@@ -73,7 +73,7 @@
 
                     <!-- 버튼 영역 -->
                     <div class="btn-area">
-                        <button onclick="history.back()">취소</button>
+                        <button type="button" onclick="history.back()">취소</button>
                         <button type="submit" id="writeBtn">등록</button>
                     </div>
 

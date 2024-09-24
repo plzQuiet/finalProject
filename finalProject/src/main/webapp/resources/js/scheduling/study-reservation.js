@@ -1,10 +1,3 @@
-const reservHistoryBtn = document.getElementById("reserv_history");
-reservHistoryBtn.addEventListener("click", function() {
-    // 예약 이력 페이지로 이동
-    window.location.href = "/myLibrary/reserv";
-});
-
-
 let selectedSeat = null; // 좌석 선택 상태를 저장하는 전역 변수
 
 function updateSeats(e) {
@@ -164,6 +157,7 @@ function bookSeat() {
 
     document.getElementById("cancel_btn").addEventListener("click", () => {
         alertModal.style.display = 'none'; // 취소 버튼 클릭 시 모달 닫기
+        location.href = location.href;
     });
 }
 
@@ -179,6 +173,12 @@ function showReservationSuccessModal(seatNo, reservationDt, startTime, endTime) 
     
     reservationModal.style.display = 'block';
 }
+
+const reservHistoryBtn = document.getElementById("reserv_history");
+reservHistoryBtn.addEventListener("click", function() {
+    // 예약 이력 페이지로 이동
+    location.href = "/myLibrary/reserv";
+});
 
 
 // input="time" 단위 1시간으로 맞추기 + 운영시간 07:00 ~ 23:00 제한
