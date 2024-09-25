@@ -104,8 +104,8 @@
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
                     <c:if test="${loginMember.memberNo == board.memberNo}">
-                        <button id="updateBtn" onclick="location.href='/board2/${cateCode}/${boardNo}/update?cp=${cp}'">수정</button>
-                        <button id="deleteBtn" onclick="location.href='/board2/${cateCode}/${boardNo}/delete?cp=${cp}'">삭제</button>
+                        <button id="updateBtn">수정</button>
+                        <button id="deleteBtn">삭제</button>
                     </c:if>
                     <!-- 목록으로 -->
                     <button id="listBtn">목록으로</button>
