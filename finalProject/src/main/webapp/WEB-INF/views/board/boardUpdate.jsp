@@ -99,7 +99,7 @@
 
                 <!-- 버튼 영역 -->
                 <div class="btn-area">
-                    <button type="button" onclick="location.href='/board/${cateCode}'">취소</button>
+                    <button type="button" onclick="location.href='/board/${cateCode}/${boardNo}'">취소</button>
                     <button type="submit" id="writeBtn">등록</button>
                 </div>
 
