@@ -49,7 +49,13 @@
 									<input type="checkbox">
 									<input type="hidden" value="${board.boardNo}">
 								</td>
-								<td>${board.boardTitle}</td>
+								<c:if test=${board.cateCode == 12}>
+									<c:set var="linkAddr" value="scheduling"/>
+								</c:if>
+								<c:if test=${board.cateCode != 12}>
+									<c:set var="linkAddr" value="board"/>
+								</c:if>
+								<td><a href="/${linkAddr}/${board.cateCode}/${board.boardNo}">${board.boardTitle}</a></td>
 								<td>${board.memberName}</td>
 								<td>${board.boardCreateDate}</td>
 								<td>${board.boardDeleteFlag}</td>
