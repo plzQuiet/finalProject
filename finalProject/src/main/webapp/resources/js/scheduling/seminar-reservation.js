@@ -51,7 +51,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
         selectDate = e.dateStr;
         let selectArray = selectDate.split("-");
         dateDiv.innerText = selectArray[1] + "월 " + selectArray[2] + "일";
-        renderTimeSlots(selectDate);
+        renderTimeSlots(e);
     }
 });
 calendar.render();
@@ -83,8 +83,16 @@ reserveBtn.addEventListener("click", function () {
 });
 
 // 날짜 클릭 시 시간 슬롯 조회
-function renderTimeSlots(date) {
+function renderTimeSlots(e) {
+    
     timeSlotTable.innerHTML = '';
+    
+    if(Math.ceil((e.date - todayDate) / (1000 * 60 * 60 * 24)) < 0){
+        return;
+    }
+
+    const date = e.dateStr;
+    
     selectedSlots = [];
 
     // 서버에서 예약된 시간 슬롯 가져오기
