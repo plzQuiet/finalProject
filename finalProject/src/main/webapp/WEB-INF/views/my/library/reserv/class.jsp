@@ -28,8 +28,8 @@
 				<thead>
 					<tr>
 						<th>클래스명</th>
-						<th style="width: 210px;">클래스 시작/종료일</th>
-						<th style="width: 210px;">신청기간</th>
+						<th style="width: 230px;">클래스 시작/종료일</th>
+						<th style="width: 230px;">신청기간</th>
 						<th style="width: 70px;">취소</th>
 					</tr>
 				</thead>
@@ -44,7 +44,7 @@
 						<c:otherwise>
 							<c:forEach var="l" items="${list}">
 								<tr>
-									<td><a href="/12/${l.BOARD_NO}">${l.BOARD_TITLE}</a></td>
+									<td><a href="/scheduling/12/${l.BOARD_NO}">${l.BOARD_TITLE}</a></td>
 									<td>${l.START_DT} ~ ${l.END_DT}</td>
 									<td>${l.RECRUITMENT_START_DT} ~ ${l.RECRUITMENT_END_DT}</td>
 									<td>

@@ -44,7 +44,7 @@
 						<c:otherwise>
 							<c:forEach var="b" items="${list}">
 								<tr>
-									<td><a href="">${b.BOOK_TITLE}</a></td>
+									<td><a href="/book/1/1?query=${b.BOOK_TITLE}&key=t">${b.BOOK_TITLE}</a></td>
 									<td>${b.BOOK_AUTHOR}</td>
 									<td>${b.BOOK_PUB}</td>
 									<td>${b.BOOK_PUB_DT}</td>
