@@ -190,6 +190,7 @@ table th{
     height: 30px;
     margin-left: 10px;
 	cursor: pointer;
+	font-size: 15px;
 }
 
 .btn-area button:hover{
