@@ -84,14 +84,24 @@ public class MemberController {
 			Model model,
 			@RequestHeader(value = "referer") String referer,
 			@RequestParam(value = "saveId", required = false) String saveId,
-			HttpServletResponse resp) {
+			HttpServletResponse resp,
+			RedirectAttributes ra) {
 		
 		Member loginMember = service.login(inputMember);
+		
 		
 		String path = "redirect:";
 		
 		if(loginMember != null) {
+			
+			if(loginMember.getMemberDeleteFlag().equals("Y")) {
+				path += referer;
+				ra.addFlashAttribute("message", "탈퇴된 회원입니다");
+				return path;
+			}
+			
 			path += "/";
+			
 			model.addAttribute("loginMember", loginMember);
 			
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
@@ -109,6 +119,7 @@ public class MemberController {
 			
 		}else {
 			path += referer;
+			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다");
 		}
 		
 		return path;

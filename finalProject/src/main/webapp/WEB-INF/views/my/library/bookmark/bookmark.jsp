@@ -28,9 +28,9 @@
 						<th>도서명</th>
 						<th>저자</th>
 						<th>발행처</th>
-						<th>발행년도</th>
+						<th style="width: 80px;">발행년도</th>
 						<th>ISBN</th>
-						<th>즐겨찾기</th>
+						<th style="width: 80px;">즐겨찾기</th>
 					</tr>
 				</thead>
 				<tbody>

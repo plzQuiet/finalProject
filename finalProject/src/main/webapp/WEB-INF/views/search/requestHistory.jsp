@@ -90,7 +90,7 @@
 
 					<div class="btn-area">
 						<c:if test="${!empty loginMember}">
-							<button id="writeBtn" onclick="location.href='/book/2/2/'">글쓰기</button>
+							<button id="writeBtn" onclick="location.href='/book/2/2/'">신청</button>
 						</c:if>
 					</div>
 				</section>
