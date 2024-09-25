@@ -34,7 +34,10 @@
 							</tr>
 							<tr>
 								<th>신청자</th>
-								<td>${fn:substring(bookReq.memberName, 0,1)}*<c:if test="${fn:length(bookReq.memberName) > 2}">${fn:substring(bookReq.memberName, 2, fn:length(bookReq.memberName))}</c:if></td>
+								<td>
+									<c:if test="${loginMember.authority == 1}">${fn:substring(bookReq.memberName, 0,1)}*<c:if test="${fn:length(bookReq.memberName) > 2}">${fn:substring(bookReq.memberName, 2, fn:length(bookReq.memberName))}</c:if></c:if>
+									<c:if test="${loginMember.authority == 2}">${boodReq.memberName}</c:if>
+								</td>
 							</tr>
 							<tr>
 								<th>희망 도서명</th>

@@ -88,13 +88,11 @@
 						</div>
 					</c:if>
 
-					<!-- 관리자에게만 보이는 글쓰기 버튼 -->
 					<div class="btn-area">
-						<c:if test="#">
-							<button id="writeBtn">글쓰기</button>
+						<c:if test="${!empty loginMember}">
+							<button id="writeBtn" onclick="location.href='/book/2/2/'">글쓰기</button>
 						</c:if>
 					</div>
-
 				</section>
 			</section>
 		</section>
