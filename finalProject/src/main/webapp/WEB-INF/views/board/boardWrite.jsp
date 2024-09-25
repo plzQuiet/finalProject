@@ -101,8 +101,6 @@
     <script>
         const cateCode = "${cateCode}";
 
-        console.log(cateCode);
-
         const li = document.querySelectorAll(".side-menu > li");
 
         switch(cateCode){
