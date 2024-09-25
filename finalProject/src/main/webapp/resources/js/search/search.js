@@ -3,6 +3,9 @@ const queryResult = document.getElementById("queryResult");
 const searchBtn = document.getElementById("searchBtn");
 const searchDetailBtn = document.getElementById("index-btn");
 const resetBtn = document.getElementById("refresh-btn");
+const params = new URL(location.href).searchParams;
+const options = document.querySelectorAll("#key > option");
+let key;
 
 const sidelow = document.querySelectorAll(".side-side-current a");
 for(let i=0; i<sidelow.length; i++){
@@ -11,30 +14,36 @@ for(let i=0; i<sidelow.length; i++){
     }
 }
 
+if(params.get("query") != null){
+    search(params.get("query"), params.get("key"));
+}
+
 if(searchBtn != null){
 
     searchBtn.addEventListener("click", ()=>{
-
-        const options = document.querySelectorAll("#key > option");
-
-        let key;
-        for(let o of options){
-            if(o.selected){
-                key = o.value;
-            }
-        }
-
+        
         if(query.value.trim().length != 0){
-            fetch("/book/search?query=" + query.value + 
-                "&key=" + key + "&memberNo=" + loginMemberNo)
-            .then(resp => resp.json())
-            .then(result => {
-                showBookList(result);
-            })
-            .catch(e => console.log(e))
+            
+            for(let o of options){
+                if(o.selected){
+                    key = o.value;
+                }
+            }
+
+            search(query.value, key);
         }
     })
 
+}
+
+function search(query, key){
+    fetch("/book/search?query=" + query + 
+        "&key=" + key + "&memberNo=" + loginMemberNo)
+    .then(resp => resp.json())
+    .then(result => {
+        showBookList(result);
+    })
+    .catch(e => console.log(e))
 }
 
 if(searchDetailBtn != null){

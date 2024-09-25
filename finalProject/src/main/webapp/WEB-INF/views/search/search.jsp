@@ -80,36 +80,5 @@
     </script>
     <script src="/resources/js/search/search.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
-    <c:if test="${!empty param.query}">
-        <script>
-            (function(){
-                const options = document.querySelectorAll("#key > option");
-
-                let key;
-                for(let o of options){
-                    if(o.selected){
-                        key = o.value;
-                    }
-                }
-
-                if(query.value.trim().length != 0){
-                    fetch("/book/search?query=" + query.value + 
-                        "&key=" + key + "&memberNo=" + loginMemberNo)
-                    .then(resp => resp.json())
-                    .then(result => {
-                        showBookList(result);
-                    })
-                    .catch(e => console.log(e))
-                }
-            })();        
-        </script>
-    </c:if>
-
-    <script>
-        function searchKeyword(){
-            document.getElementById("searchBtn").click();
-        }
-    </script>
 </body>
 </html>
