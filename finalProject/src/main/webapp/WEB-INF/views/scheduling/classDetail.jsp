@@ -76,7 +76,7 @@
                 <!-- 버튼 영역(회원) -->
                 <c:if test="${loginMember.authority == 1}">
                 <div class="btn-area">
-                    <c:if test="${classBoard.recruitmentStartDt <= sysdate && sysdate <= classBoard.recruitmentEndDt}">
+                    <c:if test="${classBoard.recruitmentStartDt <= sysdate && sysdate <= classBoard.recruitmentEndDt && classBoard.applicantCount < classBoard.maxParticipant}">
                     <!-- 신청(로그인 한 멤버번호== 작성한 멤버번호) -->
                     <button id="applyBtn" onclick="applyModal()">신청</button>
                     </c:if>
